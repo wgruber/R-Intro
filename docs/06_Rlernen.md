@@ -36,9 +36,7 @@ pacman::p_load(ggplot2)
 8. Laden mit Hilfe von Import Dataset die SPSS-Datei "bigfive.sav" und kopiere die entsprechenden Befehle in dein Skript.
 9. Lade nun die Datei "bigfive_excel.xlsx" (ebenfalls in ../Data/) mit Hilfe von Import Dataset und kopiere die entsprechenden R-Befehle in den Editor.
 
-## Bottom Up
-
-# Objekte in R
+# Objekte in R (bottom up)
 
 In R kann alles als Objekt gespeichert werden. 
 
@@ -52,7 +50,7 @@ Alle Objekte, die in einer R-Sitzung erstellt oder geöffnet wurden, liegen im s
 
 <center>
 
-![**Abbildung 1**: Environment der letzten Übungsaufgabe](..\Images\06_Environment.PNG){ width=50% }
+![**Abbildung 1**: Environment der letzten Übungsaufgabe](Images/06_Environment.PNG){ width=50% }
 
 </center>
 
@@ -516,7 +514,7 @@ Ein *Dataframe* ist in gewisser Weise vergleichbar mit einer Excel-Tabelle.
 
 <center>
 
-![**Abbildung 2**: Beispiel für unterschiedliche Daten in einer Excel-Tabelle](..\Images\ExcelTabelle.PNG){ width=30% }
+![**Abbildung 2**: Beispiel für unterschiedliche Daten in einer Excel-Tabelle](Images/ExcelTabelle.PNG){ width=30% }
 
 </center>
 

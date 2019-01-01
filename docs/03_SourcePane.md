@@ -15,7 +15,7 @@ Der Editor bietet für die Erstellung von Dokumenten verschiedene Fiel-typen an:
 
 <center>
 
-![**Abbildung 1**: Dateitypen R](Images/03_R_File_Types.png){ width=50% }
+![**Abbildung 1**: Dateitypen R](Images/03_R_File_Types.PNG){ width=50% }
 
 </center>
 
@@ -158,7 +158,7 @@ Darüber hinaus bieten sich im RStudio die Symbolleisten für die Ausführung vo
 
 <center>
 
-![**Abbildung 8**: Code Folding](Images/03_R_RunSymbol.png){ width=30% }
+![**Abbildung 8**: Code Folding](Images/03_R_RunSymbol.PNG){ width=30% }
 
 </center>
 

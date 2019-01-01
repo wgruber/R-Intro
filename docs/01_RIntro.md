@@ -2,7 +2,7 @@
 
 <center>
 
-![](Images/Cover.png){ width=50% }
+![](Images/Cover.PNG){ width=50% }
 
 </center>
 
@@ -34,7 +34,7 @@ Nachfolgend ein kurzer Überblick über die Entstehungsgeschichte von R.
 
 <center>
 
-![**Abbildung 1**: von F zu R](Images/RHistorie.png){ width=50% }
+![**Abbildung 1**: von F zu R](Images/RHistorie.PNG){ width=50% }
 
 </center>
 
@@ -99,7 +99,7 @@ Freie Software:
 
 <center>
 
-![**Abbildung 2**: frei verfügbare Statistikprogramme](Images/FreieStatProgs.png){ width=70% }
+![**Abbildung 2**: frei verfügbare Statistikprogramme](Images/FreieStatProgs.PNG){ width=70% }
 
 </center>
 
@@ -127,7 +127,7 @@ Ist ein Computerprogramm zur Datenanalyse und Durchführung von statistischen Te
 
 <center>
 
-![**Abbildung 5**: Kurzbeschreibung von [JAMOVI](https://www.jamovi.org/)](Images/JAMOVI.png){ width=50% }
+![**Abbildung 5**: Kurzbeschreibung von [JAMOVI](https://www.jamovi.org/)](Images/JAMOVI.PNG){ width=50% }
 
 </center>
 
@@ -135,7 +135,7 @@ Jamovi benutzt für die statistischen Auswertungen R. Damit bietet sich diese Pr
 
 <center>
 
-![**Abbildung 6**: Darstellung des R-Codes in JAMOVI](Images/01_JAMOVI_RSyntax.png){ width=50% }
+![**Abbildung 6**: Darstellung des R-Codes in JAMOVI](Images/01_JAMOVI_RSyntax.PNG){ width=50% }
 
 </center>
 
@@ -171,7 +171,7 @@ Ist ebenfalls ein Computerprogramm zur Datenanalyse und Durchführung von statis
 
 <center>
 
-![**Abbildung 7**: Kurzbeschreibung von [JASP](https://jasp-stats.org/) ](Images/JASP.png){ width=50% } 
+![**Abbildung 7**: Kurzbeschreibung von [JASP](https://jasp-stats.org/) ](Images/JASP.PNG){ width=50% } 
 
 </center>
 

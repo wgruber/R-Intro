@@ -1,10 +1,13 @@
-# Datenauswertung Lime Survey
+# Datenauswertung Lime Survey {-}
+
+
+
 
 Im nachfolgenden Beispiel werden die Daten des World-Knowledge-Test ausgewertet. Bei diesem Test handelt es sich um eine einfache Umfrage, welche mit dem Online-Survey-Tool *LimeSurvey* erstellt wurde. Die Befragung richtete sich an ca. 300 StudentInnen der Universität Salzburg. Die Daten sollen im Folgenden zur Auswertung einfacher deskriptiver Statistiken mit R verwendet werden.
 
 <center>
 
-![**Abbildung 1**: Export der Daten aus Lime Survey](Images/09_R_LimeSurveyExport.png){ width=70% }
+![**Abbildung 1**: Export der Daten aus Lime Survey](Images/09_R_LimeSurveyExport.PNG){ width=70% }
 
 </center>
 
@@ -12,7 +15,7 @@ LimeSurvey bietet die Möglichkeit, Umfragedaten in verschiedensten Formaten zu 
 
 <center>
 
-![**Abbildung 2**: Files die aus Lime Survey exportiert wurden](Images/09_R_LimeSurveyExportDateien.png){ width=70% }
+![**Abbildung 2**: Files die aus Lime Survey exportiert wurden](Images/09_R_LimeSurveyExportDateien.PNG){ width=70% }
 
 </center>
 
@@ -48,7 +51,7 @@ Nach dem Laden der Datendatei (*survey_791736_R_data_file.csv*) werden Formatier
 
 [^15]: es sei denn, die Struktur der Umfrage ändert sich wider erwarten!
 
-## Datenvorverarbeitung
+## Datenvorverarbeitung {-}
 
 Lade und überarbeite die Syntaxdatei (*survey_791736_R_syntax_file.R*). Beachte dabei folgende Punkte:
 
@@ -87,7 +90,7 @@ Des Weiteren sollte am Ende der Funktion als Rückgabewert der Datenframe (data)
 }
 ```
 
-### Aufgabe 1
+### Aufgabe 1 {-}
 
 Erstelle nun ein neues Skript (Name: *09_RLimeSurvey.R*), in welchen du zuerst den Standard-Header kopierst (siehe nachfolgenden Code) und welches danach die Daten über die soeben erstellte Funktion lädt! Prüfe mit einer geeigneten Funktion die Struktur des geladenen Dataframes.
 
@@ -101,11 +104,11 @@ Erstelle nun ein neues Skript (Name: *09_RLimeSurvey.R*), in welchen du zuerst d
 
 Durch diese Funktion können die Daten fortlaufend auf dem aktuellen Stand gehalten werden. Der einzige Nachteil besteht noch darin, dass man manuell die Daten aus LimeSurvey exportieren muss. Dass kann allerdings automatisiert werden. Dazu braucht man nur den Zugang zur SQL-Datenbank von Limesurvey und die entsprechenden Pakete in R laden. Aus Datenschutzgründen ist es im Rahmen dieser LV nicht möglich, den Zugang zur LS-Datenbank freizuschalten, daher werden wir diese Möglichkeit nicht weiter besprechen. Es sei jedoch an dieser Stelle darauf hingewiesen, dass man mit einem entsprechenden Zugang zu den Daten auch die Möglichkeit hat, Skripte und Funktionen in R in die Aufgabenplanung eines Windows/Linux-Systems einzubauen (sogenannte chron-jobs) und damit ein vollständig automatisches Auswertesystem zu erstellen.
 
-## Deskriptive Statistik
+## Deskriptive Statistik {-}
 
 Bei den nachfolgenden Aufgaben erzeugen wir deskriptive Statistiken in Form von Tabellen und einer Graphik.
 
-### Aufgabe 2
+### Aufgabe 2 {-}
 
 Im Folgendem wollen wir und mit der einfachen Auswertung der vorliegenden Daten beschäftigen. Die ersten Schritte einer Datenauswertung beginnen i.A. mit einer deskriptiven Statistik. Aufgrund der vorwiegend nominalen Daten des Fragebogens eignen sich am besten Häufigkeitstabellen. Erstelle daher folgende Tabellen (verwende dazu die Funktion *table()*):
 
@@ -119,7 +122,7 @@ Im Folgendem wollen wir und mit der einfachen Auswertung der vorliegenden Daten 
 [^16]: *Hinweis:* verwende die Funktion *droplevels()*
 [^17]: *Hinweis:* runden mit der Funktion *round()*, Prozente mit der Funktion *prop.table()*
 
-### Aufgabe 3
+### Aufgabe 3 {-}
 
 Ein zur deskriptiven Analyse hilfreiches Paket ist *doBy*. Wir wollen die darin enthaltene Funktion *summaryBy()* verwenden, um folgende Aufgabenstellungen zu lösen:
 
@@ -130,13 +133,13 @@ Ein zur deskriptiven Analyse hilfreiches Paket ist *doBy*. Wir wollen die darin 
 
 Das Paket doBy bietet darüber hinaus eine Vielzahl von Funktionen, die vor allem für das Arbeiten mit gruppierten Daten sehr hilfreich sein können. Hingewiesen sei noch auf die Möglichkeit der Berechnung von Kontrasten im Rahmen einer *least square mean* (ANOVA) Analyse. Es würde den Rahmen dieser LV sprengen, alle verfügbaren Funktionen zu besprechen und zu verwenden. Weitere Details zu diesem Paket sind der [Dokumentation](https://cran.r-project.org/web/packages/doBy/doBy.pdf) zu entnehmen.
 
-### Aufgabe 4
+### Aufgabe 4 {-}
 
 Neben den Tabellen spielen Graphiken eine wesentliche Rolle in der deskriptiven Statistik. In dieser Aufgabe wollen wir mit dem Paket *ggplot2* ein Balkendiagramm erstellen, welche für die erste Frage des Tests die prozentuellen Anteile pro Antwortkategorie getrennt nach Geschlecht darstellt. Darüber hinaus sollte in dieser Graphik auch jeweils ein Balken pro Antwortkategorie für den prozentuellen Anteil unabhängig vom Geschlecht angezeigt werden. Folgende Graphik stellt das gewünschte Ergebnis dar:
 
 <center>
 
-![**Abbildung 3**: Vorlage für die Graphik der Aufgabe 4](Images/09_Aufgabe4_Graphik.png){ width=40% }
+![**Abbildung 3**: Vorlage für die Graphik der Aufgabe 4](Images/09_Aufgabe4_Graphik.PNG){ width=40% }
 
 </center>
 
@@ -173,26 +176,79 @@ Der fertige Graph sollte folgendermaßen aussehen:
 
 <center>
 
-![**Abbildung 4**: Endversion der Graphik von Aufgabe 4](Images/09_Aufgabe4_Graphik_Endversion.png){ width=60% }
+![**Abbildung 4**: Endversion der Graphik von Aufgabe 4](Images/09_Aufgabe4_Graphik_Endversion.PNG){ width=60% }
 
 </center>
 
-----
+# Lösungen {-}
 
-# Lösungen
-
-## Lösung Aufgabe 1
+## Lösung Aufgabe 1 {-}
 
 
+```r
+  source("RScripts/LS_Import.R")
+  F2L <- "Data/survey_791736_R_data_file.csv"
+  DF  <- LS_Import(F2L = F2L)
+  str(DF)
+```
 
-## Lösung Aufgabe 2
-
-
-
-## Lösung Aufgabe 3
-
-
-
-## Lösung Aufgabe 4
+## Lösung Aufgabe 2 {-}
 
 
+```r
+  table(DF$Gender) # A2-1
+  table(DF$Nationality) # A2-2
+  table(droplevels(DF$Nationality))  # A2-3
+  table(DF$Gender, droplevels(DF$Nationality)) # A2-4
+  addmargins(table(DF$Gender, droplevels(DF$Nationality))) # A2-5
+  addmargins(round(prop.table(table(DF$Gender, droplevels(DF$Nationality)))*100,2)) # A2-6
+```
+
+## Lösung Aufgabe 3 {-}
+
+
+```r
+  library(doBy)
+  summaryBy(formula = Age ~ Gender, 
+            data    = DF) # A3-1
+  summaryBy(formula = Age ~ Gender, 
+            data    = DF, 
+            FUN     = c(mean, sd, var, min, max)) # A3-2
+  summaryBy(formula = Age ~ Gender + Nationality, 
+            data    = DF) # A3-3
+  summaryBy(formula = Age ~ Gender + Nationality, 
+            data    = DF, 
+            FUN     = c(mean, sd, var)) # A3-4
+```
+
+## Lösung Aufgabe 4 {-}
+
+
+```r
+  library(ggplot2)
+  
+  LegTit          <- paste0('Overall (N  =  ', dim(DF)[1], ') answers in %')  
+  ColInd          <- which(colnames(DF) %in% c("WQ1"))
+  WQ_Label        <- attributes(DF)$variable.labels[ColInd]
+
+  CT              <- round(100*addmargins(prop.table(table(DF[,ColInd], DF$Gender)), margin  =  2), 2)
+  DF_CT           <- as.data.frame(CT)
+  colnames(DF_CT) <- c("Answer", "Gender", "Percent")
+  
+  ggplot(DF_CT, aes(x  =  Answer, y  =  Percent, fill  =  Gender)) +
+        geom_bar(position = position_dodge(), stat = "identity",
+                 colour = "black", # Use black outlines,
+                 size = .3) +
+    coord_flip() +
+    xlab("Answer") +
+    guides(fill = guide_legend(title = LegTit)) +
+    labs(title    = WQ_Label,
+         subtitle = "World Knowledge Test",
+         caption  = "Source: World Knowledge Query PLUS  (2018)",
+         tag      = "A") +
+    scale_fill_grey() +
+    geom_text(aes(label = paste0(round(Percent, 1), "%")), 
+              position  = position_dodge(width=0.9),
+              hjust     = -0.25) +
+    theme_bw()
+```

@@ -217,7 +217,7 @@ Die Antworten zu diesen Fragen bestimmen die Art und Weise wie im Rahmen des str
 
 <center>
 
-![**Abbildung 1**: Layers in ggplot](Images/08_ggplot_Layers.png){ width=30% }
+![**Abbildung 1**: Layers in ggplot](Images/08_ggplot_Layers.PNG){ width=30% }
 
 </center>
 
@@ -225,7 +225,7 @@ Jeder Layer kann für sich gesehen ein bestimmtes Aussehen (aesthetic) und auch 
 
 <center>
 
-![**Abbildung 2**: Anatomie von ggplot](Images/08_ggplot_Anatomy.png){ width=30% }
+![**Abbildung 2**: Anatomie von ggplot](Images/08_ggplot_Anatomy.PNG){ width=30% }
 
 </center>
 
@@ -233,7 +233,7 @@ Die Aesthetics (aes()) bestimmen das Aussehen wie z.B. Farbe, Größe, Positione
 
 <center>
 
-![**Abbildung 3**: Aesthetics in ggplot](Images/08_ggplot_Aesthetics.png){ width=30% }
+![**Abbildung 3**: Aesthetics in ggplot](Images/08_ggplot_Aesthetics.PNG){ width=30% }
 
 </center>
 
@@ -253,7 +253,7 @@ Gehen wir einmal davon aus, dass wir für unsere Daten aus *hyper.sav* ein Balke
 
 <center>
 
-![**Abbildung 3**: Vorlage für das gewünschte Balkendiagramm](Images/08_ggplot_Beispiel1.png){ width=30% }
+![**Abbildung 3**: Vorlage für das gewünschte Balkendiagramm](Images/08_ggplot_Beispiel1.PNG){ width=30% }
 
 </center>
 
