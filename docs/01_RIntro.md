@@ -2,7 +2,7 @@
 
 <center>
 
-![](Images/Cover.PNG){ width=50% }
+![](Images/Cover.png){ width=50% }
 
 </center>
 
@@ -34,7 +34,7 @@ Nachfolgend ein kurzer Überblick über die Entstehungsgeschichte von R.
 
 <center>
 
-![**Abbildung 1**: von F zu R](Images/RHistorie.PNG){ width=50% }
+![**Abbildung 1**: von F zu R](Images/RHistorie.png){ width=50% }
 
 </center>
 
