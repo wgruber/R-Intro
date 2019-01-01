@@ -92,7 +92,7 @@ mean(x, .1, TRUE)
 
 <center>
 
-![**Tabelle 1**: Operatoren und Funktionen](/Images/R_Operatoren.png){ width=50% } 
+![**Tabelle 1**: Operatoren und Funktionen](Images/R_Operatoren.png){ width=50% } 
 
 </center>
 

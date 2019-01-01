@@ -1,10 +1,4 @@
-# Rlernen
-
-
-
-Um R zu lernen kann man verschieden Strategien anweden. Im folgenden stelle ich zwei in dieser LV verwendete Stragien vor. Danach steigen wir in die Programmierung von R ein.
-
-## Top-Down vs. Bottom-Up {-}
+# Top-Down vs. Bottom-Up
 
 Wie beim Erlernen einer neuen Sprache, gibt es auch für Programmiersprachen verschiedene Ansätze. Im Bottom-Up Ansatz wird man sich zuerst mit den Elementen einer Sprache (Vokabeln) und deren korrekter Zusammensetzung (Grammatik) beschäftigen. Dieser Ansatz ist vor allem zu Beginn oft schwierig und mühsam, da die Zusammenhänge erst nach einiger Zeit klar werden und die (erfolgreiche) Anwendung der Sprache erst nach einer mehr oder weniger langen *Vorlaufzeit* möglich ist.
 
@@ -13,7 +7,7 @@ Beim Top-Down Ansatz wird man direkt mit dem gesamten Umfang der Sprache konfron
 Bei der Erlernung einer Programmiersprache bietet sich vor allem durch die unzähligen Möglichkeiten  von Beispielen und Vorlagen im Internet, sowie die bis ins letzte Detail ausgearbeiteten Hilfeseiten zu den jeweiligen Sprachen eine Mischung des Lernvorganges an. 
 Wir werden den Einstieg in die Programmiersprache R mit einem Top-Down Ansatz beginnen.
 
-### Top Down - Copy und Paste {-}
+## Top Down - Copy und Paste
 
 Erstelle eine neue R-Script-Datei. Kopiere den nachfolgenden Code in diese neue Datei und speicher diesen unter den Namen *06_R_Paste_Copy_Intro.R* in ein Verzeichnis deiner Wahl.
 
@@ -22,13 +16,13 @@ Erstelle eine neue R-Script-Datei. Kopiere den nachfolgenden Code in diese neue 
 #------------------------------- Initialisierung
 rm(list = ls())
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(here, ggplot2)
+pacman::p_load(ggplot2)
 #------------------------------- Ende Initialisierung
 ```
 
 Öffne einen Browser (Mozilla, IE, Chrome, ...) und bearbeite folgende Aufgabenstellungen:
 
-#### Copy und Paste (Aufgabenblock) {-}
+### Copy und Paste (Aufgabenblock):
 
 1. Kopiere von [Indexing with numbers and names](http://www.cookbook-r.com/Basics/Indexing_into_a_data_structure/) die Zeile $v <- c(1,4,4,3,2,2,3)$ in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.
 2. Kopiere (aus der Website) die Zeile $v[c(2,3,4)]$ in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.
@@ -42,9 +36,9 @@ pacman::p_load(here, ggplot2)
 8. Laden mit Hilfe von Import Dataset die SPSS-Datei "bigfive.sav" und kopiere die entsprechenden Befehle in dein Skript.
 9. Lade nun die Datei "bigfive_excel.xlsx" (ebenfalls in ../Data/) mit Hilfe von Import Dataset und kopiere die entsprechenden R-Befehle in den Editor.
 
-### Bottom Up {-}
+## Bottom Up
 
-## Objekte in R {-}
+# Objekte in R
 
 In R kann alles als Objekt gespeichert werden. 
 
@@ -91,7 +85,7 @@ In gibt es eine Vielzahl von verschiedenen Objekttypen. Die grundlegenden Objekt
     + Listen können beliebige Objekte enthalten, auch Objekte verschiedenen Typs. 
     + Im Unterschied zu Data Frames und Arrays können auch Objekte unterschiedlicher Länge gespeichert werden.
 
-### Vektoren {-}
+## Vektoren
 
 Das einfachste Objekt ist ein Vektor, der aus mehreren  Elementen besteht. Öffne eine neue Skript-Datei und kopiere folgenden Inhalte in diese Datei:
 
@@ -113,7 +107,7 @@ Speichere die Datei unter dem Namen *06_Objekte.R*. Führe nun die Inhalte zeile
 ```r
   # Fasse Zahlen in einem Vektor zusammen
     alter    <- c(19, 24, 20, 19) # Beispiel: Alter von 4 Studenten
-    kurs.num <- c(1, 3, 2, 2) # Beispiel: Zugehörigkeit zu einem von 3 Kursen
+    kurs.num <- c(1, 3, 2, 2) # Beispiel: Zugeh?rigkeit zu einem von 3 Kursen
   # Fasse Buchstaben in einem Vektor zusammen
     kurs.bez <- c('Kurs1', 'Kurs3', 'Kurs2', 'Kurs2')
   # Zeige Inhalt des Vektors
@@ -134,15 +128,15 @@ Der folgende Code zeigt beide dieser Möglichkeiten. Kopiere den Code in das Skr
     alter[2]   # direkte Indizierung, das zweite Element des Vektors wird ausgegeben
     alter[1:3] # direkte Indizierung, das erste bis dritte Element des Vektors wird ausgegeben.
                # Beachte dabei die Verwendung von :
-    2:4        # erzeugen eines Vektors der in ganzen Schritten von 2 beginnend bis 4 hinaufzählt
+    2:4        # erzeugen eines Vektors der in ganzen Schritten von 2 beginnend bis 4 hinaufz?hlt
     v_1 <- 2:4 # speichern des Vektors in der Variablen v_1
     alter[v_1] # Verwendung des Vektors v_ind um die Elemente des Vektors alter auszugeben
     v_2 <- seq(from = 1,  # erzeugen einer Sequenz von Zahlen, die mit 1 beginnt, bei 4 endet
-               to   = 4,  # und in 2-er Schritten hinaufzählt
+               to   = 4,  # und in 2-er Schritten hinaufz?hlt
                by   = 2)  # Die Sequenz wird in v_2 gespeichert.
     alter[v_2] # Verwendung des Vektors v_2 um die Elemente des Vektors alter auszugeben.
     alter[-4]  # um Werte eines Vektors nicht anzuzeigen, kann der Index des entsprechenden
-               # Wertes mit einem führenden Minuszeichen angegeben werden. Dadurch wird der 
+               # Wertes mit einem f?hrenden Minuszeichen angegeben werden. Dadurch wird der 
                # vierte Eintrag des Vektors nicht ausgegeben!
     v_3  <- c(1, 3, 4) # auch die Verwendung der Funktion c() kann zur Erstellung von Indexlisten
                        # verwendet werden.
@@ -153,7 +147,7 @@ Um festzustellen, um welche Art von Daten, bzw. welche Klasse von Daten (numeris
 
 
 ```r
-    class(alter) # Zeigt an, zu welcher Klasse die Inhalte des Objekts alter gehören
+    class(alter) # Zeigt an, zu welcher Klasse die Inhalte des Objekts alter geh?ren
     alter_char <- as.character(alter) # wandelt num in char
     class(alter_char)
     alter_num  <- as.numeric(alter_char) # wandelt char in num
@@ -162,7 +156,7 @@ Um festzustellen, um welche Art von Daten, bzw. welche Klasse von Daten (numeris
 
 Das Wandeln von numerisch auf alphanumerisch und vice versa sind jedoch häufig gebrauchte Funktionen, vor allem bei der Übernahme von Daten aus anderen Anwendungen.
 
-#### Arithmetische Operator (Vektorenrechnung) {-}
+### Arithmetische Operator (Vektorenrechnung)
 
 In R werden  +  -  *  / für Addition, Subtraktion, Multiplikation und Division verwendet. Diese Operatoren werden auf alle Elemente eines Vektors angewendet: 
 
@@ -179,7 +173,7 @@ In R werden  +  -  *  / für Addition, Subtraktion, Multiplikation und Division 
     v4 <- v1 * v3
 ```
 
-#### Weitere nützliche Vektor-Funktionen {-}
+### Weitere nützliche Vektor-Funktionen
 
 Neben der bereits besprochenen Funktion *seq()*, sind auch nachfolgende Funktionen für das Arbeiten mit Vektoren oft nützlich. Da wir diese Funktionen laufend verwenden, werden hier nicht alle Einzelheiten diskutiert - verwende dazu die help() Funktion. 
 
@@ -193,12 +187,12 @@ Neben der bereits besprochenen Funktion *seq()*, sind auch nachfolgende Funktion
     y <- c("i", "i", "a", "a", "E", "E", "E", "E", "U")
     unique(y) # eindeutige Elemente eines Vektors
     table(y)  # erstellt eine Kreuztabelle
-    sort(y)   # sortieren von Vektoren (ACHTUNG: order() bei Datenstrukturen verwenden, siehe später)
+    sort(y)   # sortieren von Vektoren (ACHTUNG: order() bei Datenstrukturen verwenden, siehe sp?ter)
     paste(y, 1:9)
     paste0(y, 1:9)
 ```
 
-#### Logische Vektoren {-}
+### Logische Vektoren
 
 Ein logischer Vektor besteht aus TRUE und FALSE Elementen. Diese Vektoren folgen einer sogenannten *Boolean-Logik* mit diesen Prinzipien (in R wird das logische UND mit $\&$, das logische ODER mit $|$ geschrieben:
 
@@ -227,7 +221,7 @@ Werden Klammern verwendet gilt: Ausdruck innerhalb der Klammern wird zuerst ausg
     sum(Vec == "Ja")
 ```
 
-#### Der %in% Operator und die which()-Funktion {-}
+### Der %in% Operator und die which()-Funktion
 
 Der %in% Operator wird benutzt, um einem Vektor mehrere Elemente zu entnehmen. Dies kann auch mit sämtlichen Teilfragen und dem | Operator durchgeführt werden. Nachfolgend erzeugen wir einen logischen Vektor *InVec*, der T ist, wenn *Vec* "Nein" oder "Weder noch" enthält:
 
@@ -253,7 +247,7 @@ Logische Operatoren und die *which()* Funktion bieten eine effiziente Möglichke
     which(VRand_GT_Mean_Indices == "FALSE")    
 ```
 
-#### Aufgabenblock Vektoren {-}
+### Aufgabenblock Vektoren
 
 Kopiere den folgenden Code in eine neues R-Skript und speichere dieses unter dem Namen *06_Objekte_Aufgaben*.
 
@@ -261,7 +255,7 @@ Kopiere den folgenden Code in eine neues R-Skript und speichere dieses unter dem
 ```r
     # Vektoren - Combine
     id     <- c(11, 16, 17, 18, 19, 20, 23) # c() entspr. combine; <- Zuweisung zu einer Variablen
-    Geschlecht <- c("männlich", "weiblich")
+    Geschlecht <- c("m?nnlich", "weiblich")
     sex    <- c(1, 1, 7, 1, 1, 2, 2)
     lalt   <- c(2, 3, 2, 3, 1, 1, 2)
     gross  <-  c(173, 166, 178, 154, 164, 389, 181)
@@ -299,7 +293,7 @@ Bearbeite nun folgende Aufgaben:
 19. wie viele Personen sind größer-gleich ($\ge$) als 173?
 20. für welches Element der Variablen *gross* ist die Körpergröße = 181 wahr (T)?
 
-### Faktoren {-}
+## Faktoren
 
 Faktoren sind eine spezielle Form von Vektoren und werden auch in R als nominale Daten definiert. Beispielsweise wird die Unterteilung von Probanden nach dem Geschlecht üblicherweise in einem Datentyp *Faktor* abgespeichert. Dieser Faktor würde üblicherweise 2 sogenannte Faktorenstufen (*levels*) besitzen (männlich/weiblich).
 
@@ -314,6 +308,12 @@ Um mehrere Daten einem Faktor zuzuordnen, wird der *factor()*-Befehl mit dem *c(
 
 
 ```r
+    # Fasse Zahlen in einem Vektor zusammen
+    alter    <- c(19, 24, 20, 19) # Beispiel: Alter von 4 Studenten
+    kurs.num <- c(1, 3, 2, 2) # Beispiel: Zugeh?rigkeit zu einem von 3 Kursen
+    # Fasse Buchstaben in einem Vektor zusammen
+    kurs.bez <- c('Kurs1', 'Kurs3', 'Kurs2', 'Kurs2')
+
     A <- factor(c("male", "female", "female", "male"))
     A
     levels(A)
@@ -330,13 +330,13 @@ Um mehrere Daten einem Faktor zuzuordnen, wird der *factor()*-Befehl mit dem *c(
     table(kurs.fac2)
 ```
 
-#### Aufgabenblock Faktoren {-}
+### Aufgabenblock Faktoren:
 
 1. erstelle die Variable x = c(1,2,3,1,1,2,2) und wandeln diese in einen Faktor *x_fact* um. Benenne die Stufen des Faktors der Variablen x_fact mit 'A', 'B', ...
 2. kopiere *x_fact* in Variable *x_fact2* und ändere die Bezeichnung der Faktorenstufen auf 'S1', 'S2', ... (verwenden dazu die Funktion levels(...)). Verwende den Befehl *table()* um die Variable *x_fact2* anzuzeigen. Was bewirkt der Befehl?
 3. gib folgenden Befehl ein: x_fact3 = factor(x_fact2, levels = c('S3', 'S1', 'S2')).  Vergleiche *x_fact2* und *x_fact3*, was hat sich geändert?
 
-### Matrizen {-}
+## Matrizen
 
 Matrizen sind in R Objekte, denen Elemente gleichen Datentyps in Form von Zeilen und Spalten zugewiesen können. Damit können Vektoren des gleichen Datentyps in ein Objekt (der Matrix) zeilen-, oder spaltenweise zusammengehängt und abgespeichert werden. In R kann eine Matrix aus Vektoren mit den *rbind()* und *cbind()* Funktionen zusammengesetzt werden. 
 
@@ -348,20 +348,20 @@ Werden Vektoren mit unterschiedlichen Datentypen durch diese Funktionen zusammen
 
 ```r
     A <- 1:10
-    B <- as.character(A) # Wandelt numerischen Vektor A in einen Charakter-Vektor um
-    C <- rbind(A,B)      # Zeilenweises zusammenführen der beiden Vektoren
+    B <- sample(15:93, 10, replace = TRUE)
+    C <- rbind(A,B)      # Zeilenweises zusammenfÃ¼hren der beiden Vektoren
     str(C)               # Zeigt die Struktur und jeweiligen Datentypen in der Struktur von Matrix C
     
-    matrix.col <- cbind(kurs.num,alter) # Spaltenweises zusammenführen der beiden Vektoren
+    matrix.col           <- cbind(A, B) # Spaltenweises zusammenf?hren der beiden Vektoren
     matrix.col
-    colnames(matrix.col) <- c("Kurs", "Alter")
-    rownames(matrix.col) <- paste0("VP", 1:4)
+    colnames(matrix.col) <- c("LNr", "Alter")
+    rownames(matrix.col) <- paste0("VP", 1:10)
     matrix.col
 
-    matrix.col.Alternativ <- cbind(Kurs = kurs.num, Alter = alter) # sofortige Benennung der Variablen
+    matrix.col.Alternativ <- cbind(LNr = A, Alter = B) # sofortige Benennung der Variablen
     matrix.col.Alternativ
     
-    matrix.rows           <- rbind(kurs.num, alter) # Zeilenweises zusammenführen der beiden Vektoren
+    matrix.rows           <- rbind(A, B) # Zeilenweises zusammenfÃ¼hren der beiden Vektoren
     matrix.rows
     
     AnzZeilen  <- nrow(matrix.rows)
@@ -377,7 +377,7 @@ Um festzustellen, wie viele Zeilen, bzw. Spalten eine Matrix besitzt, kann man e
 
 [^10]: das Wissen um die Dimension einer Matrix wird vor allem noch bei Programmschleifen hilfreich sein. Mehr davon später.
 
-#### Zugriff auf Elemente einer Matrix {-}
+### Zugriff auf Elemente einer Matrix
 
 Wie bereits bei Vektoren, wird auch bei Matrizen ein Index für die Adressierung einer Position verwendet. Im Unterschied zum Vektor, werden bei Matrizen zwei Indizes verwendet:
 
@@ -407,7 +407,7 @@ Folgende Beispiele verdeutlichen die Verwendungsmöglichkeiten der Adressierung 
 
 *Bemerkung:* verwendet man bei einer Matrix nur einen Index, so wird das entsprechende Element eine Matrix ausgegeben. Die Nummerierung wird dabei folgendermaßen festgelegt: ausgehend von der ersten Zeile und Spalte werden die Elemente der ersten Spalte aufsteigend nummeriert. Am Ende einer Spalte wird die Nummerierung in der ersten Zeile der nachfolgenden Spalte fortgesetzt - bis das Ende der Matrix erreicht ist. 
 
-#### Erzeugen von Matrizen {-}
+### Erzeugen von Matrizen
 
 Es gibt verschiedenstes Möglichkeiten, Matrizen mit Hilfe von R-Funktionen zu erzeugen. Vor allem für Simulation von Daten (z.B. Ziehung eines Samples der Größe $N$ aus einer normalverteilten Grundgesamtheit, oder aus einer Gleichverteilung etc.) kann für die Evaluierung von statistischen Modellen elegant gelöst werden. Folgende Beispiele geben einen Einblick in einige wenige Möglichkeiten Matrizen zu generieren. Kopier den Code in deinen Editor und führe diesen zeilenweise aus. Diskutiere die Funktionen und die Ergebnisse.
 
@@ -422,7 +422,7 @@ Es gibt verschiedenstes Möglichkeiten, Matrizen mit Hilfe von R-Funktionen zu e
     matrix(b, 3, 3)
 ```
 
-#### Arithmentische Funktionen auf zwei Matrizen {-}
+### Arithmentische Funktionen auf zwei Matrizen
 
 Wenn arithmetische Funktionen auf zwei Matrizen angewendet, dann werden immer zwei Elemente derselben Zeile und Spalte addiert, subtrahiert, multipliziert oder dividiert. Aus diesem Grund ist es auch erforderlich, dass die Dimension (= Anzahl Zeilen und Spalten, auch $m \times n$) der beiden Matrizen übereinstimmt. Dies kann mit Hilfe von logischen Operatoren überprüft werden.
 
@@ -468,9 +468,27 @@ Die hier verwendete Funktion *apply()* ist Teil einer Funktionsgruppe, die als A
 
 Anwendung und Details über diese Funktionen werden in entsprechenden Kapiteln behandelt.
 
-#### Aufgabenblock Matrizen {-}
+### Aufgabenblock Matrizen
 
-Unter Verwendung der bereits geladenen Variablen aus den Vektoren (siehe *Aufgabenblock Vektoren*) sind folgende Aufgaben zu bearbeiten:
+
+```r
+    id     <- c(11, 16, 17, 18, 19, 20, 23) # c() entspr. combine; <- Zuweisung zu einer Variablen
+    Geschlecht <- c("mÃ¤nnlich", "weiblich")
+    sex    <- c(1, 1, 7, 1, 1, 2, 2)
+    lalt   <- c(2, 3, 2, 3, 1, 1, 2)
+    gross  <-  c(173, 166, 178, 154, 164, 389, 181)
+    mon    <- c(266, 241, 231, 265, 225, 229, 222)
+    date   <- c(4, 5, 3, 3, 2, 4, 3)
+    entsch <- c(3, 4, 4, 5, 3, 1, 2)
+    proj   <- c(2, 1, 2, 2, 2, 1, 2)
+    i1     <- c(3, 2, 1, 3, 4, 2, 2)
+    i2     <- c(3, 2, 1, 3, 4, 2, 2)
+    i3     <- c(3, 3, 3, 2, 2, 2, 4)
+    i4     <- c(2, 1, 2, 4, 2, 1, 4)
+    i5     <- c(2, 1, 4, 1, 3, 4, 1)
+```
+
+Unter Verwendung der obigen Variablen sind folgende Aufgaben zu bearbeiten:
 
 1. erstelle eine Matrix *X*, in welcher die Variablen *lalt*, *sex* und *gross* als Spalten gespeichert sind.
 2. erstelle eine Matrix *Z*, in welcher die Variablen *lalt*, *sex* und *gross* als Zeilen gespeichert sind.
@@ -488,7 +506,7 @@ Unter Verwendung der bereits geladenen Variablen aus den Vektoren (siehe *Aufgab
 14. Berechne die Körpergröße in Meter und füge das Ergebnis als weitere Spalte zur bestehenden Matrix *X* an.
 15. Ermittle jene Positionen (Indizes) der Personen die größer als 200 cm sind. Was ist der Name der Person?
 
-### Data-Frames {-}
+## Data-Frames
 
 Eine Erweiterung des Datentyps *Matrix* ist der sogenannte *Dataframe*. Mit diesem Datentyp ist es möglich, innerhalb eines Objektes auch unterschiedliche Formate (Datentypen) zu speichern. Bei Vektoren und Matrizen gilt die Einschränkung, dass alle Elemente denselben Datentyp aufweisen müssen. Bei Matrizen gilt darüber hinaus, dass beim Hinzufügen von z.B. einer weiteren Spalte die Anzahl der Zeilen der bereits bestehenden Zeilenanzahl der Matrix entspricht (anderenfalls gibt es eine Fehlermeldung).
 
@@ -498,11 +516,11 @@ Ein *Dataframe* ist in gewisser Weise vergleichbar mit einer Excel-Tabelle.
 
 <center>
 
-![**Abbildung 2**: Beispiel für unterschiedliche Daten in einer Excel-Tabelle](/Images/ExcelTabelle.PNG){ width=30% }
+![**Abbildung 2**: Beispiel für unterschiedliche Daten in einer Excel-Tabelle](..\Images\ExcelTabelle.PNG){ width=30% }
 
 </center>
 
-In der ersten und dritten Spalte (LNr, Alter) sind numerische Werte, in der zweiten ist ein Datum und in der vierten ein Name (String, Charakters). Würde diese Tabelle in R als Matrix gespeichert, würde R alle Daten in den Datentyp *character* umwandeln! Bei einem *Datenframe* wird im Gegensatz dazu der Datentyp jeder Spalte beibehalten. 
+In der ersten und dritten Spalte (LNr, Alter) sind numerische Werte, in der zweiten ist ein Datum und in der vierten ein Name (String, Charakters). Wärde diese Tabelle in R als Matrix gespeichert, würde R alle Daten in den Datentyp *character* umwandeln! Bei einem *Datenframe* wird im Gegensatz dazu der Datentyp jeder Spalte beibehalten. 
 
 Um aus bestehenden Objekten (Vektoren, Matrizen) einen Datenframe zu erstellen, wird die Funktion *data.frame()* benutzt. Der Zugriff auf die Elemente eines Dataframes ist gleich wie bei Matrizen. Der Name des *Dataframes* gefolgt von zwei eckigen Klammern, innerhalb welcher die Indizes der Zeilen und Spalten angegeben werden. Entsprechend kann auch die Bezeichnung der Spalten und Zeilen über die Funktionen colnames() und rowname() angezeigt, bzw. verändert werden (vgl. Matrizen).
 
@@ -514,26 +532,55 @@ Folgender Code zeigt die soeben beschriebenen Eigenschaften. Kopiere den Code in
 
 
 ```r
-    DF <- data.frame(kurs.fac2, alter)
+    A  <- 1:10
+    B  <- c(rep(0,5), rep(1,5))
+    B  <- factor(B, levels = c(0,1), labels = c("Male", "Female"))
+    C  <- c("Georg", "Hanna", "Belinda", "Christoph", "Claudia", 
+           "Peter", "Nikolas", "Eva", "Gerda", "August")
+    D  <- sample(15:93, 10, replace = TRUE)
+    
+    E  <- rbind(A, B, C, D) # Wandelt alle Daten in Character! Daher verwendet man die Funktion data.frame()
+    
+    DF <- data.frame(A, B, C, D)
+    str(DF)               # Zeigt die Struktur und jeweiligen Datentypen in der Struktur Dataframe E
     DF
-    str(DF)
     DF[1,2]
     colnames(DF)
     rownames(DF)
-    colnames(DF) <- c("Kursnummer", "Alter")
+    colnames(DF) <- c("LNr", "Geschlecht", "Name","Alter")
     AnzZeilenDF  <- dim(DF)[1] # oder nrow(DF)
     rownames(DF) <- paste0("VP", 1:AnzZeilenDF)
-    rownames(DF) <- paste0("VP", 1:nrow(DF))    # gleichwertige Möglichkeit
-    rownames(DF) <- paste0("VP", 1:dim(DF)[1])  # gleichwertige Möglichkeit
+    rownames(DF) <- paste0("VP", 1:nrow(DF))    # gleichwertige M?glichkeit
+    rownames(DF) <- paste0("VP", 1:dim(DF)[1])  # gleichwertige M?glichkeit
     DF
-    DF$Kursnummer    
+    DF$Name
     DF$Alter[2:3]
     attach(DF)
     Alter
     detach(DF)
 ```
 
-#### Aufgabenblock Dataframes {-}
+### Aufgabenblock Dataframes
+
+Verwende wiederum nachfolgende Daten zum Bearbeiten der Aufgaben:
+
+
+```r
+    id     <- c(11, 16, 17, 18, 19, 20, 23) # c() entspr. combine; <- Zuweisung zu einer Variablen
+    Geschlecht <- c("mÃ¤nnlich", "weiblich")
+    sex    <- c(1, 1, 7, 1, 1, 2, 2)
+    lalt   <- c(2, 3, 2, 3, 1, 1, 2)
+    gross  <-  c(173, 166, 178, 154, 164, 389, 181)
+    mon    <- c(266, 241, 231, 265, 225, 229, 222)
+    date   <- c(4, 5, 3, 3, 2, 4, 3)
+    entsch <- c(3, 4, 4, 5, 3, 1, 2)
+    proj   <- c(2, 1, 2, 2, 2, 1, 2)
+    i1     <- c(3, 2, 1, 3, 4, 2, 2)
+    i2     <- c(3, 2, 1, 3, 4, 2, 2)
+    i3     <- c(3, 3, 3, 2, 2, 2, 4)
+    i4     <- c(2, 1, 2, 4, 2, 1, 4)
+    i5     <- c(2, 1, 4, 1, 3, 4, 1)
+```
 
 1. erstelle eine Datenstruktur (data.frame) mit dem Namen *fragebogen* mit folgenden Inhalt:
 *id*, *Geschlecht*, *sex*, *lalt*, *gross*, *mon*, *date*, *entsch*, *proj*, *i1*, *i2*, *i3*, *i4*, *i5*
@@ -543,7 +590,7 @@ Folgender Code zeigt die soeben beschriebenen Eigenschaften. Kopiere den Code in
 5. gib die Werte der 1'ten bis zur 3'ten Zeile der Spalte *proj* aus.
 6. versuche den Befehl attach() und den Befehl detach(). Verwende bei Bedarfsfall die Hilfefunktion.
 
-### Data-Tables {-}
+## Data-Tables
 
 Eine erweiterte Version von *Dataframes* wir durch das Paket *data.table*[^11]. Einer der wesentlichen Vorteile bei der Verwendung von data.table liegt vor allem in der beträchtlich schnelleren Verarbeitung - vor allem bei sehr großen Datensätzen. Das Paket beinhaltet eine Funktion (fread()) zum Lesen von *csv*-Dateien, welche in Hinblick auf Ladezeiten sehr großer Dateien die oft verwendete Funktion *read.csv()* in den Schatten stellt. Auch die Handhabung der Daten in einer *data.table* ist bei weitem schneller als in einem *Dataframe*.
 
@@ -551,22 +598,22 @@ Trotz dieser Vorteile verzichten wir im Folgenden auf die Verwendung dieser Funk
 
 [^11]: Paket von Matt Dowle, kann über CRAN-Server geladen werden.
 
-### Listen {-}
+## Listen
 
 Um den Einschränkungen bezüglich der *Dataframes* zu entgehen, kann der Datentyp *list* verwendet werden. List-Objekte können neben verschiedenen Datentypen auch unterschiedlich große Objekte (Skalare, Vektoren, Matrizen, Dataframes), aber Objektstrukturen wie z.B. Funktionen beinhalten. Listen bilden damit eine Möglichkeit, so ziemlich alles was in R an Objekten erzeugt werden kann in einer Variablen des Typs list abzuspeichern. Eine Liste zu erzeugen erfolgt einfach über die Funktion *list()*. Betrachten wir zunächst folgenden Code:
 
 
 ```r
-    LI        <- list("Rot", c(21,32,11), TRUE, 51.23, m1) # Generiere Liste mit verschiedenen Einträgen
+    LI        <- list("Rot", c(21,32,11), TRUE, 51.23, m1) # Generiere Liste mit verschiedenen Eintr?gen
     str(LI) # Zeige die Struktur der Liste an
     names(LI) <- c("Farbe", "Alter", "Raucher","Gewicht", "Matrix")
     str(LI)
-    # Alternativ kann man die Namen der Listen auch bereits bei der Erstellung durchführen
+    # Alternativ kann man die Namen der Listen auch bereits bei der Erstellung durchf?hren
     LI1        <- list(Farbe = "Rot", 
                        Vec = c(21,32,11), 
                        Logi = TRUE, 
                        Wert = 51.23, 
-                       Mat = m1) # Generiere Liste mit verschiedenen Einträgen
+                       Mat = m1) # Generiere Liste mit verschiedenen Eintr?gen
     str(LI1)
     
     LI$Farbe
@@ -574,7 +621,7 @@ Um den Einschränkungen bezüglich der *Dataframes* zu entgehen, kann der Datent
     LI[5]
     LI[[5]][2, 2:3]
     
-    LI[6] <- list(Matrix2 = m2) # Füge Element als letztes Element der Liste hinzu
+    LI[6] <- list(Matrix2 = m2) # F?ge Element als letztes Element der Liste hinzu
     str(LI)
     LI[6] <- NULL # Entferne letztes Element der Liste
 
@@ -586,7 +633,7 @@ Um den Einschränkungen bezüglich der *Dataframes* zu entgehen, kann der Datent
     XLi
 ```
 
-### Tables {-}
+## Tables
 
 Eine weitere Möglichkeit in R Daten in Objekten zu speichern bietet die Klasse der *Tables*. Die unterschiedlichen Formen der Tables sind am besten durch folgende Beispiele zu erklären:
 
@@ -611,11 +658,25 @@ Eine weitere Möglichkeit in R Daten in Objekten zu speichern bietet die Klasse 
     sexsmoke
     
     sexsmoke_DF        <- as.data.frame(sexsmoke)
+    
+    library(data.table)
+    
+    DT <- data.table( ID = 1:50,
+                      Capacity = sample(100:1000, size = 50, replace = F),
+                      Code = sample(LETTERS[1:4], 50, replace = T),
+                      State = rep(c("Alabama","Indiana","Texas","Nevada"), 50))
+    
+    #simple data.table command
+    DT[Code == "C", mean(Capacity), State]
+    
+    DT[Code == "D"]
+    DT[, mean(Capacity), by = State]
+    DT[Code == "A", mean(Capacity)]
 ```
 
 Tabellen können mit der Funktion *as.data.frame(tbl)* leicht in die bereits bekannte Klasse des Datenframes umgewandelt werden.
 
-## Attribute {-}
+# Attribute
 
 Allen bisher besprochenen Objekte in R können beliebige zusätzlichen Eigenschaften (Attribute) zugewiesen werden. Attribute kann man sich als Namenslisten vorstellen, welche durch die Funktion *attr()* festgelegt werden können.
 
@@ -635,20 +696,68 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
 
 ----
 
-## Lösungen {-}
+# Lösungen
 
-### Lösungen zu Aufgabenblock Copy und Paste {-}
+## Lösungen zu Aufgabenblock Copy und Paste:
 
 
+```r
+  # Aufgabe 1
+    v <- c(1,4,4,3,2,2,3)
+  # Aufgabe 2
+    v[c(2,3,4)]
+  # Aufgabe 3
+    dat <- data.frame(
+      time = factor(c("Lunch","Dinner"), levels = c("Lunch","Dinner")),
+      total_bill = c(14.89, 17.23)
+    )
+    dat
+    #>     time total_bill
+    #> 1  Lunch      14.89
+    #> 2 Dinner      17.23
+  # Aufgabe 4 & 5
+    library(ggplot2)# Load the ggplot2 package
+    # Very basic bar graph
+    ggplot(data=dat, aes(x = time, y = total_bill)) +
+      geom_bar(stat="identity")
+    # Map the time of day to different fill colors
+    ggplot(data=dat, aes(x = time, y = total_bill, fill = time)) +
+      geom_bar(stat = "identity")
+    ## This would have the same result as above
+    # ggplot(data=dat, aes(x=time, y=total_bill)) +
+    #    geom_bar(aes(fill=time), stat="identity")
+    # Add a black outline
+    ggplot(data = dat, aes(x = time, y = total_bill, fill = time)) +
+      geom_bar(colour = "black", stat = "identity")
+    # No legend, since the information is redundant
+    ggplot(data=dat, aes(x=time, y = total_bill, fill = time)) +
+      geom_bar(colour = "black", stat = "identity") +
+      guides(fill = FALSE)
+  # Aufgabe 6
+    data()
+    ?tips
+    ?french_fries
+  # Aufgabe 7
+    Dat_FF <- french_fries
+    str(Dat_FF)
+  # Aufgabe 8
+    library(haven)
+    bigfive <- read_sav("Data/bigfive.sav")
+    View(bigfive)
+  # Aufgabe 9
+    library(readxl)
+    bigfive <- read_excel("Data/bigfive.xls")
+    View(bigfive)
+```
 
-### Lösungen zu Aufgabenblock Vektoren {-}
+## Lösungen zu Aufgabenblock Vektoren:
 
 
 ```r
     mean(gross)          # A1: Aufruf der Funktion mean().
     gross1     <-  gross # A2: Kopiere Werte von gross in gross1
     gross1[1]  <-  NA    # A3: setzte den ersten Wert von gross1 auf NA (not available) = missing value
-    mean(gross1)         # A4: BEACHTE, dass mean nun NA ist -> Markiere mean und drücke F1
+    mean(gross1)         # A4: BEACHTE, dass mean nun NA ist -> Markiere mean und dr?cke F1
     mean(gross1, na.rm = TRUE) # A5: nun wird der Mittelwert richtig berechnet!
     mean(gross1, trim = 0.5, na.rm = TRUE) # A6
     gross_prod <- gross[2]*gross[3] # A7
@@ -673,7 +782,7 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
     which(gross %in% 181) # A20
 ```
 
-### Lösungen zu Aufgabenblock Faktoren {-}
+## Lösungen zu Aufgabenblock Faktoren:
 
 
 ```r
@@ -690,7 +799,7 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
     table(x_fact3)
 ```
 
-### Lösungen zu Aufgabenblock Matrizen {-}
+## Lösungen zu Aufgabenblock Matrizen:
 
 
 ```r
@@ -700,7 +809,7 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
     X[3,] # A4
     X[3:5,1:2]  # A5
     colnames(X)  # A6
-    ColNames    <- c("Alter", "Gewicht", "Größe")  # A7
+    ColNames    <- c("Alter", "Gewicht", "Gr??e")  # A7
     colnames(X) <- ColNames # A8
     namen       <- c("Walter", "Gerda","Hannes", "Ute", "Hanna","Doris","Karin") # A9
     rownames(X) <- namen  # A10
@@ -711,7 +820,7 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
     which(X[,3] > 200)
 ```
 
-### Lösungen zu Aufgabenblock Dataframes {-}
+## Lösungen zu Aufgabenblock Dataframes:
 
 
 ```r
@@ -720,7 +829,7 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
     head(fragebogen) # A3
     fragebogen$i1[1:3] # A4
     fragebogen[1:3,9] # A5
-    fragebogen[1:3,"i1"] # A5 - Alternative Löung mit Verwendung des Spaltennamens
+    fragebogen[1:3,"i1"] # A5 - Alternative L?ung mit Verwendung des Spaltennamens
     attach(fragebogen) # A6
     detach(fragebogen) # A6
 ```

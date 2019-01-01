@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="aufbau-des-kurses.html">
+<link rel="prev" href="objekte-in-r.html">
+<link rel="next" href="losungen-1.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -252,26 +252,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Reinführung in RStudio</h1>
-<h4 class="author"><em>Walter Gruber</em></h4>
-<h4 class="date"><em>2019-01-01</em></h4>
-</div>
-<div id="vorwort" class="section level1 unnumbered">
-<h1>Vorwort</h1>
-<p>Dieser Kurs richtet sich vor allem an jene Personen, die weder Erfahrungen in der Programmierung im Allgemeinen, noch im Umgang mit R im Speziellen haben. Programme zu schreiben ist nicht allzu schwer. Man muss sich ein paar Regeln der verwendeten Programmiersprache aneignen und schon kann es losgehen.</p>
-<p>Gute Programme zu schreiben ist schon etwas schwieriger, aber auch das ist mit etwas Aufwand durchaus machbar. Häufig wird am Beginn einer Karriere als Programmierer der Fehler gemacht, sich zu sehr auf Details zu konzentrieren und dabei den Überblick des eigentlichen Ziels eines Programmes zu verlieren. Während der Programmierung sollte man sich stets darüber im Klaren sein, dass ein Computerprogramm immer genau das macht, was man ihm sagt und nichts macht, was man ihm nicht sagt.</p>
-<p>Was uns oft klar und logisch erscheint, bleibt für ein Computerprogramm so lange undurchführbar, bis man es durch detaillierte Schritt für Schritt Instruktionen mit unserer Logik und Idee vertraut gemacht hat. Wenn das gelingt, wird es ein treuer Partner sein und mit einer unbestechlichen Präzision diese Logik hunderte, oder millionenmal abarbeiten, ohne einen einzigen Fehler dabei zu begehen.</p>
-<p>Für Einsteiger ist es oft schwierig zu beurteilen, in welcher Reihenfolge und in welchem Detail Instruktionen für den Computer gegeben werden müssen. Daher ist es primäres Ziel dieser LV, die grundlegenden Elemente der Programmiersprache R kennen zulernen und diese richtig anzuwenden. Dabei werden wir auch Hilfsmittel kennen lernen, die den Einstieg in R wesentlich erleichtern können.</p>
-
+<div id="attribute" class="section level1">
+<h1><span class="header-section-number">8</span> Attribute</h1>
+<p>Allen bisher besprochenen Objekte in R können beliebige zusätzlichen Eigenschaften (Attribute) zugewiesen werden. Attribute kann man sich als Namenslisten vorstellen, welche durch die Funktion <em>attr()</em> festgelegt werden können.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">str</span>(sexsmoke)
+    <span class="kw">attr</span>(sexsmoke, <span class="st">&quot;dim&quot;</span>)
+    
+    y &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+    <span class="kw">attr</span>(y, <span class="st">&quot;Mein_Attribut&quot;</span>) &lt;-<span class="st"> &quot;y ist ein Vektor&quot;</span>
+    
+    <span class="kw">attr</span>(y, <span class="st">&quot;Mein_Attribut&quot;</span>)
+    <span class="kw">str</span>(<span class="kw">attributes</span>(y))</code></pre></div>
+<p>Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln entsprechend verwiesen. Vor allem beim Import von Daten (z.B. SPSS Ergebnisse einer Limesurveyumfrage) können die Attribute für die Speicherung zu Metainformation einer Variablen (Itemformulierung zu einer Variablen) sehr hilfreich sein.</p>
+<hr />
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="aufbau-des-kurses.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="objekte-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="losungen-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

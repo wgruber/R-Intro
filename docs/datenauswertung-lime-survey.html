@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="aufbau-des-kurses.html">
+<link rel="prev" href="rechnen-mit-r.html">
+<link rel="next" href="losungen-3.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -252,26 +252,166 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Reinführung in RStudio</h1>
-<h4 class="author"><em>Walter Gruber</em></h4>
-<h4 class="date"><em>2019-01-01</em></h4>
+<div id="datenauswertung-lime-survey" class="section level1">
+<h1><span class="header-section-number">12</span> Datenauswertung Lime Survey</h1>
+<p>Im nachfolgenden Beispiel werden die Daten des World-Knowledge-Test ausgewertet. Bei diesem Test handelt es sich um eine einfache Umfrage, welche mit dem Online-Survey-Tool <em>LimeSurvey</em> erstellt wurde. Die Befragung richtete sich an ca. 300 StudentInnen der Universität Salzburg. Die Daten sollen im Folgenden zur Auswertung einfacher deskriptiver Statistiken mit R verwendet werden.</p>
+<center>
+<div class="figure">
+<img src="Images/09_R_LimeSurveyExport.png" alt="Abbildung 1: Export der Daten aus Lime Survey" style="width:70.0%" />
+<p class="caption"><strong>Abbildung 1</strong>: Export der Daten aus Lime Survey</p>
 </div>
-<div id="vorwort" class="section level1 unnumbered">
-<h1>Vorwort</h1>
-<p>Dieser Kurs richtet sich vor allem an jene Personen, die weder Erfahrungen in der Programmierung im Allgemeinen, noch im Umgang mit R im Speziellen haben. Programme zu schreiben ist nicht allzu schwer. Man muss sich ein paar Regeln der verwendeten Programmiersprache aneignen und schon kann es losgehen.</p>
-<p>Gute Programme zu schreiben ist schon etwas schwieriger, aber auch das ist mit etwas Aufwand durchaus machbar. Häufig wird am Beginn einer Karriere als Programmierer der Fehler gemacht, sich zu sehr auf Details zu konzentrieren und dabei den Überblick des eigentlichen Ziels eines Programmes zu verlieren. Während der Programmierung sollte man sich stets darüber im Klaren sein, dass ein Computerprogramm immer genau das macht, was man ihm sagt und nichts macht, was man ihm nicht sagt.</p>
-<p>Was uns oft klar und logisch erscheint, bleibt für ein Computerprogramm so lange undurchführbar, bis man es durch detaillierte Schritt für Schritt Instruktionen mit unserer Logik und Idee vertraut gemacht hat. Wenn das gelingt, wird es ein treuer Partner sein und mit einer unbestechlichen Präzision diese Logik hunderte, oder millionenmal abarbeiten, ohne einen einzigen Fehler dabei zu begehen.</p>
-<p>Für Einsteiger ist es oft schwierig zu beurteilen, in welcher Reihenfolge und in welchem Detail Instruktionen für den Computer gegeben werden müssen. Daher ist es primäres Ziel dieser LV, die grundlegenden Elemente der Programmiersprache R kennen zulernen und diese richtig anzuwenden. Dabei werden wir auch Hilfsmittel kennen lernen, die den Einstieg in R wesentlich erleichtern können.</p>
+</center>
+<p>LimeSurvey bietet die Möglichkeit, Umfragedaten in verschiedensten Formaten zu exportieren. Wie in obiger Dartellung ersichtlich, bietet sich unter anderem der Export einer R-Daten als auch R-Syntax Datei. Nach Durchführung des Exorts stehen zwei Dateien zur Verfügung:</p>
+<center>
+<div class="figure">
+<img src="Images/09_R_LimeSurveyExportDateien.png" alt="Abbildung 2: Files die aus Lime Survey exportiert wurden" style="width:70.0%" />
+<p class="caption"><strong>Abbildung 2</strong>: Files die aus Lime Survey exportiert wurden</p>
+</div>
+</center>
+<p>Nachfolgend ein Auszug aus der R-Syntaxdatei:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;survey_791736_R_data_file.csv&quot;</span>, 
+                 <span class="dt">quote            =</span> <span class="st">&quot;&#39;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>, 
+                 <span class="dt">na.strings       =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;</span><span class="ch">\&quot;\&quot;</span><span class="st">&quot;</span>), 
+                 <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
 
+<span class="co"># LimeSurvey Field type: F</span>
+  data[, <span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data[, <span class="dv">1</span>])
+  <span class="kw">attributes</span>(data)<span class="op">$</span>variable.labels[<span class="dv">1</span>] &lt;-<span class="st"> &quot;id&quot;</span>
+  <span class="kw">names</span>(data)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;id&quot;</span>
+<span class="co"># LimeSurvey Field type: DATETIME23.2</span>
+  data[, <span class="dv">2</span>] &lt;-<span class="st"> </span><span class="kw">as.character</span>(data[, <span class="dv">2</span>])
+  <span class="kw">attributes</span>(data)<span class="op">$</span>variable.labels[<span class="dv">2</span>] &lt;-<span class="st"> &quot;submitdate&quot;</span>
+  <span class="kw">names</span>(data)[<span class="dv">2</span>] &lt;-<span class="st"> &quot;submitdate&quot;</span>
+<span class="co"># LimeSurvey Field type: F</span>
+  data[, <span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data[, <span class="dv">3</span>])
+  <span class="kw">attributes</span>(data)<span class="op">$</span>variable.labels[<span class="dv">3</span>] &lt;-<span class="st"> &quot;Gender&quot;</span>
+  data[, <span class="dv">3</span>] &lt;-<span class="st"> </span><span class="kw">factor</span>(data[, <span class="dv">3</span>], <span class="dt">levels=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;weiblich&quot;</span>, <span class="st">&quot;männlich&quot;</span>))
+  <span class="kw">names</span>(data)[<span class="dv">3</span>] &lt;-<span class="st"> &quot;F1&quot;</span>
+<span class="co"># LimeSurvey Field type: A</span>
+  ...</code></pre></div>
+<p>Nach dem Laden der Datendatei (<em>survey_791736_R_data_file.csv</em>) werden Formatierungen der Datentypen und Vergabe von Variablennamen durchgeführt. Da Variablennamen von LimeSurvey vergeben werden, ist es in den meisten Fällen sinnvoll, diese manuell zu ändern. Auch eine genaue Kontrolle (und gegebenenfalls Korrektur) bei den Datentypen ist angebracht.</p>
+<p>Üblicherweise ändert sich eine Umfrage nach Freischaltung bezüglich ihrer Datenstruktur nicht mehr, daher ist dieser Aufwand auch nur einmalig durchzuführen. <em>WICHTIG</em>: bei allen folgenden Exports aus Limesurvey ist dann nur mehr die Datendatei zu exportieren - die Syntaxdatei braucht dann nicht mehr exportiert werden<a href="#fn15" class="footnoteRef" id="fnref15"><sup>15</sup></a>!</p>
+<div id="datenvorverarbeitung" class="section level2">
+<h2><span class="header-section-number">12.1</span> Datenvorverarbeitung</h2>
+<p>Lade und überarbeite die Syntaxdatei (<em>survey_791736_R_syntax_file.R</em>). Beachte dabei folgende Punkte:</p>
+<ul>
+<li>Sonderzeichen werden oft nicht korrekt übernommen - verwende die RStudio-Funktion Search and Replace um alle falsch übertragenen Sonderzeichen zu korrigieren.</li>
+<li>Ändere die Variablennamen auf <em>sinnvolle</em> Namen (vgl. Attribute)</li>
+<li>Überprüfe die Datentypen sämtlicher Variablen. Ändere den Datentyp der Variablen falls notwendig.</li>
+</ul>
+<p>Nach erfolgter Überarbeitung kann das Skript in eine Funktion umgewandelt werden. Der Name der Funktion sollte dabei <em>LS_Import.R</em> lauten und als einziges Argument sollte die Variable <em>F2L</em> (für File t(w)o Load) angegeben werden.</p>
+<p><em>Hinweis:</em> die Funktion <em>read.csv()</em> muss entsprechend angepasst werden!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">LS_Import &lt;-<span class="st"> </span><span class="cf">function</span>(F2L) {
+  data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(F2L,
+                   <span class="dt">quote            =</span> <span class="st">&quot;&#39;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>,
+                   <span class="dt">na.strings       =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;</span><span class="ch">\&quot;\&quot;</span><span class="st">&quot;</span>),
+                   <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+  
+  <span class="co"># LimeSurvey Field type: F</span>
+  data[, <span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(data[, <span class="dv">1</span>])
+  <span class="kw">attributes</span>(data)<span class="op">$</span>variable.labels[<span class="dv">1</span>] &lt;-<span class="st"> &quot;id&quot;</span>
+  <span class="kw">names</span>(data)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;id&quot;</span>
+  <span class="co"># LimeSurvey Field type: DATETIME23.2</span>
+  ...</code></pre></div>
+<p>Des Weiteren sollte am Ende der Funktion als Rückgabewert der Datenframe (data) angegeben werden (siehe nachfolgenden Codteil am Ende der <em>LS_Import.R</em> Funktion):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  ...
+  <span class="kw">names</span>(data)[<span class="dv">22</span>] &lt;-<span class="st"> &quot;WQ12&quot;</span>
+  
+  <span class="kw">return</span>(data)
+<span class="er">}</span></code></pre></div>
+<div id="aufgabe-1-1" class="section level3">
+<h3><span class="header-section-number">12.1.1</span> Aufgabe 1</h3>
+<p>Erstelle nun ein neues Skript (Name: <em>09_RLimeSurvey.R</em>), in welchen du zuerst den Standard-Header kopierst (siehe nachfolgenden Code) und welches danach die Daten über die soeben erstellte Funktion lädt! Prüfe mit einer geeigneten Funktion die Struktur des geladenen Dataframes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#---- 09_RLS_Init</span>
+  <span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)
+  pacman<span class="op">::</span><span class="kw">p_load</span>(here)</code></pre></div>
+<p>Durch diese Funktion können die Daten fortlaufend auf dem aktuellen Stand gehalten werden. Der einzige Nachteil besteht noch darin, dass man manuell die Daten aus LimeSurvey exportieren muss. Dass kann allerdings automatisiert werden. Dazu braucht man nur den Zugang zur SQL-Datenbank von Limesurvey und die entsprechenden Pakete in R laden. Aus Datenschutzgründen ist es im Rahmen dieser LV nicht möglich, den Zugang zur LS-Datenbank freizuschalten, daher werden wir diese Möglichkeit nicht weiter besprechen. Es sei jedoch an dieser Stelle darauf hingewiesen, dass man mit einem entsprechenden Zugang zu den Daten auch die Möglichkeit hat, Skripte und Funktionen in R in die Aufgabenplanung eines Windows/Linux-Systems einzubauen (sogenannte chron-jobs) und damit ein vollständig automatisches Auswertesystem zu erstellen.</p>
+</div>
+</div>
+<div id="deskriptive-statistik" class="section level2">
+<h2><span class="header-section-number">12.2</span> Deskriptive Statistik</h2>
+<p>Bei den nachfolgenden Aufgaben erzeugen wir deskriptive Statistiken in Form von Tabellen und einer Graphik.</p>
+<div id="aufgabe-2" class="section level3">
+<h3><span class="header-section-number">12.2.1</span> Aufgabe 2</h3>
+<p>Im Folgendem wollen wir und mit der einfachen Auswertung der vorliegenden Daten beschäftigen. Die ersten Schritte einer Datenauswertung beginnen i.A. mit einer deskriptiven Statistik. Aufgrund der vorwiegend nominalen Daten des Fragebogens eignen sich am besten Häufigkeitstabellen. Erstelle daher folgende Tabellen (verwende dazu die Funktion <em>table()</em>):</p>
+<ol style="list-style-type: decimal">
+<li>Anzahl der Männer und Frauen die an der Umfrage teilgenommen haben.</li>
+<li>Anzahl der Personen je Nation.</li>
+<li>Anzahl der Personen nur jener Nationen, die an der Umfrage teilgenommen haben<a href="#fn16" class="footnoteRef" id="fnref16"><sup>16</sup></a>.</li>
+<li>Anzahl der Personen nur jener Nationen, die an der Umfrage teilgenommen haben, getrennt nach Geschlecht.</li>
+<li>Gleich wie Aufgabe 4, nur mit zusätzlicher Angabe der Randsummen!</li>
+<li>Gleich wie Aufgabe 5, nur die auf 2 Stellen gerundeten Angaben in Prozent<a href="#fn17" class="footnoteRef" id="fnref17"><sup>17</sup></a>.</li>
+</ol>
+</div>
+<div id="aufgabe-3" class="section level3">
+<h3><span class="header-section-number">12.2.2</span> Aufgabe 3</h3>
+<p>Ein zur deskriptiven Analyse hilfreiches Paket ist <em>doBy</em>. Wir wollen die darin enthaltene Funktion <em>summaryBy()</em> verwenden, um folgende Aufgabenstellungen zu lösen:</p>
+<ol style="list-style-type: decimal">
+<li>Berechne das Durchschnittsalter getrennt nach Geschlecht.</li>
+<li>Berechne den Mittelwert, die Standardabweichung, die Varianz, das Minimum und das Maximum der Variablen Alter getrennt nach Geschlecht.</li>
+<li>Berechne das Durchschnittsalter getrennt nach Geschlecht und Nationalität.</li>
+<li>Berechne den Mittelwert, die Standardabweichung, die Varianz, das Minimum und das Maximum der Variablen Alter getrennt nach Geschlecht und Nationalität.</li>
+</ol>
+<p>Das Paket doBy bietet darüber hinaus eine Vielzahl von Funktionen, die vor allem für das Arbeiten mit gruppierten Daten sehr hilfreich sein können. Hingewiesen sei noch auf die Möglichkeit der Berechnung von Kontrasten im Rahmen einer <em>least square mean</em> (ANOVA) Analyse. Es würde den Rahmen dieser LV sprengen, alle verfügbaren Funktionen zu besprechen und zu verwenden. Weitere Details zu diesem Paket sind der <a href="https://cran.r-project.org/web/packages/doBy/doBy.pdf">Dokumentation</a> zu entnehmen.</p>
+</div>
+<div id="aufgabe-4" class="section level3">
+<h3><span class="header-section-number">12.2.3</span> Aufgabe 4</h3>
+<p>Neben den Tabellen spielen Graphiken eine wesentliche Rolle in der deskriptiven Statistik. In dieser Aufgabe wollen wir mit dem Paket <em>ggplot2</em> ein Balkendiagramm erstellen, welche für die erste Frage des Tests die prozentuellen Anteile pro Antwortkategorie getrennt nach Geschlecht darstellt. Darüber hinaus sollte in dieser Graphik auch jeweils ein Balken pro Antwortkategorie für den prozentuellen Anteil unabhängig vom Geschlecht angezeigt werden. Folgende Graphik stellt das gewünschte Ergebnis dar:</p>
+<center>
+<div class="figure">
+<img src="Images/09_Aufgabe4_Graphik.png" alt="Abbildung 3: Vorlage für die Graphik der Aufgabe 4" style="width:40.0%" />
+<p class="caption"><strong>Abbildung 3</strong>: Vorlage für die Graphik der Aufgabe 4</p>
+</div>
+</center>
+<p>Um die Aufgabe auf das eigentliche Ziel (eine Graphik zu erstellen) zu beschränken, kannst du den folgenden Code in dein R-Skript kopieren (diskutiere das Ergebnis dieses Codefragmentes)<a href="#fn18" class="footnoteRef" id="fnref18"><sup>18</sup></a>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">library</span>(ggplot2)
+  
+  LegTit          &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Overall (N  =  &#39;</span>, <span class="kw">dim</span>(DF)[<span class="dv">1</span>], <span class="st">&#39;) answers in %&#39;</span>)  
+  ColInd          &lt;-<span class="st"> </span><span class="kw">which</span>(<span class="kw">colnames</span>(DF) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;WQ1&quot;</span>))
+  WQ_Label        &lt;-<span class="st"> </span><span class="kw">attributes</span>(DF)<span class="op">$</span>variable.labels[ColInd]
+
+  CT              &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">addmargins</span>(<span class="kw">prop.table</span>(<span class="kw">table</span>(DF[,ColInd], DF<span class="op">$</span>Gender)), 
+                                          <span class="dt">margin  =</span>  <span class="dv">2</span>), <span class="dv">2</span>)
+  DF_CT           &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(CT)
+  <span class="kw">colnames</span>(DF_CT) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Answer&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Percent&quot;</span>)</code></pre></div>
+<p>Ergänze nun den Code mit der entsprechenden Funktion zur Erstellung dieser Graphik und ergänze/ändere den Graphen nach folgenden Vorgaben:</p>
+<ol style="list-style-type: decimal">
+<li>Drehe die Koordinaten 90 Grad (verwende die Funktion <em>coord_flip()</em>).</li>
+<li>Die x-Achsenbeschriftung sollte <em>Answer</em> sein (verwende die Funktion <em>xlab()</em>).</li>
+<li>Die Beschriftung der Legende sollte dem bereits definierten Text der Variablen <em>LegTit</em> entsprechen (verwende die Funktion <em>guides(fill = guide_legend(title = ???))</em>).</li>
+<li>Verwende die Funktion <em>labs()</em>, um Titel (= <em>WQ_Label</em>), Subtitel (= <em>“World Knowledge Test”</em>), Caption (= <em>“Source: World Knowledge Query PLUS (2018)”</em>, tag (= <em>“A”</em>) anzuzeigen.</li>
+<li>Ändere das Farbschema des Graphen auf Grauschattierungen (verwende die Funktion <em>scale_fill_grey()</em>).</li>
+<li>Zeige über den Balken die jeweilig erreichten Prozentwerte an (verwende die Funktion <em>geom_text(aes(label = paste0(round(???, 1), “%”)), position = position_dodge(width=0.9), hjust = -0.25)</em>).</li>
+<li>Ändere den Hintergrund der Graphik auf Transparent (verwende die Funktion <em>theme_bw()</em>).</li>
+</ol>
+<p>Der fertige Graph sollte folgendermaßen aussehen:</p>
+<center>
+<div class="figure">
+<img src="Images/09_Aufgabe4_Graphik_Endversion.png" alt="Abbildung 4: Endversion der Graphik von Aufgabe 4" style="width:60.0%" />
+<p class="caption"><strong>Abbildung 4</strong>: Endversion der Graphik von Aufgabe 4</p>
+</div>
+</center>
+<hr />
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="15">
+<li id="fn15"><p>es sei denn, die Struktur der Umfrage ändert sich wider erwarten!<a href="datenauswertung-lime-survey.html#fnref15">↩</a></p></li>
+<li id="fn16"><p><em>Hinweis:</em> verwende die Funktion <em>droplevels()</em><a href="datenauswertung-lime-survey.html#fnref16">↩</a></p></li>
+<li id="fn17"><p><em>Hinweis:</em> runden mit der Funktion <em>round()</em>, Prozente mit der Funktion <em>prop.table()</em><a href="datenauswertung-lime-survey.html#fnref17">↩</a></p></li>
+<li id="fn18"><p>die Definition von <em>LegTit</em> und <em>WQ_Label</em> wird in einer Folgeaufgabe noch zur weiteren Gestaltung der Graphik verwendet.<a href="datenauswertung-lime-survey.html#fnref18">↩</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="aufbau-des-kurses.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rechnen-mit-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="losungen-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

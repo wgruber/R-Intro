@@ -32,7 +32,7 @@ Am rechten Rand der Symbolleiste kann man noch die Ansicht der Objekte wählen:
 
 <center>
 
-![**Abbildung 1**: Das Arbeitsgedächtnis von RStudio](/Images/04_Environment.PNG){ width=50% }
+![**Abbildung 1**: Das Arbeitsgedächtnis von RStudio](Images/04_Environment.PNG){ width=50% }
 
 </center>
 
@@ -47,7 +47,7 @@ Die R-Verlaufsdatei (History) ist eine Kopie aller Tastenanschläge während ein
 
 <center>
 
-![**Abbildung 2**: Die Historie von verwendeten Befehlen](/Images/04_History.PNG){ width=50% }
+![**Abbildung 2**: Die Historie von verwendeten Befehlen](Images/04_History.PNG){ width=50% }
 
 </center>
 
@@ -66,7 +66,7 @@ Im RStudio-Verbindungsbereich (Connections) können Verbindung zu einer Vielzahl
 
 <center>
 
-![**Abbildung 3**: Datenbankverbindungen über Connections](/Images/04_Connections.PNG){ width=50% }
+![**Abbildung 3**: Datenbankverbindungen über Connections](Images/04_Connections.PNG){ width=50% }
 
 </center>
 

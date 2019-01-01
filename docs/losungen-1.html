@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="aufbau-des-kurses.html">
+<link rel="prev" href="attribute.html">
+<link rel="next" href="rarbeiten.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -252,26 +252,138 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Reinführung in RStudio</h1>
-<h4 class="author"><em>Walter Gruber</em></h4>
-<h4 class="date"><em>2019-01-01</em></h4>
+<div id="losungen-1" class="section level1">
+<h1><span class="header-section-number">9</span> Lösungen</h1>
+<div id="losungen-zu-aufgabenblock-copy-und-paste" class="section level2">
+<h2><span class="header-section-number">9.1</span> Lösungen zu Aufgabenblock Copy und Paste:</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Aufgabe 1</span>
+    v &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+  <span class="co"># Aufgabe 2</span>
+    v[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]
+  <span class="co"># Aufgabe 3</span>
+    dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+      <span class="dt">time =</span> <span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Lunch&quot;</span>,<span class="st">&quot;Dinner&quot;</span>), <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Lunch&quot;</span>,<span class="st">&quot;Dinner&quot;</span>)),
+      <span class="dt">total_bill =</span> <span class="kw">c</span>(<span class="fl">14.89</span>, <span class="fl">17.23</span>)
+    )
+    dat
+    <span class="co">#&gt;     time total_bill</span>
+    <span class="co">#&gt; 1  Lunch      14.89</span>
+    <span class="co">#&gt; 2 Dinner      17.23</span>
+  <span class="co"># Aufgabe 4 &amp; 5</span>
+    <span class="kw">library</span>(ggplot2)<span class="co"># Load the ggplot2 package</span>
+    <span class="co"># Very basic bar graph</span>
+    <span class="kw">ggplot</span>(<span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> total_bill)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)
+    <span class="co"># Map the time of day to different fill colors</span>
+    <span class="kw">ggplot</span>(<span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> total_bill, <span class="dt">fill =</span> time)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)
+    ## This would have the same result as above
+    <span class="co"># ggplot(data=dat, aes(x=time, y=total_bill)) +</span>
+    <span class="co">#    geom_bar(aes(fill=time), stat=&quot;identity&quot;)</span>
+    <span class="co"># Add a black outline</span>
+    <span class="kw">ggplot</span>(<span class="dt">data =</span> dat, <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> total_bill, <span class="dt">fill =</span> time)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)
+    <span class="co"># No legend, since the information is redundant</span>
+    <span class="kw">ggplot</span>(<span class="dt">data=</span>dat, <span class="kw">aes</span>(<span class="dt">x=</span>time, <span class="dt">y =</span> total_bill, <span class="dt">fill =</span> time)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_bar</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)
+  <span class="co"># Aufgabe 6</span>
+    <span class="kw">data</span>()
+    ?tips
+    ?french_fries
+  <span class="co"># Aufgabe 7</span>
+    Dat_FF &lt;-<span class="st"> </span>french_fries
+    <span class="kw">str</span>(Dat_FF)
+  <span class="co"># Aufgabe 8</span>
+    <span class="kw">library</span>(haven)
+    bigfive &lt;-<span class="st"> </span><span class="kw">read_sav</span>(<span class="st">&quot;Data/bigfive.sav&quot;</span>)
+    <span class="kw">View</span>(bigfive)
+  <span class="co"># Aufgabe 9</span>
+    <span class="kw">library</span>(readxl)
+    bigfive &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;Data/bigfive.xls&quot;</span>)
+    <span class="kw">View</span>(bigfive)</code></pre></div>
 </div>
-<div id="vorwort" class="section level1 unnumbered">
-<h1>Vorwort</h1>
-<p>Dieser Kurs richtet sich vor allem an jene Personen, die weder Erfahrungen in der Programmierung im Allgemeinen, noch im Umgang mit R im Speziellen haben. Programme zu schreiben ist nicht allzu schwer. Man muss sich ein paar Regeln der verwendeten Programmiersprache aneignen und schon kann es losgehen.</p>
-<p>Gute Programme zu schreiben ist schon etwas schwieriger, aber auch das ist mit etwas Aufwand durchaus machbar. Häufig wird am Beginn einer Karriere als Programmierer der Fehler gemacht, sich zu sehr auf Details zu konzentrieren und dabei den Überblick des eigentlichen Ziels eines Programmes zu verlieren. Während der Programmierung sollte man sich stets darüber im Klaren sein, dass ein Computerprogramm immer genau das macht, was man ihm sagt und nichts macht, was man ihm nicht sagt.</p>
-<p>Was uns oft klar und logisch erscheint, bleibt für ein Computerprogramm so lange undurchführbar, bis man es durch detaillierte Schritt für Schritt Instruktionen mit unserer Logik und Idee vertraut gemacht hat. Wenn das gelingt, wird es ein treuer Partner sein und mit einer unbestechlichen Präzision diese Logik hunderte, oder millionenmal abarbeiten, ohne einen einzigen Fehler dabei zu begehen.</p>
-<p>Für Einsteiger ist es oft schwierig zu beurteilen, in welcher Reihenfolge und in welchem Detail Instruktionen für den Computer gegeben werden müssen. Daher ist es primäres Ziel dieser LV, die grundlegenden Elemente der Programmiersprache R kennen zulernen und diese richtig anzuwenden. Dabei werden wir auch Hilfsmittel kennen lernen, die den Einstieg in R wesentlich erleichtern können.</p>
+<div id="losungen-zu-aufgabenblock-vektoren" class="section level2">
+<h2><span class="header-section-number">9.2</span> Lösungen zu Aufgabenblock Vektoren:</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">mean</span>(gross)          <span class="co"># A1: Aufruf der Funktion mean().</span>
+    gross1     &lt;-<span class="st">  </span>gross <span class="co"># A2: Kopiere Werte von gross in gross1</span>
+    gross1[<span class="dv">1</span>]  &lt;-<span class="st">  </span><span class="ot">NA</span>    <span class="co"># A3: setzte den ersten Wert von gross1 auf NA (not available) = missing value</span>
+    <span class="kw">mean</span>(gross1)         <span class="co"># A4: BEACHTE, dass mean nun NA ist -&gt; Markiere mean und dr?cke F1</span>
+    <span class="kw">mean</span>(gross1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) <span class="co"># A5: nun wird der Mittelwert richtig berechnet!</span>
+    <span class="kw">mean</span>(gross1, <span class="dt">trim =</span> <span class="fl">0.5</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) <span class="co"># A6</span>
+    gross_prod &lt;-<span class="st"> </span>gross[<span class="dv">2</span>]<span class="op">*</span>gross[<span class="dv">3</span>] <span class="co"># A7</span>
+    sex[<span class="dv">3</span>]  &lt;-<span class="st"> </span><span class="dv">1</span>    <span class="co"># A8</span>
+    x       &lt;-<span class="st"> </span><span class="dv">50</span><span class="op">:</span><span class="dv">1</span> <span class="co"># A9</span>
+    x[<span class="op">-</span><span class="dv">2</span>]           <span class="co"># A10: Alle Werte bis auf den zweiten Wert der Liste.</span>
+    x       &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="co"># A11: vgl. gegebenenfalls in der Hilfe unter seq()</span>
+                   <span class="dt">to =</span> <span class="dv">10</span>,
+                   <span class="dt">by =</span> <span class="dv">2</span>)
+    x       &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="co"># A12</span>
+                   <span class="dt">to =</span> <span class="dv">2</span>,
+                   <span class="dt">by =</span> <span class="op">-</span><span class="dv">2</span>)
+    x       &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="co"># A13</span>
+                     <span class="dt">to   =</span> <span class="dv">10</span>,
+                     <span class="dt">by =</span> <span class="dv">2</span>), <span class="dv">50</span>)
+    <span class="kw">class</span>(x)  <span class="co"># A14</span>
+    x_c &lt;-<span class="st"> </span><span class="kw">as.character</span>(x) <span class="co"># A15</span>
+    <span class="kw">class</span>(x_c) <span class="co"># A16</span>
+    x_n &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(x)  <span class="co"># A17</span>
+    <span class="kw">class</span>(x_n) <span class="co"># A18</span>
+    <span class="kw">sum</span>(gross <span class="op">&gt;=</span><span class="st"> </span><span class="dv">173</span>) <span class="co"># A19</span>
+    <span class="kw">which</span>(gross <span class="op">%in%</span><span class="st"> </span><span class="dv">181</span>) <span class="co"># A20</span></code></pre></div>
+</div>
+<div id="losungen-zu-aufgabenblock-faktoren" class="section level2">
+<h2><span class="header-section-number">9.3</span> Lösungen zu Aufgabenblock Faktoren:</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="co"># Aufgabe 1</span>
+    x       &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)
+    x_fact  &lt;-<span class="st"> </span><span class="kw">factor</span>(x, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>))
+    <span class="co"># Aufgabe 2</span>
+    x_fact2         &lt;-<span class="st"> </span>x_fact
+    <span class="kw">levels</span>(x_fact2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;S1&#39;</span>, <span class="st">&#39;S2&#39;</span>, <span class="st">&#39;S3&#39;</span>)
+    <span class="kw">table</span>(x_fact2)
+    <span class="co"># Aufgabe 3</span>
+    x_fact3 &lt;-<span class="st"> </span><span class="kw">factor</span>(x_fact2, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;S3&quot;</span>, <span class="st">&quot;S1&quot;</span>, <span class="st">&quot;S2&quot;</span>))
+    <span class="kw">table</span>(x_fact2)
+    <span class="kw">table</span>(x_fact3)</code></pre></div>
+</div>
+<div id="losungen-zu-aufgabenblock-matrizen" class="section level2">
+<h2><span class="header-section-number">9.4</span> Lösungen zu Aufgabenblock Matrizen:</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    X &lt;-<span class="st"> </span><span class="kw">cbind</span>(lalt, sex, gross) <span class="co"># A1</span>
+    Z &lt;-<span class="st"> </span><span class="kw">rbind</span>(lalt, sex, gross) <span class="co"># A2</span>
+    X[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># A3</span>
+    X[<span class="dv">3</span>,] <span class="co"># A4</span>
+    X[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]  <span class="co"># A5</span>
+    <span class="kw">colnames</span>(X)  <span class="co"># A6</span>
+    ColNames    &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Alter&quot;</span>, <span class="st">&quot;Gewicht&quot;</span>, <span class="st">&quot;Gr??e&quot;</span>)  <span class="co"># A7</span>
+    <span class="kw">colnames</span>(X) &lt;-<span class="st"> </span>ColNames <span class="co"># A8</span>
+    namen       &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Walter&quot;</span>, <span class="st">&quot;Gerda&quot;</span>,<span class="st">&quot;Hannes&quot;</span>, <span class="st">&quot;Ute&quot;</span>, <span class="st">&quot;Hanna&quot;</span>,<span class="st">&quot;Doris&quot;</span>,<span class="st">&quot;Karin&quot;</span>) <span class="co"># A9</span>
+    <span class="kw">rownames</span>(X) &lt;-<span class="st"> </span>namen  <span class="co"># A10</span>
+    <span class="kw">fix</span>(X)  <span class="co"># A11</span>
+    <span class="kw">dim</span>(X)  <span class="co"># A12</span>
+    <span class="kw">length</span>(X)  <span class="co"># A13</span>
+    <span class="kw">cbind</span>(X, X[,<span class="dv">3</span>] <span class="op">/</span><span class="st"> </span><span class="dv">100</span>)
+    <span class="kw">which</span>(X[,<span class="dv">3</span>] <span class="op">&gt;</span><span class="st"> </span><span class="dv">200</span>)</code></pre></div>
+</div>
+<div id="losungen-zu-aufgabenblock-dataframes" class="section level2">
+<h2><span class="header-section-number">9.5</span> Lösungen zu Aufgabenblock Dataframes:</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    fragebogen &lt;-<span class="st"> </span><span class="kw">data.frame</span>(id, sex, lalt, gross, mon, date, entsch, proj, i1, i2, i3, i4, i5) <span class="co"># A1</span>
+    fragebogen[<span class="dv">3</span>,] <span class="co"># A2</span>
+    <span class="kw">head</span>(fragebogen) <span class="co"># A3</span>
+    fragebogen<span class="op">$</span>i1[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># A4</span>
+    fragebogen[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">9</span>] <span class="co"># A5</span>
+    fragebogen[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="st">&quot;i1&quot;</span>] <span class="co"># A5 - Alternative L?ung mit Verwendung des Spaltennamens</span>
+    <span class="kw">attach</span>(fragebogen) <span class="co"># A6</span>
+    <span class="kw">detach</span>(fragebogen) <span class="co"># A6</span></code></pre></div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="aufbau-des-kurses.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="attribute.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rarbeiten.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="aufbau-des-kurses.html">
+<link rel="prev" href="files-pane.html">
+<link rel="next" href="objekte-in-r.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -252,26 +252,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Reinführung in RStudio</h1>
-<h4 class="author"><em>Walter Gruber</em></h4>
-<h4 class="date"><em>2019-01-01</em></h4>
+<div id="top-down-vs.bottom-up" class="section level1">
+<h1><span class="header-section-number">6</span> Top-Down vs. Bottom-Up</h1>
+<p>Wie beim Erlernen einer neuen Sprache, gibt es auch für Programmiersprachen verschiedene Ansätze. Im Bottom-Up Ansatz wird man sich zuerst mit den Elementen einer Sprache (Vokabeln) und deren korrekter Zusammensetzung (Grammatik) beschäftigen. Dieser Ansatz ist vor allem zu Beginn oft schwierig und mühsam, da die Zusammenhänge erst nach einiger Zeit klar werden und die (erfolgreiche) Anwendung der Sprache erst nach einer mehr oder weniger langen <em>Vorlaufzeit</em> möglich ist.</p>
+<p>Beim Top-Down Ansatz wird man direkt mit dem gesamten Umfang der Sprache konfrontiert. Sprachbausteine werden von anderen übernommen, Details zur Struktur, den Regeln und eine Erweiterung des Wortschatzes bilden sich durch die Übernahme von Experten.</p>
+<p>Bei der Erlernung einer Programmiersprache bietet sich vor allem durch die unzähligen Möglichkeiten von Beispielen und Vorlagen im Internet, sowie die bis ins letzte Detail ausgearbeiteten Hilfeseiten zu den jeweiligen Sprachen eine Mischung des Lernvorganges an. Wir werden den Einstieg in die Programmiersprache R mit einem Top-Down Ansatz beginnen.</p>
+<div id="top-down---copy-und-paste" class="section level2">
+<h2><span class="header-section-number">6.1</span> Top Down - Copy und Paste</h2>
+<p>Erstelle eine neue R-Script-Datei. Kopiere den nachfolgenden Code in diese neue Datei und speicher diesen unter den Namen <em>06_R_Paste_Copy_Intro.R</em> in ein Verzeichnis deiner Wahl.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#------------------------------- Initialisierung</span>
+<span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)
+pacman<span class="op">::</span><span class="kw">p_load</span>(ggplot2)
+<span class="co">#------------------------------- Ende Initialisierung</span></code></pre></div>
+<p>Öffne einen Browser (Mozilla, IE, Chrome, …) und bearbeite folgende Aufgabenstellungen:</p>
+<div id="copy-und-paste-aufgabenblock" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> Copy und Paste (Aufgabenblock):</h3>
+<ol style="list-style-type: decimal">
+<li>Kopiere von <a href="http://www.cookbook-r.com/Basics/Indexing_into_a_data_structure/">Indexing with numbers and names</a> die Zeile <span class="math inline">\(v &lt;- c(1,4,4,3,2,2,3)\)</span> in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.</li>
+<li>Kopiere (aus der Website) die Zeile <span class="math inline">\(v[c(2,3,4)]\)</span> in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.</li>
+<li>Gehe zur folgenden Website: <a href="http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/">Bar and line graphs (ggplot2)</a> und kopiere aus dem Block <em>Bar graphs of values</em> die ersten vier Zeilen in den Editor. Führe diese Zeilen aus und diskutiere das Ergebnis.</li>
+<li>Kopiere nun von dieser Website den zweiten Codeblock und führe den Code aus. Diskutiere das Ergebnis (siehe Plots-Fenster).</li>
+<li>Kopiere nun die zwei Codeblocks im Kapitel “Bar graphs of counts” und führe den Code aus. Beachte vor allem, woher die Daten (tips) kommen!</li>
+<li>Gebe die Befehle data() und ?tips, bzw. ?french_fries ein und diskutiere das Ergebnis.</li>
+<li>Führe folgende zwei Zeilen aus:
+<ul>
+<li>Dat_FF &lt;- french_fries</li>
+<li>str(Dat_FF)</li>
+</ul></li>
+<li>Laden mit Hilfe von Import Dataset die SPSS-Datei “bigfive.sav” und kopiere die entsprechenden Befehle in dein Skript.</li>
+<li>Lade nun die Datei “bigfive_excel.xlsx” (ebenfalls in ../Data/) mit Hilfe von Import Dataset und kopiere die entsprechenden R-Befehle in den Editor.</li>
+</ol>
 </div>
-<div id="vorwort" class="section level1 unnumbered">
-<h1>Vorwort</h1>
-<p>Dieser Kurs richtet sich vor allem an jene Personen, die weder Erfahrungen in der Programmierung im Allgemeinen, noch im Umgang mit R im Speziellen haben. Programme zu schreiben ist nicht allzu schwer. Man muss sich ein paar Regeln der verwendeten Programmiersprache aneignen und schon kann es losgehen.</p>
-<p>Gute Programme zu schreiben ist schon etwas schwieriger, aber auch das ist mit etwas Aufwand durchaus machbar. Häufig wird am Beginn einer Karriere als Programmierer der Fehler gemacht, sich zu sehr auf Details zu konzentrieren und dabei den Überblick des eigentlichen Ziels eines Programmes zu verlieren. Während der Programmierung sollte man sich stets darüber im Klaren sein, dass ein Computerprogramm immer genau das macht, was man ihm sagt und nichts macht, was man ihm nicht sagt.</p>
-<p>Was uns oft klar und logisch erscheint, bleibt für ein Computerprogramm so lange undurchführbar, bis man es durch detaillierte Schritt für Schritt Instruktionen mit unserer Logik und Idee vertraut gemacht hat. Wenn das gelingt, wird es ein treuer Partner sein und mit einer unbestechlichen Präzision diese Logik hunderte, oder millionenmal abarbeiten, ohne einen einzigen Fehler dabei zu begehen.</p>
-<p>Für Einsteiger ist es oft schwierig zu beurteilen, in welcher Reihenfolge und in welchem Detail Instruktionen für den Computer gegeben werden müssen. Daher ist es primäres Ziel dieser LV, die grundlegenden Elemente der Programmiersprache R kennen zulernen und diese richtig anzuwenden. Dabei werden wir auch Hilfsmittel kennen lernen, die den Einstieg in R wesentlich erleichtern können.</p>
-
+</div>
+<div id="bottom-up" class="section level2">
+<h2><span class="header-section-number">6.2</span> Bottom Up</h2>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="aufbau-des-kurses.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="files-pane.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="objekte-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
