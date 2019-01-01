@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Reinführung in RStudio</title>
+  <meta name="description" content="Erste Schritte in R mit RStudio">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Reinführung in RStudio" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/03_R_Debugging.PNG" />
+  <meta property="og:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="github-repo" content="wgruber/RIntro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Reinführung in RStudio" />
+  
+  <meta name="twitter:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="twitter:image" content="images/03_R_Debugging.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2018-12-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="aufbau-des-kurses.html">
+<link rel="next" href="r-syntax.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html"><i class="fa fa-check"></i>Aufbau des Kurses</a><ul>
+<li class="chapter" data-level="0.1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#entstehungsgeschichte-von-r1"><i class="fa fa-check"></i><b>0.1</b> Entstehungsgeschichte von R</a></li>
+<li class="chapter" data-level="0.2" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#warum-sollte-man-r-verwenden"><i class="fa fa-check"></i><b>0.2</b> <strong>Warum</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="0.3" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-verwenden"><i class="fa fa-check"></i><b>0.3</b> <strong>Wann</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="0.4" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-nicht-verwenden"><i class="fa fa-check"></i><b>0.4</b> <strong>Wann</strong> sollte man <strong>R nicht</strong> verwenden?</a></li>
+<li class="chapter" data-level="0.5" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#alternativen-zu-r"><i class="fa fa-check"></i><b>0.5</b> Alternativen zu R</a><ul>
+<li class="chapter" data-level="0.5.1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#jamovi"><i class="fa fa-check"></i><b>0.5.1</b> JAMOVI</a></li>
+<li class="chapter" data-level="0.5.2" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#jasp"><i class="fa fa-check"></i><b>0.5.2</b> JASP</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="rstudio1.html"><a href="rstudio1.html"><i class="fa fa-check"></i><b>1</b> <strong>R</strong>Studio</a><ul>
+<li class="chapter" data-level="1.1" data-path="rstudio1.html"><a href="rstudio1.html#aufbau-von-rstudio"><i class="fa fa-check"></i><b>1.1</b> Aufbau von RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-syntax.html"><a href="r-syntax.html"><i class="fa fa-check"></i><b>2</b> R-Syntax</a><ul>
+<li class="chapter" data-level="2.1" data-path="r-syntax.html"><a href="r-syntax.html#kommandozeile-befehlszeile-console"><i class="fa fa-check"></i><b>2.1</b> Kommandozeile (Befehlszeile, Console)</a></li>
+<li class="chapter" data-level="2.2" data-path="r-syntax.html"><a href="r-syntax.html#mathematische-operatorenfunktionen"><i class="fa fa-check"></i><b>2.2</b> Mathematische Operatoren/Funktionen</a></li>
+<li class="chapter" data-level="2.3" data-path="r-syntax.html"><a href="r-syntax.html#hilfe-in-rstudio"><i class="fa fa-check"></i><b>2.3</b> Hilfe in RStudio</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="r-syntax.html"><a href="r-syntax.html#online-lernprogramme"><i class="fa fa-check"></i><b>2.3.1</b> Online-Lernprogramme</a></li>
+<li class="chapter" data-level="2.3.2" data-path="r-syntax.html"><a href="r-syntax.html#verwendung-der-konsole-aufgabe-1"><i class="fa fa-check"></i><b>2.3.2</b> Verwendung der Konsole (Aufgabe 1)</a></li>
+<li class="chapter" data-level="2.3.3" data-path="r-syntax.html"><a href="r-syntax.html#wiederverwendung-von-befehlszeilen---die-command-history"><i class="fa fa-check"></i><b>2.3.3</b> Wiederverwendung von Befehlszeilen - die Command-History</a></li>
+<li class="chapter" data-level="2.3.4" data-path="r-syntax.html"><a href="r-syntax.html#weitere-eigenschaften-der-console-pane"><i class="fa fa-check"></i><b>2.3.4</b> Weitere Eigenschaften der Console Pane</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r-syntax.html"><a href="r-syntax.html#terminal-fenster"><i class="fa fa-check"></i><b>2.4</b> Terminal-Fenster</a></li>
+<li class="chapter" data-level="2.5" data-path="r-syntax.html"><a href="r-syntax.html#r-markdown-fenster"><i class="fa fa-check"></i><b>2.5</b> R-Markdown-Fenster</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lsungen.html"><a href="lsungen.html"><i class="fa fa-check"></i><b>3</b> L?sungen</a><ul>
+<li class="chapter" data-level="3.1" data-path="lsungen.html"><a href="lsungen.html#aufgabe-1"><i class="fa fa-check"></i><b>3.1</b> Aufgabe 1</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reinführung in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rstudio1" class="section level1">
+<h1><span class="header-section-number">1</span> <strong>R</strong>Studio<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></h1>
+<p><a href="https://www.rstudio.com/">RStudio</a> ist eine vom Unternehmen RStudio, Inc. angebotene, integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für die statistische Programmiersprache R. Bei RStudio handelt es sich um eine IDE<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>-Anwendung, ein Begriff den man häufig bei der Beschreibung von RStudio verwendet.</p>
+<p>RStudio ist sowohl als lokale Desktop-Version als auch als Server-Version mit gleichem Layout verfügbar. Die Umgebung teilt sich in vier Fenster (Panes), in denen:</p>
+<ul>
+<li>eines für die Erstellung von Skripten genutzt wird,</li>
+<li>ein anderes als Kommandozeile mit Output des Programmiercodes und</li>
+<li>ein weiteres für die Anzeige von Objekten in der Arbeitsumgebung.</li>
+<li>In einem vierten Bereich lassen sich mit Reitern grafischer Output, eine Paketverwaltung, das Ordnerverzeichnis und mehr anzeigen.</li>
+</ul>
+<p>RStudio bietet eine umfangreiche Entwicklungsumgebung und ermöglicht eine Vielzahl sehr hilfreicher Funktionalitäten, wie:</p>
+<ul>
+<li>Autovervollständigung, automatische Einrückungen, Syntaxhervorhebung.</li>
+<li>Code-Faltung.</li>
+<li>integrierte Hilfe und Informationen zu Objekten in der Arbeitsumgebung.</li>
+<li>Datensätze betrachten und bearbeiten.</li>
+<li>Zusammenfassen von Skripten, Daten und weitere Dateien zu Projekten (.Rproj), was die Zusammenarbeit erleichtert, zumal eine Versionsverwaltung mit Git enthalten ist.</li>
+</ul>
+<p>Mit Hilfe der Paketverwaltung lassen sich Pakete installieren und laden. Die Erstellung von Berichten mit Hilfe von <em>knitr</em> oder <em>Sweave</em> kann aus RStudio heraus erfolgen. Ein grafischer Debugger ist enthalten. Zudem kann Code in C, C++ oder Fortran kompiliert werden und direkt eingebunden werden.</p>
+<p>Für beide Ausführungen (Desktop, Server) von RStudio kann auch eine kommerzielle Variante erworben werden, die Support einschließt. Mit der kommerziellen Serverversion können mehrere Sitzungen parallel laufen und unterschiedliche Versionen von R verwendet werden. Außerdem sind das Teilen von Projekten und das Ressourcenmanagement einfacher.</p>
+<div id="aufbau-von-rstudio" class="section level2">
+<h2><span class="header-section-number">1.1</span> Aufbau von RStudio</h2>
+<p>Beim Erststart von RStudio werden drei Fenster angezeigt. Für die effiziente Entwicklung von R-Programmen verwendet man einen Editor, welcher im RStudio integriert ist. Die Verwendung des Editors öffnet ein viertes Fenster. Diese vier Fenster bilden im Allgemeinen das Arbeitsumfeld mit RStudio.</p>
+<ol style="list-style-type: decimal">
+<li>Konsole</li>
+<li>Environment</li>
+<li>Files</li>
+<li>Source</li>
+</ol>
+<p>Die standardmäßige Anordnung und Anzeige von Details innerhalb der Fenster kann durch den Benutzer angepasst werden. Details dazu werden bei den jeweiligen Kapiteln besprochen.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p><a href="https://de.wikipedia.org/wiki/RStudio">RStudio Beschreibung Wikipedia</a><a href="rstudio1.html#fnref2">↩</a></p></li>
+<li id="fn3"><p><strong>I</strong>ntegrated <strong>D</strong>evelopment <strong>E</strong>nvironment<a href="rstudio1.html#fnref3">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="aufbau-des-kurses.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-syntax.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

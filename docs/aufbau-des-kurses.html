@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Reinführung in RStudio</title>
+  <meta name="description" content="Erste Schritte in R mit RStudio">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Reinführung in RStudio" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/Cover.PNG" />
+  <meta property="og:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="github-repo" content="wgruber/RIntro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Reinführung in RStudio" />
+  
+  <meta name="twitter:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="twitter:image" content="images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="rstudio5.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html"><i class="fa fa-check"></i><b>1</b> Aufbau des Kurses</a><ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#ziele"><i class="fa fa-check"></i>Ziele</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#allgemeines"><i class="fa fa-check"></i>Allgemeines</a><ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#entstehungsgeschichte-von-r1"><i class="fa fa-check"></i>Entstehungsgeschichte von R</a></li>
+<li><a href="aufbau-des-kurses.html#warum-sollte-man-r-verwenden"><strong>Warum</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li><a href="aufbau-des-kurses.html#wann-sollte-man-r-verwenden"><strong>Wann</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li><a href="aufbau-des-kurses.html#wann-sollte-man-r-nicht-verwenden"><strong>Wann</strong> sollte man <strong>R nicht</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#alternativen-zu-r"><i class="fa fa-check"></i>Alternativen zu R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio5.html"><a href="rstudio5.html"><i class="fa fa-check"></i><b>2</b> <strong>R</strong>Studio</a><ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufbau-von-rstudio"><i class="fa fa-check"></i>Aufbau von RStudio</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-syntax"><i class="fa fa-check"></i>R-Syntax</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#kommandozeile-befehlszeile-console"><i class="fa fa-check"></i>Kommandozeile (Befehlszeile, Console)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#mathematische-operatorenfunktionen"><i class="fa fa-check"></i>Mathematische Operatoren/Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#hilfe-in-rstudio"><i class="fa fa-check"></i>Hilfe in RStudio</a><ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#online-lernprogramme"><i class="fa fa-check"></i>Online-Lernprogramme</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#verwendung-der-konsole-aufgabe-1"><i class="fa fa-check"></i>Verwendung der Konsole (Aufgabe 1)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#wiederverwendung-von-befehlszeilen---die-command-history"><i class="fa fa-check"></i>Wiederverwendung von Befehlszeilen - die Command-History</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#weitere-eigenschaften-der-console-pane"><i class="fa fa-check"></i>Weitere Eigenschaften der Console Pane</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#terminal-fenster"><i class="fa fa-check"></i>Terminal-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-markdown-fenster"><i class="fa fa-check"></i>R-Markdown-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#losungen"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufgabe-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="source-pane.html"><a href="source-pane.html"><i class="fa fa-check"></i><b>3</b> Source-Pane</a><ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#dateitypen"><i class="fa fa-check"></i>Dateitypen</a><ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-script"><i class="fa fa-check"></i>R Script</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-markdown"><i class="fa fa-check"></i>R-Markdown</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#andere-dokumentenarten"><i class="fa fa-check"></i>Andere Dokumentenarten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#nutzliches-im-editor"><i class="fa fa-check"></i>Nützliches im Editor</a><ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-completion"><i class="fa fa-check"></i>Code completion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#keyboard-short-cuts"><i class="fa fa-check"></i>Keyboard Short-Cuts</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-snippets"><i class="fa fa-check"></i>Code Snippets</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#extract-funktion"><i class="fa fa-check"></i>Extract Funktion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#suchfunktionen"><i class="fa fa-check"></i>Suchfunktionen</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-folding"><i class="fa fa-check"></i>Code Folding</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#running-code"><i class="fa fa-check"></i>Running Code</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#traceback-debugging"><i class="fa fa-check"></i>Traceback (Debugging)</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#kommentare"><i class="fa fa-check"></i>Kommentare</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="environment-pane.html"><a href="environment-pane.html"><i class="fa fa-check"></i><b>4</b> Environment-Pane</a><ul>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#history"><i class="fa fa-check"></i>History</a></li>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#connections"><i class="fa fa-check"></i>Connections</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="files-pane.html"><a href="files-pane.html"><i class="fa fa-check"></i><b>5</b> Files-Pane</a><ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#files"><i class="fa fa-check"></i>Files</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#packages"><i class="fa fa-check"></i>Packages</a><ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#umgang-mit-paketen"><i class="fa fa-check"></i>Umgang mit Paketen</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#installation-und-verwendung-von-paketen"><i class="fa fa-check"></i>Installation und Verwendung von Paketen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#help"><i class="fa fa-check"></i>Help</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#viewer"><i class="fa fa-check"></i>Viewer</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rlernen.html"><a href="rlernen.html"><i class="fa fa-check"></i><b>6</b> Rlernen</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down-vs.bottom-up"><i class="fa fa-check"></i>Top-Down vs. Bottom-Up</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down---copy-und-paste"><i class="fa fa-check"></i>Top Down - Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#bottom-up"><i class="fa fa-check"></i>Bottom Up</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#objekte-in-r"><i class="fa fa-check"></i>Objekte in R</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#vektoren"><i class="fa fa-check"></i>Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#faktoren"><i class="fa fa-check"></i>Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#matrizen"><i class="fa fa-check"></i>Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-frames"><i class="fa fa-check"></i>Data-Frames</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-tables"><i class="fa fa-check"></i>Data-Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#listen"><i class="fa fa-check"></i>Listen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#attribute"><i class="fa fa-check"></i>Attribute</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-1"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-copy-und-paste"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-vektoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-faktoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-matrizen"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-dataframes"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Dataframes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="rarbeiten.html"><a href="rarbeiten.html"><i class="fa fa-check"></i><b>7</b> Rarbeiten</a><ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#lesen-und-speichern-von-dateien"><i class="fa fa-check"></i>Lesen und speichern von Dateien</a><ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#r-dateien"><i class="fa fa-check"></i>R-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#text-dateien"><i class="fa fa-check"></i>Text-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#spss-dateien"><i class="fa fa-check"></i>SPSS-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#excel-dateien"><i class="fa fa-check"></i>Excel-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#dateien-vom-web"><i class="fa fa-check"></i>Dateien vom Web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html"><i class="fa fa-check"></i><b>8</b> Rechnen mit R</a><ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#deskriptive-datenanalyse"><i class="fa fa-check"></i>Deskriptive Datenanalyse</a><ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#kennwerte-der-deskriptiven-statistik"><i class="fa fa-check"></i>Kennwerte der deskriptiven Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphiken-der-deskriptiven-statistik"><i class="fa fa-check"></i>Graphiken der deskriptiven Statistik</a><ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-des-basispakets"><i class="fa fa-check"></i>Graphen des Basispakets</a></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-mit-ggplot2"><i class="fa fa-check"></i>Graphen mit ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#losungen-2"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#losung-funktion-standardfehler"><i class="fa fa-check"></i><b>8.0.1</b> Lösung Funktion Standardfehler</a></li>
+<li class="chapter" data-level="8.0.2" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#losung-ggplot-beispiel-1"><i class="fa fa-check"></i><b>8.0.2</b> Lösung ggplot Beispiel 1</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reinführung in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="aufbau-des-kurses" class="section level1">
+<h1><span class="header-section-number">1</span> Aufbau des Kurses</h1>
+<center>
+<div class="figure">
+<img src="/Images/Cover.png" style="width:50.0%" />
+
+</div>
+</center>
+<p>Im Lauf des Kurses werden wir abwechselnd zwei unterschiedliche Ansätze des Lernens verwenden. Ich habe diese Ansätze <em>Top-Down</em> und <em>Bottom-Up</em> genannt und werde die Idee dahinter noch im Detail erklären. Der Einstieg in R wird wesentlich durch die Verwendung von <em>RStudio</em> erleichtert. Wir werden im Folgenden die Eigenschaften und den Umgang mit diesem Programm im Detail besprechen.</p>
+<p>Unabhängig von der Vorgehensweise werden wir jeweils zu den behandelten Themen direkt Übungen in R durchführen. Diese Übungen sind zum Großteil in den vorliegenden Unterlagen beschrieben und der entsprechende R-Code kann direkt aus diesen Unterlagen ins <em>RStudio</em> übernommen und ausgeführt werden.</p>
+<p>Des Weiteren sind zwischen den Kursterminen Hausübungen zu bearbeiten. Den genauen Ablauf werde ich während der Lehrveranstaltung bekannt geben. Zur Beurteilung eurer Leistungen in der LV sind interaktive Online-Fragen zu bearbeiten. Auch hierzu werde ich Details während der LV bekannt geben.</p>
+<div id="ziele" class="section level2 unnumbered">
+<h2>Ziele</h2>
+<ul>
+<li>Aufbau von R-Studio.</li>
+<li>wo und wie findet man nützliche Infos zu R und RStudio.</li>
+<li>Definition von Daten und Objekten in R</li>
+<li>grundlegende Logik von Befehlen und Funktionen in R.</li>
+<li>Daten einlesen und bearbeiten.</li>
+<li>einfache deskriptive Statistiken anfordern.</li>
+<li>einfache Graphiken erstellen und bearbeiten.</li>
+<li>einige nützliche (statistische) Funktionen kennen.</li>
+</ul>
+</div>
+<div id="allgemeines" class="section level2 unnumbered">
+<h2>Allgemeines</h2>
+<p>Nachfolgend ein kurzer Überblick über die Entstehungsgeschichte von R.</p>
+<div id="entstehungsgeschichte-von-r1" class="section level3 unnumbered">
+<h3>Entstehungsgeschichte von R<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></h3>
+<center>
+<div class="figure">
+<img src="/Images/RHistorie.png" alt="Abbildung 1: von F zu R" style="width:50.0%" />
+<p class="caption"><strong>Abbildung 1</strong>: von F zu R</p>
+</div>
+</center>
+<ul>
+<li>Entwickelt 1992, orientiert sich R eng an Sprache S. Weitere Inspirationsquelle war die Programmiersprache Scheme. <strong>1993 wurde die Software erstmals öffentlich vorgestellt</strong> und seit Juni 1995 steht R unter der <a href="https://de.wikipedia.org/wiki/GNU_General_Public_License">GNU General Public License</a>.</li>
+<li>Bis 1996 oder 1997 gab es zwischen 50 und 100 Leute in einer Mailingliste, die dabei halfen die Sprache gemeinsam zu verbessern. Im Jahr 1997 wurde das R Development Core Team gebildet (heute R Core Team), das sich um die Weiterentwicklung von R kümmert und den Quellcode verändern kann.</li>
+<li>Das Comprehensive R Archive Network (CRAN) als Plattform für Pakete startete am 23. April 1997 um Anwendern die Möglichkeit zu geben selbst geschriebene Funktionen leichter mit Anderen zu teilen.</li>
+<li>Seit April 2001 gibt es R für macOS. Im September 2002 gründeten die Mitglieder des R Development Core Teams den gemeinnützigen Verein The R Foundation for Statistical Computing in Wien, welcher sich um die Außendarstellung kümmert.</li>
+<li>Die R-Version 2.0 wurde am 4. Oktober 2004 veröffentlicht. Seitdem nutzt R Lazy Loading, um Daten bei geringer Beanspruchung des Arbeitsspeichers schnell laden zu können.</li>
+<li>Ab Version 2.1 (18. April 2005) unterstützt R unterschiedliche Sprachversionen (Internationalisierung) und Zeichenkodierungen, insbesondere UTF-8.</li>
+<li>Mit die Einführung von Version 2.11 im April 2010, die R auf 64-Bit-Systemen nutzbar macht und bis zu acht Terabyte Arbeitsspeicher adressieren kann gelang der Einstieg in Big-Data-Processing.</li>
+<li>Im Oktober 2011 (Version 2.14) wurde die parallele Ausführung von Funktionen eingeführt.</li>
+<li>Neben all diesen technischen Entwicklungen wurden unzählige Pakete für alle erdenklichen Anwendungsbereiche durch die Community entwickelt.</li>
+<li>Derzeit (Stand November 2018) gibt es 13.346 packages (mit dem Befehl <em>available.packages()</em>) kann man das jederzeit abfragen) allein auf CRAN! Dabei sind die Packages anderer Repositories (z.B. <em>Bioconductor</em><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> mit 1.649 packages) noch nicht berücksichtigt!</li>
+</ul>
+</div>
+<div id="warum-sollte-man-r-verwenden" class="section level3 unnumbered">
+<h3><strong>Warum</strong> sollte man <strong>R</strong> verwenden?</h3>
+<p>R ist eine Programmiersprache, die besonders zur Analyse und Visualisierung von Daten genutzt wird. Sehr viele Neuentwicklungen in der Statistik passieren in R. Auch ohne Vorkenntnisse in einer Programmiersprache findet man sich in R schnell zurecht.</p>
+<p>Mit Hilfe von RStudio, den unzähligen Tutorials und Hilfeseiten gelingt es schon nach sehr kurzer Zeit die ersten hilfreichen Programme zu schreiben. Alle diese Tools sind <a href="https://de.wikipedia.org/wiki/Open_Source">open source</a>, d.h. transparent, eigenständig veränderbar und vor allem kostenlos. Stellt man die Vor- und Nachteile der Nutzung von R gegenüber, lässt sich die Entscheidung Arbeit in R hineinzustecken relativ leicht rechtfertigen:</p>
+<ul>
+<li>Vorteile
+<ul>
+<li>Neben gängigen Programmen zur statistischen Auswertung, wie beispielsweise “SPSS” bietet R den Vorteil, dass es auf der ganzen Welt kostenlos zur Verfügung steht.</li>
+<li>R kann die meisten gängigen Formate importieren und bietet ein quelloffenes Format für erstellte Datensätze.</li>
+<li>Darüber hinaus stellt R mächtigere und mehr Auswertungsverfahren zur Verfügung als viele andere Programme.</li>
+<li>R ist eine Programmierumgebung. Funktionen können bequem den eigenen Bedürfnissen angepasst werden. Komplexe Probleme lassen sich auch dann lösen, wenn die Entwickler diese (noch) nicht implementiert haben.</li>
+<li>R wird von der Scientific Community kontinuierlich weiterentwickelt. Neue statistische Verfahren werden in der Regel auch in R integriert. Ein standardisiertes Pakete-System erleichtert die Nachinstallation ebenso wie die Veröffentlichung eigener Pakete.</li>
+<li>R erstellt professionelle Graphiken in einer Vielzahl an Formaten.</li>
+<li>R erleichtert durch z.T. selbstdokumentierende Codes die Reproduzierbarkeit von Studien.</li>
+<li>R bietet eine Vielzahl an Online-Tutorials, Blogs und sonstige Hilfestellungen.</li>
+</ul></li>
+<li>Nachteile
+<ul>
+<li>Für den Anfänger ist die Funktionsweise und Bedienung von R zweifellos gewöhnungsbedürftig.</li>
+<li>die Formatierung von Ergebnisse in R (Tabellen, Graphiken, etc.) muss häufig durch zusätzliche Programmschritte vom Benutzer durchgeführt werden.</li>
+<li>R ist prinzipiell Code-basiert. Benutzerfreundliche Interaktionsfenster zur Parametrisierung von Analysen müssen durch den Programmierer mit Hilfe entsprechender Programmpakete (z.B. Shiny, Java, etc.) selbst erstellt werden.</li>
+</ul></li>
+</ul>
+</div>
+<div id="wann-sollte-man-r-verwenden" class="section level3 unnumbered">
+<h3><strong>Wann</strong> sollte man <strong>R</strong> verwenden?</h3>
+<p>Ein Hardco<em>R</em>e’<em>ler</em> würde diese Frage nicht verstehen und sich wahrscheinlich kopfschüttelnd wieder der Programmierung widmen, ohne den Fragesteller weiter zu beachten. Für alle anderen stellt sich jedoch die Frage, ob und ab wann sich der Aufwand eine Programmiersprache zu erlernen lohnt. Das kann eigentlich nur jeder für sich selbst entscheiden. Gute Gründe könnten z.B. sein, wenn:</p>
+<ul>
+<li>keine finanziellen Mittel zur Anschaffung einer kostenpflichtigen Statistiksoftware vorhanden sind.</li>
+<li>die zur Verfügung stehende Software ist nicht in der Lage, ein vorliegendes statistisches Problem zu lösen.</li>
+<li>man in einem Team eine Auswertungsstrategie (sanity checks, Standardprozeduren, etc.) entwickeln möchte.</li>
+<li>dynamisches Reporting im Ablauf eines Forschungsprozesses verwendet werden soll.</li>
+</ul>
+</div>
+<div id="wann-sollte-man-r-nicht-verwenden" class="section level3 unnumbered">
+<h3><strong>Wann</strong> sollte man <strong>R nicht</strong> verwenden?</h3>
+<p>Geht es einzig und allein darum, einen Datensatz explorativ und/oder mit gängigen Analysemethoden zu bearbeiten, kann man auf bereits bestehende und benutzerfreundliche Anwendungen zurückgreifen. Wir werden uns im folgenden zwei durchaus brauchbare Programmpakete kurz ansehen.</p>
+<p>Stehen Programme wie SPSS, SAS o.ä. zur Verfügung, sollte man sich vor den Einstieg in R klar über die gesteckten Ziele sein und eine Kosten-Nutzen-Rechnung anstellen. Sehr oft ist es viel einfacher, sich in die Syntax des jeweiligen Programms einzuarbeiten, als alles in R zu lösen. Es sei auch darauf hingewiesen, dass (zumindest) <a href="https://www.ibm.com/support/knowledgecenter/de/SSLVMB_25.0.0/statistics_r_tutorial_project_ddita/spss/tutorials/rtut_intro.html">SPSS bereits eine Schnittstelle mit R</a> anbietet. Details dazu sind in den entsprechenden Manuals nachzulesen.</p>
+<p>Weitere wichtige Überlegungen bezüglich der Umstellung/Einführung von R sind:</p>
+<ul>
+<li>wie viele Mitarbeiter verwenden ein statistisches Auswerteprogramm und wie viele davon müssten sich in R einarbeiten.</li>
+<li>welche Auswertungsmethoden will ich langfristig gesehen einsetzen? Sind dabei Verfahren, die mit SPSS, SAS, etc. nicht umsetzbar sind?</li>
+<li>Wie sehr kann ich mich auf die Korrektheit der Ergebnisse aus R verlassen? Immerhin ist ja alles Freeware und es wird keine Haftung für die Richtigkeit der Ergebnisse übernommen. Spielt das eine Rolle für meine Entscheidung?</li>
+</ul>
+</div>
+<div id="alternativen-zu-r" class="section level3 unnumbered">
+<h3>Alternativen zu R</h3>
+<p>Hardco<em>R</em>e’<em>ler</em> kennen das Wort Alternative im Zusammenhang mit R nicht. Daher geben die nachfolgende Abbildungen einen Überblick über die derzeit (Stand Nov. 2018) wesentlichen Statistikprogramme am Markt<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>, ohne den Anspruch zu erheben, eine echte Alternative zu R zu sein.</p>
+<p>Freie Software:</p>
+<center>
+<div class="figure">
+<img src="/Images/FreieStatProgs.png" alt="Abbildung 2: frei verfügbare Statistikprogramme" style="width:70.0%" />
+<p class="caption"><strong>Abbildung 2</strong>: frei verfügbare Statistikprogramme</p>
+</div>
+</center>
+<p>Proprietäre Software:</p>
+<center>
+<div class="figure">
+<img src="/Images/ProprietaereStatProgs.PNG" alt="Abbildung 3: kostenpflichtige Statistikprogramme" style="width:70.0%" />
+<p class="caption"><strong>Abbildung 3</strong>: kostenpflichtige Statistikprogramme</p>
+</div>
+</center>
+<p>Mit Stand November 2018 war laut Tiobe<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> R an 14 Stelle - 3 Stellen vor Matlab! SPSS ist in der aktuellen Bewertungsliste nicht angeführt. Der Nutzungsverlauf von R seit 2010 lässt vermuten, dass R auch in den kommenden Jahren an Bedeutung für die statistische Analyse beibehält, wenn nicht noch wesentlich weiterentwickelt.</p>
+<center>
+<div class="figure">
+<img src="/Images/TiobeRVerlauf.PNG" alt="Abbildung 4: Verlauf des TIOBE-Index für R seit 2008 (the ratings are calculated by counting hits of the most popular search engines. The number of hits determines the ratings of a language. The counted hits are normalized for each search engine for all languages in the list. In other words, all languages together have a score of 100%.)" style="width:50.0%" />
+<p class="caption"><strong>Abbildung 4</strong>: Verlauf des <a href="https://www.tiobe.com/tiobe-index/">TIOBE-Index</a> für R seit 2008 (the ratings are calculated by counting hits of the most popular search engines. The number of hits determines the ratings of a language. The counted hits are normalized for each search engine for all languages in the list. In other words, all languages together have a score of 100%.)</p>
+</div>
+</center>
+<p>Zusätzlich zu dieser Liste gibt es noch viele weitere Anwendungen, die zum Teil für ganz spezielle Analysetechniken maßgeschneidert wurden - falls erforderlich einfach im Web danach suchen.</p>
+<div id="jamovi" class="section level4 unnumbered">
+<h4>JAMOVI</h4>
+<p>Ist ein Computerprogramm zur Datenanalyse und Durchführung von statistischen Tests.</p>
+<center>
+<div class="figure">
+<img src="/Images/JAMOVI.png" alt="Abbildung 5: Kurzbeschreibung von JAMOVI" style="width:50.0%" />
+<p class="caption"><strong>Abbildung 5</strong>: Kurzbeschreibung von <a href="https://www.jamovi.org/">JAMOVI</a></p>
+</div>
+</center>
+<p>Jamovi benutzt für die statistischen Auswertungen R. Damit bietet sich diese Programm auch an, bei Bedarf zwischen der bequemen Benutzung von JAMOVI und einer ins Detail gehenden Weiterentwicklung von JAMOVI-Programmen zu wechseln. Die Voraussetzungen um problemlos zwischen R und JAMOVI zu wechseln bietet das Paket <em>jmv</em>. Um den in JAMOVI verwendeten R Code sichtbar zu machen, ist folgende Einstellung in JAMOVI zu wählen:</p>
+<center>
+<div class="figure">
+<img src="/Images/01_JAMOVI_RSyntax.png" alt="Abbildung 6: Darstellung des R-Codes in JAMOVI" style="width:50.0%" />
+<p class="caption"><strong>Abbildung 6</strong>: Darstellung des R-Codes in JAMOVI</p>
+</div>
+</center>
+<p>Kopiert man den Codeteil von JAMOVI nach R, kann dieser bearbeitet/erweitert werden:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+  <span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)
+  pacman<span class="op">::</span><span class="kw">p_load</span>(here, jmv, xtable)
+  <span class="kw">options</span>(<span class="dt">digits=</span><span class="dv">3</span>)
+  
+  DatenFile &lt;-<span class="st"> &quot;/Heart Rate.csv&quot;</span>
+  D2L       &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">here</span>(<span class="st">&quot;Data&quot;</span>), DatenFile)
+  data      &lt;-<span class="st"> </span><span class="kw">read.csv</span>(D2L, <span class="dt">check.names =</span> <span class="ot">FALSE</span>)
+  
+  jmv<span class="op">::</span><span class="kw">anova</span>(<span class="dt">data =</span> data,
+             <span class="dt">dep =</span> <span class="st">&quot;Heart Rate&quot;</span>,
+             <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Group&quot;</span>),
+             <span class="dt">emMeans =</span> <span class="kw">list</span>(<span class="ot">NULL</span>))
+  
+  <span class="co"># Erweiterung in R: Angabe der Effektgrößen in Tabelle  </span>
+  jmv<span class="op">::</span><span class="kw">anova</span>(<span class="dt">data =</span> data,
+             <span class="dt">dep =</span> <span class="st">&quot;Heart Rate&quot;</span>,
+             <span class="dt">factors =</span> <span class="kw">c</span>(<span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Group&quot;</span>),
+             <span class="dt">emMeans =</span> <span class="kw">list</span>(<span class="ot">NULL</span>),
+             <span class="dt">effectSize =</span> <span class="kw">c</span>(<span class="st">&#39;eta&#39;</span>, <span class="st">&#39;partEta&#39;</span>, <span class="st">&#39;omega&#39;</span>)) <span class="co"># Diese Zeile wurde in R hinzugefügt</span></code></pre></div>
+</div>
+<div id="jasp" class="section level4 unnumbered">
+<h4>JASP</h4>
+<p>Ist ebenfalls ein Computerprogramm zur Datenanalyse und Durchführung von statistischen Tests. JASP hat einen ähnlichen Funktionsumfang wie JAMOVI. Als Besonderheit kann gelten, dass die meisten Funktionen neben der üblichen (“frequentistischen”) Form auch in einer zweiten Form, basierend auf der <em>bayesschen Statistik</em>, verfügbar sind. Der Funktionsumfang kann - wie auch bei JAMOVI - durch Module erweitert werden.</p>
+<center>
+<div class="figure">
+<img src="/Images/JASP.png" alt="Abbildung 7: Kurzbeschreibung von JASP" style="width:50.0%" />
+<p class="caption"><strong>Abbildung 7</strong>: Kurzbeschreibung von <a href="https://jasp-stats.org/">JASP</a></p>
+</div>
+</center>
+<p>Bei JASP sind neben der Bayesschen Statistik auch die verfügbaren Datensätze für den Einstieg in die Nutzung dieses Programm erwähnenswert. Sortiert nach Themenbereichen und referenziert nach Herkunft kann man einerseits mit den entsprechenden Verfahren experimentieren und gegebenenfalls auch noch in der Literatur nachschlagen - welche eben die gleichen Datensätze zur Erklärung der Verfahren verwendet. Man kann diese Daten aber auch exportieren und in JAMOVI verwenden!</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p><a href="https://de.wikipedia.org/wiki/R_(Programmiersprache)#Urspr%C3%BCnge_(1992)">Geschichte von R - Wikipedia</a><a href="aufbau-des-kurses.html#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://www.bioconductor.org/">Bioconductor - Software for Bioinformatics</a><a href="aufbau-des-kurses.html#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="https://de.wikipedia.org/wiki/Liste_von_Statistik-Software">Statistische Software Wikipedia</a><a href="aufbau-des-kurses.html#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="https://www.tiobe.com/">TIOBE Programming Community Index</a><a href="aufbau-des-kurses.html#fnref4">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rstudio5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Reinführung in RStudio</title>
+  <meta name="description" content="Erste Schritte in R mit RStudio">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Reinführung in RStudio" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/Cover.PNG" />
+  <meta property="og:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="github-repo" content="wgruber/RIntro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Reinführung in RStudio" />
+  
+  <meta name="twitter:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="twitter:image" content="images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="rarbeiten.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html"><i class="fa fa-check"></i><b>1</b> Aufbau des Kurses</a><ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#ziele"><i class="fa fa-check"></i>Ziele</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#allgemeines"><i class="fa fa-check"></i>Allgemeines</a><ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#entstehungsgeschichte-von-r1"><i class="fa fa-check"></i>Entstehungsgeschichte von R</a></li>
+<li><a href="aufbau-des-kurses.html#warum-sollte-man-r-verwenden"><strong>Warum</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li><a href="aufbau-des-kurses.html#wann-sollte-man-r-verwenden"><strong>Wann</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li><a href="aufbau-des-kurses.html#wann-sollte-man-r-nicht-verwenden"><strong>Wann</strong> sollte man <strong>R nicht</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#alternativen-zu-r"><i class="fa fa-check"></i>Alternativen zu R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio5.html"><a href="rstudio5.html"><i class="fa fa-check"></i><b>2</b> <strong>R</strong>Studio</a><ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufbau-von-rstudio"><i class="fa fa-check"></i>Aufbau von RStudio</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-syntax"><i class="fa fa-check"></i>R-Syntax</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#kommandozeile-befehlszeile-console"><i class="fa fa-check"></i>Kommandozeile (Befehlszeile, Console)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#mathematische-operatorenfunktionen"><i class="fa fa-check"></i>Mathematische Operatoren/Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#hilfe-in-rstudio"><i class="fa fa-check"></i>Hilfe in RStudio</a><ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#online-lernprogramme"><i class="fa fa-check"></i>Online-Lernprogramme</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#verwendung-der-konsole-aufgabe-1"><i class="fa fa-check"></i>Verwendung der Konsole (Aufgabe 1)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#wiederverwendung-von-befehlszeilen---die-command-history"><i class="fa fa-check"></i>Wiederverwendung von Befehlszeilen - die Command-History</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#weitere-eigenschaften-der-console-pane"><i class="fa fa-check"></i>Weitere Eigenschaften der Console Pane</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#terminal-fenster"><i class="fa fa-check"></i>Terminal-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-markdown-fenster"><i class="fa fa-check"></i>R-Markdown-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#losungen"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufgabe-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="source-pane.html"><a href="source-pane.html"><i class="fa fa-check"></i><b>3</b> Source-Pane</a><ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#dateitypen"><i class="fa fa-check"></i>Dateitypen</a><ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-script"><i class="fa fa-check"></i>R Script</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-markdown"><i class="fa fa-check"></i>R-Markdown</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#andere-dokumentenarten"><i class="fa fa-check"></i>Andere Dokumentenarten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#nutzliches-im-editor"><i class="fa fa-check"></i>Nützliches im Editor</a><ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-completion"><i class="fa fa-check"></i>Code completion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#keyboard-short-cuts"><i class="fa fa-check"></i>Keyboard Short-Cuts</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-snippets"><i class="fa fa-check"></i>Code Snippets</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#extract-funktion"><i class="fa fa-check"></i>Extract Funktion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#suchfunktionen"><i class="fa fa-check"></i>Suchfunktionen</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-folding"><i class="fa fa-check"></i>Code Folding</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#running-code"><i class="fa fa-check"></i>Running Code</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#traceback-debugging"><i class="fa fa-check"></i>Traceback (Debugging)</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#kommentare"><i class="fa fa-check"></i>Kommentare</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="environment-pane.html"><a href="environment-pane.html"><i class="fa fa-check"></i><b>4</b> Environment-Pane</a><ul>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#history"><i class="fa fa-check"></i>History</a></li>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#connections"><i class="fa fa-check"></i>Connections</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="files-pane.html"><a href="files-pane.html"><i class="fa fa-check"></i><b>5</b> Files-Pane</a><ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#files"><i class="fa fa-check"></i>Files</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#packages"><i class="fa fa-check"></i>Packages</a><ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#umgang-mit-paketen"><i class="fa fa-check"></i>Umgang mit Paketen</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#installation-und-verwendung-von-paketen"><i class="fa fa-check"></i>Installation und Verwendung von Paketen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#help"><i class="fa fa-check"></i>Help</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#viewer"><i class="fa fa-check"></i>Viewer</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rlernen.html"><a href="rlernen.html"><i class="fa fa-check"></i><b>6</b> Rlernen</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down-vs.bottom-up"><i class="fa fa-check"></i>Top-Down vs. Bottom-Up</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down---copy-und-paste"><i class="fa fa-check"></i>Top Down - Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#bottom-up"><i class="fa fa-check"></i>Bottom Up</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#objekte-in-r"><i class="fa fa-check"></i>Objekte in R</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#vektoren"><i class="fa fa-check"></i>Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#faktoren"><i class="fa fa-check"></i>Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#matrizen"><i class="fa fa-check"></i>Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-frames"><i class="fa fa-check"></i>Data-Frames</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-tables"><i class="fa fa-check"></i>Data-Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#listen"><i class="fa fa-check"></i>Listen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#attribute"><i class="fa fa-check"></i>Attribute</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-1"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-copy-und-paste"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-vektoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-faktoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-matrizen"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-dataframes"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Dataframes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="rarbeiten.html"><a href="rarbeiten.html"><i class="fa fa-check"></i><b>7</b> Rarbeiten</a><ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#lesen-und-speichern-von-dateien"><i class="fa fa-check"></i>Lesen und speichern von Dateien</a><ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#r-dateien"><i class="fa fa-check"></i>R-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#text-dateien"><i class="fa fa-check"></i>Text-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#spss-dateien"><i class="fa fa-check"></i>SPSS-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#excel-dateien"><i class="fa fa-check"></i>Excel-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#dateien-vom-web"><i class="fa fa-check"></i>Dateien vom Web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html"><i class="fa fa-check"></i><b>8</b> Rechnen mit R</a><ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#deskriptive-datenanalyse"><i class="fa fa-check"></i>Deskriptive Datenanalyse</a><ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#kennwerte-der-deskriptiven-statistik"><i class="fa fa-check"></i>Kennwerte der deskriptiven Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphiken-der-deskriptiven-statistik"><i class="fa fa-check"></i>Graphiken der deskriptiven Statistik</a><ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-des-basispakets"><i class="fa fa-check"></i>Graphen des Basispakets</a></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-mit-ggplot2"><i class="fa fa-check"></i>Graphen mit ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#losungen-2"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#losung-funktion-standardfehler"><i class="fa fa-check"></i><b>8.0.1</b> Lösung Funktion Standardfehler</a></li>
+<li class="chapter" data-level="8.0.2" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#losung-ggplot-beispiel-1"><i class="fa fa-check"></i><b>8.0.2</b> Lösung ggplot Beispiel 1</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reinführung in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rechnen-mit-r" class="section level1">
+<h1><span class="header-section-number">8</span> Rechnen mit R</h1>
+<div id="deskriptive-datenanalyse" class="section level2 unnumbered">
+<h2>Deskriptive Datenanalyse</h2>
+<p>Ziel einer deskriptiven Analyse ist eine möglichst genaue Beschreibung von Daten mit einer möglichst kleinen Menge an Zahlen. Dazu eignen sich vor allem:</p>
+<ul>
+<li>Kennwerte</li>
+<li>Tabellen</li>
+<li>Graphiken</li>
+</ul>
+<p>Mit der deskriptiven Analyse ist es darüber hinaus möglich, Daten auf ihre Plausibilität und Richtigkeit zu prüfen. Die Bedeutung einer genauen deskriptiven Analyse und die korrekte Interpretation der Ergebnisse dieser Analyse kann nicht hoch genug eingeschätzt werden.</p>
+<p>Liegen erst einmal Daten vor ist es entweder zu schwierig, aufwendig, oder zu spät am Versuchsdesign noch etwas nachträglich zu ändern. Allerdings kann man mit einer sorgsamen deskriptiven Analyse durchaus grobe Fehler bei der weiteren Analyse mit statistischen Verfahren vermeiden. Eine der wichtigsten Erkenntnisse für jeden Datenanalytiker ist, dass schlechte Daten nur schlechte Ergebnisse liefern können (garbage in - garbage out Problem). Daher sind vor Beginn jeder statistischen Analyse von Daten die deskriptiven Analysen unerlässlich.</p>
+<p>Folgende Kapitel versuchen einen groben Überblick über die Möglichkeiten der deskriptiven Analyse mit R zu geben. Da es diesbezüglich bereits eine sehr große Anzahl an guten Paketen mit sehr vielen hilfreichen Funktionen gibt, ist es im Rahmen dieser LV unmöglich auf alle Details einzugehen. Unser Streifzug durch die deskriptive Statistik mit R ist somit als Anstoß und Motivation für weitere, selbstständig durchzuführende Studien zu diesem Thema zu sehen.</p>
+<div id="kennwerte-der-deskriptiven-statistik" class="section level3 unnumbered">
+<h3>Kennwerte der deskriptiven Statistik</h3>
+<p>Kennwerte der deskriptiven Statistik lassen sich bezüglich der Beschreibung der Häufigkeiten, zentralen Tendenzen, Verteilungseigenschaften und der Dispersion unterteilen.</p>
+<ul>
+<li><em>Häufigkeiten</em></li>
+<li><em>Zentrale Tendenzen</em>: Mittelwert, Median, Modus</li>
+<li><em>Verteilungseigenschaften</em>: Schiefe (skew), Breite (kurtosis), Minimum, Maximum</li>
+<li><em>Dispersion</em>: Spannweite, Quantile, Varianz, Standardabweichung, Standardfehler.</li>
+</ul>
+<p>Für die meisten der genannten Kennwerte gibt es im R-Basispaket entsprechende Funktionen. Manche der Funktionen (z.B. Schiefe und Kurtosis) sind in Paketen (z.B. <em>moments</em>) verfügbar. Der Standardfehler kann ebenfalls in einem Paket (z.B. plotrix mit Funktion <em>std.error()</em>) berechnet werden. Da die Berechnung jedoch sehr einfach ist, kann man sich hier selbst schnell mit einer Funktion behelfen.</p>
+<p>Aufgabe: programmiere die Berechnung des Standardfehlers als Funktion. Der Standardfehler berechnet sich:</p>
+<p><span class="math inline">\(SE = \frac{s_x}{\sqrt{N}}\)</span> oder <span class="math inline">\(SE = \sqrt{\frac{s^2_x}{N}}\)</span></p>
+<p><em>Bemerkung</em>: verwende die <em>Extract Function (Ctrl Alt X)</em> für die Erstellung der Funktion.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">table</span>(DF<span class="op">$</span>geschlecht)
+  <span class="kw">mean</span>(DF<span class="op">$</span>alter)
+  <span class="kw">median</span>(DF<span class="op">$</span>alter)
+  
+  <span class="kw">skewness</span>(DF<span class="op">$</span>alter)
+  <span class="kw">agostino.test</span>(DF<span class="op">$</span>alter, <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>))
+  <span class="kw">kurtosis</span>(DF<span class="op">$</span>alter)
+  <span class="kw">anscombe.test</span>(DF<span class="op">$</span>alter, <span class="dt">alternative =</span> <span class="kw">c</span>(<span class="st">&quot;two.sided&quot;</span>))
+
+  <span class="kw">min</span>(DF<span class="op">$</span>alter)
+  <span class="kw">max</span>(DF<span class="op">$</span>alter)    
+  <span class="kw">range</span>(DF<span class="op">$</span>alter)  
+  <span class="kw">quantile</span>(DF<span class="op">$</span>alter)  
+  <span class="kw">var</span>(DF<span class="op">$</span>alter)  
+  <span class="kw">sd</span>(DF<span class="op">$</span>alter)
+  <span class="co"># Hier den Code f?r den Standardfehler einbauen</span></code></pre></div>
+<p>Eine nützliche Funktion ist <em>summary(mydata)</em>. Darüber hinaus stehen zahlreiche Pakete für die Erstellung deskriptiver Statistiken zur Verfügung. Nachfolgend eine Auswahl von Paketen:</p>
+<ul>
+<li><em>Hmisc</em></li>
+<li><em>pastecs</em></li>
+<li><em>psych</em></li>
+<li><em>doBy</em></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="kw">summary</span>(DF)
+  <span class="kw">summary</span>(DF<span class="op">$</span>alter)
+  
+  pacman<span class="op">::</span><span class="kw">p_load</span>(doBy, Hmisc, pastecs, psych)
+  
+  Hmisc<span class="op">::</span><span class="kw">describe</span>(DF<span class="op">$</span>alter) 
+  pastecs<span class="op">::</span><span class="kw">stat.desc</span>(DF<span class="op">$</span>alter)
+  psych<span class="op">::</span><span class="kw">describe</span>(DF<span class="op">$</span>alter)
+  psych<span class="op">::</span><span class="kw">describeBy</span>(DF<span class="op">$</span>alter, 
+                     <span class="dt">group =</span> DF<span class="op">$</span>geschlecht)
+  doBy<span class="op">::</span><span class="kw">summaryBy</span>(alter <span class="op">+</span><span class="st"> </span>BMI <span class="op">~</span><span class="st"> </span>med <span class="op">+</span><span class="st"> </span>geschlecht, 
+                  <span class="dt">data =</span> DF,
+                  <span class="dt">FUN =</span> <span class="cf">function</span>(x) { <span class="kw">c</span>(<span class="dt">m =</span> <span class="kw">mean</span>(x), 
+                                        <span class="dt">s =</span> <span class="kw">sd</span>(x)) } )</code></pre></div>
+<p>Jedes dieser Pakete beinhaltet eine Vielzahl nützlicher Funktionen, die im Rahmen dieses Kurses nicht besprochen werden können. Um zumindest den Einblick in die Vielfalt der Funktionen eines Paketes zu erhalten, öffne die Hilfe für das Paket <em>Hmisc</em> und blättere durch den alphabetisch sortierten Funktionsumfang des Paketes - sehr beeindrucken, oder?</p>
+</div>
+</div>
+<div id="graphiken-der-deskriptiven-statistik" class="section level2 unnumbered">
+<h2>Graphiken der deskriptiven Statistik</h2>
+<p>Graphiken sind die beste Form der Darstellung von Ergebnissen! Es wird nicht immer möglich sein, entsprechende Graphiken zu erstellen, aber wenn möglich, sollten Ergebnisse immer durch Graphen dargestellt werden! In RStudio werden die Ergebnisse einer Grafikfunktion im Files-Pane unter Plots ausgegeben.</p>
+<div id="graphen-des-basispakets" class="section level3 unnumbered">
+<h3>Graphen des Basispakets</h3>
+<p>Das Basispaket von R bietet einige nützliche Grafikfunktionen, die sich für eine einfache Darstellung von Daten bestens eignen. Diese sind:</p>
+<ul>
+<li>plot() - Standardfunktion zum Erstellen von Diagrammen</li>
+<li>hist() - Erstellen von Histogrammen</li>
+<li>pie() - Erstellen von Kreisdiagrammen</li>
+<li>barplot() - Erstellen von Säulendiagrammen</li>
+<li>boxplot() - Erstellen von Boxplots (beinhaltet: Maximalwert, Minimalwert, Median, Quartile, Ausreißer)</li>
+<li>dotchart() - Erstellen von Punktdiagrammen</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># plot() function</span>
+  <span class="kw">plot</span>(DF<span class="op">$</span>BMI, <span class="dt">type =</span> <span class="st">&quot;s&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;BMI&quot;</span>)
+  <span class="kw">points</span>(DF<span class="op">$</span>BMI, <span class="dt">cex =</span> .<span class="dv">5</span>, <span class="dt">col =</span> <span class="st">&quot;dark red&quot;</span>)  
+  <span class="co"># hist() function</span>
+  <span class="kw">hist</span>(DF<span class="op">$</span>BMI,
+       <span class="dt">breaks =</span> <span class="dv">20</span>,
+       <span class="dt">main =</span> <span class="st">&quot;Altersverteilung&quot;</span>,
+       <span class="dt">xlab =</span> <span class="st">&quot;Alter in Jahren&quot;</span>,
+       <span class="dt">ylab =</span> <span class="st">&quot;H?ufigkeiten&quot;</span>)
+  <span class="co"># pie() function</span>
+  AK_Graph &lt;-<span class="st"> </span><span class="kw">table</span>(DF<span class="op">$</span>ak)
+  <span class="kw">pie</span>(AK_Graph, <span class="dt">radius =</span> <span class="fl">0.6</span>)
+  <span class="co"># barplot() function</span>
+  BMI_Graph &lt;-<span class="st"> </span><span class="kw">summaryBy</span>(BMI <span class="op">~</span><span class="st"> </span>ak, DF)
+  <span class="kw">barplot</span>(BMI_Graph<span class="op">$</span>BMI.mean)
+  <span class="co"># boxplot() function</span>
+  <span class="kw">boxplot</span>(DF<span class="op">$</span>BMI <span class="op">~</span><span class="st"> </span>DF<span class="op">$</span>ak)
+  <span class="co"># dotchart() function</span>
+  <span class="kw">dotchart</span>(BMI_Graph<span class="op">$</span>BMI.mean, 
+           <span class="dt">labels =</span> BMI_Graph<span class="op">$</span>ak)</code></pre></div>
+<p>Speziellere Graphiken können mit folgenden Funktionen dargestellt werden:</p>
+<ul>
+<li>contour() - Erstellen von Konturdiagrammen, plotten von Isolinien</li>
+<li>forestplot - (aus dem Zusatzpaket “rmeta”) erzeugt ein so genanntes “Forest Plot” zusammen mit einer Texttabelle.</li>
+<li>map - (aus dem Paket “maps” und “mapdata”) erstellt Karten von Ländern, Kontinenten und der Welt</li>
+<li>metaplot - (aus dem Zusatzpaket “rmeta”) erzeugt ein so genanntes “Forest Plot” (Meta-Analyse-Plot), welches im Rahmen von Metaanalysen gängig ist.</li>
+<li>persp() - Erstellen von Dreidimensionalen Abbildungen</li>
+</ul>
+<p>Zur Bearbeitung von Details innerhalb von Graphiken stehen z.B. folgende Funktionen zur Verfügung:</p>
+<ul>
+<li>par() - Setzen von grafischen Parametern</li>
+<li>title() - Beschriftung von Diagrammen</li>
+</ul>
+<p>Alle Graphiken die in R erzeugt werden, können in den verschiedensten Dateiformaten abgespeichert werden:</p>
+<ul>
+<li>jpeg() - speichert die Grafik als jpeg-Datei ab.</li>
+<li>png() - speichert die Grafik als png-Datei ab.</li>
+<li>pdf() - speichert eine Grafik als PDF-Datei ab.</li>
+<li>postscript() - Speichert die Grafikausgabe in eine Postscript-Datei.</li>
+<li>savePlot() - Speichert die aktuelle Grafik in eine Datei</li>
+<li>devSVG() - speichert eine Grafik als SVG-Datei ab. Dazu ist das Zusatzpaket RSvgDevice erforderlich.</li>
+</ul>
+</div>
+<div id="graphen-mit-ggplot2" class="section level3 unnumbered">
+<h3>Graphen mit ggplot2</h3>
+<p>Mit dem Paket <em>ggplot2</em> erweitern sich die Möglichkeiten bei der Erstellung und Gestaltung von Graphiken erheblich. Es gehört zu den mächtigsten und umfangreichsten Pakten zur Erstellung von Grafiken. Gerade wegen dieser Eigenschaft kann es vor allem für Einsteiger oft schwierig werden. Das Paket bietet aber die Einsteigerfunktion <em>qplot()</em> (für Quick Plot). Für Standardgraphiken ist diese Funktion sehr hilfreich, denn viele der komplexen Möglichkeiten in <em>ggplot2</em> bleiben bei dieser Funktion verborgen.</p>
+<p>Basierend auf den Grundlagen des Buches <a href="http://ggplot2.org/resources/2007-past-present-future.pdf">The grammar of graphics</a> von Leland Wilkinson baute Wickham sein <a href="http://en.wikipedia.org/wiki/Ggplot2">Datenvisualisierungspaket</a> auf und übernahm die grundlegenden Thesen des Buches, die auch heute noch als richtungsweisend für die Statistik gelten. Laut Leland lässt sich jeder Datensatz, egal welcher Komplexität, leicht darstellen, wenn man ihn sinnvoll in <em>Ästhetik</em> und <em>Geometrie</em> unterteilt. Mittels dieser Differenzierung können Aufgabenbereiche getrennt und Zuständigkeiten an verschiedene Aspekte des Plots übergeben werden.</p>
+<p>Sobald komplexere Daten visualisiert werden sollen, zeigen sich die Vorteile von ggplot2:</p>
+<ul>
+<li><em>feste Schema</em>: jeder Plot kann/muss nach einem Muster abgearbeitet werden. Das fährt unter anderem dazu, dass der Code meist sehr einfach gehalten ist und bei nachträglichen Änderungen nur wenigen Abwandlungen unterzogen werden muss.</li>
+<li><em>Farb- oder Formeinsatz</em>: innerhalb des Plots wird automatisch eine Legende berechnet, die ebenfalls jederzeit manuell gestaltbar ist. Dies steht ganz im Gegensatz zu R nativen Plots, die durchweg individuell durchprogrammiert werden müssen.</li>
+<li><em>zeitsparend</em></li>
+</ul>
+<div id="quick-plot-mit-ggplot2" class="section level4 unnumbered">
+<h4>Quick Plot mit ggplot2</h4>
+<p>Die <em>qplot()</em>-Funktion folgt nicht dem typischen <em>ggplot2</em>-Schema und ist eher als Einstieg ins Plotting gedacht, ermöglicht jedoch dieselbe Plotvisualisierung wie die <em>ggplot()</em>-Funktion. Ihr Aufbau und ihre Gestaltung wird lediglich durch verschiedenste Parameter bestimmt.</p>
+<p>Öffne folgenden Link <a href="https://www.statmethods.net/advgraphs/ggplot2.html">Quick Plot Einstieg</a> und kopiere den Code der nach dem Text <em>Here are some examples using automotive data …</em> folgt in den Editor. Weiter nützliche Hinweise zu Quick Plot findest du unter Um <a href="http://ggplot2.org/book/qplot.pdf">Quick Plot Cheat Sheet</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  pacman<span class="op">::</span><span class="kw">p_load</span>(ggplot2)
+  
+  <span class="co"># create factors with value labels</span>
+  mtcars<span class="op">$</span>gear &lt;-<span class="st"> </span><span class="kw">factor</span>(mtcars<span class="op">$</span>gear,<span class="dt">levels=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),
+                        <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;3gears&quot;</span>,<span class="st">&quot;4gears&quot;</span>,<span class="st">&quot;5gears&quot;</span>))
+  mtcars<span class="op">$</span>am &lt;-<span class="st"> </span><span class="kw">factor</span>(mtcars<span class="op">$</span>am,<span class="dt">levels=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),
+                      <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Automatic&quot;</span>,<span class="st">&quot;Manual&quot;</span>))
+  mtcars<span class="op">$</span>cyl &lt;-<span class="st"> </span><span class="kw">factor</span>(mtcars<span class="op">$</span>cyl,<span class="dt">levels=</span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>),
+                       <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;4cyl&quot;</span>,<span class="st">&quot;6cyl&quot;</span>,<span class="st">&quot;8cyl&quot;</span>))
+  
+  <span class="co"># Kernel density plots for mpg</span>
+  <span class="co"># grouped by number of gears (indicated by color)</span>
+  <span class="kw">qplot</span>(mpg, <span class="dt">data=</span>mtcars, <span class="dt">geom=</span><span class="st">&quot;density&quot;</span>, <span class="dt">fill=</span>gear, <span class="dt">alpha=</span><span class="kw">I</span>(.<span class="dv">5</span>),
+        <span class="dt">main=</span><span class="st">&quot;Distribution of Gas Milage&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Miles Per Gallon&quot;</span>,
+        <span class="dt">ylab=</span><span class="st">&quot;Density&quot;</span>)
+  
+  <span class="co"># Scatterplot of mpg vs. hp for each combination of gears and cylinders</span>
+  <span class="co"># in each facet, transmittion type is represented by shape and color</span>
+  <span class="kw">qplot</span>(hp, mpg, <span class="dt">data=</span>mtcars, <span class="dt">shape=</span>am, <span class="dt">color=</span>am,
+        <span class="dt">facets=</span>gear<span class="op">~</span>cyl, <span class="dt">size=</span><span class="kw">I</span>(<span class="dv">3</span>),
+        <span class="dt">xlab=</span><span class="st">&quot;Horsepower&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Miles per Gallon&quot;</span>)
+  
+  <span class="co"># Separate regressions of mpg on weight for each number of cylinders</span>
+  <span class="kw">qplot</span>(wt, mpg, <span class="dt">data=</span>mtcars, <span class="dt">geom=</span><span class="kw">c</span>(<span class="st">&quot;point&quot;</span>, <span class="st">&quot;smooth&quot;</span>),
+        <span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">formula=</span>y<span class="op">~</span>x, <span class="dt">color=</span>cyl,
+        <span class="dt">main=</span><span class="st">&quot;Regression of MPG on Weight&quot;</span>,
+        <span class="dt">xlab=</span><span class="st">&quot;Weight&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Miles per Gallon&quot;</span>)
+  
+  <span class="co"># Boxplots of mpg by number of gears</span>
+  <span class="co"># observations (points) are overlayed and jittered</span>
+  <span class="kw">qplot</span>(gear, mpg, <span class="dt">data=</span>mtcars, <span class="dt">geom=</span><span class="kw">c</span>(<span class="st">&quot;boxplot&quot;</span>, <span class="st">&quot;jitter&quot;</span>),
+        <span class="dt">fill=</span>gear, <span class="dt">main=</span><span class="st">&quot;Mileage by Gear Number&quot;</span>,
+        <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Miles per Gallon&quot;</span>)   </code></pre></div>
+</div>
+<div id="aufbau-von-ggplot213" class="section level4 unnumbered">
+<h4>Aufbau von ggplot2<a href="#fn13" class="footnoteRef" id="fnref13"><sup>13</sup></a></h4>
+<p>Bevor man Graphiken mit <em>ggplot()</em> erstellt, sollte man sich folgende Fragen stellen:</p>
+<ul>
+<li><em>Data</em>: welche Daten will man visualisieren?</li>
+<li><em>Geoms</em>: will man Punkte, Linien, Polygone?</li>
+<li><em>Mappings</em>: welche Ästhetischen Attribute sollten für geometrischen Objekte festlegt werden?</li>
+<li><em>Scales</em>: wie sollten Merkmalsausprägungen auf “physikalische Einheiten” der geometrischen Objekte (z. B. Form, Durchmesser oder Farbe) abgebildet werden (definiert die Legende)?</li>
+<li><em>Coord</em>: wie sollte das Koordinatensystem (Achsen und Gitternetzlinien) dargestellt werden?</li>
+<li><em>Faceting</em>: sollte die Datenmengen unterteilt werden (z. B. getrennt nach einem Gruppenfaktor in unterschiedlichen Graphen)?</li>
+<li><em>Stats</em>: sollten die Daten vor der Darstellung nochmal statistisch transformieren werden?</li>
+</ul>
+<p>Die Antworten zu diesen Fragen bestimmen die Art und Weise wie im Rahmen des strukturellen Aufbaus von <em>ggplot2</em> eine Graphik aufgebaut wird. Eine ggplot-Graphik ist prinzipiell in sogenannte <em>layers</em> aufgebaut:</p>
+<center>
+<div class="figure">
+<img src="/Images/08_ggplot_Layers.png" alt="Abbildung 1: Layers in ggplot" style="width:30.0%" />
+<p class="caption"><strong>Abbildung 1</strong>: Layers in ggplot</p>
+</div>
+</center>
+<p>Jeder Layer kann für sich gesehen ein bestimmtes Aussehen (aesthetic) und auch bestimmte geometrische Objekte (Balken, Linien, etc.) beinhalten.</p>
+<center>
+<div class="figure">
+<img src="/Images/08_ggplot_Anatomy.png" alt="Abbildung 2: Anatomie von ggplot" style="width:30.0%" />
+<p class="caption"><strong>Abbildung 2</strong>: Anatomie von ggplot</p>
+</div>
+</center>
+<p>Die Aesthetics (aes()) bestimmen das Aussehen wie z.B. Farbe, Größe, Positionen, Stile, etc.</p>
+<center>
+<div class="figure">
+<img src="/Images/08_ggplot_Aesthetics.png" alt="Abbildung 3: Aesthetics in ggplot" style="width:30.0%" />
+<p class="caption"><strong>Abbildung 3</strong>: Aesthetics in ggplot</p>
+</div>
+</center>
+<p>Die geometrischen Objekte in einem Plot definieren die Darstellungsform der Daten. Auszugsweise mögliche geom’s von ggplot:</p>
+<ul>
+<li>geom_bar()</li>
+<li>geom_point()</li>
+<li>geom_line()</li>
+<li>geom_histogram()</li>
+<li>geom_boxplot()</li>
+</ul>
+</div>
+<div id="verwendung-von-ggplot2" class="section level4 unnumbered">
+<h4>Verwendung von ggplot2</h4>
+<p>Aufgrund des enormen Leistungsumfangs von ggplot, wollen wir im folgenden (mit der Topdown-Methode) einen Einblick in die vielseitige Verwendbarkeit des Pakets durch Beispiele aus <a href="http://www.cookbook-r.com/Graphs/">Cookbook R</a> gewinnen. Öffne den Link und gehe im Kapitel <em>Graphs with ggplot2</em> zu den <em>Bar and line graphs (ggplot2)</em>.</p>
+<p>Gehen wir einmal davon aus, dass wir für unsere Daten aus <em>hyper.sav</em> ein Balkendiagramm des durchschnittlichen BMI getrennt nach Altersklasse (x-Achse) und Geschlecht (Balken) erzeugen wollen. Wir durchsuchen die geöffnete Cookbook-Seite und finden folgende Darstellung als passend für unsere Daten:</p>
+<center>
+<div class="figure">
+<img src="/Images/08_ggplot_Beispiel1.png" alt="Abbildung 3: Vorlage für das gewünschte Balkendiagramm" style="width:30.0%" />
+<p class="caption"><strong>Abbildung 3</strong>: Vorlage für das gewünschte Balkendiagramm</p>
+</div>
+</center>
+<ol style="list-style-type: decimal">
+<li>Im ersten Schritt kopieren wir den entsprechenden Code in unseren Editor und führen diesen aus (<em>Hinweis</em>: kopiere auch den Code der Website, in dem die Daten definiert werden!).</li>
+<li>Wenn dieser Code auch denselben Output wie auf der Website erzeugt, versuchen wir nun durch Änderung der entsprechenden Daten im Code diesen Plot an unsere Daten (hyper.sav) anzupassen.</li>
+<li>Nachdem der Graph für unsere Daten adaptiert wurde, speichern wir diesen in das Verzeichnis <em>/images</em>.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  dat1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">sex =</span> <span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;Male&quot;</span>)),
+    <span class="dt">time =</span> <span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;Lunch&quot;</span>,<span class="st">&quot;Dinner&quot;</span>,<span class="st">&quot;Lunch&quot;</span>,<span class="st">&quot;Dinner&quot;</span>), <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Lunch&quot;</span>,<span class="st">&quot;Dinner&quot;</span>)),
+    <span class="dt">total_bill =</span> <span class="kw">c</span>(<span class="fl">13.53</span>, <span class="fl">16.81</span>, <span class="fl">16.24</span>, <span class="fl">17.42</span>))
+  
+  <span class="kw">head</span>(dat1)
+  
+  <span class="kw">ggplot</span>(<span class="dt">data =</span> dat1, 
+         <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">y =</span> total_bill, <span class="dt">fill =</span> sex)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, 
+             <span class="dt">position=</span><span class="kw">position_dodge</span>(), 
+             <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>))</code></pre></div>
+</div>
+<div id="datenformat-in-ggplot2" class="section level4 unnumbered">
+<h4>Datenformat in ggplot2</h4>
+<p><em>ggplot2</em> ist grundsätzlich auf sogenannte “long format” Daten ausgelegt. Um die Repräsentativität von “wide format” Datensätzen zu erhöhen, also Datensätze mit sehr vielen verschiedenen Merkmalen, gibt es in R die Pakete <em>reshape2</em> und <em>plyr</em>, die häufig zur Datenmanipulation<a href="#fn14" class="footnoteRef" id="fnref14"><sup>14</sup></a> verwendet werden.</p>
+<hr />
+</div>
+</div>
+</div>
+<div id="losungen-2" class="section level2 unnumbered">
+<h2>Lösungen</h2>
+<div id="losung-funktion-standardfehler" class="section level3">
+<h3><span class="header-section-number">8.0.1</span> Lösung Funktion Standardfehler</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  SE &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+    SE &lt;-<span class="st"> </span><span class="kw">sd</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(x)
+    <span class="kw">return</span>(SE)
+  }
+  <span class="kw">SE</span>(DF<span class="op">$</span>alter)</code></pre></div>
+</div>
+<div id="losung-ggplot-beispiel-1" class="section level3">
+<h3><span class="header-section-number">8.0.2</span> Lösung ggplot Beispiel 1</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  dat1 &lt;-<span class="st"> </span><span class="kw">summaryBy</span>(BMI <span class="op">~</span><span class="st"> </span>ak <span class="op">+</span><span class="st"> </span>geschlecht, DF)
+  <span class="kw">str</span>(dat1)
+  <span class="kw">ggplot</span>(<span class="dt">data =</span> dat1, 
+         <span class="kw">aes</span>(<span class="dt">x =</span> ak, <span class="dt">y =</span> BMI.mean, <span class="dt">fill =</span> geschlecht)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, 
+             <span class="dt">position=</span><span class="kw">position_dodge</span>(), 
+             <span class="dt">colour=</span><span class="st">&quot;black&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;#999999&quot;</span>, <span class="st">&quot;#E69F00&quot;</span>))</code></pre></div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="13">
+<li id="fn13"><p>Abbildungen aus Andy Field, Discovering Statistics using R.<a href="rechnen-mit-r.html#fnref13">↩</a></p></li>
+<li id="fn14"><p>Datenmanipulation meint hierbei das Schichten, Gruppieren und Zusammenfassen verschiedener Daten.<a href="rechnen-mit-r.html#fnref14">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rarbeiten.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

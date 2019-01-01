@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Reinführung in RStudio</title>
+  <meta name="description" content="Erste Schritte in R mit RStudio">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Reinführung in RStudio" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/Cover.PNG" />
+  <meta property="og:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="github-repo" content="wgruber/RIntro" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Reinführung in RStudio" />
+  
+  <meta name="twitter:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="twitter:image" content="images/Cover.PNG" />
+
+<meta name="author" content="Walter Gruber">
+
+
+<meta name="date" content="2019-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="files-pane.html">
+<link rel="next" href="rarbeiten.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html"><i class="fa fa-check"></i><b>1</b> Aufbau des Kurses</a><ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#ziele"><i class="fa fa-check"></i>Ziele</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#allgemeines"><i class="fa fa-check"></i>Allgemeines</a><ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#entstehungsgeschichte-von-r1"><i class="fa fa-check"></i>Entstehungsgeschichte von R</a></li>
+<li><a href="aufbau-des-kurses.html#warum-sollte-man-r-verwenden"><strong>Warum</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li><a href="aufbau-des-kurses.html#wann-sollte-man-r-verwenden"><strong>Wann</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li><a href="aufbau-des-kurses.html#wann-sollte-man-r-nicht-verwenden"><strong>Wann</strong> sollte man <strong>R nicht</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#alternativen-zu-r"><i class="fa fa-check"></i>Alternativen zu R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio5.html"><a href="rstudio5.html"><i class="fa fa-check"></i><b>2</b> <strong>R</strong>Studio</a><ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufbau-von-rstudio"><i class="fa fa-check"></i>Aufbau von RStudio</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-syntax"><i class="fa fa-check"></i>R-Syntax</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#kommandozeile-befehlszeile-console"><i class="fa fa-check"></i>Kommandozeile (Befehlszeile, Console)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#mathematische-operatorenfunktionen"><i class="fa fa-check"></i>Mathematische Operatoren/Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#hilfe-in-rstudio"><i class="fa fa-check"></i>Hilfe in RStudio</a><ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#online-lernprogramme"><i class="fa fa-check"></i>Online-Lernprogramme</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#verwendung-der-konsole-aufgabe-1"><i class="fa fa-check"></i>Verwendung der Konsole (Aufgabe 1)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#wiederverwendung-von-befehlszeilen---die-command-history"><i class="fa fa-check"></i>Wiederverwendung von Befehlszeilen - die Command-History</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#weitere-eigenschaften-der-console-pane"><i class="fa fa-check"></i>Weitere Eigenschaften der Console Pane</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#terminal-fenster"><i class="fa fa-check"></i>Terminal-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-markdown-fenster"><i class="fa fa-check"></i>R-Markdown-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#losungen"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufgabe-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="source-pane.html"><a href="source-pane.html"><i class="fa fa-check"></i><b>3</b> Source-Pane</a><ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#dateitypen"><i class="fa fa-check"></i>Dateitypen</a><ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-script"><i class="fa fa-check"></i>R Script</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-markdown"><i class="fa fa-check"></i>R-Markdown</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#andere-dokumentenarten"><i class="fa fa-check"></i>Andere Dokumentenarten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#nutzliches-im-editor"><i class="fa fa-check"></i>Nützliches im Editor</a><ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-completion"><i class="fa fa-check"></i>Code completion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#keyboard-short-cuts"><i class="fa fa-check"></i>Keyboard Short-Cuts</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-snippets"><i class="fa fa-check"></i>Code Snippets</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#extract-funktion"><i class="fa fa-check"></i>Extract Funktion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#suchfunktionen"><i class="fa fa-check"></i>Suchfunktionen</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-folding"><i class="fa fa-check"></i>Code Folding</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#running-code"><i class="fa fa-check"></i>Running Code</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#traceback-debugging"><i class="fa fa-check"></i>Traceback (Debugging)</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#kommentare"><i class="fa fa-check"></i>Kommentare</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="environment-pane.html"><a href="environment-pane.html"><i class="fa fa-check"></i><b>4</b> Environment-Pane</a><ul>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#history"><i class="fa fa-check"></i>History</a></li>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#connections"><i class="fa fa-check"></i>Connections</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="files-pane.html"><a href="files-pane.html"><i class="fa fa-check"></i><b>5</b> Files-Pane</a><ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#files"><i class="fa fa-check"></i>Files</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#packages"><i class="fa fa-check"></i>Packages</a><ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#umgang-mit-paketen"><i class="fa fa-check"></i>Umgang mit Paketen</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#installation-und-verwendung-von-paketen"><i class="fa fa-check"></i>Installation und Verwendung von Paketen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#help"><i class="fa fa-check"></i>Help</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#viewer"><i class="fa fa-check"></i>Viewer</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rlernen.html"><a href="rlernen.html"><i class="fa fa-check"></i><b>6</b> Rlernen</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down-vs.bottom-up"><i class="fa fa-check"></i>Top-Down vs. Bottom-Up</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down---copy-und-paste"><i class="fa fa-check"></i>Top Down - Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#bottom-up"><i class="fa fa-check"></i>Bottom Up</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#objekte-in-r"><i class="fa fa-check"></i>Objekte in R</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#vektoren"><i class="fa fa-check"></i>Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#faktoren"><i class="fa fa-check"></i>Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#matrizen"><i class="fa fa-check"></i>Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-frames"><i class="fa fa-check"></i>Data-Frames</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-tables"><i class="fa fa-check"></i>Data-Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#listen"><i class="fa fa-check"></i>Listen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#attribute"><i class="fa fa-check"></i>Attribute</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-1"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-copy-und-paste"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-vektoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-faktoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-matrizen"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#losungen-zu-aufgabenblock-dataframes"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Dataframes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="rarbeiten.html"><a href="rarbeiten.html"><i class="fa fa-check"></i><b>7</b> Rarbeiten</a><ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#lesen-und-speichern-von-dateien"><i class="fa fa-check"></i>Lesen und speichern von Dateien</a><ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#r-dateien"><i class="fa fa-check"></i>R-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#text-dateien"><i class="fa fa-check"></i>Text-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#spss-dateien"><i class="fa fa-check"></i>SPSS-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#excel-dateien"><i class="fa fa-check"></i>Excel-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#dateien-vom-web"><i class="fa fa-check"></i>Dateien vom Web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html"><i class="fa fa-check"></i><b>8</b> Rechnen mit R</a><ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#deskriptive-datenanalyse"><i class="fa fa-check"></i>Deskriptive Datenanalyse</a><ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#kennwerte-der-deskriptiven-statistik"><i class="fa fa-check"></i>Kennwerte der deskriptiven Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphiken-der-deskriptiven-statistik"><i class="fa fa-check"></i>Graphiken der deskriptiven Statistik</a><ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-des-basispakets"><i class="fa fa-check"></i>Graphen des Basispakets</a></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-mit-ggplot2"><i class="fa fa-check"></i>Graphen mit ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#losungen-2"><i class="fa fa-check"></i>Lösungen</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#losung-funktion-standardfehler"><i class="fa fa-check"></i><b>8.0.1</b> Lösung Funktion Standardfehler</a></li>
+<li class="chapter" data-level="8.0.2" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#losung-ggplot-beispiel-1"><i class="fa fa-check"></i><b>8.0.2</b> Lösung ggplot Beispiel 1</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reinführung in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rlernen" class="section level1">
+<h1><span class="header-section-number">6</span> Rlernen</h1>
+<p>Um R zu lernen kann man verschieden Strategien anweden. Im folgenden stelle ich zwei in dieser LV verwendete Stragien vor. Danach steigen wir in die Programmierung von R ein.</p>
+<div id="top-down-vs.bottom-up" class="section level2 unnumbered">
+<h2>Top-Down vs. Bottom-Up</h2>
+<p>Wie beim Erlernen einer neuen Sprache, gibt es auch für Programmiersprachen verschiedene Ansätze. Im Bottom-Up Ansatz wird man sich zuerst mit den Elementen einer Sprache (Vokabeln) und deren korrekter Zusammensetzung (Grammatik) beschäftigen. Dieser Ansatz ist vor allem zu Beginn oft schwierig und mühsam, da die Zusammenhänge erst nach einiger Zeit klar werden und die (erfolgreiche) Anwendung der Sprache erst nach einer mehr oder weniger langen <em>Vorlaufzeit</em> möglich ist.</p>
+<p>Beim Top-Down Ansatz wird man direkt mit dem gesamten Umfang der Sprache konfrontiert. Sprachbausteine werden von anderen übernommen, Details zur Struktur, den Regeln und eine Erweiterung des Wortschatzes bilden sich durch die Übernahme von Experten.</p>
+<p>Bei der Erlernung einer Programmiersprache bietet sich vor allem durch die unzähligen Möglichkeiten von Beispielen und Vorlagen im Internet, sowie die bis ins letzte Detail ausgearbeiteten Hilfeseiten zu den jeweiligen Sprachen eine Mischung des Lernvorganges an. Wir werden den Einstieg in die Programmiersprache R mit einem Top-Down Ansatz beginnen.</p>
+<div id="top-down---copy-und-paste" class="section level3 unnumbered">
+<h3>Top Down - Copy und Paste</h3>
+<p>Erstelle eine neue R-Script-Datei. Kopiere den nachfolgenden Code in diese neue Datei und speicher diesen unter den Namen <em>06_R_Paste_Copy_Intro.R</em> in ein Verzeichnis deiner Wahl.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#------------------------------- Initialisierung</span>
+<span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)
+pacman<span class="op">::</span><span class="kw">p_load</span>(here, ggplot2)
+<span class="co">#------------------------------- Ende Initialisierung</span></code></pre></div>
+<p>Öffne einen Browser (Mozilla, IE, Chrome, …) und bearbeite folgende Aufgabenstellungen:</p>
+<div id="copy-und-paste-aufgabenblock" class="section level4 unnumbered">
+<h4>Copy und Paste (Aufgabenblock)</h4>
+<ol style="list-style-type: decimal">
+<li>Kopiere von <a href="http://www.cookbook-r.com/Basics/Indexing_into_a_data_structure/">Indexing with numbers and names</a> die Zeile <span class="math inline">\(v &lt;- c(1,4,4,3,2,2,3)\)</span> in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.</li>
+<li>Kopiere (aus der Website) die Zeile <span class="math inline">\(v[c(2,3,4)]\)</span> in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.</li>
+<li>Gehe zur folgenden Website: <a href="http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/">Bar and line graphs (ggplot2)</a> und kopiere aus dem Block <em>Bar graphs of values</em> die ersten vier Zeilen in den Editor. Führe diese Zeilen aus und diskutiere das Ergebnis.</li>
+<li>Kopiere nun von dieser Website den zweiten Codeblock und führe den Code aus. Diskutiere das Ergebnis (siehe Plots-Fenster).</li>
+<li>Kopiere nun die zwei Codeblocks im Kapitel “Bar graphs of counts” und führe den Code aus. Beachte vor allem, woher die Daten (tips) kommen!</li>
+<li>Gebe die Befehle data() und ?tips, bzw. ?french_fries ein und diskutiere das Ergebnis.</li>
+<li>Führe folgende zwei Zeilen aus:
+<ul>
+<li>Dat_FF &lt;- french_fries</li>
+<li>str(Dat_FF)</li>
+</ul></li>
+<li>Laden mit Hilfe von Import Dataset die SPSS-Datei “bigfive.sav” und kopiere die entsprechenden Befehle in dein Skript.</li>
+<li>Lade nun die Datei “bigfive_excel.xlsx” (ebenfalls in ../Data/) mit Hilfe von Import Dataset und kopiere die entsprechenden R-Befehle in den Editor.</li>
+</ol>
+</div>
+</div>
+<div id="bottom-up" class="section level3 unnumbered">
+<h3>Bottom Up</h3>
+</div>
+</div>
+<div id="objekte-in-r" class="section level2 unnumbered">
+<h2>Objekte in R</h2>
+<p>In R kann alles als Objekt gespeichert werden.</p>
+<ul>
+<li>Einzelne Werte Mehrere Werte (z. B. als Datensatz mit Rohdaten)</li>
+<li>Tabellen</li>
+<li>Statistische Modelle</li>
+<li>Ergebnisse statistischer Analysen</li>
+<li>Funktionen, etc.</li>
+</ul>
+<p>Alle Objekte, die in einer R-Sitzung erstellt oder geöffnet wurden, liegen im sogenannten Environment (Arbeitsbereich). Bei der letzten Übungsaufgabe wurden folgende Objekte im Environment angelegt:</p>
+<center>
+<div class="figure">
+<img src="..\Images\06_Environment.PNG" alt="Abbildung 1: Environment der letzten Übungsaufgabe" style="width:50.0%" />
+<p class="caption"><strong>Abbildung 1</strong>: Environment der letzten Übungsaufgabe</p>
+</div>
+</center>
+<p>Das Anlegen eines Objektes im Environment erfolgt über die Zuweisung <em>Objektname &lt;- Objektinhalt</em>. Die Zuweisung über das <em>&lt;-</em> ist dabei R-spezifisch. Man kann auch das übliche <em>=</em> verwenden, wobei dieses in R auch noch eine andere Eigenschaft hat (Details später).</p>
+<p>Für die Vergabe von <em>Objektnamen</em> sind folgende Regeln zu beachten:</p>
+<ul>
+<li>Objektname darf nicht mit Zahl beginnen</li>
+<li>Objektname darf keine Operatoren enthalten (+, -, * etc.)</li>
+<li>Auf Groß- und Kleinschreibung achten</li>
+</ul>
+<p>In gibt es eine Vielzahl von verschiedenen Objekttypen. Die grundlegenden Objekttypen (und deren Gemeinsamkeit mit SPSS-Datentypen) sind:</p>
+<ul>
+<li>Vektoren <span class="math inline">\(\rightarrow\)</span> ordinale/metrische Variablen
+<ul>
+<li>numeric (Zahlen)</li>
+<li>character (Buchstaben)</li>
+</ul></li>
+<li>Faktoren <span class="math inline">\(\rightarrow\)</span> nominale/ordinale Variablen
+<ul>
+<li>nominale Variable</li>
+<li>Kategorien des Faktors = levels (kann Buchstaben oder Zahlen enthalten)</li>
+</ul></li>
+<li>Data Frames (mehrere Zeilen und Spalten) <span class="math inline">\(\rightarrow\)</span> Datensatz
+<ul>
+<li>Spalten (Vektoren und Faktoren</li>
+<li>Zeilen (Fälle, z. B. Versuchspersonen)</li>
+</ul></li>
+<li>Matrizen <span class="math inline">\(\rightarrow\)</span> in SPSS nicht vorhanden
+<ul>
+<li>viele Zeilen und Spalten</li>
+<li>es können nur Daten eines Typs (z. B. numerische Werte, oder nur Faktoren, etc.) dargestellt werden.</li>
+</ul></li>
+<li>Arrays <span class="math inline">\(\rightarrow\)</span> in SPSS nicht vorhanden
+<ul>
+<li>Kombination mehrerer Matrizen (Zusammenfassungen von Elementen des gleichen Datentyps (numeric, character, logical), werden über 2 oder mehr Indizes adressiert).</li>
+</ul></li>
+<li>Listen <span class="math inline">\(\rightarrow\)</span> in SPSS nicht vorhanden
+<ul>
+<li>Kombination mehrerer Objekte</li>
+<li>Listen können beliebige Objekte enthalten, auch Objekte verschiedenen Typs.</li>
+<li>Im Unterschied zu Data Frames und Arrays können auch Objekte unterschiedlicher Länge gespeichert werden.</li>
+</ul></li>
+</ul>
+<div id="vektoren" class="section level3 unnumbered">
+<h3>Vektoren</h3>
+<p>Das einfachste Objekt ist ein Vektor, der aus mehreren Elementen besteht. Öffne eine neue Skript-Datei und kopiere folgenden Inhalte in diese Datei:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  name       &lt;-<span class="st"> &quot;Max Mustermann&quot;</span> <span class="co"># Beachte das Fenster Environment</span>
+  mein.alter &lt;-<span class="st"> </span><span class="dv">35</span>
+  mein.alter
+  mein.alter <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
+  mein.alter.<span class="dv">1</span> &lt;-<span class="st"> </span>mein.alter <span class="op">+</span><span class="st"> </span><span class="dv">10</span>
+  mein.alter.<span class="dv">1</span></code></pre></div>
+<p>Speichere die Datei unter dem Namen <em>06_Objekte.R</em>. Führe nun die Inhalte zeilenweise aus und diskutiere die Wirkung der einzelnen Zeilen! Kopiere nun den folgenden Code in die Datei und führe diesen Code zeilenweise aus. Was passiert dabei im Environment?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Fasse Zahlen in einem Vektor zusammen</span>
+    alter    &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">19</span>, <span class="dv">24</span>, <span class="dv">20</span>, <span class="dv">19</span>) <span class="co"># Beispiel: Alter von 4 Studenten</span>
+    kurs.num &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>) <span class="co"># Beispiel: Zugehörigkeit zu einem von 3 Kursen</span>
+  <span class="co"># Fasse Buchstaben in einem Vektor zusammen</span>
+    kurs.bez &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Kurs1&#39;</span>, <span class="st">&#39;Kurs3&#39;</span>, <span class="st">&#39;Kurs2&#39;</span>, <span class="st">&#39;Kurs2&#39;</span>)
+  <span class="co"># Zeige Inhalt des Vektors</span>
+    alter
+    kurs.num
+    kurs.bez</code></pre></div>
+<p>Um auf einzelne Elemente eines Vektors zuzugreifen gibt es mehrere Möglichkeiten.</p>
+<ol style="list-style-type: decimal">
+<li>Zugriff durch direkte Indizierung</li>
+<li>Zugriff durch Variablen (Vektoren), in denen die Indizes der Elemente auf die man zugreifen will abgespeichert sind.</li>
+</ol>
+<p>Der folgende Code zeigt beide dieser Möglichkeiten. Kopiere den Code in das Skript und führe diesen zeilenweise aus.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    alter[<span class="dv">2</span>]   <span class="co"># direkte Indizierung, das zweite Element des Vektors wird ausgegeben</span>
+    alter[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># direkte Indizierung, das erste bis dritte Element des Vektors wird ausgegeben.</span>
+               <span class="co"># Beachte dabei die Verwendung von :</span>
+    <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>        <span class="co"># erzeugen eines Vektors der in ganzen Schritten von 2 beginnend bis 4 hinaufzählt</span>
+    v_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span> <span class="co"># speichern des Vektors in der Variablen v_1</span>
+    alter[v_<span class="dv">1</span>] <span class="co"># Verwendung des Vektors v_ind um die Elemente des Vektors alter auszugeben</span>
+    v_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>,  <span class="co"># erzeugen einer Sequenz von Zahlen, die mit 1 beginnt, bei 4 endet</span>
+               <span class="dt">to   =</span> <span class="dv">4</span>,  <span class="co"># und in 2-er Schritten hinaufzählt</span>
+               <span class="dt">by   =</span> <span class="dv">2</span>)  <span class="co"># Die Sequenz wird in v_2 gespeichert.</span>
+    alter[v_<span class="dv">2</span>] <span class="co"># Verwendung des Vektors v_2 um die Elemente des Vektors alter auszugeben.</span>
+    alter[<span class="op">-</span><span class="dv">4</span>]  <span class="co"># um Werte eines Vektors nicht anzuzeigen, kann der Index des entsprechenden</span>
+               <span class="co"># Wertes mit einem führenden Minuszeichen angegeben werden. Dadurch wird der </span>
+               <span class="co"># vierte Eintrag des Vektors nicht ausgegeben!</span>
+    v_<span class="dv">3</span>  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>) <span class="co"># auch die Verwendung der Funktion c() kann zur Erstellung von Indexlisten</span>
+                       <span class="co"># verwendet werden.</span>
+    alter[v_<span class="dv">3</span>]</code></pre></div>
+<p>Um festzustellen, um welche Art von Daten, bzw. welche Klasse von Daten (numerisch, alphanumerisch, Datum, etc.) im jeweiligen Objekt abgespeichert sind, kann die Funktion <em>class()</em> verwendet werden. Das Ändern des Datentyps eines (einfachen) Objektes ist durch die Funktionen <em>as.numeric(variable)</em>, bzw. <em>as.character(variable)</em> möglich. Darüber hinaus gibt es noch viele Funktionen, die bezüglich des Datentyps von Objekten verwendet werden können. Einige dieser Funktionen werden bei den entsprechenden Anwendungen im Detail besprochen.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">class</span>(alter) <span class="co"># Zeigt an, zu welcher Klasse die Inhalte des Objekts alter gehören</span>
+    alter_char &lt;-<span class="st"> </span><span class="kw">as.character</span>(alter) <span class="co"># wandelt num in char</span>
+    <span class="kw">class</span>(alter_char)
+    alter_num  &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(alter_char) <span class="co"># wandelt char in num</span>
+    <span class="kw">class</span>(alter_num)</code></pre></div>
+<p>Das Wandeln von numerisch auf alphanumerisch und vice versa sind jedoch häufig gebrauchte Funktionen, vor allem bei der Übernahme von Daten aus anderen Anwendungen.</p>
+<div id="arithmetische-operator-vektorenrechnung" class="section level4 unnumbered">
+<h4>Arithmetische Operator (Vektorenrechnung)</h4>
+<p>In R werden + - * / für Addition, Subtraktion, Multiplikation und Division verwendet. Diese Operatoren werden auf alle Elemente eines Vektors angewendet:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    Geburtsjahr &lt;-<span class="st"> </span><span class="dv">2018</span> <span class="op">-</span><span class="st"> </span>alter
+    Alter_Tage  &lt;-<span class="st"> </span>alter <span class="op">*</span><span class="st"> </span><span class="dv">365</span>
+    v1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>
+    v2 &lt;-<span class="st"> </span>v1<span class="op">*</span><span class="dv">2</span>
+    v2
+    v2 &lt;-<span class="st"> </span>v2 <span class="op">-</span><span class="st"> </span>.<span class="dv">5</span>
+    v2
+    v3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">12</span>)
+    v4 &lt;-<span class="st"> </span>v1 <span class="op">*</span><span class="st"> </span>v3</code></pre></div>
+</div>
+<div id="weitere-nutzliche-vektor-funktionen" class="section level4 unnumbered">
+<h4>Weitere nützliche Vektor-Funktionen</h4>
+<p>Neben der bereits besprochenen Funktion <em>seq()</em>, sind auch nachfolgende Funktionen für das Arbeiten mit Vektoren oft nützlich. Da wir diese Funktionen laufend verwenden, werden hier nicht alle Einzelheiten diskutiert - verwende dazu die help() Funktion.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>) 
+    <span class="kw">rep</span>(y, <span class="dv">3</span>) <span class="co"># Replicate Elements of Vectors and Lists</span>
+    <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">4</span>)
+    n &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">10</span>)
+    <span class="kw">rep</span>(y, n)
+    y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;i&quot;</span>, <span class="st">&quot;i&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;U&quot;</span>)
+    <span class="kw">unique</span>(y) <span class="co"># eindeutige Elemente eines Vektors</span>
+    <span class="kw">table</span>(y)  <span class="co"># erstellt eine Kreuztabelle</span>
+    <span class="kw">sort</span>(y)   <span class="co"># sortieren von Vektoren (ACHTUNG: order() bei Datenstrukturen verwenden, siehe später)</span>
+    <span class="kw">paste</span>(y, <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)
+    <span class="kw">paste0</span>(y, <span class="dv">1</span><span class="op">:</span><span class="dv">9</span>)</code></pre></div>
+</div>
+<div id="logische-vektoren" class="section level4 unnumbered">
+<h4>Logische Vektoren</h4>
+<p>Ein logischer Vektor besteht aus TRUE und FALSE Elementen. Diese Vektoren folgen einer sogenannten <em>Boolean-Logik</em> mit diesen Prinzipien (in R wird das logische UND mit <span class="math inline">\(\&amp;\)</span>, das logische ODER mit <span class="math inline">\(|\)</span> geschrieben:</p>
+<ul>
+<li>T und T gleicht T (T &amp; T <span class="math inline">\(\rightarrow\)</span> T)</li>
+<li>F und F gleicht F (F &amp; F <span class="math inline">\(\rightarrow\)</span> F)</li>
+<li>T und F gleicht F (T &amp; F <span class="math inline">\(\rightarrow\)</span> F)</li>
+<li>T oder T gleicht T (T | T <span class="math inline">\(\rightarrow\)</span> T)</li>
+<li>F oder F gleicht F (T | T <span class="math inline">\(\rightarrow\)</span> F)</li>
+<li>T oder F gleicht T (T | T <span class="math inline">\(\rightarrow\)</span> T)</li>
+</ul>
+<p>Werden Klammern verwendet gilt: Ausdruck innerhalb der Klammern wird zuerst ausgewertet! Mit der <em>sum()</em> Funktion können die Anzahl der wahren (T) Elemente eine Vektors ermittelt werden. Ein Anwendungsbeispiel wäre z.B., mit einer logischen Abfrage zu ermitteln, wie viele Ja-Antworten in einem Vektor bestehend aus Ja/Nein Antworten vorhanden sind (siehe nachfolgenden Code).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    T <span class="op">&amp;</span><span class="st"> </span>T
+    F <span class="op">&amp;</span><span class="st"> </span>F
+    T <span class="op">&amp;</span><span class="st"> </span>F
+    T <span class="op">|</span><span class="st"> </span>T
+    F <span class="op">|</span><span class="st"> </span>F
+    T <span class="op">|</span><span class="st"> </span>F
+    (T <span class="op">&amp;</span><span class="st"> </span>F) <span class="op">|</span><span class="st"> </span>T
+    
+    Vec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>( <span class="st">&quot;Nein&quot;</span>, <span class="dt">len =</span> <span class="dv">25</span>), 
+                   <span class="kw">rep</span>( <span class="st">&quot;Ja&quot;</span>, <span class="dt">len =</span> <span class="dv">43</span>),
+                   <span class="kw">rep</span>( <span class="st">&quot;Weder noch&quot;</span>, <span class="dt">len =</span> <span class="dv">12</span>))
+    <span class="kw">sum</span>(Vec <span class="op">==</span><span class="st"> &quot;Ja&quot;</span>)</code></pre></div>
+</div>
+<div id="der-in-operator-und-die-which-funktion" class="section level4 unnumbered">
+<h4>Der %in% Operator und die which()-Funktion</h4>
+<p>Der %in% Operator wird benutzt, um einem Vektor mehrere Elemente zu entnehmen. Dies kann auch mit sämtlichen Teilfragen und dem | Operator durchgeführt werden. Nachfolgend erzeugen wir einen logischen Vektor <em>InVec</em>, der T ist, wenn <em>Vec</em> “Nein” oder “Weder noch” enthält:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    InVec &lt;-<span class="st"> </span>Vec <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Nein&quot;</span>, <span class="st">&quot;Weder noch&quot;</span>)
+    InVec</code></pre></div>
+<p>Logische Operatoren und die <em>which()</em> Funktion bieten eine effiziente Möglichkeit auf Elemente eines Vektors zuzugreifen. Betrachte folgende Beispiele:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    VRand &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">200</span>, <span class="dt">mean =</span> <span class="dv">50</span>, <span class="dt">sd =</span> <span class="dv">8</span>)
+    VRand_GT_Mean_Indices &lt;-<span class="st"> </span>VRand <span class="op">&gt;=</span><span class="st"> </span><span class="kw">mean</span>(VRand, <span class="dt">na.rm =</span> T)
+    VRand[VRand_GT_Mean_Indices]
+    <span class="kw">sum</span>(VRand_GT_Mean_Indices)
+    <span class="kw">sum</span>(VRand_GT_Mean_Indices <span class="op">==</span><span class="st"> &quot;TRUE&quot;</span>)
+    <span class="kw">sum</span>(VRand_GT_Mean_Indices <span class="op">!=</span><span class="st"> &quot;TRUE&quot;</span>)
+    <span class="kw">any</span>(VRand_GT_Mean_Indices)
+    <span class="kw">which</span>(VRand_GT_Mean_Indices)
+    <span class="kw">which</span>(VRand_GT_Mean_Indices <span class="op">==</span><span class="st"> &quot;TRUE&quot;</span>)    
+    <span class="kw">which</span>(VRand_GT_Mean_Indices <span class="op">==</span><span class="st"> &quot;FALSE&quot;</span>)    </code></pre></div>
+</div>
+<div id="aufgabenblock-vektoren" class="section level4 unnumbered">
+<h4>Aufgabenblock Vektoren</h4>
+<p>Kopiere den folgenden Code in eine neues R-Skript und speichere dieses unter dem Namen <em>06_Objekte_Aufgaben</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="co"># Vektoren - Combine</span>
+    id     &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">11</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">23</span>) <span class="co"># c() entspr. combine; &lt;- Zuweisung zu einer Variablen</span>
+    Geschlecht &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;männlich&quot;</span>, <span class="st">&quot;weiblich&quot;</span>)
+    sex    &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)
+    lalt   &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>)
+    gross  &lt;-<span class="st">  </span><span class="kw">c</span>(<span class="dv">173</span>, <span class="dv">166</span>, <span class="dv">178</span>, <span class="dv">154</span>, <span class="dv">164</span>, <span class="dv">389</span>, <span class="dv">181</span>)
+    mon    &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">266</span>, <span class="dv">241</span>, <span class="dv">231</span>, <span class="dv">265</span>, <span class="dv">225</span>, <span class="dv">229</span>, <span class="dv">222</span>)
+    date   &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">3</span>)
+    entsch &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>)
+    proj   &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>)
+    i1     &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>)
+    i2     &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>)
+    i3     &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>)
+    i4     &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>)
+    i5     &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>)</code></pre></div>
+<p>Bearbeite nun folgende Aufgaben:</p>
+<ol style="list-style-type: decimal">
+<li>berechne den Mittelwert der Variablen <em>gross</em>.</li>
+<li>kopiere die Variable <em>gross</em> in eine neue Variable <em>gross1</em>.</li>
+<li>ersetze den ersten Wert von <em>gross1</em> mit dem Wert NA.</li>
+<li>berechne den Mittelwert von <em>gross1</em> - diskutiere das Ergebnis.</li>
+<li>berechne den Mittelwert von <em>gross1</em> unter Berücksichtigung fehlender Werte (verwende die Hilfe um über die Parameter der Funktion mean() nachzulesen!).</li>
+<li>berechne den Mittelwert von <em>gross1</em>, wobei 50% der Werte (je 25% der ersten und 25% der letzten) nicht in die Mittelwertberechnung einbezogen werden sollen.</li>
+<li>bilde das Produkt des zweiten mit dem dritten Wert der Variablen <em>gross</em> und speichern das Ergebnis in der Variablen <em>gross_prod</em>.</li>
+<li>setzte den dritten Wert der Variablen <em>sex</em> auf 1.</li>
+<li>erstelle eine Variable (<em>x</em>), deren Werte absteigend und in Einserschritten von 50 nach 1 sein sollen.</li>
+<li>zeige alle bis auf den zweiten Wert der Variablen <em>x</em> an.</li>
+<li>erstelle eine Sequenz (<em>x</em>) die mit 1 beginnt und in Zweierschritten hinaufzählt.</li>
+<li>erstelle eine Sequenz (<em>x</em>) die mit 10 beginnt und in Zweierschritten hinunterzählt.</li>
+<li>erstelle eine Sequenz (<em>x</em>) die mit 0 beginnt und in Zweierschritten bis 10 hinaufzählt und deren letzter Wert 50 ist (also x = 0 2 4 … 10 50).</li>
+<li>stelle fest, welcher Klasse der Vektor <em>x</em> zugeordnet ist.</li>
+<li>wandle den Vektor <em>x</em> vom Datentyp ‘numeric’ auf ‘character’ und speichere das Ergebnis in <em>x_c</em>.</li>
+<li>stelle fest, welcher Klasse der Vektor <em>x_c</em> zugeordnet ist.</li>
+<li>wandle den Vektor x zurück in Datentyp ‘numeric’ und speichere das Ergebnis in <em>x_n</em></li>
+<li>stelle fest, welcher Klasse der Vektor <em>x_n</em> zugeordnet ist.</li>
+<li>wie viele Personen sind größer-gleich (<span class="math inline">\(\ge\)</span>) als 173?</li>
+<li>für welches Element der Variablen <em>gross</em> ist die Körpergröße = 181 wahr (T)?</li>
+</ol>
+</div>
+</div>
+<div id="faktoren" class="section level3 unnumbered">
+<h3>Faktoren</h3>
+<p>Faktoren sind eine spezielle Form von Vektoren und werden auch in R als nominale Daten definiert. Beispielsweise wird die Unterteilung von Probanden nach dem Geschlecht üblicherweise in einem Datentyp <em>Faktor</em> abgespeichert. Dieser Faktor würde üblicherweise 2 sogenannte Faktorenstufen (<em>levels</em>) besitzen (männlich/weiblich).</p>
+<p>Faktoren können aber durchaus auch mehrere Faktorenstufen aufweisen. Zum Beispiel könnte ein Faktor die höchst abgeschlossene Schulbildung (Hauptschulabschluss, Abitur, FH, Uni) abbilden. Dieser Faktor hätte demnach 4 Stufen.</p>
+<p>Da Faktoren auf nominalen Niveau definiert werden, ist eine Zuordnung von <em>levels</em> und <em>labels</em> möglich. Für SPSS-Nutzer ist diese Möglichkeit etwas verwirrend, da die Bedeutung in R folgende ist:</p>
+<ul>
+<li>levels sind der Input, also wie die Stufen kodiert sind (im Beispiel mit 1, 2, 3).</li>
+<li>labels sind der Output, also welche levels mit welchem label versehen werden.</li>
+</ul>
+<p>Um mehrere Daten einem Faktor zuzuordnen, wird der <em>factor()</em>-Befehl mit dem <em>c()</em>-Befehl kombiniert. Kopiere folgenden Code in das Skriptfile und führe die Befehle zeilenweise aus. Diskutiere die Ergebnisse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    A &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>, <span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>))
+    A
+    <span class="kw">levels</span>(A)
+    <span class="kw">nlevels</span>(A)
+
+    kurs.fac1 &lt;-<span class="st"> </span><span class="kw">factor</span>(kurs.num)
+    <span class="kw">class</span>(kurs.fac1)
+
+    kurs.fac2 &lt;-<span class="st"> </span><span class="kw">factor</span>(kurs.num, 
+                        <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), 
+                        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&#39;Kurs1&#39;</span>, <span class="st">&#39;Kurs2&#39;</span>, <span class="st">&#39;Kurs3&#39;</span>))
+    <span class="kw">str</span>(kurs.fac2)
+    <span class="kw">levels</span>(kurs.fac2)
+    <span class="kw">table</span>(kurs.fac2)</code></pre></div>
+<div id="aufgabenblock-faktoren" class="section level4 unnumbered">
+<h4>Aufgabenblock Faktoren</h4>
+<ol style="list-style-type: decimal">
+<li>erstelle die Variable x = c(1,2,3,1,1,2,2) und wandeln diese in einen Faktor <em>x_fact</em> um. Benenne die Stufen des Faktors der Variablen x_fact mit ‘A’, ‘B’, …</li>
+<li>kopiere <em>x_fact</em> in Variable <em>x_fact2</em> und ändere die Bezeichnung der Faktorenstufen auf ‘S1’, ‘S2’, … (verwenden dazu die Funktion levels(…)). Verwende den Befehl <em>table()</em> um die Variable <em>x_fact2</em> anzuzeigen. Was bewirkt der Befehl?</li>
+<li>gib folgenden Befehl ein: x_fact3 = factor(x_fact2, levels = c(‘S3’, ‘S1’, ‘S2’)). Vergleiche <em>x_fact2</em> und <em>x_fact3</em>, was hat sich geändert?</li>
+</ol>
+</div>
+</div>
+<div id="matrizen" class="section level3 unnumbered">
+<h3>Matrizen</h3>
+<p>Matrizen sind in R Objekte, denen Elemente gleichen Datentyps in Form von Zeilen und Spalten zugewiesen können. Damit können Vektoren des gleichen Datentyps in ein Objekt (der Matrix) zeilen-, oder spaltenweise zusammengehängt und abgespeichert werden. In R kann eine Matrix aus Vektoren mit den <em>rbind()</em> und <em>cbind()</em> Funktionen zusammengesetzt werden.</p>
+<ul>
+<li>Mit <em>rbind()</em> werden die Vektoren als Reihen der Matrix gespeichert, und</li>
+<li>mit <em>cbind()</em> als Spalten.</li>
+</ul>
+<p>Werden Vektoren mit unterschiedlichen Datentypen durch diese Funktionen zusammengefasst, werden alle Werte in der Matrix als Typ <em>character</em> gespeichert. Kopiere den Code aus folgenden Block und führe diesen zeilenweise aus. Diskutiere die Ergebnisse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    A &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+    B &lt;-<span class="st"> </span><span class="kw">as.character</span>(A) <span class="co"># Wandelt numerischen Vektor A in einen Charakter-Vektor um</span>
+    C &lt;-<span class="st"> </span><span class="kw">rbind</span>(A,B)      <span class="co"># Zeilenweises zusammenführen der beiden Vektoren</span>
+    <span class="kw">str</span>(C)               <span class="co"># Zeigt die Struktur und jeweiligen Datentypen in der Struktur von Matrix C</span>
+    
+    matrix.col &lt;-<span class="st"> </span><span class="kw">cbind</span>(kurs.num,alter) <span class="co"># Spaltenweises zusammenführen der beiden Vektoren</span>
+    matrix.col
+    <span class="kw">colnames</span>(matrix.col) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Kurs&quot;</span>, <span class="st">&quot;Alter&quot;</span>)
+    <span class="kw">rownames</span>(matrix.col) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;VP&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>)
+    matrix.col
+
+    matrix.col.Alternativ &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="dt">Kurs =</span> kurs.num, <span class="dt">Alter =</span> alter) <span class="co"># sofortige Benennung der Variablen</span>
+    matrix.col.Alternativ
+    
+    matrix.rows           &lt;-<span class="st"> </span><span class="kw">rbind</span>(kurs.num, alter) <span class="co"># Zeilenweises zusammenführen der beiden Vektoren</span>
+    matrix.rows
+    
+    AnzZeilen  &lt;-<span class="st"> </span><span class="kw">nrow</span>(matrix.rows)
+    AnzSpalten &lt;-<span class="st"> </span><span class="kw">ncol</span>(matrix.rows)
+    DimMat     &lt;-<span class="st"> </span><span class="kw">dim</span>(matrix.rows)
+    DimMat[<span class="dv">1</span>] <span class="co"># Anzahl Zeilen in der Matrix matrix.rows</span>
+    DimMat[<span class="dv">2</span>] <span class="co"># Anzahl Spalten in der Matrix matrix.rows</span></code></pre></div>
+<p>Wie dem obigen Code zu entnehmen ist, kann bei einer Matrix sowohl der Spaltenname wie auch die Bezeichnung der Zeilen mit den Funktionen <em>colnames()</em> und <em>rownames()</em> festgelegt werden. Vor allem bei den Spaltenbezeichnungen erweist sich diese Möglichkeit für viele Anwendungen noch als sehr hilfreich.</p>
+<p>Um festzustellen, wie viele Zeilen, bzw. Spalten eine Matrix besitzt, kann man entweder dem Environment (Spalte Value) entnehmen, oder direkt mit den Funktionen <em>nrow(Matrix)</em> / <em>ncol(Matrix)</em> abfragen. Die Funktion <em>dim(Matrix)</em> liefert als Ergebnis einen Vektor, dessen erster Eintrag die Zeilenanzahl und der Zweite die Spaltenanzahl beinhaltet<a href="#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>.</p>
+<div id="zugriff-auf-elemente-einer-matrix" class="section level4 unnumbered">
+<h4>Zugriff auf Elemente einer Matrix</h4>
+<p>Wie bereits bei Vektoren, wird auch bei Matrizen ein Index für die Adressierung einer Position verwendet. Im Unterschied zum Vektor, werden bei Matrizen zwei Indizes verwendet:</p>
+<ul>
+<li>der erste Index bezieht sich immer auf die Zeilennummer einer Matrix</li>
+<li>der zweite Index bezieht sich immer auf die Spaltennummer einer Matrix</li>
+</ul>
+<p>Folgende Beispiele verdeutlichen die Verwendungsmöglichkeiten der Adressierung mit Indizes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    matrix.rows
+    matrix.rows[<span class="dv">2</span>,]    <span class="co"># liest alle Elemente der zweiten Zeile einer Matrix</span>
+    matrix.rows[,<span class="dv">2</span>]    <span class="co"># liest alle Elemente der zweiten Spalte einer Matrix</span>
+    matrix.rows[<span class="dv">1</span>,<span class="dv">2</span>]   <span class="co"># liest das Element der ersten Zeile und der zweiten Spalte einer Matrix</span>
+    matrix.rows[<span class="dv">2</span>,<span class="dv">1</span>]   <span class="co"># liest das Element der zweiten Zeile und der ersten Spalte einer Matrix</span>
+    matrix.rows[<span class="dv">1</span>,<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>] <span class="co"># liest das Element der ersten Zeile und der dritten bis vierten Spalte einer Matrix</span>
+    ZI &lt;-<span class="st"> </span><span class="dv">2</span>            <span class="co"># Zeilenindex</span>
+    SI &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>)     <span class="co"># Spaltenindex</span>
+    matrix.rows[ZI,SI] <span class="co"># liest die ZI&#39;te Zeile(n) und die SI&#39;ten Spate(n)</span>
+    
+    matrix.rows[<span class="dv">3</span>]     <span class="co"># Gibt das dritte Element eine Matrix aus. Ausgehend von der ersten Zeile und Spalte,</span>
+                       <span class="co"># werden die Elemente der ersten Spalte aufsteigend nummeriert. Am Ende einer Spalte,</span>
+                       <span class="co"># wird die Nummerierung in der ersten Zeile der nachfolgenden Spalte fortgesetzt - </span>
+                       <span class="co"># bis das Ende der Matrix erreicht ist.</span>
+    matrix.rows[<span class="dv">6</span>]</code></pre></div>
+<p><em>Bemerkung:</em> verwendet man bei einer Matrix nur einen Index, so wird das entsprechende Element eine Matrix ausgegeben. Die Nummerierung wird dabei folgendermaßen festgelegt: ausgehend von der ersten Zeile und Spalte werden die Elemente der ersten Spalte aufsteigend nummeriert. Am Ende einer Spalte wird die Nummerierung in der ersten Zeile der nachfolgenden Spalte fortgesetzt - bis das Ende der Matrix erreicht ist.</p>
+</div>
+<div id="erzeugen-von-matrizen" class="section level4 unnumbered">
+<h4>Erzeugen von Matrizen</h4>
+<p>Es gibt verschiedenstes Möglichkeiten, Matrizen mit Hilfe von R-Funktionen zu erzeugen. Vor allem für Simulation von Daten (z.B. Ziehung eines Samples der Größe <span class="math inline">\(N\)</span> aus einer normalverteilten Grundgesamtheit, oder aus einer Gleichverteilung etc.) kann für die Evaluierung von statistischen Modellen elegant gelöst werden. Folgende Beispiele geben einen Einblick in einige wenige Möglichkeiten Matrizen zu generieren. Kopier den Code in deinen Editor und führe diesen zeilenweise aus. Diskutiere die Funktionen und die Ergebnisse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">matrix</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">3</span>)
+    <span class="kw">matrix</span>( <span class="kw">rep</span>( <span class="dv">0</span>, <span class="dt">len =</span> <span class="dv">25</span>), <span class="dt">nrow =</span> <span class="dv">5</span>)
+    <span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">9</span>), <span class="dv">3</span>, <span class="dv">3</span>)
+    a &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">9</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+    <span class="kw">matrix</span>(a, <span class="dv">3</span>, <span class="dv">3</span>)
+    b &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">9</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)
+    <span class="kw">matrix</span>(b, <span class="dv">3</span>, <span class="dv">3</span>)</code></pre></div>
+</div>
+<div id="arithmentische-funktionen-auf-zwei-matrizen" class="section level4 unnumbered">
+<h4>Arithmentische Funktionen auf zwei Matrizen</h4>
+<p>Wenn arithmetische Funktionen auf zwei Matrizen angewendet, dann werden immer zwei Elemente derselben Zeile und Spalte addiert, subtrahiert, multipliziert oder dividiert. Aus diesem Grund ist es auch erforderlich, dass die Dimension (= Anzahl Zeilen und Spalten, auch <span class="math inline">\(m \times n\)</span>) der beiden Matrizen übereinstimmt. Dies kann mit Hilfe von logischen Operatoren überprüft werden.</p>
+<p>Ohne auf weitere Details einzugehen, sei hier noch die Berechnung des Skalarproduktes zweier Matrizen erwähnt. Dieses wird durch den Operator <span class="math inline">\(\%*\%\)</span> berechnet. Kopier den folgenden Code in den Editor und führe diesen Zeilenweise aus. Diskutiere die Ergebnisse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    R1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">9</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)
+    m1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(R1, <span class="dv">3</span>, <span class="dv">3</span>)
+    R2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">9</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)
+    m2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(R2, <span class="dv">3</span>, <span class="dv">3</span>)
+    <span class="kw">dim</span>(m1) <span class="op">==</span><span class="st"> </span><span class="kw">dim</span>(m2)
+    R3 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">12</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)
+    m3 &lt;-<span class="st"> </span><span class="kw">matrix</span>(R3, <span class="dv">4</span>, <span class="dv">3</span>)
+    <span class="kw">dim</span>(m1) <span class="op">==</span><span class="st"> </span><span class="kw">dim</span>(m3)
+
+    m1 <span class="op">*</span><span class="st"> </span>m2    
+    m1 <span class="op">-</span><span class="st"> </span>m2
+    m1 <span class="op">/</span><span class="st"> </span>m2    
+
+    m4 &lt;-<span class="st"> </span>m1 <span class="op">%*%</span><span class="st"> </span>m2 <span class="co"># ACHTUNG: berechnet das Skalarprodukt!</span>
+    m4
+    m5 &lt;-<span class="st"> </span>m1[,<span class="dv">1</span>] <span class="op">%*%</span><span class="st"> </span>m2[,<span class="dv">1</span>]
+    m5</code></pre></div>
+<p>Darüber hinaus können auch Funktionen wie <em>mean()</em>, <em>median()</em>, <em>sum()</em>, etc. auf alle Elemente einer Matrix angewendet werden. Kopier den folgenden Code in den Editor und führe diesen zeilenweise aus. Diskutiere die Ergebnisse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    R6 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">24</span>, <span class="dt">mean =</span> <span class="dv">100</span>, <span class="dt">sd =</span> <span class="dv">15</span>)
+    m6 &lt;-<span class="st"> </span><span class="kw">matrix</span>(R6, <span class="dv">8</span>, <span class="dv">3</span>)
+    <span class="kw">mean</span>(m6)           <span class="co"># Grand Average der Matrix m1</span>
+    <span class="kw">apply</span>(m6, <span class="dv">1</span>, mean) <span class="co"># Mittelwert der Zeilen</span>
+    <span class="kw">apply</span>(m6, <span class="dv">2</span>, mean) <span class="co"># Mittelwert der Spalten</span></code></pre></div>
+<p>Die hier verwendete Funktion <em>apply()</em> ist Teil einer Funktionsgruppe, die als Alternative für Schleifen verwendet werden kann. Weitere wichtige Funktionen dieser Gruppe sind:</p>
+<ul>
+<li>lapply() - Anwendung einer Funktion auf die Elemente einer Vektoren, Dataframes und Listen. Liefert als Ergebnis eine Liste.</li>
+<li>sapply() - vereinfacht die Ausgabe der lapply()-Funktion.</li>
+<li>rep() - zum wiederholten Replizieren von Vektoren und/oder Faktoren.</li>
+</ul>
+<p>Anwendung und Details über diese Funktionen werden in entsprechenden Kapiteln behandelt.</p>
+</div>
+<div id="aufgabenblock-matrizen" class="section level4 unnumbered">
+<h4>Aufgabenblock Matrizen</h4>
+<p>Unter Verwendung der bereits geladenen Variablen aus den Vektoren (siehe <em>Aufgabenblock Vektoren</em>) sind folgende Aufgaben zu bearbeiten:</p>
+<ol style="list-style-type: decimal">
+<li>erstelle eine Matrix <em>X</em>, in welcher die Variablen <em>lalt</em>, <em>sex</em> und <em>gross</em> als Spalten gespeichert sind.</li>
+<li>erstelle eine Matrix <em>Z</em>, in welcher die Variablen <em>lalt</em>, <em>sex</em> und <em>gross</em> als Zeilen gespeichert sind.</li>
+<li>Gib den Wert der zweiten Zeile und dritten Spalte der Variablen <em>X</em> aus.</li>
+<li>Gib die dritte Zeile der Variablen <em>X</em> aus (alle Spalten).</li>
+<li>Gib die 3te bis 5te Zeile und 1te bis 2te Spalte der Variablen <em>X</em> aus.</li>
+<li>Verwende den Befehl <em>colnames()</em> um die Spaltenbezeichungen der Variablen <em>X</em> anzuzeigen.</li>
+<li>erstelle eine Variable <em>ColNames</em> mit den Werten ‘Alter’, ‘Gewicht’ und ‘Groesse’.</li>
+<li>weise der Variablen <em>X</em> diese neuen Spaltenbezeichungen zu (verwende den Befehl <em>colnames()</em>).</li>
+<li>erstelle eine Variable <em>namen</em>, in welcher 7 beliebige Namen gespeichert sind.</li>
+<li>verwende diese Variable um der Matrix <em>X</em> diese Namen als Zeilenbezeichnung zuzuweisen (verwenden den Befehl <em>rownames()</em>).</li>
+<li>probiere den Befehl <em>fix(X)</em>, vgl. in der Hilfe, was der Befehl macht und diskutiere die Eigenschaften.</li>
+<li>ermittle die ‘Dimension’ der Matrix <em>X</em> (verwende den Befehl <em>dim()</em>).</li>
+<li>ermitteln die ‘Länge’ der Matrix <em>X</em> (verwende den Befehl <em>length()</em>).</li>
+<li>Berechne die Körpergröße in Meter und füge das Ergebnis als weitere Spalte zur bestehenden Matrix <em>X</em> an.</li>
+<li>Ermittle jene Positionen (Indizes) der Personen die größer als 200 cm sind. Was ist der Name der Person?</li>
+</ol>
+</div>
+</div>
+<div id="data-frames" class="section level3 unnumbered">
+<h3>Data-Frames</h3>
+<p>Eine Erweiterung des Datentyps <em>Matrix</em> ist der sogenannte <em>Dataframe</em>. Mit diesem Datentyp ist es möglich, innerhalb eines Objektes auch unterschiedliche Formate (Datentypen) zu speichern. Bei Vektoren und Matrizen gilt die Einschränkung, dass alle Elemente denselben Datentyp aufweisen müssen. Bei Matrizen gilt darüber hinaus, dass beim Hinzufügen von z.B. einer weiteren Spalte die Anzahl der Zeilen der bereits bestehenden Zeilenanzahl der Matrix entspricht (anderenfalls gibt es eine Fehlermeldung).</p>
+<p>Bei einem <em>Dataframe</em> können nun Daten unterschiedlichen Typs in ein Objekt zusammengefasst werden. Allerdings bleibt die Voraussetzung, dass die Länge der unterschiedlichen Elemente (Vektoren) gleich ist.</p>
+<p>Ein <em>Dataframe</em> ist in gewisser Weise vergleichbar mit einer Excel-Tabelle.</p>
+<center>
+<div class="figure">
+<img src="/Images/ExcelTabelle.PNG" alt="Abbildung 2: Beispiel für unterschiedliche Daten in einer Excel-Tabelle" style="width:30.0%" />
+<p class="caption"><strong>Abbildung 2</strong>: Beispiel für unterschiedliche Daten in einer Excel-Tabelle</p>
+</div>
+</center>
+<p>In der ersten und dritten Spalte (LNr, Alter) sind numerische Werte, in der zweiten ist ein Datum und in der vierten ein Name (String, Charakters). Würde diese Tabelle in R als Matrix gespeichert, würde R alle Daten in den Datentyp <em>character</em> umwandeln! Bei einem <em>Datenframe</em> wird im Gegensatz dazu der Datentyp jeder Spalte beibehalten.</p>
+<p>Um aus bestehenden Objekten (Vektoren, Matrizen) einen Datenframe zu erstellen, wird die Funktion <em>data.frame()</em> benutzt. Der Zugriff auf die Elemente eines Dataframes ist gleich wie bei Matrizen. Der Name des <em>Dataframes</em> gefolgt von zwei eckigen Klammern, innerhalb welcher die Indizes der Zeilen und Spalten angegeben werden. Entsprechend kann auch die Bezeichnung der Spalten und Zeilen über die Funktionen colnames() und rowname() angezeigt, bzw. verändert werden (vgl. Matrizen).</p>
+<p>Darüber hinaus bietet der Dataframe noch eine spezielle Form der Adressierung von Spalten. Betrachtet man die Spalten als Variablen, deren Namen durch den Spaltennamen gegeben ist, kann mittels folgender Syntax auf die entsprechende Spalte zugegriffen werden: <em>DataframeName$SpaltenName</em>. Die Adressierung von Elementen innerhalb einer Variablen (Spalte) wird weiterhin mit der Indexmethode durchgeführt.</p>
+<p>Manche Programmierer bevorzugen einen <em>schlanken Code</em>, d.h. es soll so wenig wie möglich Text in den Programmzeilen stehen. Bei der Verwendung von Dataframes gibt es die Funktionen <em>attach(DataframeName)</em> und <em>detach(DataframeName</em>). Erstere bewirkt, dass bei der Referenz auf Variablen eines Dataframes der Name desselben nicht mehr angegeben werden muss (man spart sich also den <em>DataframeName$</em>). Allerdings stehen dann die Inhalten nur mehr zum Lesen zur Verfügung. Mit <em>detach(DataFrameName)</em> wird die direkte Referenzierung über Variablennamen wieder aufgehoben. Es sei jedoch darauf hingewiesen, dass sich einige Probleme in Zusammenhang mit der Benennung anderer Variablen ergeben können!</p>
+<p>Folgender Code zeigt die soeben beschriebenen Eigenschaften. Kopiere den Code in den Editor und führe diesen dann zeilenweise aus:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    DF &lt;-<span class="st"> </span><span class="kw">data.frame</span>(kurs.fac2, alter)
+    DF
+    <span class="kw">str</span>(DF)
+    DF[<span class="dv">1</span>,<span class="dv">2</span>]
+    <span class="kw">colnames</span>(DF)
+    <span class="kw">rownames</span>(DF)
+    <span class="kw">colnames</span>(DF) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Kursnummer&quot;</span>, <span class="st">&quot;Alter&quot;</span>)
+    AnzZeilenDF  &lt;-<span class="st"> </span><span class="kw">dim</span>(DF)[<span class="dv">1</span>] <span class="co"># oder nrow(DF)</span>
+    <span class="kw">rownames</span>(DF) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;VP&quot;</span>, <span class="dv">1</span><span class="op">:</span>AnzZeilenDF)
+    <span class="kw">rownames</span>(DF) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;VP&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(DF))    <span class="co"># gleichwertige Möglichkeit</span>
+    <span class="kw">rownames</span>(DF) &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;VP&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(DF)[<span class="dv">1</span>])  <span class="co"># gleichwertige Möglichkeit</span>
+    DF
+    DF<span class="op">$</span>Kursnummer    
+    DF<span class="op">$</span>Alter[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]
+    <span class="kw">attach</span>(DF)
+    Alter
+    <span class="kw">detach</span>(DF)</code></pre></div>
+<div id="aufgabenblock-dataframes" class="section level4 unnumbered">
+<h4>Aufgabenblock Dataframes</h4>
+<ol style="list-style-type: decimal">
+<li>erstelle eine Datenstruktur (data.frame) mit dem Namen <em>fragebogen</em> mit folgenden Inhalt: <em>id</em>, <em>Geschlecht</em>, <em>sex</em>, <em>lalt</em>, <em>gross</em>, <em>mon</em>, <em>date</em>, <em>entsch</em>, <em>proj</em>, <em>i1</em>, <em>i2</em>, <em>i3</em>, <em>i4</em>, <em>i5</em></li>
+<li>gib die 3te Zeile des <em>fragebogens</em> aus.</li>
+<li>verwende die Funktion <em>head()</em> und diskutiere das Ergebnis</li>
+<li>versuche den Befehl fragebogen$i1[1:3]. Diskutieren sie das Ergebnis, sehen Sie nach was das $ bedeutet!</li>
+<li>gib die Werte der 1’ten bis zur 3’ten Zeile der Spalte <em>proj</em> aus.</li>
+<li>versuche den Befehl attach() und den Befehl detach(). Verwende bei Bedarfsfall die Hilfefunktion.</li>
+</ol>
+</div>
+</div>
+<div id="data-tables" class="section level3 unnumbered">
+<h3>Data-Tables</h3>
+<p>Eine erweiterte Version von <em>Dataframes</em> wir durch das Paket <em>data.table</em><a href="#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>. Einer der wesentlichen Vorteile bei der Verwendung von data.table liegt vor allem in der beträchtlich schnelleren Verarbeitung - vor allem bei sehr großen Datensätzen. Das Paket beinhaltet eine Funktion (fread()) zum Lesen von <em>csv</em>-Dateien, welche in Hinblick auf Ladezeiten sehr großer Dateien die oft verwendete Funktion <em>read.csv()</em> in den Schatten stellt. Auch die Handhabung der Daten in einer <em>data.table</em> ist bei weitem schneller als in einem <em>Dataframe</em>.</p>
+<p>Trotz dieser Vorteile verzichten wir im Folgenden auf die Verwendung dieser Funktionen, da wir einerseits nicht mit <em>big data</em> arbeiten werden und andererseits ein Großteil der von R zur Verfügung gestellten Beispieldatensätze in Form von <em>Dataframes</em> und <em>Listen</em> vorfinden werden.</p>
+</div>
+<div id="listen" class="section level3 unnumbered">
+<h3>Listen</h3>
+<p>Um den Einschränkungen bezüglich der <em>Dataframes</em> zu entgehen, kann der Datentyp <em>list</em> verwendet werden. List-Objekte können neben verschiedenen Datentypen auch unterschiedlich große Objekte (Skalare, Vektoren, Matrizen, Dataframes), aber Objektstrukturen wie z.B. Funktionen beinhalten. Listen bilden damit eine Möglichkeit, so ziemlich alles was in R an Objekten erzeugt werden kann in einer Variablen des Typs list abzuspeichern. Eine Liste zu erzeugen erfolgt einfach über die Funktion <em>list()</em>. Betrachten wir zunächst folgenden Code:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    LI        &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="st">&quot;Rot&quot;</span>, <span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">32</span>,<span class="dv">11</span>), <span class="ot">TRUE</span>, <span class="fl">51.23</span>, m1) <span class="co"># Generiere Liste mit verschiedenen Einträgen</span>
+    <span class="kw">str</span>(LI) <span class="co"># Zeige die Struktur der Liste an</span>
+    <span class="kw">names</span>(LI) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Farbe&quot;</span>, <span class="st">&quot;Alter&quot;</span>, <span class="st">&quot;Raucher&quot;</span>,<span class="st">&quot;Gewicht&quot;</span>, <span class="st">&quot;Matrix&quot;</span>)
+    <span class="kw">str</span>(LI)
+    <span class="co"># Alternativ kann man die Namen der Listen auch bereits bei der Erstellung durchführen</span>
+    LI1        &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Farbe =</span> <span class="st">&quot;Rot&quot;</span>, 
+                       <span class="dt">Vec =</span> <span class="kw">c</span>(<span class="dv">21</span>,<span class="dv">32</span>,<span class="dv">11</span>), 
+                       <span class="dt">Logi =</span> <span class="ot">TRUE</span>, 
+                       <span class="dt">Wert =</span> <span class="fl">51.23</span>, 
+                       <span class="dt">Mat =</span> m1) <span class="co"># Generiere Liste mit verschiedenen Einträgen</span>
+    <span class="kw">str</span>(LI1)
+    
+    LI<span class="op">$</span>Farbe
+    LI<span class="op">$</span>Matrix[<span class="dv">2</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]
+    LI[<span class="dv">5</span>]
+    LI[[<span class="dv">5</span>]][<span class="dv">2</span>, <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]
+    
+    LI[<span class="dv">6</span>] &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">Matrix2 =</span> m2) <span class="co"># Füge Element als letztes Element der Liste hinzu</span>
+    <span class="kw">str</span>(LI)
+    LI[<span class="dv">6</span>] &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># Entferne letztes Element der Liste</span>
+
+    LI    &lt;-<span class="st"> </span><span class="kw">list</span>(LI, <span class="kw">list</span>(<span class="st">&quot;green&quot;</span>,<span class="fl">12.3</span>)) <span class="co"># Listen ineinander verschachteln</span>
+    <span class="kw">str</span>(LI) <span class="co"># Zeige die Struktur der Liste an</span>
+    LI[[<span class="dv">1</span>]]<span class="op">$</span>Farbe
+    LI[[<span class="dv">2</span>]][<span class="dv">1</span>]
+    XLi &lt;-<span class="st"> </span><span class="kw">unlist</span>(LI)
+    XLi</code></pre></div>
+</div>
+<div id="tables" class="section level3 unnumbered">
+<h3>Tables</h3>
+<p>Eine weitere Möglichkeit in R Daten in Objekten zu speichern bietet die Klasse der <em>Tables</em>. Die unterschiedlichen Formen der Tables sind am besten durch folgende Beispiele zu erklären:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
+    F1 &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;A&quot;</span>,<span class="st">&quot;C&quot;</span>))
+    results &lt;-<span class="st"> </span><span class="kw">table</span>(F1)
+    results
+    <span class="kw">attributes</span>(F1)
+    
+    
+    V1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Sometimes&quot;</span>,<span class="st">&quot;Sometimes&quot;</span>,<span class="st">&quot;Never&quot;</span>,<span class="st">&quot;Always&quot;</span>,<span class="st">&quot;Always&quot;</span>,<span class="st">&quot;Sometimes&quot;</span>,<span class="st">&quot;Sometimes&quot;</span>,<span class="st">&quot;Never&quot;</span>)
+    V2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Maybe&quot;</span>,<span class="st">&quot;Maybe&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;Maybe&quot;</span>,<span class="st">&quot;Maybe&quot;</span>,<span class="st">&quot;No&quot;</span>,<span class="st">&quot;Yes&quot;</span>,<span class="st">&quot;No&quot;</span>)
+    results &lt;-<span class="st"> </span><span class="kw">table</span>(V1,V2)
+    results    
+    
+    sexsmoke           &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">70</span>,<span class="dv">120</span>,<span class="dv">65</span>,<span class="dv">140</span>),<span class="dt">ncol =</span> <span class="dv">2</span>,<span class="dt">byrow =</span> <span class="ot">TRUE</span>)
+    <span class="kw">rownames</span>(sexsmoke) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;male&quot;</span>,<span class="st">&quot;female&quot;</span>)
+    <span class="kw">colnames</span>(sexsmoke) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;smoke&quot;</span>,<span class="st">&quot;nosmoke&quot;</span>)
+    sexsmoke           &lt;-<span class="st"> </span><span class="kw">as.table</span>(sexsmoke)
+    sexsmoke
+    
+    sexsmoke_DF        &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(sexsmoke)</code></pre></div>
+<p>Tabellen können mit der Funktion <em>as.data.frame(tbl)</em> leicht in die bereits bekannte Klasse des Datenframes umgewandelt werden.</p>
+</div>
+</div>
+<div id="attribute" class="section level2 unnumbered">
+<h2>Attribute</h2>
+<p>Allen bisher besprochenen Objekte in R können beliebige zusätzlichen Eigenschaften (Attribute) zugewiesen werden. Attribute kann man sich als Namenslisten vorstellen, welche durch die Funktion <em>attr()</em> festgelegt werden können.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">str</span>(sexsmoke)
+    <span class="kw">attr</span>(sexsmoke, <span class="st">&quot;dim&quot;</span>)
+    
+    y &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+    <span class="kw">attr</span>(y, <span class="st">&quot;Mein_Attribut&quot;</span>) &lt;-<span class="st"> &quot;y ist ein Vektor&quot;</span>
+    
+    <span class="kw">attr</span>(y, <span class="st">&quot;Mein_Attribut&quot;</span>)
+    <span class="kw">str</span>(<span class="kw">attributes</span>(y))</code></pre></div>
+<p>Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln entsprechend verwiesen. Vor allem beim Import von Daten (z.B. SPSS Ergebnisse einer Limesurveyumfrage) können die Attribute für die Speicherung zu Metainformation einer Variablen (Itemformulierung zu einer Variablen) sehr hilfreich sein.</p>
+<hr />
+</div>
+<div id="losungen-1" class="section level2 unnumbered">
+<h2>Lösungen</h2>
+<div id="losungen-zu-aufgabenblock-copy-und-paste" class="section level3 unnumbered">
+<h3>Lösungen zu Aufgabenblock Copy und Paste</h3>
+</div>
+<div id="losungen-zu-aufgabenblock-vektoren" class="section level3 unnumbered">
+<h3>Lösungen zu Aufgabenblock Vektoren</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">mean</span>(gross)          <span class="co"># A1: Aufruf der Funktion mean().</span>
+    gross1     &lt;-<span class="st">  </span>gross <span class="co"># A2: Kopiere Werte von gross in gross1</span>
+    gross1[<span class="dv">1</span>]  &lt;-<span class="st">  </span><span class="ot">NA</span>    <span class="co"># A3: setzte den ersten Wert von gross1 auf NA (not available) = missing value</span>
+    <span class="kw">mean</span>(gross1)         <span class="co"># A4: BEACHTE, dass mean nun NA ist -&gt; Markiere mean und drücke F1</span>
+    <span class="kw">mean</span>(gross1, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) <span class="co"># A5: nun wird der Mittelwert richtig berechnet!</span>
+    <span class="kw">mean</span>(gross1, <span class="dt">trim =</span> <span class="fl">0.5</span>, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>) <span class="co"># A6</span>
+    gross_prod &lt;-<span class="st"> </span>gross[<span class="dv">2</span>]<span class="op">*</span>gross[<span class="dv">3</span>] <span class="co"># A7</span>
+    sex[<span class="dv">3</span>]  &lt;-<span class="st"> </span><span class="dv">1</span>    <span class="co"># A8</span>
+    x       &lt;-<span class="st"> </span><span class="dv">50</span><span class="op">:</span><span class="dv">1</span> <span class="co"># A9</span>
+    x[<span class="op">-</span><span class="dv">2</span>]           <span class="co"># A10: Alle Werte bis auf den zweiten Wert der Liste.</span>
+    x       &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="co"># A11: vgl. gegebenenfalls in der Hilfe unter seq()</span>
+                   <span class="dt">to =</span> <span class="dv">10</span>,
+                   <span class="dt">by =</span> <span class="dv">2</span>)
+    x       &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">10</span>, <span class="co"># A12</span>
+                   <span class="dt">to =</span> <span class="dv">2</span>,
+                   <span class="dt">by =</span> <span class="op">-</span><span class="dv">2</span>)
+    x       &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">0</span>, <span class="co"># A13</span>
+                     <span class="dt">to   =</span> <span class="dv">10</span>,
+                     <span class="dt">by =</span> <span class="dv">2</span>), <span class="dv">50</span>)
+    <span class="kw">class</span>(x)  <span class="co"># A14</span>
+    x_c &lt;-<span class="st"> </span><span class="kw">as.character</span>(x) <span class="co"># A15</span>
+    <span class="kw">class</span>(x_c) <span class="co"># A16</span>
+    x_n &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(x)  <span class="co"># A17</span>
+    <span class="kw">class</span>(x_n) <span class="co"># A18</span>
+    <span class="kw">sum</span>(gross <span class="op">&gt;=</span><span class="st"> </span><span class="dv">173</span>) <span class="co"># A19</span>
+    <span class="kw">which</span>(gross <span class="op">%in%</span><span class="st"> </span><span class="dv">181</span>) <span class="co"># A20</span></code></pre></div>
+</div>
+<div id="losungen-zu-aufgabenblock-faktoren" class="section level3 unnumbered">
+<h3>Lösungen zu Aufgabenblock Faktoren</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="co"># Aufgabe 1</span>
+    x       &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)
+    x_fact  &lt;-<span class="st"> </span><span class="kw">factor</span>(x, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>))
+    <span class="co"># Aufgabe 2</span>
+    x_fact2         &lt;-<span class="st"> </span>x_fact
+    <span class="kw">levels</span>(x_fact2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;S1&#39;</span>, <span class="st">&#39;S2&#39;</span>, <span class="st">&#39;S3&#39;</span>)
+    <span class="kw">table</span>(x_fact2)
+    <span class="co"># Aufgabe 3</span>
+    x_fact3 &lt;-<span class="st"> </span><span class="kw">factor</span>(x_fact2, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;S3&quot;</span>, <span class="st">&quot;S1&quot;</span>, <span class="st">&quot;S2&quot;</span>))
+    <span class="kw">table</span>(x_fact2)
+    <span class="kw">table</span>(x_fact3)</code></pre></div>
+</div>
+<div id="losungen-zu-aufgabenblock-matrizen" class="section level3 unnumbered">
+<h3>Lösungen zu Aufgabenblock Matrizen</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    X &lt;-<span class="st"> </span><span class="kw">cbind</span>(lalt, sex, gross) <span class="co"># A1</span>
+    Z &lt;-<span class="st"> </span><span class="kw">rbind</span>(lalt, sex, gross) <span class="co"># A2</span>
+    X[<span class="dv">2</span>,<span class="dv">3</span>] <span class="co"># A3</span>
+    X[<span class="dv">3</span>,] <span class="co"># A4</span>
+    X[<span class="dv">3</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]  <span class="co"># A5</span>
+    <span class="kw">colnames</span>(X)  <span class="co"># A6</span>
+    ColNames    &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Alter&quot;</span>, <span class="st">&quot;Gewicht&quot;</span>, <span class="st">&quot;Größe&quot;</span>)  <span class="co"># A7</span>
+    <span class="kw">colnames</span>(X) &lt;-<span class="st"> </span>ColNames <span class="co"># A8</span>
+    namen       &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Walter&quot;</span>, <span class="st">&quot;Gerda&quot;</span>,<span class="st">&quot;Hannes&quot;</span>, <span class="st">&quot;Ute&quot;</span>, <span class="st">&quot;Hanna&quot;</span>,<span class="st">&quot;Doris&quot;</span>,<span class="st">&quot;Karin&quot;</span>) <span class="co"># A9</span>
+    <span class="kw">rownames</span>(X) &lt;-<span class="st"> </span>namen  <span class="co"># A10</span>
+    <span class="kw">fix</span>(X)  <span class="co"># A11</span>
+    <span class="kw">dim</span>(X)  <span class="co"># A12</span>
+    <span class="kw">length</span>(X)  <span class="co"># A13</span>
+    <span class="kw">cbind</span>(X, X[,<span class="dv">3</span>] <span class="op">/</span><span class="st"> </span><span class="dv">100</span>)
+    <span class="kw">which</span>(X[,<span class="dv">3</span>] <span class="op">&gt;</span><span class="st"> </span><span class="dv">200</span>)</code></pre></div>
+</div>
+<div id="losungen-zu-aufgabenblock-dataframes" class="section level3 unnumbered">
+<h3>Lösungen zu Aufgabenblock Dataframes</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    fragebogen &lt;-<span class="st"> </span><span class="kw">data.frame</span>(id, sex, lalt, gross, mon, date, entsch, proj, i1, i2, i3, i4, i5) <span class="co"># A1</span>
+    fragebogen[<span class="dv">3</span>,] <span class="co"># A2</span>
+    <span class="kw">head</span>(fragebogen) <span class="co"># A3</span>
+    fragebogen<span class="op">$</span>i1[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>] <span class="co"># A4</span>
+    fragebogen[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dv">9</span>] <span class="co"># A5</span>
+    fragebogen[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="st">&quot;i1&quot;</span>] <span class="co"># A5 - Alternative Löung mit Verwendung des Spaltennamens</span>
+    <span class="kw">attach</span>(fragebogen) <span class="co"># A6</span>
+    <span class="kw">detach</span>(fragebogen) <span class="co"># A6</span></code></pre></div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>das Wissen um die Dimension einer Matrix wird vor allem noch bei Programmschleifen hilfreich sein. Mehr davon später.<a href="rlernen.html#fnref10">↩</a></p></li>
+<li id="fn11"><p>Paket von Matt Dowle, kann über CRAN-Server geladen werden.<a href="rlernen.html#fnref11">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="files-pane.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rarbeiten.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
