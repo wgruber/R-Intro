@@ -1,4 +1,4 @@
-# Datenauswertung Lime Survey {-}
+# Datenauswertung Lime Survey
 
 
 
@@ -7,7 +7,7 @@ Im nachfolgenden Beispiel werden die Daten des World-Knowledge-Test ausgewertet.
 
 <center>
 
-![**Abbildung 1**: Export der Daten aus Lime Survey](Images/09_R_LimeSurveyExport.PNG){ width=70% }
+![**Abbildung 31**: Export der Daten aus Lime Survey](Images/09_R_LimeSurveyExport.PNG){ width=70% }
 
 </center>
 
@@ -15,7 +15,7 @@ LimeSurvey bietet die Möglichkeit, Umfragedaten in verschiedensten Formaten zu 
 
 <center>
 
-![**Abbildung 2**: Files die aus Lime Survey exportiert wurden](Images/09_R_LimeSurveyExportDateien.PNG){ width=70% }
+![**Abbildung 32**: Files die aus Lime Survey exportiert wurden](Images/09_R_LimeSurveyExportDateien.PNG){ width=70% }
 
 </center>
 
@@ -139,7 +139,7 @@ Neben den Tabellen spielen Graphiken eine wesentliche Rolle in der deskriptiven 
 
 <center>
 
-![**Abbildung 3**: Vorlage für die Graphik der Aufgabe 4](Images/09_Aufgabe4_Graphik.PNG){ width=40% }
+![**Abbildung 33**: Vorlage für die Graphik der Aufgabe 4](Images/09_Aufgabe4_Graphik.PNG){ width=40% }
 
 </center>
 
@@ -176,13 +176,13 @@ Der fertige Graph sollte folgendermaßen aussehen:
 
 <center>
 
-![**Abbildung 4**: Endversion der Graphik von Aufgabe 4](Images/09_Aufgabe4_Graphik_Endversion.PNG){ width=60% }
+![**Abbildung 34**: Endversion der Graphik von Aufgabe 4](Images/09_Aufgabe4_Graphik_Endversion.PNG){ width=60% }
 
 </center>
 
-# Lösungen {-}
+## Lösungen {-}
 
-## Lösung Aufgabe 1 {-}
+### Lösung Aufgabe 1 {-}
 
 
 ```r
@@ -192,7 +192,7 @@ Der fertige Graph sollte folgendermaßen aussehen:
   str(DF)
 ```
 
-## Lösung Aufgabe 2 {-}
+### Lösung Aufgabe 2 {-}
 
 
 ```r
@@ -204,7 +204,7 @@ Der fertige Graph sollte folgendermaßen aussehen:
   addmargins(round(prop.table(table(DF$Gender, droplevels(DF$Nationality)))*100,2)) # A2-6
 ```
 
-## Lösung Aufgabe 3 {-}
+### Lösung Aufgabe 3 {-}
 
 
 ```r
@@ -221,7 +221,7 @@ Der fertige Graph sollte folgendermaßen aussehen:
             FUN     = c(mean, sd, var)) # A3-4
 ```
 
-## Lösung Aufgabe 4 {-}
+### Lösung Aufgabe 4 {-}
 
 
 ```r

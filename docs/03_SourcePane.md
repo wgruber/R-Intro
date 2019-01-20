@@ -15,7 +15,7 @@ Der Editor bietet für die Erstellung von Dokumenten verschiedene Fiel-typen an:
 
 <center>
 
-![**Abbildung 1**: Dateitypen R](Images/03_R_File_Types.PNG){ width=50% }
+![**Abbildung 8**: Dateitypen R](Images/03_R_File_Types.PNG){ width=50% }
 
 </center>
 
@@ -56,7 +56,7 @@ Nach wie vielen Zeichen die Liste angezeigt wird, kann über die *Global Options
 
 <center>
 
-![**Abbildung 2**: Einstellungen *code completion* im Menü Tools $\rightarrow$ Global Options $\rightarrow$ Code $\rightarrow$ Completion](Images/03_R_CodeCompletion.PNG){ width=50% }
+![**Abbildung 9**: Einstellungen *code completion* im Menü Tools $\rightarrow$ Global Options $\rightarrow$ Code $\rightarrow$ Completion](Images/03_R_CodeCompletion.PNG){ width=50% }
 
 </center>
 
@@ -70,7 +70,7 @@ Mit Hilfe der Keyboard-Shortcuts können Zeichen, Funktionen, etc. schnell und e
 
 <center>
 
-![**Abbildung 3**: Shortcut Liste (*Alt Shift K*) und Änderungsmöglichkeiten für Shortcuts (Tools $\rightarrow$ Global Options $\rightarrow$ Code $\rightarrow$ Editing)](Images/03_R_ShortCuts.PNG){ width=70% }
+![**Abbildung 10**: Shortcut Liste (*Alt Shift K*) und Änderungsmöglichkeiten für Shortcuts (Tools $\rightarrow$ Global Options $\rightarrow$ Code $\rightarrow$ Editing)](Images/03_R_ShortCuts.PNG){ width=70% }
 
 </center>
 
@@ -85,7 +85,7 @@ Neben den Shortcuts bieten auch die *Snippets* eine bedeutende Erleichterung bei
 
 <center>
 
-![**Abbildung 4**: Snippets Definition und Änderungsmöglichkeiten (Tools $\rightarrow$ Global Options $\rightarrow$ Code $\rightarrow$ Edit Snippets)](Images/03_RSnippets.PNG){ width=50% }
+![**Abbildung 11**: Snippets Definition und Änderungsmöglichkeiten (Tools $\rightarrow$ Global Options $\rightarrow$ Code $\rightarrow$ Edit Snippets)](Images/03_RSnippets.PNG){ width=50% }
 
 </center>
 
@@ -93,7 +93,7 @@ Wie bei der *code completion* werden nach 3 eingegebenen Zeichen die vordefinier
 
 <center>
 
-![**Abbildung 5**: Snippets Definition und Anderungsmöglichkeiten (Tools $\rightarrow$ Global Options $\rightarrow$ Code $\rightarrow$ Edit Snippets)](Images/03_RSnippets_Bsp.PNG){ width=70% }
+![**Abbildung 12**: Snippets Definition und Anderungsmöglichkeiten (Tools $\rightarrow$ Global Options $\rightarrow$ Code $\rightarrow$ Edit Snippets)](Images/03_RSnippets_Bsp.PNG){ width=70% }
 
 </center>
 
@@ -128,7 +128,7 @@ Häufig werden wir nach bestimmten Begriffen (Funktionsnamen, Variablennamen, et
 
 <center>
 
-![**Abbildung 6**: Suchen und Ersetzen im geöffneten Script](Images/03_R_SucheErsetzen.PNG){ width=50% }
+![**Abbildung 13**: Suchen und Ersetzen im geöffneten Script](Images/03_R_SucheErsetzen.PNG){ width=50% }
 
 </center>
 
@@ -140,7 +140,7 @@ Mit *code folding* kann man vor allem bei längeren Programmen sehr gut die Übe
 
 <center>
 
-![**Abbildung 7**: Code Folding](Images/03_R_CodeFoling.PNG){ width=30% }
+![**Abbildung 14**: Code Folding](Images/03_R_CodeFoling.PNG){ width=30% }
 
 </center>
 
@@ -158,7 +158,7 @@ Darüber hinaus bieten sich im RStudio die Symbolleisten für die Ausführung vo
 
 <center>
 
-![**Abbildung 8**: Code Folding](Images/03_R_RunSymbol.PNG){ width=30% }
+![**Abbildung 15**: Code Folding](Images/03_R_RunSymbol.PNG){ width=30% }
 
 </center>
 
@@ -169,7 +169,7 @@ Eine wirklich geniale Sache bei RStudio ist die integrierte Möglichkeit des sog
 
 <center>
 
-![**Abbildung 9**: Debugging in R](Images/03_R_Debugging.PNG){ width=30% }
+![**Abbildung 16**: Debugging in R](Images/03_R_Debugging.PNG){ width=30% }
 
 </center>
 
@@ -182,7 +182,7 @@ Führe nun folgende Schritte aus:
 
 <center>
 
-![**Abbildung 10**: [Traceback in RStudio](https://google.github.io/styleguide/Rguide.xml#comments)](Images/03_Traceback.PNG){ width=60% } 
+![**Abbildung 17**: [Traceback in RStudio](https://google.github.io/styleguide/Rguide.xml#comments)](Images/03_Traceback.PNG){ width=60% } 
 
 </center>
 

@@ -1,4 +1,6 @@
-# Top-Down vs. Bottom-Up
+# Rlernen
+
+## Top-Down vs. Bottom-Up {-}
 
 Wie beim Erlernen einer neuen Sprache, gibt es auch für Programmiersprachen verschiedene Ansätze. Im Bottom-Up Ansatz wird man sich zuerst mit den Elementen einer Sprache (Vokabeln) und deren korrekter Zusammensetzung (Grammatik) beschäftigen. Dieser Ansatz ist vor allem zu Beginn oft schwierig und mühsam, da die Zusammenhänge erst nach einiger Zeit klar werden und die (erfolgreiche) Anwendung der Sprache erst nach einer mehr oder weniger langen *Vorlaufzeit* möglich ist.
 
@@ -7,7 +9,7 @@ Beim Top-Down Ansatz wird man direkt mit dem gesamten Umfang der Sprache konfron
 Bei der Erlernung einer Programmiersprache bietet sich vor allem durch die unzähligen Möglichkeiten  von Beispielen und Vorlagen im Internet, sowie die bis ins letzte Detail ausgearbeiteten Hilfeseiten zu den jeweiligen Sprachen eine Mischung des Lernvorganges an. 
 Wir werden den Einstieg in die Programmiersprache R mit einem Top-Down Ansatz beginnen.
 
-## Top Down - Copy und Paste
+### Top Down - Copy und Paste {-}
 
 Erstelle eine neue R-Script-Datei. Kopiere den nachfolgenden Code in diese neue Datei und speicher diesen unter den Namen *06_R_Paste_Copy_Intro.R* in ein Verzeichnis deiner Wahl.
 
@@ -22,7 +24,7 @@ pacman::p_load(ggplot2)
 
 Öffne einen Browser (Mozilla, IE, Chrome, ...) und bearbeite folgende Aufgabenstellungen:
 
-### Copy und Paste (Aufgabenblock):
+### Copy und Paste (Aufgabenblock) {-}
 
 1. Kopiere von [Indexing with numbers and names](http://www.cookbook-r.com/Basics/Indexing_into_a_data_structure/) die Zeile $v <- c(1,4,4,3,2,2,3)$ in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.
 2. Kopiere (aus der Website) die Zeile $v[c(2,3,4)]$ in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.
@@ -36,7 +38,7 @@ pacman::p_load(ggplot2)
 8. Laden mit Hilfe von Import Dataset die SPSS-Datei "bigfive.sav" und kopiere die entsprechenden Befehle in dein Skript.
 9. Lade nun die Datei "bigfive_excel.xlsx" (ebenfalls in ../Data/) mit Hilfe von Import Dataset und kopiere die entsprechenden R-Befehle in den Editor.
 
-# Objekte in R (bottom up)
+## Objekte in R (bottom up) {-}
 
 In R kann alles als Objekt gespeichert werden. 
 
@@ -50,7 +52,7 @@ Alle Objekte, die in einer R-Sitzung erstellt oder geöffnet wurden, liegen im s
 
 <center>
 
-![**Abbildung 1**: Environment der letzten Übungsaufgabe](Images/06_Environment.PNG){ width=50% }
+![**Abbildung 25**: Environment der letzten Übungsaufgabe](Images/06_Environment.PNG){ width=50% }
 
 </center>
 
@@ -83,7 +85,7 @@ In gibt es eine Vielzahl von verschiedenen Objekttypen. Die grundlegenden Objekt
     + Listen können beliebige Objekte enthalten, auch Objekte verschiedenen Typs. 
     + Im Unterschied zu Data Frames und Arrays können auch Objekte unterschiedlicher Länge gespeichert werden.
 
-## Vektoren
+### Vektoren {-}
 
 Das einfachste Objekt ist ein Vektor, der aus mehreren  Elementen besteht. Öffne eine neue Skript-Datei und kopiere folgenden Inhalte in diese Datei:
 
@@ -154,7 +156,7 @@ Um festzustellen, um welche Art von Daten, bzw. welche Klasse von Daten (numeris
 
 Das Wandeln von numerisch auf alphanumerisch und vice versa sind jedoch häufig gebrauchte Funktionen, vor allem bei der Übernahme von Daten aus anderen Anwendungen.
 
-### Arithmetische Operator (Vektorenrechnung)
+### Arithmetische Operator (Vektorenrechnung) {-}
 
 In R werden  +  -  *  / für Addition, Subtraktion, Multiplikation und Division verwendet. Diese Operatoren werden auf alle Elemente eines Vektors angewendet: 
 
@@ -171,7 +173,7 @@ In R werden  +  -  *  / für Addition, Subtraktion, Multiplikation und Division 
     v4 <- v1 * v3
 ```
 
-### Weitere nützliche Vektor-Funktionen
+### Weitere nützliche Vektor-Funktionen {-}
 
 Neben der bereits besprochenen Funktion *seq()*, sind auch nachfolgende Funktionen für das Arbeiten mit Vektoren oft nützlich. Da wir diese Funktionen laufend verwenden, werden hier nicht alle Einzelheiten diskutiert - verwende dazu die help() Funktion. 
 
@@ -190,7 +192,7 @@ Neben der bereits besprochenen Funktion *seq()*, sind auch nachfolgende Funktion
     paste0(y, 1:9)
 ```
 
-### Logische Vektoren
+### Logische Vektoren {-}
 
 Ein logischer Vektor besteht aus TRUE und FALSE Elementen. Diese Vektoren folgen einer sogenannten *Boolean-Logik* mit diesen Prinzipien (in R wird das logische UND mit $\&$, das logische ODER mit $|$ geschrieben:
 
@@ -219,7 +221,7 @@ Werden Klammern verwendet gilt: Ausdruck innerhalb der Klammern wird zuerst ausg
     sum(Vec == "Ja")
 ```
 
-### Der %in% Operator und die which()-Funktion
+### Der %in% Operator und die which()-Funktion {-}
 
 Der %in% Operator wird benutzt, um einem Vektor mehrere Elemente zu entnehmen. Dies kann auch mit sämtlichen Teilfragen und dem | Operator durchgeführt werden. Nachfolgend erzeugen wir einen logischen Vektor *InVec*, der T ist, wenn *Vec* "Nein" oder "Weder noch" enthält:
 
@@ -245,7 +247,7 @@ Logische Operatoren und die *which()* Funktion bieten eine effiziente Möglichke
     which(VRand_GT_Mean_Indices == "FALSE")    
 ```
 
-### Aufgabenblock Vektoren
+### Aufgabenblock Vektoren {-}
 
 Kopiere den folgenden Code in eine neues R-Skript und speichere dieses unter dem Namen *06_Objekte_Aufgaben*.
 
@@ -291,7 +293,7 @@ Bearbeite nun folgende Aufgaben:
 19. wie viele Personen sind größer-gleich ($\ge$) als 173?
 20. für welches Element der Variablen *gross* ist die Körpergröße = 181 wahr (T)?
 
-## Faktoren
+## Faktoren {-}
 
 Faktoren sind eine spezielle Form von Vektoren und werden auch in R als nominale Daten definiert. Beispielsweise wird die Unterteilung von Probanden nach dem Geschlecht üblicherweise in einem Datentyp *Faktor* abgespeichert. Dieser Faktor würde üblicherweise 2 sogenannte Faktorenstufen (*levels*) besitzen (männlich/weiblich).
 
@@ -328,13 +330,13 @@ Um mehrere Daten einem Faktor zuzuordnen, wird der *factor()*-Befehl mit dem *c(
     table(kurs.fac2)
 ```
 
-### Aufgabenblock Faktoren:
+### Aufgabenblock Faktoren {-}
 
 1. erstelle die Variable x = c(1,2,3,1,1,2,2) und wandeln diese in einen Faktor *x_fact* um. Benenne die Stufen des Faktors der Variablen x_fact mit 'A', 'B', ...
 2. kopiere *x_fact* in Variable *x_fact2* und ändere die Bezeichnung der Faktorenstufen auf 'S1', 'S2', ... (verwenden dazu die Funktion levels(...)). Verwende den Befehl *table()* um die Variable *x_fact2* anzuzeigen. Was bewirkt der Befehl?
 3. gib folgenden Befehl ein: x_fact3 = factor(x_fact2, levels = c('S3', 'S1', 'S2')).  Vergleiche *x_fact2* und *x_fact3*, was hat sich geändert?
 
-## Matrizen
+## Matrizen {-}
 
 Matrizen sind in R Objekte, denen Elemente gleichen Datentyps in Form von Zeilen und Spalten zugewiesen können. Damit können Vektoren des gleichen Datentyps in ein Objekt (der Matrix) zeilen-, oder spaltenweise zusammengehängt und abgespeichert werden. In R kann eine Matrix aus Vektoren mit den *rbind()* und *cbind()* Funktionen zusammengesetzt werden. 
 
@@ -375,7 +377,7 @@ Um festzustellen, wie viele Zeilen, bzw. Spalten eine Matrix besitzt, kann man e
 
 [^10]: das Wissen um die Dimension einer Matrix wird vor allem noch bei Programmschleifen hilfreich sein. Mehr davon später.
 
-### Zugriff auf Elemente einer Matrix
+### Zugriff auf Elemente einer Matrix {-}
 
 Wie bereits bei Vektoren, wird auch bei Matrizen ein Index für die Adressierung einer Position verwendet. Im Unterschied zum Vektor, werden bei Matrizen zwei Indizes verwendet:
 
@@ -405,7 +407,7 @@ Folgende Beispiele verdeutlichen die Verwendungsmöglichkeiten der Adressierung 
 
 *Bemerkung:* verwendet man bei einer Matrix nur einen Index, so wird das entsprechende Element eine Matrix ausgegeben. Die Nummerierung wird dabei folgendermaßen festgelegt: ausgehend von der ersten Zeile und Spalte werden die Elemente der ersten Spalte aufsteigend nummeriert. Am Ende einer Spalte wird die Nummerierung in der ersten Zeile der nachfolgenden Spalte fortgesetzt - bis das Ende der Matrix erreicht ist. 
 
-### Erzeugen von Matrizen
+### Erzeugen von Matrizen {-}
 
 Es gibt verschiedenstes Möglichkeiten, Matrizen mit Hilfe von R-Funktionen zu erzeugen. Vor allem für Simulation von Daten (z.B. Ziehung eines Samples der Größe $N$ aus einer normalverteilten Grundgesamtheit, oder aus einer Gleichverteilung etc.) kann für die Evaluierung von statistischen Modellen elegant gelöst werden. Folgende Beispiele geben einen Einblick in einige wenige Möglichkeiten Matrizen zu generieren. Kopier den Code in deinen Editor und führe diesen zeilenweise aus. Diskutiere die Funktionen und die Ergebnisse.
 
@@ -420,7 +422,7 @@ Es gibt verschiedenstes Möglichkeiten, Matrizen mit Hilfe von R-Funktionen zu e
     matrix(b, 3, 3)
 ```
 
-### Arithmentische Funktionen auf zwei Matrizen
+### Arithmentische Funktionen auf zwei Matrizen {-}
 
 Wenn arithmetische Funktionen auf zwei Matrizen angewendet, dann werden immer zwei Elemente derselben Zeile und Spalte addiert, subtrahiert, multipliziert oder dividiert. Aus diesem Grund ist es auch erforderlich, dass die Dimension (= Anzahl Zeilen und Spalten, auch $m \times n$) der beiden Matrizen übereinstimmt. Dies kann mit Hilfe von logischen Operatoren überprüft werden.
 
@@ -466,7 +468,7 @@ Die hier verwendete Funktion *apply()* ist Teil einer Funktionsgruppe, die als A
 
 Anwendung und Details über diese Funktionen werden in entsprechenden Kapiteln behandelt.
 
-### Aufgabenblock Matrizen
+### Aufgabenblock Matrizen {-}
 
 
 ```r
@@ -504,7 +506,7 @@ Unter Verwendung der obigen Variablen sind folgende Aufgaben zu bearbeiten:
 14. Berechne die Körpergröße in Meter und füge das Ergebnis als weitere Spalte zur bestehenden Matrix *X* an.
 15. Ermittle jene Positionen (Indizes) der Personen die größer als 200 cm sind. Was ist der Name der Person?
 
-## Data-Frames
+## Data-Frames {-}
 
 Eine Erweiterung des Datentyps *Matrix* ist der sogenannte *Dataframe*. Mit diesem Datentyp ist es möglich, innerhalb eines Objektes auch unterschiedliche Formate (Datentypen) zu speichern. Bei Vektoren und Matrizen gilt die Einschränkung, dass alle Elemente denselben Datentyp aufweisen müssen. Bei Matrizen gilt darüber hinaus, dass beim Hinzufügen von z.B. einer weiteren Spalte die Anzahl der Zeilen der bereits bestehenden Zeilenanzahl der Matrix entspricht (anderenfalls gibt es eine Fehlermeldung).
 
@@ -514,7 +516,7 @@ Ein *Dataframe* ist in gewisser Weise vergleichbar mit einer Excel-Tabelle.
 
 <center>
 
-![**Abbildung 2**: Beispiel für unterschiedliche Daten in einer Excel-Tabelle](Images/ExcelTabelle.PNG){ width=30% }
+![**Abbildung 26**: Beispiel für unterschiedliche Daten in einer Excel-Tabelle](Images/ExcelTabelle.PNG){ width=30% }
 
 </center>
 
@@ -558,7 +560,7 @@ Folgender Code zeigt die soeben beschriebenen Eigenschaften. Kopiere den Code in
     detach(DF)
 ```
 
-### Aufgabenblock Dataframes
+### Aufgabenblock Dataframes {-}
 
 Verwende wiederum nachfolgende Daten zum Bearbeiten der Aufgaben:
 
@@ -588,7 +590,7 @@ Verwende wiederum nachfolgende Daten zum Bearbeiten der Aufgaben:
 5. gib die Werte der 1'ten bis zur 3'ten Zeile der Spalte *proj* aus.
 6. versuche den Befehl attach() und den Befehl detach(). Verwende bei Bedarfsfall die Hilfefunktion.
 
-## Data-Tables
+## Data-Tables {-}
 
 Eine erweiterte Version von *Dataframes* wir durch das Paket *data.table*[^11]. Einer der wesentlichen Vorteile bei der Verwendung von data.table liegt vor allem in der beträchtlich schnelleren Verarbeitung - vor allem bei sehr großen Datensätzen. Das Paket beinhaltet eine Funktion (fread()) zum Lesen von *csv*-Dateien, welche in Hinblick auf Ladezeiten sehr großer Dateien die oft verwendete Funktion *read.csv()* in den Schatten stellt. Auch die Handhabung der Daten in einer *data.table* ist bei weitem schneller als in einem *Dataframe*.
 
@@ -596,7 +598,7 @@ Trotz dieser Vorteile verzichten wir im Folgenden auf die Verwendung dieser Funk
 
 [^11]: Paket von Matt Dowle, kann über CRAN-Server geladen werden.
 
-## Listen
+## Listen {-}
 
 Um den Einschränkungen bezüglich der *Dataframes* zu entgehen, kann der Datentyp *list* verwendet werden. List-Objekte können neben verschiedenen Datentypen auch unterschiedlich große Objekte (Skalare, Vektoren, Matrizen, Dataframes), aber Objektstrukturen wie z.B. Funktionen beinhalten. Listen bilden damit eine Möglichkeit, so ziemlich alles was in R an Objekten erzeugt werden kann in einer Variablen des Typs list abzuspeichern. Eine Liste zu erzeugen erfolgt einfach über die Funktion *list()*. Betrachten wir zunächst folgenden Code:
 
@@ -631,7 +633,7 @@ Um den Einschränkungen bezüglich der *Dataframes* zu entgehen, kann der Datent
     XLi
 ```
 
-## Tables
+## Tables {-}
 
 Eine weitere Möglichkeit in R Daten in Objekten zu speichern bietet die Klasse der *Tables*. Die unterschiedlichen Formen der Tables sind am besten durch folgende Beispiele zu erklären:
 
@@ -674,7 +676,7 @@ Eine weitere Möglichkeit in R Daten in Objekten zu speichern bietet die Klasse 
 
 Tabellen können mit der Funktion *as.data.frame(tbl)* leicht in die bereits bekannte Klasse des Datenframes umgewandelt werden.
 
-# Attribute
+## Attribute {-}
 
 Allen bisher besprochenen Objekte in R können beliebige zusätzlichen Eigenschaften (Attribute) zugewiesen werden. Attribute kann man sich als Namenslisten vorstellen, welche durch die Funktion *attr()* festgelegt werden können.
 
@@ -694,9 +696,9 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
 
 ----
 
-# Lösungen
+## Lösungen {-}
 
-## Lösungen zu Aufgabenblock Copy und Paste:
+### Lösungen zu Aufgabenblock Copy und Paste {-}
 
 
 ```r
@@ -748,7 +750,7 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
     View(bigfive)
 ```
 
-## Lösungen zu Aufgabenblock Vektoren:
+### Lösungen zu Aufgabenblock Vektoren {-}
 
 
 ```r
@@ -780,7 +782,7 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
     which(gross %in% 181) # A20
 ```
 
-## Lösungen zu Aufgabenblock Faktoren:
+### Lösungen zu Aufgabenblock Faktoren {-}
 
 
 ```r
@@ -797,7 +799,7 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
     table(x_fact3)
 ```
 
-## Lösungen zu Aufgabenblock Matrizen:
+### Lösungen zu Aufgabenblock Matrizen {-}
 
 
 ```r
@@ -818,7 +820,7 @@ Auf den Umgang und die Verwendung von Attributen wird in folgenden Kapiteln ents
     which(X[,3] > 200)
 ```
 
-## Lösungen zu Aufgabenblock Dataframes:
+### Lösungen zu Aufgabenblock Dataframes {-}
 
 
 ```r

@@ -29,7 +29,7 @@ Standardmäßig werden alle in R-erzeugten Plots in dieses Fenster geschrieben. 
 
 <center>
 
-![**Abbildung 1**: Das Ausgabefenster für Graphiken und Bilder](Images/05_Plots.PNG){ width=30% }
+![**Abbildung 21**: Das Ausgabefenster für Graphiken und Bilder](Images/05_Plots.PNG){ width=30% }
 
 </center>
 
@@ -39,7 +39,7 @@ Eine zentrale Rolle bei der Verwendung von R spielen die Pakete. Im diesem Fenst
 
 <center>
 
-![**Abbildung 2**: Pakete - der Motor von R](Images/05_Packages_Tab.PNG){ width=50% }
+![**Abbildung 22**: Pakete - der Motor von R](Images/05_Packages_Tab.PNG){ width=50% }
 
 </center>
 
@@ -59,7 +59,7 @@ Für die Arbeit mit Pakten ist folgendes zu beachten:
 
 <center>
 
-![**Abbildung 3**: Laden von Paketen](Images/05_Package_Libraries.PNG){ width=40% }
+![**Abbildung 23**: Laden von Paketen](Images/05_Package_Libraries.PNG){ width=40% }
 
 </center>
 
@@ -67,7 +67,7 @@ Für die Arbeit mit Pakten ist folgendes zu beachten:
 
 <center>
 
-![**Abbildung 4**: Verwenden von Paketen](Images/05_Package_Verwendung.PNG){ width=40% }
+![**Abbildung 24**: Verwenden von Paketen](Images/05_Package_Verwendung.PNG){ width=40% }
 
 </center>
 
