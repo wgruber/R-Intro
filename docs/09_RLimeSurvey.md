@@ -186,7 +186,7 @@ Der fertige Graph sollte folgendermaßen aussehen:
 
 
 ```r
-  source("RScripts/LS_Import.R")
+  source("LS_Import.R")
   F2L <- "Data/survey_791736_R_data_file.csv"
   DF  <- LS_Import(F2L = F2L)
   str(DF)

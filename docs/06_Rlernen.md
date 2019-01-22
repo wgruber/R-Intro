@@ -516,7 +516,7 @@ Ein *Dataframe* ist in gewisser Weise vergleichbar mit einer Excel-Tabelle.
 
 <center>
 
-![**Abbildung 26**: Beispiel für unterschiedliche Daten in einer Excel-Tabelle](Images/ExcelTabelle.PNG){ width=30% }
+![**Abbildung 26**: Beispiel für unterschiedliche Daten in einer Excel-Tabelle](Images/06_ExcelTabelle.PNG){ width=30% }
 
 </center>
 

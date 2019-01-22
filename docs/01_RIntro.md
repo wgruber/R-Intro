@@ -34,7 +34,7 @@ Nachfolgend ein kurzer Überblick über die Entstehungsgeschichte von R.
 
 <center>
 
-![**Abbildung 1**: von F zu R](Images/RHistorie.png){ width=50% }
+![**Abbildung 1**: von F zu R](Images/01_RHistorie.PNG){ width=50% }
 
 </center>
 
@@ -99,7 +99,7 @@ Freie Software:
 
 <center>
 
-![**Abbildung 2**: frei verfügbare Statistikprogramme](Images/FreieStatProgs.PNG){ width=70% }
+![**Abbildung 2**: frei verfügbare Statistikprogramme](Images/01_FreieStatProgs.PNG){ width=70% }
 
 </center>
 
@@ -107,7 +107,7 @@ Proprietäre Software:
 
 <center>
 
-![**Abbildung 3**: kostenpflichtige Statistikprogramme](Images/ProprietaereStatProgs.PNG){ width=70% }
+![**Abbildung 3**: kostenpflichtige Statistikprogramme](Images/01_ProprietaereStatProgs.PNG){ width=70% }
 
 </center>
 
@@ -115,7 +115,7 @@ Mit Stand November 2018 war laut Tiobe[^4] R an 14 Stelle - 3 Stellen vor Matlab
 
 <center>
 
-![**Abbildung 4**: Verlauf des [TIOBE-Index](https://www.tiobe.com/tiobe-index/) für R seit 2008 (the ratings are calculated by counting hits of the most popular search engines. The number of hits determines the ratings of a language. The counted hits are normalized for each search engine for all languages in the list. In other words, all languages together have a score of 100%.)](Images/TiobeRVerlauf.PNG){ width=50% }
+![**Abbildung 4**: Verlauf des [TIOBE-Index](https://www.tiobe.com/tiobe-index/) für R seit 2008 (the ratings are calculated by counting hits of the most popular search engines. The number of hits determines the ratings of a language. The counted hits are normalized for each search engine for all languages in the list. In other words, all languages together have a score of 100%.)](Images/01_TiobeRVerlauf.PNG){ width=50% }
 
 </center>
 
@@ -127,7 +127,7 @@ Ist ein Computerprogramm zur Datenanalyse und Durchführung von statistischen Te
 
 <center>
 
-![**Abbildung 5**: Kurzbeschreibung von [JAMOVI](https://www.jamovi.org/)](Images/JAMOVI.PNG){ width=50% }
+![**Abbildung 5**: Kurzbeschreibung von [JAMOVI](https://www.jamovi.org/)](Images/01_JAMOVI.PNG){ width=50% }
 
 </center>
 
@@ -171,7 +171,7 @@ Ist ebenfalls ein Computerprogramm zur Datenanalyse und Durchführung von statis
 
 <center>
 
-![**Abbildung 7**: Kurzbeschreibung von [JASP](https://jasp-stats.org/) ](Images/JASP.PNG){ width=50% } 
+![**Abbildung 7**: Kurzbeschreibung von [JASP](https://jasp-stats.org/) ](Images/01_JASP.PNG){ width=50% } 
 
 </center>
 
