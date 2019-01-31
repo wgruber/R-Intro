@@ -182,7 +182,7 @@ Führe nun folgende Schritte aus:
 
 <center>
 
-![**Abbildung 17**: [Traceback in RStudio](https://google.github.io/styleguide/Rguide.xml#comments)](Images/03_Traceback.PNG){ width=60% } 
+![**Abbildung 17**: [Traceback in RStudio](https://google.github.io/styleguide/Rguide.xml#comments){target="_blank"}](Images/03_Traceback.PNG){ width=60% } 
 
 </center>
 
@@ -197,4 +197,4 @@ Ein gutes, nachvollziehbares und wiederverwendbares R-Programm basiert nicht all
     + Nach einem Codeteil: *mean(x)* $\#$ Berechnung des Mittelwertes von *x*
   * Sehr lange Kommentare in einer Zeile können durch \textit{Ctrl Shift /} der Bildschirmbreite angepasst werden.
   
-Einige Richtlinien für Kommentare in R findet ihr unter [Commenting guidelines](https://google.github.io/styleguide/Rguide.xml#comments)
+Einige Richtlinien für Kommentare in R findet ihr unter [Commenting guidelines](https://google.github.io/styleguide/Rguide.xml#comments){target="_blank"}

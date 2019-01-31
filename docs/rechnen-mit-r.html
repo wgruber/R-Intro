@@ -25,7 +25,7 @@
 <meta name="author" content="Walter Gruber">
 
 
-<meta name="date" content="2019-01-22">
+<meta name="date" content="2019-01-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,6 +48,29 @@
 
 
 
+<link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.5/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="libs/jszip-1.10.16/jszip.min.js"></script>
+<script src="libs/pdfmake-1.10.16/pdfmake.min.js"></script>
+<script src="libs/pdfmake-1.10.16/vfs_fonts.js"></script>
+<link href="libs/dt-ext-buttons-1.10.16/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.10.16/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.flash.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.10.16/js/buttons.print.min.js"></script>
+<link href="libs/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="libs/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+<link href="libs/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.0/selectize.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -100,7 +123,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="vorwort.html"><a href="vorwort.html"><i class="fa fa-check"></i>Vorwort</a></li>
 <li class="chapter" data-level="1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html"><i class="fa fa-check"></i><b>1</b> Aufbau des Kurses</a><ul>
 <li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#ziele"><i class="fa fa-check"></i>Ziele</a></li>
 <li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#allgemeines"><i class="fa fa-check"></i>Allgemeines</a><ul>
@@ -258,6 +282,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-2-lsg"><i class="fa fa-check"></i>Aufgabe 2 Lsg</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="abschlussarbeit.html"><a href="abschlussarbeit.html"><i class="fa fa-check"></i><b>11</b> Abschlussarbeit</a><ul>
+<li class="chapter" data-level="" data-path="abschlussarbeit.html"><a href="abschlussarbeit.html#datentypen-und-definitionen"><i class="fa fa-check"></i>Datentypen und Definitionen</a></li>
+<li class="chapter" data-level="" data-path="abschlussarbeit.html"><a href="abschlussarbeit.html#deskriptive-statistik-1"><i class="fa fa-check"></i>Deskriptive Statistik</a></li>
+<li class="chapter" data-level="" data-path="abschlussarbeit.html"><a href="abschlussarbeit.html#mehr-aufgaben"><i class="fa fa-check"></i>MehR Aufgaben</a></li>
+<li class="chapter" data-level="" data-path="abschlussarbeit.html"><a href="abschlussarbeit.html#schleifen-und-funktionen"><i class="fa fa-check"></i>Schleifen und Funktionen</a></li>
+<li class="chapter" data-level="" data-path="abschlussarbeit.html"><a href="abschlussarbeit.html#jamovi-und-r"><i class="fa fa-check"></i>JAMOVI und R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="abgabemodus-und-beurteilung.html"><a href="abgabemodus-und-beurteilung.html"><i class="fa fa-check"></i>Abgabemodus und Beurteilung</a></li>
+<li class="chapter" data-level="" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html"><i class="fa fa-check"></i>Codebook EEG-Daten</a><ul>
+<li class="chapter" data-level="11.0.1" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#metadata"><i class="fa fa-check"></i><b>11.0.1</b> Metadata</a></li>
+<li class="chapter" data-level="11.1" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#variables"><i class="fa fa-check"></i><b>11.1</b> Variables</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#VPN"><i class="fa fa-check"></i><b>11.1.1</b> VPN</a></li>
+<li class="chapter" data-level="11.1.2" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#Bedingung"><i class="fa fa-check"></i><b>11.1.2</b> Bedingung</a></li>
+<li class="chapter" data-level="11.1.3" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#Block"><i class="fa fa-check"></i><b>11.1.3</b> Block</a></li>
+<li class="chapter" data-level="11.1.4" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#Korr"><i class="fa fa-check"></i><b>11.1.4</b> Korr</a></li>
+<li class="chapter" data-level="11.1.5" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#TrialNr"><i class="fa fa-check"></i><b>11.1.5</b> TrialNr</a></li>
+<li class="chapter" data-level="11.1.6" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Lat_PO7"><i class="fa fa-check"></i><b>11.1.6</b> P1_Lat_PO7</a></li>
+<li class="chapter" data-level="11.1.7" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Amp_PO7"><i class="fa fa-check"></i><b>11.1.7</b> P1_Amp_PO7</a></li>
+<li class="chapter" data-level="11.1.8" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Lat_POz"><i class="fa fa-check"></i><b>11.1.8</b> P1_Lat_POz</a></li>
+<li class="chapter" data-level="11.1.9" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Amp_POz"><i class="fa fa-check"></i><b>11.1.9</b> P1_Amp_POz</a></li>
+<li class="chapter" data-level="11.1.10" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Lat_PO8"><i class="fa fa-check"></i><b>11.1.10</b> P1_Lat_PO8</a></li>
+<li class="chapter" data-level="11.1.11" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Amp_PO8"><i class="fa fa-check"></i><b>11.1.11</b> P1_Amp_PO8</a></li>
+<li class="chapter" data-level="11.1.12" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Lat_O1"><i class="fa fa-check"></i><b>11.1.12</b> P1_Lat_O1</a></li>
+<li class="chapter" data-level="11.1.13" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Amp_O1"><i class="fa fa-check"></i><b>11.1.13</b> P1_Amp_O1</a></li>
+<li class="chapter" data-level="11.1.14" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Lat_Oz"><i class="fa fa-check"></i><b>11.1.14</b> P1_Lat_Oz</a></li>
+<li class="chapter" data-level="11.1.15" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Amp_Oz"><i class="fa fa-check"></i><b>11.1.15</b> P1_Amp_Oz</a></li>
+<li class="chapter" data-level="11.1.16" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Lat_O2"><i class="fa fa-check"></i><b>11.1.16</b> P1_Lat_O2</a></li>
+<li class="chapter" data-level="11.1.17" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#P1_Amp_O2"><i class="fa fa-check"></i><b>11.1.17</b> P1_Amp_O2</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#missingness-report"><i class="fa fa-check"></i><b>11.2</b> Missingness report</a></li>
+<li class="chapter" data-level="11.3" data-path="codebook-eeg-daten.html"><a href="codebook-eeg-daten.html#codebook-table"><i class="fa fa-check"></i><b>11.3</b> Codebook table</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -401,7 +457,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="graphen-mit-ggplot2" class="section level3 unnumbered">
 <h3>Graphen mit ggplot2</h3>
 <p>Mit dem Paket <em>ggplot2</em> erweitern sich die Möglichkeiten bei der Erstellung und Gestaltung von Graphiken erheblich. Es gehört zu den mächtigsten und umfangreichsten Pakten zur Erstellung von Grafiken. Gerade wegen dieser Eigenschaft kann es vor allem für Einsteiger oft schwierig werden. Das Paket bietet aber die Einsteigerfunktion <em>qplot()</em> (für Quick Plot). Für Standardgraphiken ist diese Funktion sehr hilfreich, denn viele der komplexen Möglichkeiten in <em>ggplot2</em> bleiben bei dieser Funktion verborgen.</p>
-<p>Basierend auf den Grundlagen des Buches <a href="http://ggplot2.org/resources/2007-past-present-future.pdf">The grammar of graphics</a> von Leland Wilkinson baute Wickham sein <a href="http://en.wikipedia.org/wiki/Ggplot2">Datenvisualisierungspaket</a> auf und übernahm die grundlegenden Thesen des Buches, die auch heute noch als richtungsweisend für die Statistik gelten. Laut Leland lässt sich jeder Datensatz, egal welcher Komplexität, leicht darstellen, wenn man ihn sinnvoll in <em>Ästhetik</em> und <em>Geometrie</em> unterteilt. Mittels dieser Differenzierung können Aufgabenbereiche getrennt und Zuständigkeiten an verschiedene Aspekte des Plots übergeben werden.</p>
+<p>Basierend auf den Grundlagen des Buches <a href="http://ggplot2.org/resources/2007-past-present-future.pdf" target="_blank">The grammar of graphics</a> von Leland Wilkinson baute Wickham sein <a href="http://en.wikipedia.org/wiki/Ggplot2" target="_blank">Datenvisualisierungspaket</a> auf und übernahm die grundlegenden Thesen des Buches, die auch heute noch als richtungsweisend für die Statistik gelten. Laut Leland lässt sich jeder Datensatz, egal welcher Komplexität, leicht darstellen, wenn man ihn sinnvoll in <em>Ästhetik</em> und <em>Geometrie</em> unterteilt. Mittels dieser Differenzierung können Aufgabenbereiche getrennt und Zuständigkeiten an verschiedene Aspekte des Plots übergeben werden.</p>
 <p>Sobald komplexere Daten visualisiert werden sollen, zeigen sich die Vorteile von ggplot2:</p>
 <ul>
 <li><em>feste Schema</em>: jeder Plot kann/muss nach einem Muster abgearbeitet werden. Das fährt unter anderem dazu, dass der Code meist sehr einfach gehalten ist und bei nachträglichen Änderungen nur wenigen Abwandlungen unterzogen werden muss.</li>
@@ -411,7 +467,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="quick-plot-mit-ggplot2" class="section level4 unnumbered">
 <h4>Quick Plot mit ggplot2</h4>
 <p>Die <em>qplot()</em>-Funktion folgt nicht dem typischen <em>ggplot2</em>-Schema und ist eher als Einstieg ins Plotting gedacht, ermöglicht jedoch dieselbe Plotvisualisierung wie die <em>ggplot()</em>-Funktion. Ihr Aufbau und ihre Gestaltung wird lediglich durch verschiedenste Parameter bestimmt.</p>
-<p>Öffne folgenden Link <a href="https://www.statmethods.net/advgraphs/ggplot2.html">Quick Plot Einstieg</a> und kopiere den Code der nach dem Text <em>Here are some examples using automotive data …</em> folgt in den Editor. Weiter nützliche Hinweise zu Quick Plot findest du unter Um <a href="http://ggplot2.org/book/qplot.pdf">Quick Plot Cheat Sheet</a>.</p>
+<p>Öffne folgenden Link <a href="https://www.statmethods.net/advgraphs/ggplot2.html" target="_blank">Quick Plot Einstieg</a> und kopiere den Code der nach dem Text <em>Here are some examples using automotive data …</em> folgt in den Editor. Weiter nützliche Hinweise zu Quick Plot findest du unter Um <a href="http://ggplot2.org/book/qplot.pdf">Quick Plot Cheat Sheet</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  pacman<span class="op">::</span><span class="kw">p_load</span>(ggplot2)
   
   <span class="co"># create factors with value labels</span>
@@ -490,7 +546,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="verwendung-von-ggplot2" class="section level4 unnumbered">
 <h4>Verwendung von ggplot2</h4>
-<p>Aufgrund des enormen Leistungsumfangs von ggplot, wollen wir im folgenden (mit der Topdown-Methode) einen Einblick in die vielseitige Verwendbarkeit des Pakets durch Beispiele aus <a href="http://www.cookbook-r.com/Graphs/">Cookbook R</a> gewinnen. Öffne den Link und gehe im Kapitel <em>Graphs with ggplot2</em> zu den <em>Bar and line graphs (ggplot2)</em>.</p>
+<p>Aufgrund des enormen Leistungsumfangs von ggplot, wollen wir im folgenden (mit der Topdown-Methode) einen Einblick in die vielseitige Verwendbarkeit des Pakets durch Beispiele aus <a href="http://www.cookbook-r.com/Graphs/" target="_blank">Cookbook R</a> gewinnen. Öffne den Link und gehe im Kapitel <em>Graphs with ggplot2</em> zu den <em>Bar and line graphs (ggplot2)</em>.</p>
 <p>Gehen wir einmal davon aus, dass wir für unsere Daten aus <em>hyper.sav</em> ein Balkendiagramm des durchschnittlichen BMI getrennt nach Altersklasse (x-Achse) und Geschlecht (Balken) erzeugen wollen. Wir durchsuchen die geöffnete Cookbook-Seite und finden folgende Darstellung als passend für unsere Daten:</p>
 <center>
 <div class="figure">

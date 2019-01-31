@@ -131,7 +131,7 @@ Ein zur deskriptiven Analyse hilfreiches Paket ist *doBy*. Wir wollen die darin 
 3. Berechne das Durchschnittsalter getrennt nach Geschlecht und Nationalität.
 4. Berechne den Mittelwert, die Standardabweichung, die Varianz, das Minimum und das Maximum der Variablen Alter getrennt nach Geschlecht und Nationalität.
 
-Das Paket doBy bietet darüber hinaus eine Vielzahl von Funktionen, die vor allem für das Arbeiten mit gruppierten Daten sehr hilfreich sein können. Hingewiesen sei noch auf die Möglichkeit der Berechnung von Kontrasten im Rahmen einer *least square mean* (ANOVA) Analyse. Es würde den Rahmen dieser LV sprengen, alle verfügbaren Funktionen zu besprechen und zu verwenden. Weitere Details zu diesem Paket sind der [Dokumentation](https://cran.r-project.org/web/packages/doBy/doBy.pdf) zu entnehmen.
+Das Paket doBy bietet darüber hinaus eine Vielzahl von Funktionen, die vor allem für das Arbeiten mit gruppierten Daten sehr hilfreich sein können. Hingewiesen sei noch auf die Möglichkeit der Berechnung von Kontrasten im Rahmen einer *least square mean* (ANOVA) Analyse. Es würde den Rahmen dieser LV sprengen, alle verfügbaren Funktionen zu besprechen und zu verwenden. Weitere Details zu diesem Paket sind der [Dokumentation](https://cran.r-project.org/web/packages/doBy/doBy.pdf){target="_blank"} zu entnehmen.
 
 ### Aufgabe 4 {-}
 

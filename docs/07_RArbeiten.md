@@ -40,7 +40,7 @@ Kopiere zuerst den nachfolgenden Code in ein neues R-Script, speicher dieses unt
   # Ende Initialisierung
 ```
 
-Verwende nun das Symbol *Open File* im Environment-Pane und wähle die Datei *bigfive.RData* im entsprechenden Datenverzeichnis (gegebenenfalls noch von [Daten zum Seminar](http://tuval.at/lehrveranstaltungen/daten/data) herunterladen und lokal am Rechner speichern). Führe folgende Arbeitsschritte durch:
+Verwende nun das Symbol *Open File* im Environment-Pane und wähle die Datei *bigfive.RData* im entsprechenden Datenverzeichnis (gegebenenfalls noch von [Daten zum Seminar](http://tuval.at/lehrveranstaltungen/daten/data){target="_blank"} herunterladen und lokal am Rechner speichern). Führe folgende Arbeitsschritte durch:
 
 1. Im Konsolenfenster wird die Funktion zum Laden der Datei (*load(xxx)*) angezeigt. Kopier diese Zeile in den Editor.
 2. Erzeuge eine Kopie dieses Objektes und benenne diese mit *KopieBigFive*
@@ -127,13 +127,13 @@ Wie bei den Textdateien, verwenden wir in einem ersten Schritt die Importfunktio
   str(bigfive)
 ```
 
-Überprüfe die Struktur des geladenen Objektes. Auffallend ist der bislang noch nicht besprochenen Datentyp *tbl_df*. Dabei handelt es sich im Wesentlichen um einen Dataframe. Gehe in den Files-Pane zu den Packages und suche nach dem Paket *haven*. Öffne die Doku des Pakets, bzw. öffne die Hilfe zu *haven::read_sav()* direkt. Weiterführend Information zu diesem Datenformat ist unter anderem auf folgender Seite zu finden: [Tibble](https://tibble.tidyverse.org/)
+Überprüfe die Struktur des geladenen Objektes. Auffallend ist der bislang noch nicht besprochenen Datentyp *tbl_df*. Dabei handelt es sich im Wesentlichen um einen Dataframe. Gehe in den Files-Pane zu den Packages und suche nach dem Paket *haven*. Öffne die Doku des Pakets, bzw. öffne die Hilfe zu *haven::read_sav()* direkt. Weiterführend Information zu diesem Datenformat ist unter anderem auf folgender Seite zu finden: [Tibble](https://tibble.tidyverse.org/){target="_blank"}
 
 Eine weitere - zum Einlesen von SPSS-Dateien - geeignete Funktion wird im Paket *foreign* angeboten (*read.spss()*).
 
 Aufgabe:
 
-1. Stelle fest, ob in deinem Repository dieses Paket bereits geladen ist (*Hinweis*: vgl. [List of Packages](https://www.r-bloggers.com/list-of-user-installed-r-packages-and-their-versions/)). Falls nicht, lade das Paket samt abhängigen Paketen. 
+1. Stelle fest, ob in deinem Repository dieses Paket bereits geladen ist (*Hinweis*: vgl. [List of Packages](https://www.r-bloggers.com/list-of-user-installed-r-packages-and-their-versions/)){target="_blank"}. Falls nicht, lade das Paket samt abhängigen Paketen. 
 2. Bereinigen das Environment und lade die Datei *bigfive.sav* mit Hilfe der Funktion *read.spss()*.
 3. Überprüfe und diskutiere den Inhalt, bzw. die Datentypen des geladenen Objektes.
 

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>2 RStudio5 | Reinführung in RStudio</title>
+  <title>Vorwort | Reinführung in RStudio</title>
   <meta name="description" content="Erste Schritte in R mit RStudio">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="2 RStudio5 | Reinführung in RStudio />
+  <meta property="og:title" content="Vorwort | Reinführung in RStudio />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="Images/00_Cover.PNG" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="wgruber/RIntro" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 RStudio5 | Reinführung in RStudio />
+  <meta name="twitter:title" content="Vorwort | Reinführung in RStudio />
   
   <meta name="twitter:description" content="Erste Schritte in R mit RStudio" />
   <meta name="twitter:image" content="Images/00_Cover.PNG" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="aufbau-des-kurses.html">
-<link rel="next" href="source-pane.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="aufbau-des-kurses.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -331,209 +331,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rstudio5" class="section level1">
-<h1><span class="header-section-number">2</span> <strong>R</strong>Studio<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></h1>
-<p><a href="https://www.rstudio.com/" target="_blank">RStudio</a> ist eine vom Unternehmen RStudio, Inc. angebotene, integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für die statistische Programmiersprache R. Bei RStudio handelt es sich um eine IDE<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>-Anwendung, ein Begriff den man häufig bei der Beschreibung von RStudio verwendet.</p>
-<p>RStudio ist sowohl als lokale Desktop-Version als auch als Server-Version mit gleichem Layout verfügbar. Die Umgebung teilt sich in vier Fenster (Panes), in denen:</p>
-<ul>
-<li>eines für die Erstellung von Skripten genutzt wird,</li>
-<li>ein anderes als Kommandozeile mit Output des Programmiercodes und</li>
-<li>ein weiteres für die Anzeige von Objekten in der Arbeitsumgebung.</li>
-<li>In einem vierten Bereich lassen sich mit Reitern grafischer Output, eine Paketverwaltung, das Ordnerverzeichnis und mehr anzeigen.</li>
-</ul>
-<p>RStudio bietet eine umfangreiche Entwicklungsumgebung und ermöglicht eine Vielzahl sehr hilfreicher Funktionalitäten, wie:</p>
-<ul>
-<li>Autovervollständigung, automatische Einrückungen, Syntaxhervorhebung.</li>
-<li>Code-Faltung.</li>
-<li>integrierte Hilfe und Informationen zu Objekten in der Arbeitsumgebung.</li>
-<li>Datensätze betrachten und bearbeiten.</li>
-<li>Zusammenfassen von Skripten, Daten und weitere Dateien zu Projekten (.Rproj), was die Zusammenarbeit erleichtert, zumal eine Versionsverwaltung mit Git enthalten ist.</li>
-</ul>
-<p>Mit Hilfe der Paketverwaltung lassen sich Pakete installieren und laden. Die Erstellung von Berichten mit Hilfe von <em>knitr</em> oder <em>Sweave</em> kann aus RStudio heraus erfolgen. Ein grafischer Debugger ist enthalten. Zudem kann Code in C, C++ oder Fortran kompiliert werden und direkt eingebunden werden.</p>
-<p>Für beide Ausführungen (Desktop, Server) von RStudio kann auch eine kommerzielle Variante erworben werden, die Support einschließt. Mit der kommerziellen Serverversion können mehrere Sitzungen parallel laufen und unterschiedliche Versionen von R verwendet werden. Außerdem sind das Teilen von Projekten und das Ressourcenmanagement einfacher.</p>
-<div id="aufbau-von-rstudio" class="section level2 unnumbered">
-<h2>Aufbau von RStudio</h2>
-<p>Beim Erststart von RStudio werden drei Fenster angezeigt. Für die effiziente Entwicklung von R-Programmen verwendet man einen Editor, welcher im RStudio integriert ist. Die Verwendung des Editors öffnet ein viertes Fenster. Diese vier Fenster bilden im Allgemeinen das Arbeitsumfeld mit RStudio.</p>
-<ol style="list-style-type: decimal">
-<li>Konsole</li>
-<li>Environment</li>
-<li>Files</li>
-<li>Source</li>
-</ol>
-<p>Die standardmäßige Anordnung und Anzeige von Details innerhalb der Fenster kann durch den Benutzer angepasst werden. Details dazu werden bei den jeweiligen Kapiteln besprochen.</p>
-</div>
-<div id="r-syntax" class="section level2 unnumbered">
-<h2>R-Syntax</h2>
-<p>In verschiedenen Programmiersprachen werden z.B. Groß- und Kleinschreibung, Dezimaltrennzeichen, Sonderzeichen etc. unterschiedlich definiert. Für R gelten folgende (grundlegende) Regeln:</p>
-<ul>
-<li>R unterscheidet zwischen Groß- und Kleinschreibung.</li>
-<li>Dezimaltrennzeichen: Punkt statt Komma.</li>
-<li>Keine Leerzeichen in Objektnamen, besser: my.object, my_object oder MyObject usw.</li>
-<li>Keine arithmetischen Operatoren (+,-,/) in Objektnamen.</li>
-<li>Erstes Zeichen eines Objektnamens muss ein Buchstabe sein.</li>
-<li>Befehle dürfen über mehrere Zeilen gehen.</li>
-<li>Alles, was existiert, ist ein Objekt.</li>
-</ul>
-</div>
-<div id="kommandozeile-befehlszeile-console" class="section level2 unnumbered">
-<h2>Kommandozeile (Befehlszeile, Console)</h2>
-<p>Die <a href="https://de.wikipedia.org/wiki/Kommandozeile" target="_blank">Kommandozeile</a>, Befehlszeile (command-line interface, CLI), oft auch als Konsole oder Terminal bezeichnet, ist ein Eingabebereich (interface) für die Steuerung einer Software, der typischerweise (aber nicht zwingend) im Textmodus abläuft. Die Kommandos oder Befehle werden als Zeichenketten über die Tastatur eingegeben. Die Ausführung der Befehle wird meist direkt aus der Zeile durch zusätzlich angegebene Parameter gesteuert (Kommandozeilenparameter).</p>
-<p>Ein Kommandozeilenprogramm läuft typischerweise mit den gegebenen Parametern einmal ab, bevor eine erneute Befehlseingabe möglich ist. Ein automatisiertes Abarbeiten mehrerer Kommandos nennt man Stapelverarbeitung (batch).</p>
-<p>In die Kommandozeile von RStudio können Variablendefinitionen, Berechnungen/Funktionen, sowie der Aufruf von Hilfefunktionen direkt eingegeben und ausgeführt werden. Die folgenden Beispiele zeigen die Auswirkungen von direkten Eingaben in der Konsole:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>
-<span class="kw">help</span>(mean)
-?mean
-Var1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)
-<span class="kw">mean</span>(Var1)</code></pre></div>
-</div>
-<div id="mathematische-operatorenfunktionen" class="section level2 unnumbered">
-<h2>Mathematische Operatoren/Funktionen</h2>
-<p>Arithmetische und logische Operatoren in R sind in nachfolgender Tabelle definiert. Des weiteren findet man auszugsweise ein paar mathematische Funktionen, anhand deren das Prinzip eines Funktionsaufrufes verdeutlicht werden. Funktionen haben in R folgende Eigenschaften:</p>
-<ul>
-<li>jede Funktion hat einen Namen (z.B. sin für die Sinusfunktion, aov für Fit an Analysis of Variance Model, …)</li>
-<li>eine Funktion kann unter Umständen ohne Parameter (z.B. <em>getwd()</em>), oder mit einem oder mehrerern Parametern aufgerufen werden (z.B. <em>mean(x)</em>, <em>mean(x, na.rm = TRUE)</em>.</li>
-<li>Für Funktionen, bei denen die Übergabe von Parametern notwendig ist (z.B. <em>mean()</em>), ist folgendes zu beachten (gib in der Console den Befehl <em>?mean</em> ein - beachte das Help-Fenster).
-<ul>
-<li>In Klammern stehende Parameter die keine Bezeichnung aufweisen (bei der Funktion <em>mean</em> das <em>x</em>), sind zwingende Angaben für den Aufruf der Funktion.</li>
-<li>Bei Parametern, die mit einem Namen versehen sind, handelt es sich um optionale Parameter. Diese müssen beim Aufruf der Funktion nicht angegeben werden. In diesem Fall werden die in der Hilfe ersichtlichen Standardwerte verwendet.</li>
-<li>Sollten die Standardwerte nicht verwendet werden, sind diese beim Aufruf der Funktion mit entsprechenden Werten zu versehen - wie z.B. bei <em>mean(x, trim = .2, na.rm = TRUE)</em>.</li>
-<li>Wird die Reihenfolge laut Beschreibung der Funktion in der Hilfeseite eingehalten, können die Namen der Parameter weggelassen werden. Kopiere bitte zeilenweise den nachfolgenden Code in die Konsole und diskutieren die Ergebnisse.</li>
-</ul></li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rpois</span>(<span class="dt">n =</span> <span class="dv">50</span>, <span class="dt">lambda =</span> <span class="dv">10</span>), <span class="dv">100</span>, <span class="ot">NA</span>, <span class="ot">NA</span>)
-<span class="kw">hist</span>(x)
-<span class="kw">mean</span>(x)
-<span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)
-<span class="kw">mean</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>, <span class="dt">trim =</span> .<span class="dv">1</span>)
-<span class="kw">mean</span>(x, <span class="ot">TRUE</span>, .<span class="dv">1</span>)
-<span class="kw">mean</span>(x, .<span class="dv">1</span>, <span class="ot">TRUE</span>)</code></pre></div>
-<center>
-<div class="figure">
-<img src="Images/02_R_Operatoren.PNG" alt="Tabelle 1: Operatoren und Funktionen" style="width:50.0%" />
-<p class="caption"><strong>Tabelle 1</strong>: Operatoren und Funktionen</p>
-</div>
-</center>
-</div>
-<div id="hilfe-in-rstudio" class="section level2 unnumbered">
-<h2>Hilfe in RStudio</h2>
-<p>Mit der Installation von RStudio wird automatisch auch eine Dokumentation der verfügbaren Funktionen zur Verfügung gestellt. Dieses Hilfe-System kann auf unterschiedlichste Arten angesprochen werden. Folgende Möglichkeiten sind im RStudio gegeben:</p>
-<ul>
-<li>über die <em>Console</em> mit folgenden Befehlen</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help.search</span>(<span class="st">&quot;mean&quot;</span>)
-<span class="kw">help</span>(<span class="st">&quot;mean&quot;</span>)
-?mean</code></pre></div>
-<ul>
-<li>über das <em>Help</em>-Menü</li>
-<li>über das <em>Files</em>-Pane im Reiter <em>Help</em></li>
-</ul>
-<p>Darüber hinaus gibt es noch die Möglichkeit, eine der unzähligen Helpseiten im Internet in Anspruch zu nehmen. Eine Empfehlung, welche Hilfeseite(n) am besten sind ist schwer zu geben - durch Erfahrung und persönlichen Vorlieben werden sich schnell ein paar Seiten als hilfreich bewähren. Zum Einstieg nachfolgend ein paar Seiten die ich persönlich immer wieder verwende:</p>
-<ul>
-<li><a href="https://www.r-project.org/help.html" target="_blank">R-project</a></li>
-<li><a href="http://www.cookbook-r.com/" target="_blank">Cookbook for R</a></li>
-<li><a href="https://www.statmethods.net/interface/help.html" target="_blank">Quick-R</a></li>
-<li><a href="https://www.rdocumentation.org/packages/utils/versions/3.5.1/topics/help" target="_blank">RDocumentation</a></li>
-<li><a href="https://support.rstudio.com/hc/en-us" target="_blank">RStudio Support</a></li>
-<li>u.v.m.</li>
-</ul>
-<div id="online-lernprogramme" class="section level3 unnumbered">
-<h3>Online-Lernprogramme</h3>
-<p>Eine weitere (unerschöpfliche) Quelle um R effizient und schnell zu erlernen sind entsprechende Online-Kurse. Einerseits gibt es über YouTube bereits viele Tutorials (die mehr oder weniger hilfreich sind/sein können). Andererseits haben sich aber bereits einige Universitäten und Firmen darauf spezialisiert, qualitativ hochwertige Online-Tutorials und Webinars zur Verfügung zu stellen. Viele davon sind noch kostenlos. Auch hier ist es schwierig eine punktuelle Empfehlung abzugeben. Nachfolgend eine kurze (und daher sicher unvollständige) Liste von Anbietern, die ich zumindest zum Teil selbst ausprobiert und als gut empfunden habe:</p>
-<ul>
-<li><a href="https://www.datacamp.com/" target="_blank">DataCamp</a>.</li>
-<li><a href="https://www.coursera.org/" target="_blank">coursera</a>.</li>
-<li><a href="https://www.rstudio.com/online-learning/" target="_blank">RStudio Online Learning</a>.</li>
-<li><a href="https://www.udemy.com/r-programming/" target="_blank">Course</a>.</li>
-<li><a href="https://www.statmethods.net/r-tutorial/index.html" target="_blank">Quick-R Tutorials</a>.</li>
-</ul>
-</div>
-<div id="verwendung-der-konsole-aufgabe-1" class="section level3 unnumbered">
-<h3>Verwendung der Konsole (Aufgabe 1)</h3>
-<p>Berechne in der Konsole die Ergebnisse folgender Ausdrücke und prüfe das Ergebnis auf Korrektheit:</p>
-<ol style="list-style-type: lower-alpha">
-<li><span class="math inline">\((3 + 4 - 5) * 9\)</span></li>
-<li><span class="math inline">\(\frac{99}{33}\)</span></li>
-<li><span class="math inline">\((\sqrt{2})^2\)</span></li>
-<li><span class="math inline">\(e^{3+4}\)</span></li>
-</ol>
-<p>Gib nachfolgende Befehle ein und diskutiere das Ergebnis:</p>
-<ol style="list-style-type: lower-alpha">
-<li><span class="math inline">\(5 = 7\)</span></li>
-<li><span class="math inline">\(5 == 7\)</span></li>
-<li><span class="math inline">\(5*5 &gt;= 6*4\)</span></li>
-<li><span class="math inline">\(\sqrt{3} \neq cos(17)\)</span></li>
-</ol>
-<p>Die Lösungen zu den Beispielen findest du am Ende dieses Dokumentes.</p>
-</div>
-<div id="wiederverwendung-von-befehlszeilen---die-command-history" class="section level3 unnumbered">
-<h3>Wiederverwendung von Befehlszeilen - die Command-History</h3>
-<p>Durch die Verwendung der Pfeiltasten (<span class="math inline">\(\uparrow\)</span> und <span class="math inline">\(\downarrow\)</span>) können Sie bereits eingegeben Befehle in der Kommandozeile aus der Historie abrufen. Die Historie ist auch über das Environment Fenster im Tab <em>History</em> verfügbar. Durch Markieren einzelner oder mehrerer Zeilen im History-Fenster und anschließender Eingabetaste, werden diese Befehle in die Kommandozeile übernommen und können dort nochmals ausgeführt werden.</p>
-</div>
-<div id="weitere-eigenschaften-der-console-pane" class="section level3 unnumbered">
-<h3>Weitere Eigenschaften der Console Pane</h3>
-<p>Neben der Ausgabe von Ergebnissen werden in der Console-Pane auch Hinweise, Warnungen und Fehler die während der Ausführung eines Programmes, bzw. dem Laden/Aktualisieren von Packages ausgegeben werden angezeigt. Dabei ist vor allem bei den Meldungen, die während des Ladens/Aktualisierens von Packages angezeigt werden, besondere Aufmerksamkeit angebracht. Alle Meldungen, also rein informative wie auch Fehlermeldungen, werden in <span class="math inline">\(\color{red}{\text{rot}}\)</span> angezeigt. Da häufig sehr viele Meldungen (sehr schnell) über die Console laufen, übersieht man leicht Fehlermeldungen. Daher ist es vor allem bei langen Meldungen zu empfehlen, die Gesamte Meldungsliste sorgfältig zu kontrollieren.</p>
-</div>
-</div>
-<div id="terminal-fenster" class="section level2 unnumbered">
-<h2>Terminal-Fenster</h2>
-<p>Das Terminalfenster bietet die Möglichkeit, direkt auf die Systemumgebung zuzugreifen. über die Systemumgebung kann man z.B.:</p>
-<ul>
-<li>Fernzugriffe (remote logins) ausführen.</li>
-<li>lang dauernde Berechnungen im Hintergrund starten.</li>
-<li>Fortgeschrittene Programmkontrolle starten.</li>
-<li>Administration eines RStudio-Servers durchführen.</li>
-<li>etc.</li>
-</ul>
-</div>
-<div id="r-markdown-fenster" class="section level2 unnumbered">
-<h2>R-Markdown-Fenster</h2>
-<p><a href="https://de.wikipedia.org/wiki/Markdown">R-Markdown Beschreibung</a> ist eine vereinfachte Auszeichnungssprache, mit dem Ziel Dokumente zu erstellen, in dem sowohl Text, wie auch R-Code sein kann. Markdown ist eng an HTML angelehnt, aber bei weitem kein Ersatz dafür. Wesentliche Vorteile von Markdown sind:</p>
-<ul>
-<li>Sehr leicht erlernbar.</li>
-<li>Forschung wird reproduzierbar.</li>
-<li>Leichterer Austausch von Analyseergebnissen und der zugehörigen Dokumentation.</li>
-<li>Beim Erstellen (“knit”) wird der Code ausgeführt und mit den Beschreibungen zusammen angezeigt.</li>
-<li>Das kombinierte Dokument kann als Word-, HTML- oder PDF-Datei erstellt.</li>
-</ul>
-<p>Neben der Nutzung als Software-Dokumentationswerkzeug bietet Markdown auch eine einfache Möglichkeit, einen Forschungsprozess durchgehend abzubilden und Inhalte mit fortlaufender Evaluierung während der Datenerhebung zu verbinden (Stichwort <em>sanity-check</em>).</p>
-<p><strong>Ein Beispiel für die Nutzung von Markdown sind sämtliche Unterlagen dieser LV!</strong></p>
-<hr />
-</div>
-<div id="losungen" class="section level2 unnumbered">
-<h2>Lösungen</h2>
-<div id="aufgabe-1" class="section level3 unnumbered">
-<h3>Aufgabe 1</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)
-pacman<span class="op">::</span><span class="kw">p_load</span>(here)
-<span class="co"># Berechnungen</span>
-(<span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span>) <span class="op">*</span><span class="st"> </span><span class="dv">9</span>
-<span class="dv">99</span> <span class="op">/</span><span class="st"> </span><span class="dv">33</span>
-<span class="kw">sqrt</span>(<span class="dv">2</span>)<span class="op">^</span><span class="dv">2</span>
-<span class="kw">exp</span>(<span class="dv">3</span><span class="op">+</span><span class="dv">4</span>)
-<span class="co"># Logische Vergleiche</span>
-<span class="dv">5</span> =<span class="st"> </span><span class="dv">7</span>
-<span class="dv">5</span> <span class="op">==</span><span class="st"> </span><span class="dv">7</span>
-<span class="dv">5</span><span class="op">*</span><span class="dv">5</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">6</span><span class="op">*</span><span class="dv">4</span>
-<span class="kw">sqrt</span>(<span class="dv">3</span>) <span class="op">!=</span><span class="st"> </span><span class="kw">cos</span>(<span class="dv">17</span>)</code></pre></div>
+<div id="vorwort" class="section level1 unnumbered">
+<h1>Vorwort</h1>
+<p>Dieser Kurs richtet sich vor allem an jene Personen, die weder Erfahrungen in der Programmierung im Allgemeinen, noch im Umgang mit R im Speziellen haben. Programme zu schreiben ist nicht allzu schwer. Man muss sich ein paar Regeln der verwendeten Programmiersprache aneignen und schon kann es losgehen.</p>
+<p>Gute Programme zu schreiben ist schon etwas schwieriger, aber auch das ist mit etwas Aufwand durchaus machbar. Häufig wird am Beginn einer Karriere als Programmierer der Fehler gemacht, sich zu sehr auf Details zu konzentrieren und dabei den Überblick des eigentlichen Ziels eines Programmes zu verlieren. Während der Programmierung sollte man sich stets darüber im Klaren sein, dass ein Computerprogramm immer genau das macht, was man ihm sagt und nichts macht, was man ihm nicht sagt.</p>
+<p>Was uns oft klar und logisch erscheint, bleibt für ein Computerprogramm so lange undurchführbar, bis man es durch detaillierte Schritt für Schritt Instruktionen mit unserer Logik und Idee vertraut gemacht hat. Wenn das gelingt, wird es ein treuer Partner sein und mit einer unbestechlichen Präzision diese Logik hunderte, oder millionenmal abarbeiten, ohne einen einzigen Fehler dabei zu begehen.</p>
+<p>Für Einsteiger ist es oft schwierig zu beurteilen, in welcher Reihenfolge und in welchem Detail Instruktionen für den Computer gegeben werden müssen. Daher ist es primäres Ziel dieser LV, die grundlegenden Elemente der Programmiersprache R kennen zulernen und diese richtig anzuwenden. Dabei werden wir auch Hilfsmittel kennen lernen, die den Einstieg in R wesentlich erleichtern können.</p>
 
-</div>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="5">
-<li id="fn5"><p><a href="https://de.wikipedia.org/wiki/RStudio" target="_blank">RStudio Beschreibung Wikipedia</a><a href="rstudio5.html#fnref5">↩</a></p></li>
-<li id="fn6"><p><strong>I</strong>ntegrated <strong>D</strong>evelopment <strong>E</strong>nvironment<a href="rstudio5.html#fnref6">↩</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="aufbau-des-kurses.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="source-pane.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aufbau-des-kurses.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

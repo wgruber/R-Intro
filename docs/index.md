@@ -1,7 +1,7 @@
 ---
 title: "Reinführung in RStudio"
 author: "Walter Gruber"
-date: "2019-01-22"
+date: "2019-01-31"
 description: "Erste Schritte in R mit RStudio"
 cover-image: "Images/00_Cover.PNG"
 github-repo: wgruber/RIntro
@@ -12,6 +12,14 @@ bibliography: "bibliography.bib"
 biblio-style: "apalike"
 link-citations: true
 ---
+
+# Welcome {-}
+
+<center>
+
+![](Images/00_Cover.PNG){ width=80% }
+
+</center>
 
 # Vorwort {-}
 

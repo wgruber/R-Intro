@@ -1,8 +1,8 @@
 # **R**Studio[^5]
 
-[^5]: [RStudio Beschreibung Wikipedia](https://de.wikipedia.org/wiki/RStudio)
+[^5]: [RStudio Beschreibung Wikipedia](https://de.wikipedia.org/wiki/RStudio){target="_blank"}
 
-[RStudio](https://www.rstudio.com/) ist eine vom Unternehmen RStudio, Inc. angebotene, integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für die statistische Programmiersprache R. Bei RStudio handelt es sich um eine IDE[^6]-Anwendung, ein Begriff den man häufig bei der Beschreibung von RStudio verwendet.
+[RStudio](https://www.rstudio.com/){target="_blank"} ist eine vom Unternehmen RStudio, Inc. angebotene, integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für die statistische Programmiersprache R. Bei RStudio handelt es sich um eine IDE[^6]-Anwendung, ein Begriff den man häufig bei der Beschreibung von RStudio verwendet.
 
 [^6]: **I**ntegrated **D**evelopment **E**nvironment
 
@@ -52,7 +52,7 @@ In verschiedenen Programmiersprachen werden z.B. Groß- und Kleinschreibung, Dez
 
 ## Kommandozeile (Befehlszeile, Console) {-}
 
-Die [Kommandozeile](https://de.wikipedia.org/wiki/Kommandozeile), Befehlszeile (command-line interface, CLI), oft auch als Konsole oder Terminal bezeichnet, ist ein Eingabebereich (interface) für die Steuerung einer Software, der typischerweise (aber nicht zwingend) im Textmodus abläuft. Die Kommandos oder Befehle werden als Zeichenketten über die Tastatur eingegeben. Die Ausführung der Befehle wird meist direkt aus der Zeile durch zusätzlich angegebene Parameter gesteuert (Kommandozeilenparameter). 
+Die [Kommandozeile](https://de.wikipedia.org/wiki/Kommandozeile){target="_blank"}, Befehlszeile (command-line interface, CLI), oft auch als Konsole oder Terminal bezeichnet, ist ein Eingabebereich (interface) für die Steuerung einer Software, der typischerweise (aber nicht zwingend) im Textmodus abläuft. Die Kommandos oder Befehle werden als Zeichenketten über die Tastatur eingegeben. Die Ausführung der Befehle wird meist direkt aus der Zeile durch zusätzlich angegebene Parameter gesteuert (Kommandozeilenparameter). 
 
 Ein Kommandozeilenprogramm läuft typischerweise mit den gegebenen Parametern einmal ab, bevor eine erneute Befehlseingabe möglich ist. Ein automatisiertes Abarbeiten mehrerer Kommandos nennt man Stapelverarbeitung (batch).
 
@@ -112,22 +112,22 @@ help("mean")
 
 Darüber hinaus gibt es noch die Möglichkeit, eine der unzähligen Helpseiten im Internet in Anspruch zu nehmen. Eine Empfehlung, welche Hilfeseite(n) am besten sind ist schwer zu geben - durch Erfahrung und persönlichen Vorlieben werden sich schnell ein paar Seiten als hilfreich bewähren. Zum Einstieg nachfolgend ein paar Seiten die ich persönlich immer wieder verwende:
 
-* [R-project](https://www.r-project.org/help.html)
-* [Cookbook for R](http://www.cookbook-r.com/)
-* [Quick-R](https://www.statmethods.net/interface/help.html)
-* [RDocumentation](https://www.rdocumentation.org/packages/utils/versions/3.5.1/topics/help)
-* [RStudio Support](https://support.rstudio.com/hc/en-us)
+* [R-project](https://www.r-project.org/help.html){target="_blank"}
+* [Cookbook for R](http://www.cookbook-r.com/){target="_blank"}
+* [Quick-R](https://www.statmethods.net/interface/help.html){target="_blank"}
+* [RDocumentation](https://www.rdocumentation.org/packages/utils/versions/3.5.1/topics/help){target="_blank"}
+* [RStudio Support](https://support.rstudio.com/hc/en-us){target="_blank"}
 * u.v.m.
 
 ### Online-Lernprogramme {-}
 
 Eine weitere (unerschöpfliche) Quelle um R effizient und schnell zu erlernen sind entsprechende Online-Kurse. Einerseits gibt es über YouTube bereits viele Tutorials (die mehr oder weniger hilfreich sind/sein können). Andererseits haben sich aber bereits einige Universitäten und Firmen darauf spezialisiert, qualitativ hochwertige Online-Tutorials und Webinars zur Verfügung zu stellen. Viele davon sind noch kostenlos. Auch hier ist es schwierig eine punktuelle Empfehlung abzugeben. Nachfolgend eine kurze (und daher sicher unvollständige) Liste von Anbietern, die ich zumindest zum Teil selbst ausprobiert und als gut empfunden habe:
 
-* [DataCamp](https://www.datacamp.com/).
-* [coursera](https://www.coursera.org/).
-* [RStudio Online Learning](https://www.rstudio.com/online-learning/).
-* [Course](https://www.udemy.com/r-programming/).
-* [Quick-R Tutorials](https://www.statmethods.net/r-tutorial/index.html).
+* [DataCamp](https://www.datacamp.com/){target="_blank"}.
+* [coursera](https://www.coursera.org/){target="_blank"}.
+* [RStudio Online Learning](https://www.rstudio.com/online-learning/){target="_blank"}.
+* [Course](https://www.udemy.com/r-programming/){target="_blank"}.
+* [Quick-R Tutorials](https://www.statmethods.net/r-tutorial/index.html){target="_blank"}.
 
 ### Verwendung der Konsole (Aufgabe 1) {-}
 

@@ -1,12 +1,5 @@
 # Aufbau des Kurses
 
-<center>
-
-![](Images/Cover.png){ width=50% }
-
-</center>
-
-
 
 
 Im Lauf des Kurses werden wir abwechselnd zwei unterschiedliche Ansätze des Lernens verwenden. Ich habe diese Ansätze *Top-Down* und *Bottom-Up* genannt und werde die Idee dahinter noch im Detail erklären. Der Einstieg in R wird wesentlich durch die Verwendung von *RStudio* erleichtert. Wir werden im Folgenden die Eigenschaften und den Umgang mit diesem Programm im Detail besprechen.
@@ -38,7 +31,7 @@ Nachfolgend ein kurzer Überblick über die Entstehungsgeschichte von R.
 
 </center>
 
-* Entwickelt 1992, orientiert sich R eng an Sprache S. Weitere Inspirationsquelle war die Programmiersprache Scheme. **1993 wurde die Software erstmals öffentlich vorgestellt** und seit Juni 1995 steht R unter der [GNU General Public License](https://de.wikipedia.org/wiki/GNU_General_Public_License).
+* Entwickelt 1992, orientiert sich R eng an Sprache S. Weitere Inspirationsquelle war die Programmiersprache Scheme. **1993 wurde die Software erstmals öffentlich vorgestellt** und seit Juni 1995 steht R unter der [GNU General Public License](https://de.wikipedia.org/wiki/GNU_General_Public_License){target="_blank"}.
 * Bis 1996 oder 1997 gab es zwischen 50 und 100 Leute in einer Mailingliste, die dabei halfen die Sprache gemeinsam zu verbessern. Im Jahr 1997 wurde das R Development Core Team gebildet (heute R Core Team), das sich um die Weiterentwicklung von R kümmert und den Quellcode verändern kann.
 * Das Comprehensive R Archive Network (CRAN) als Plattform für Pakete startete am 23. April 1997 um Anwendern die Möglichkeit zu geben selbst geschriebene Funktionen leichter mit Anderen zu teilen.
 * Seit April 2001 gibt es R für macOS. Im September 2002 gründeten die Mitglieder des R Development Core Teams den gemeinnützigen Verein The R Foundation for Statistical Computing in Wien, welcher sich um die Außendarstellung kümmert.
@@ -53,7 +46,7 @@ Nachfolgend ein kurzer Überblick über die Entstehungsgeschichte von R.
 
 R ist eine Programmiersprache, die besonders zur Analyse und Visualisierung von Daten genutzt wird. Sehr viele Neuentwicklungen in der Statistik passieren in R. Auch ohne Vorkenntnisse in einer Programmiersprache findet man sich in R schnell zurecht. 
 
-Mit Hilfe von RStudio, den unzähligen Tutorials und Hilfeseiten gelingt es schon nach sehr kurzer Zeit die ersten hilfreichen Programme zu schreiben. Alle diese Tools sind [open source](https://de.wikipedia.org/wiki/Open_Source), d.h. transparent, eigenständig veränderbar und vor allem kostenlos. Stellt man die Vor- und Nachteile der Nutzung von R gegenüber, lässt sich die Entscheidung Arbeit in R hineinzustecken relativ leicht rechtfertigen:
+Mit Hilfe von RStudio, den unzähligen Tutorials und Hilfeseiten gelingt es schon nach sehr kurzer Zeit die ersten hilfreichen Programme zu schreiben. Alle diese Tools sind [open source](https://de.wikipedia.org/wiki/Open_Source){target="_blank"}, d.h. transparent, eigenständig veränderbar und vor allem kostenlos. Stellt man die Vor- und Nachteile der Nutzung von R gegenüber, lässt sich die Entscheidung Arbeit in R hineinzustecken relativ leicht rechtfertigen:
 
 * Vorteile
     + Neben gängigen Programmen zur statistischen Auswertung, wie beispielsweise "SPSS" bietet R den Vorteil, dass es auf der ganzen Welt kostenlos zur Verfügung steht.
@@ -83,7 +76,7 @@ Ein Hardco*R*e'*ler* würde diese Frage nicht verstehen und sich wahrscheinlich 
 
 Geht es einzig und allein darum, einen Datensatz explorativ und/oder mit gängigen Analysemethoden zu bearbeiten, kann man auf bereits bestehende und benutzerfreundliche Anwendungen zurückgreifen. Wir werden uns im folgenden zwei durchaus brauchbare Programmpakete kurz ansehen.
 
-Stehen Programme wie SPSS, SAS o.ä. zur Verfügung, sollte man sich vor den Einstieg in R klar über die gesteckten Ziele sein und eine Kosten-Nutzen-Rechnung anstellen. Sehr oft ist es viel einfacher, sich in die Syntax des jeweiligen Programms einzuarbeiten, als alles in R zu lösen. Es sei auch darauf hingewiesen, dass (zumindest) [SPSS bereits eine Schnittstelle mit R](https://www.ibm.com/support/knowledgecenter/de/SSLVMB_25.0.0/statistics_r_tutorial_project_ddita/spss/tutorials/rtut_intro.html) anbietet. Details dazu sind in den entsprechenden Manuals nachzulesen.
+Stehen Programme wie SPSS, SAS o.ä. zur Verfügung, sollte man sich vor den Einstieg in R klar über die gesteckten Ziele sein und eine Kosten-Nutzen-Rechnung anstellen. Sehr oft ist es viel einfacher, sich in die Syntax des jeweiligen Programms einzuarbeiten, als alles in R zu lösen. Es sei auch darauf hingewiesen, dass (zumindest) [SPSS bereits eine Schnittstelle mit R](https://www.ibm.com/support/knowledgecenter/de/SSLVMB_25.0.0/statistics_r_tutorial_project_ddita/spss/tutorials/rtut_intro.html){target="_blank"} anbietet. Details dazu sind in den entsprechenden Manuals nachzulesen.
 
 Weitere wichtige Überlegungen bezüglich der Umstellung/Einführung von R sind:
 
@@ -115,7 +108,7 @@ Mit Stand November 2018 war laut Tiobe[^4] R an 14 Stelle - 3 Stellen vor Matlab
 
 <center>
 
-![**Abbildung 4**: Verlauf des [TIOBE-Index](https://www.tiobe.com/tiobe-index/) für R seit 2008 (the ratings are calculated by counting hits of the most popular search engines. The number of hits determines the ratings of a language. The counted hits are normalized for each search engine for all languages in the list. In other words, all languages together have a score of 100%.)](Images/01_TiobeRVerlauf.PNG){ width=50% }
+![**Abbildung 4**: Verlauf des [TIOBE-Index](https://www.tiobe.com/tiobe-index/){target="_blank"} für R seit 2008 (the ratings are calculated by counting hits of the most popular search engines. The number of hits determines the ratings of a language. The counted hits are normalized for each search engine for all languages in the list. In other words, all languages together have a score of 100%.)](Images/01_TiobeRVerlauf.PNG){ width=50% }
 
 </center>
 
@@ -127,7 +120,7 @@ Ist ein Computerprogramm zur Datenanalyse und Durchführung von statistischen Te
 
 <center>
 
-![**Abbildung 5**: Kurzbeschreibung von [JAMOVI](https://www.jamovi.org/)](Images/01_JAMOVI.PNG){ width=50% }
+![**Abbildung 5**: Kurzbeschreibung von [JAMOVI](https://www.jamovi.org/){target="_blank"}](Images/01_JAMOVI.PNG){ width=50% }
 
 </center>
 
@@ -171,13 +164,13 @@ Ist ebenfalls ein Computerprogramm zur Datenanalyse und Durchführung von statis
 
 <center>
 
-![**Abbildung 7**: Kurzbeschreibung von [JASP](https://jasp-stats.org/) ](Images/01_JASP.PNG){ width=50% } 
+![**Abbildung 7**: Kurzbeschreibung von [JASP](https://jasp-stats.org/){target="_blank"}](Images/01_JASP.PNG){ width=50% } 
 
 </center>
 
 Bei JASP sind neben der Bayesschen Statistik auch die verfügbaren Datensätze für den Einstieg in die Nutzung dieses Programm erwähnenswert. Sortiert nach Themenbereichen und referenziert nach Herkunft kann man einerseits mit den entsprechenden Verfahren experimentieren und gegebenenfalls auch noch in der Literatur nachschlagen - welche eben die gleichen Datensätze zur Erklärung der Verfahren verwendet. Man kann diese Daten aber auch exportieren und in JAMOVI verwenden!
 
-[^1]: [Geschichte von R - Wikipedia](https://de.wikipedia.org/wiki/R_(Programmiersprache)#Urspr%C3%BCnge_(1992))
-[^2]: [Bioconductor - Software for Bioinformatics](https://www.bioconductor.org/)
-[^3]: [Statistische Software Wikipedia](https://de.wikipedia.org/wiki/Liste_von_Statistik-Software)
-[^4]: [TIOBE Programming Community Index](https://www.tiobe.com/)
+[^1]: [Geschichte von R - Wikipedia](https://de.wikipedia.org/wiki/R_(Programmiersprache)#Urspr%C3%BCnge_(1992)){target="_blank"}
+[^2]: [Bioconductor - Software for Bioinformatics](https://www.bioconductor.org/){target="_blank"}
+[^3]: [Statistische Software Wikipedia](https://de.wikipedia.org/wiki/Liste_von_Statistik-Software){target="_blank"}
+[^4]: [TIOBE Programming Community Index](https://www.tiobe.com/){target="_blank"}

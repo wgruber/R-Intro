@@ -147,8 +147,8 @@ Alle Graphiken die in R erzeugt werden, können in den verschiedensten Dateiform
 
 Mit dem Paket *ggplot2* erweitern sich die Möglichkeiten bei der Erstellung und Gestaltung von Graphiken erheblich. Es gehört zu den mächtigsten und umfangreichsten Pakten zur Erstellung von Grafiken. Gerade wegen dieser Eigenschaft kann es vor allem für Einsteiger oft schwierig werden. Das Paket bietet aber die Einsteigerfunktion *qplot()* (für Quick Plot). Für Standardgraphiken ist diese Funktion sehr hilfreich, denn viele der komplexen Möglichkeiten in *ggplot2* bleiben bei dieser Funktion verborgen.
 
-Basierend auf den Grundlagen des Buches [The grammar of graphics](http://ggplot2.org/resources/2007-past-present-future.pdf)
- von Leland Wilkinson baute Wickham sein [Datenvisualisierungspaket](http://en.wikipedia.org/wiki/Ggplot2) auf und übernahm die grundlegenden Thesen des Buches, die auch heute noch als richtungsweisend für die Statistik gelten. Laut Leland lässt sich jeder Datensatz, egal welcher Komplexität, leicht darstellen, wenn man ihn sinnvoll in *Ästhetik* und *Geometrie* unterteilt. Mittels dieser Differenzierung können Aufgabenbereiche getrennt und Zuständigkeiten an verschiedene Aspekte des Plots übergeben werden.
+Basierend auf den Grundlagen des Buches [The grammar of graphics](http://ggplot2.org/resources/2007-past-present-future.pdf){target="_blank"}
+ von Leland Wilkinson baute Wickham sein [Datenvisualisierungspaket](http://en.wikipedia.org/wiki/Ggplot2){target="_blank"} auf und übernahm die grundlegenden Thesen des Buches, die auch heute noch als richtungsweisend für die Statistik gelten. Laut Leland lässt sich jeder Datensatz, egal welcher Komplexität, leicht darstellen, wenn man ihn sinnvoll in *Ästhetik* und *Geometrie* unterteilt. Mittels dieser Differenzierung können Aufgabenbereiche getrennt und Zuständigkeiten an verschiedene Aspekte des Plots übergeben werden.
 
 Sobald komplexere Daten visualisiert werden sollen, zeigen sich die Vorteile von ggplot2:
 
@@ -160,7 +160,7 @@ Sobald komplexere Daten visualisiert werden sollen, zeigen sich die Vorteile von
 
 Die *qplot()*-Funktion folgt nicht dem typischen *ggplot2*-Schema und ist eher als Einstieg ins Plotting gedacht, ermöglicht jedoch dieselbe Plotvisualisierung wie die *ggplot()*-Funktion. Ihr Aufbau und ihre Gestaltung wird lediglich durch verschiedenste Parameter bestimmt.
 
-Öffne folgenden Link [Quick Plot Einstieg](https://www.statmethods.net/advgraphs/ggplot2.html) und kopiere den Code der nach dem Text *Here are some examples using automotive data ...* folgt in den Editor. Weiter nützliche Hinweise zu Quick Plot findest du unter Um [Quick Plot Cheat Sheet](http://ggplot2.org/book/qplot.pdf).
+Öffne folgenden Link [Quick Plot Einstieg](https://www.statmethods.net/advgraphs/ggplot2.html){target="_blank"} und kopiere den Code der nach dem Text *Here are some examples using automotive data ...* folgt in den Editor. Weiter nützliche Hinweise zu Quick Plot findest du unter Um [Quick Plot Cheat Sheet](http://ggplot2.org/book/qplot.pdf).
 
 
 ```r
@@ -247,7 +247,7 @@ Die geometrischen Objekte in einem Plot definieren die Darstellungsform der Date
 
 #### Verwendung von ggplot2 {-}
 
-Aufgrund des enormen Leistungsumfangs von ggplot, wollen wir im folgenden (mit der Topdown-Methode) einen Einblick in die vielseitige Verwendbarkeit des Pakets durch Beispiele aus [Cookbook R](http://www.cookbook-r.com/Graphs/) gewinnen. Öffne den Link und gehe im Kapitel *Graphs with ggplot2* zu den *Bar and line graphs (ggplot2)*.
+Aufgrund des enormen Leistungsumfangs von ggplot, wollen wir im folgenden (mit der Topdown-Methode) einen Einblick in die vielseitige Verwendbarkeit des Pakets durch Beispiele aus [Cookbook R](http://www.cookbook-r.com/Graphs/){target="_blank"} gewinnen. Öffne den Link und gehe im Kapitel *Graphs with ggplot2* zu den *Bar and line graphs (ggplot2)*.
 
 Gehen wir einmal davon aus, dass wir für unsere Daten aus *hyper.sav* ein Balkendiagramm des durchschnittlichen BMI getrennt nach Altersklasse (x-Achse) und Geschlecht (Balken) erzeugen wollen. Wir durchsuchen die geöffnete Cookbook-Seite und finden folgende Darstellung als passend für unsere Daten:
 

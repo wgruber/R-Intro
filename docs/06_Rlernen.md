@@ -26,9 +26,9 @@ pacman::p_load(ggplot2)
 
 ### Copy und Paste (Aufgabenblock) {-}
 
-1. Kopiere von [Indexing with numbers and names](http://www.cookbook-r.com/Basics/Indexing_into_a_data_structure/) die Zeile $v <- c(1,4,4,3,2,2,3)$ in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.
+1. Kopiere von [Indexing with numbers and names](http://www.cookbook-r.com/Basics/Indexing_into_a_data_structure/){target="_blank"} die Zeile $v <- c(1,4,4,3,2,2,3)$ in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.
 2. Kopiere (aus der Website) die Zeile $v[c(2,3,4)]$ in das neue Skript und führe diese Zeile aus. Beschreibe die Auswirkung dieser Zeile bezüglich der Änderungen im Konsolen- und Environment-Fenster.
-3. Gehe zur folgenden Website: [Bar and line graphs (ggplot2)](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/) und kopiere aus dem Block *Bar graphs of values* die ersten vier Zeilen in den Editor. Führe diese Zeilen aus und diskutiere das Ergebnis.
+3. Gehe zur folgenden Website: [Bar and line graphs (ggplot2)](http://www.cookbook-r.com/Graphs/Bar_and_line_graphs_(ggplot2)/){target="_blank"} und kopiere aus dem Block *Bar graphs of values* die ersten vier Zeilen in den Editor. Führe diese Zeilen aus und diskutiere das Ergebnis.
 4. Kopiere nun von dieser Website den zweiten Codeblock und führe den Code aus. Diskutiere das Ergebnis (siehe Plots-Fenster).
 5. Kopiere nun die zwei Codeblocks im Kapitel "Bar graphs of counts" und führe den Code aus. Beachte vor allem, woher die Daten (tips) kommen! 
 6. Gebe die Befehle data() und ?tips, bzw. ?french_fries ein und diskutiere das Ergebnis.

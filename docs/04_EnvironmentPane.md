@@ -71,4 +71,4 @@ Im RStudio-Verbindungsbereich (Connections) können Verbindung zu einer Vielzahl
 </center>
 
 [^8]: es ist jedoch kein Verbindungsmanager, wie z.B. PGAdmin, Toad oder SSMS.
-[^9]: [ODBC](https://de.wikipedia.org/wiki/Open_Database_Connectivity), [Spark](https://de.wikipedia.org/wiki/Apache_Spark)
+[^9]: [ODBC](https://de.wikipedia.org/wiki/Open_Database_Connectivity), [Spark](https://de.wikipedia.org/wiki/Apache_Spark){target="_blank"}
