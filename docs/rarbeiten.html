@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Rarbeiten | Reinführung in RStudio</title>
+  <meta name="description" content="Erste Schritte in R mit RStudio" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Rarbeiten | Reinführung in RStudio" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Images/00_Cover.PNG" />
+  <meta property="og:description" content="Erste Schritte in R mit RStudio" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Rarbeiten | Reinführung in RStudio" />
+  
+  <meta name="twitter:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="twitter:image" content="/Images/00_Cover.PNG" />
+
+<meta name="author" content="Walter Gruber" />
+
+
+<meta name="date" content="2022-10-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rlernen.html"/>
+<link rel="next" href="rechnen-mit-r.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Reinführung in RStudio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="vorwort.html"><a href="vorwort.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html"><i class="fa fa-check"></i><b>1</b> Aufbau des Kurses</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#ziele"><i class="fa fa-check"></i>Ziele</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#allgemeines"><i class="fa fa-check"></i>Allgemeines</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#entstehungsgeschichte-von-r1"><i class="fa fa-check"></i>Entstehungsgeschichte von R</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#warum-sollte-man-r-verwenden"><i class="fa fa-check"></i><strong>Warum</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-verwenden"><i class="fa fa-check"></i><strong>Wann</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-nicht-verwenden"><i class="fa fa-check"></i><strong>Wann</strong> sollte man <strong>R nicht</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#alternativen-zu-r"><i class="fa fa-check"></i>Alternativen zu R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio5.html"><a href="rstudio5.html"><i class="fa fa-check"></i><b>2</b> <strong>R</strong>Studio</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufbau-von-rstudio"><i class="fa fa-check"></i>Aufbau von RStudio</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-syntax"><i class="fa fa-check"></i>R-Syntax</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#kommandozeile-befehlszeile-console"><i class="fa fa-check"></i>Kommandozeile (Befehlszeile, Console)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#mathematische-operatorenfunktionen"><i class="fa fa-check"></i>Mathematische Operatoren/Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#hilfe-in-rstudio"><i class="fa fa-check"></i>Hilfe in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#online-lernprogramme"><i class="fa fa-check"></i>Online-Lernprogramme</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#verwendung-der-konsole-aufgabe-1"><i class="fa fa-check"></i>Verwendung der Konsole (Aufgabe 1)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#wiederverwendung-von-befehlszeilen---die-command-history"><i class="fa fa-check"></i>Wiederverwendung von Befehlszeilen - die Command-History</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#weitere-eigenschaften-der-console-pane"><i class="fa fa-check"></i>Weitere Eigenschaften der Console Pane</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#terminal-fenster"><i class="fa fa-check"></i>Terminal-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-markdown-fenster"><i class="fa fa-check"></i>R-Markdown-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#lösungen"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufgabe-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="source-pane.html"><a href="source-pane.html"><i class="fa fa-check"></i><b>3</b> Source-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#dateitypen"><i class="fa fa-check"></i>Dateitypen</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-script"><i class="fa fa-check"></i>R Script</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-markdown"><i class="fa fa-check"></i>R-Markdown</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#andere-dokumentenarten"><i class="fa fa-check"></i>Andere Dokumentenarten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#nützliches-im-editor"><i class="fa fa-check"></i>Nützliches im Editor</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-completion"><i class="fa fa-check"></i>Code completion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#keyboard-short-cuts"><i class="fa fa-check"></i>Keyboard Short-Cuts</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-snippets"><i class="fa fa-check"></i>Code Snippets</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#extract-funktion"><i class="fa fa-check"></i>Extract Funktion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#suchfunktionen"><i class="fa fa-check"></i>Suchfunktionen</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-folding"><i class="fa fa-check"></i>Code Folding</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#running-code"><i class="fa fa-check"></i>Running Code</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#traceback-debugging"><i class="fa fa-check"></i>Traceback (Debugging)</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#kommentare"><i class="fa fa-check"></i>Kommentare</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="environment-pane.html"><a href="environment-pane.html"><i class="fa fa-check"></i><b>4</b> Environment-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#history"><i class="fa fa-check"></i>History</a></li>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#connections"><i class="fa fa-check"></i>Connections</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="files-pane.html"><a href="files-pane.html"><i class="fa fa-check"></i><b>5</b> Files-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#files"><i class="fa fa-check"></i>Files</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#packages"><i class="fa fa-check"></i>Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#umgang-mit-paketen"><i class="fa fa-check"></i>Umgang mit Paketen</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#installation-und-verwendung-von-paketen"><i class="fa fa-check"></i>Installation und Verwendung von Paketen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#help"><i class="fa fa-check"></i>Help</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#viewer"><i class="fa fa-check"></i>Viewer</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rlernen.html"><a href="rlernen.html"><i class="fa fa-check"></i><b>6</b> Rlernen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down-vs.-bottom-up"><i class="fa fa-check"></i>Top-Down vs. Bottom-Up</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down---copy-und-paste"><i class="fa fa-check"></i>Top Down - Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#copy-und-paste-aufgabenblock"><i class="fa fa-check"></i>Copy und Paste (Aufgabenblock)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#objekte-in-r-bottom-up"><i class="fa fa-check"></i>Objekte in R (bottom up)</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#vektoren"><i class="fa fa-check"></i>Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#arithmetische-operator-vektorenrechnung"><i class="fa fa-check"></i>Arithmetische Operator (Vektorenrechnung)</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#weitere-nützliche-vektor-funktionen"><i class="fa fa-check"></i>Weitere nützliche Vektor-Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#logische-vektoren"><i class="fa fa-check"></i>Logische Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#der-in-operator-und-die-which-funktion"><i class="fa fa-check"></i>Der %in% Operator und die which()-Funktion</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-vektoren"><i class="fa fa-check"></i>Aufgabenblock Vektoren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#faktoren"><i class="fa fa-check"></i>Faktoren</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-faktoren"><i class="fa fa-check"></i>Aufgabenblock Faktoren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#matrizen"><i class="fa fa-check"></i>Matrizen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#zugriff-auf-elemente-einer-matrix"><i class="fa fa-check"></i>Zugriff auf Elemente einer Matrix</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#erzeugen-von-matrizen"><i class="fa fa-check"></i>Erzeugen von Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#arithmentische-funktionen-auf-zwei-matrizen"><i class="fa fa-check"></i>Arithmentische Funktionen auf zwei Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-matrizen"><i class="fa fa-check"></i>Aufgabenblock Matrizen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-frames"><i class="fa fa-check"></i>Data-Frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-dataframes"><i class="fa fa-check"></i>Aufgabenblock Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-tables"><i class="fa fa-check"></i>Data-Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#listen"><i class="fa fa-check"></i>Listen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#attribute"><i class="fa fa-check"></i>Attribute</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-1"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-copy-und-paste"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-vektoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-faktoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-matrizen"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-dataframes"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Dataframes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="rarbeiten.html"><a href="rarbeiten.html"><i class="fa fa-check"></i><b>7</b> Rarbeiten</a>
+<ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#lesen-und-speichern-von-dateien"><i class="fa fa-check"></i>Lesen und speichern von Dateien</a>
+<ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#r-dateien"><i class="fa fa-check"></i>R-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#text-dateien"><i class="fa fa-check"></i>Text-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#spss-dateien"><i class="fa fa-check"></i>SPSS-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#excel-dateien"><i class="fa fa-check"></i>Excel-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#dateien-vom-web"><i class="fa fa-check"></i>Dateien vom Web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html"><i class="fa fa-check"></i><b>8</b> Rechnen mit R</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#deskriptive-datenanalyse"><i class="fa fa-check"></i>Deskriptive Datenanalyse</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#kennwerte-der-deskriptiven-statistik"><i class="fa fa-check"></i>Kennwerte der deskriptiven Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphiken-der-deskriptiven-statistik"><i class="fa fa-check"></i>Graphiken der deskriptiven Statistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-des-basispakets"><i class="fa fa-check"></i>Graphen des Basispakets</a></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-mit-ggplot2"><i class="fa fa-check"></i>Graphen mit ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösungen-2"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösung-funktion-standardfehler"><i class="fa fa-check"></i><b>8.0.1</b> Lösung Funktion Standardfehler</a></li>
+<li class="chapter" data-level="8.0.2" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösung-ggplot-beispiel-1"><i class="fa fa-check"></i><b>8.0.2</b> Lösung ggplot Beispiel 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html"><i class="fa fa-check"></i><b>9</b> Datenauswertung Lime Survey</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#datenvorverarbeitung"><i class="fa fa-check"></i>Datenvorverarbeitung</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-1-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-2"><i class="fa fa-check"></i>Aufgabe 2</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-3"><i class="fa fa-check"></i>Aufgabe 3</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-4"><i class="fa fa-check"></i>Aufgabe 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösungen-3"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-1"><i class="fa fa-check"></i>Lösung Aufgabe 1</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-2"><i class="fa fa-check"></i>Lösung Aufgabe 2</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-3"><i class="fa fa-check"></i>Lösung Aufgabe 3</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-4"><i class="fa fa-check"></i>Lösung Aufgabe 4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html"><i class="fa fa-check"></i><b>10</b> Bedingungen und Schleifen</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#bedingte-ausführung"><i class="fa fa-check"></i>Bedingte Ausführung</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#einfache-if-bedingung"><i class="fa fa-check"></i>Einfache If-Bedingung</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#else-if-bedingung"><i class="fa fa-check"></i>Else-If-Bedingung</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-1-2"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-ifelse-bedingung"><i class="fa fa-check"></i>Die ifelse Bedingung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#iterationen-in-r"><i class="fa fa-check"></i>Iterationen in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-for-schleife"><i class="fa fa-check"></i>Die for-Schleife</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#bemerkung-zu-for-loops"><i class="fa fa-check"></i>Bemerkung zu For-Loops</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#apply"><i class="fa fa-check"></i><em>apply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#lapply"><i class="fa fa-check"></i><em>lapply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#sapply-und-vapply"><i class="fa fa-check"></i><em>sapply()</em> und <em>vapply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#map"><i class="fa fa-check"></i><em>Map()</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-while--und-repeat-schleife"><i class="fa fa-check"></i>Die while- und repeat Schleife</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-2-1"><i class="fa fa-check"></i>Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#lösungen-4"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-1-lsg"><i class="fa fa-check"></i>Aufgabe 1 Lsg</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-2-lsg"><i class="fa fa-check"></i>Aufgabe 2 Lsg</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://wgruber.github.io/R-Intro/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reinführung in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rarbeiten" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Rarbeiten<a href="rarbeiten.html#rarbeiten" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Unabhängig vom verwendeten Statistik-Programm werden wir in den meisten Fällen Daten nicht erst im jeweiligen Programm definieren und erfassen, sondern auf bereits vorliegende Daten zurückgreifen. Eine wichtige Ausnahme ist dabei die Simulation von Daten. Bereits mit einem <em>normalen</em> Desktop-PC ist es möglich, eine Unmenge an Daten (surrogate data) im Handumdrehen zu erzeugen und diese mittels statistischer Verfahren, Modelle und Algorithmen innerhalb kürzester Zeit auszuwerten. Zur Prüfung der Eigenschaften von Modellen und Algorithmen ist diese Vorgehensweise ein wichtiges Hilfsmittel.</p>
+<p>Zur Erfassung von Echtdaten wird aber üblicherweise kein statistisches Analyseprogramm verwendet. Daher liegen diese Daten auch in verschiedensten Formaten vor und es ist einer der ersten Schritte in der statistischen Datenanalyse, diese Daten vom jeweiligen Format in ein für das Statistikprogramm lesbares umzuwandeln. Die am häufigsten verwendeten Formate mit denen wir es derzeit zu tun haben sind:</p>
+<ul>
+<li>R-Dateien im <em>RData</em>, <em>rda</em> und <em>rds</em> Format</li>
+<li>Textdateien im <em>csv</em>, <em>dat</em>, <em>txt</em> Format</li>
+<li>SPSS, JAMOVI, etc. Dateien (<em>sav</em>, <em>omv</em>, etc.)</li>
+<li>Excel-Tabellen im xls, oder <em>xlsx</em> Format</li>
+<li>Binäre Daten im <em>bin</em> Format</li>
+<li>Proprietäre Formate diverser Labor- und Messgeräte</li>
+</ul>
+<p>Im Folgenden beschränken wir uns auf die üblichsten Fileformate, den R-, Text-, SPSS- und Excel-Dateien.</p>
+<div id="lesen-und-speichern-von-dateien" class="section level2 unnumbered hasAnchor">
+<h2>Lesen und speichern von Dateien<a href="rarbeiten.html#lesen-und-speichern-von-dateien" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Das Lesen und Speichern von Dateien kann entweder direkt im RStudio über das Environment-Pane, oder über einen entsprechenden R-Code in der Konsole, bzw. über den Source-Pane durchgeführt werden. Zu unterscheiden sind die verschiedenen Dateitypen, von denen es abhängt, welche Funktion zu wählen ist.</p>
+<div id="r-dateien" class="section level3 unnumbered hasAnchor">
+<h3>R-Dateien<a href="rarbeiten.html#r-dateien" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Liegen Daten bereits im R-eigenen Format vor, können diese einfach mit der Funktion <em>load(Dateiname)</em> eingelesen werden. Bezüglich der Dateierweiterung unterscheidet R folgende Typen:</p>
+<ol style="list-style-type: decimal">
+<li><em>.RData</em>: der Inhalt des zum Zeitpunkt des speicherns (<em>save()</em>) vorhandenen Environments.</li>
+<li><em>.rda</em>: Kurzbezeichnung für RData.</li>
+<li><em>.rds</em>: speichert ein einzelnes R-Objekt.</li>
+</ol>
+<p>Der Vorteil dieser Datenformate liegt darin, dass die Datenstrukturen, wie z.B. Datentypen der Spalten (numerisch, character, factor) erhalten bleiben. Bei anderen Dateiformaten ist dies nicht automatisch gegeben. In einem ersten Schritt verwenden wir die im Environment-Pane vorhandenen Möglichkeiten Files zu laden und zu speichern.</p>
+<p>Kopiere zuerst den nachfolgenden Code in ein neues R-Script, speicher dieses unter dem Namen <em>07_RArbeiten_Files.R</em> und führe anschließen den Code zeilenweise aus.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="rarbeiten.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialisierung</span></span>
+<span id="cb42-2"><a href="rarbeiten.html#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb42-3"><a href="rarbeiten.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb42-4"><a href="rarbeiten.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  pacman<span class="sc">::</span><span class="fu">p_load</span>(xlsx)</span>
+<span id="cb42-5"><a href="rarbeiten.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ende Initialisierung</span></span></code></pre></div>
+<p>Verwende nun das Symbol <em>Open File</em> im Environment-Pane und wähle die Datei <em>bigfive.RData</em> im entsprechenden Datenverzeichnis (gegebenenfalls noch von <a href="http://tuval.at/lehrveranstaltungen/daten/data" target="_blank">Daten zum Seminar</a> herunterladen und lokal am Rechner speichern). Führe folgende Arbeitsschritte durch:</p>
+<ol style="list-style-type: decimal">
+<li>Im Konsolenfenster wird die Funktion zum Laden der Datei (<em>load(xxx)</em>) angezeigt. Kopier diese Zeile in den Editor.</li>
+<li>Erzeuge eine Kopie dieses Objektes und benenne diese mit <em>KopieBigFive</em></li>
+<li>Verwende das Symbol Speichern im Environment-Pane und speichere den Inhalt des Environments unter den Namen <em>BigFive_New_1</em>. Im Konsolenfenster wird die Funktion zum Speichern der Datei (<em>save.image(xxx)</em>) angezeigt. Kopier diese Zeile in den Editor. Ruf die Hilfefunktion auf um herauszufinden, was es mit dieser Funktion auf sich hat.</li>
+<li>Bereinige das Environment unter Verwendung des Pinsel-Symbol.</li>
+<li>Lade die soeben gespeicherte Datei (<em>BigFive_New_1.RData</em>) mit dem Symbol <em>Open File</em>. Beachte, dass nun beide Objekte wieder im Environment zur Verfügung stehen.</li>
+</ol>
+<p>Nachfolgender Code zeigt die soeben besprochenen Aufgabenschritte.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="rarbeiten.html#cb43-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load</span>(<span class="st">&quot;Data/bigfive.RData&quot;</span>) <span class="co"># A1</span></span>
+<span id="cb43-2"><a href="rarbeiten.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  KopieBigFive <span class="ot">&lt;-</span> bigfive  <span class="co"># A2</span></span>
+<span id="cb43-3"><a href="rarbeiten.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">save.image</span>(<span class="st">&quot;Data/BigFive_1.RData&quot;</span>)  <span class="co"># A3</span></span>
+<span id="cb43-4"><a href="rarbeiten.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># A4</span></span>
+<span id="cb43-5"><a href="rarbeiten.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load</span>(<span class="st">&quot;Data/BigFive_1.RData&quot;</span>) <span class="co"># A5</span></span>
+<span id="cb43-6"><a href="rarbeiten.html#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">save.image</span>(<span class="st">&quot;Data/BigFive_2.RData&quot;</span>) <span class="co"># A6</span></span>
+<span id="cb43-7"><a href="rarbeiten.html#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()) <span class="co"># A7</span></span>
+<span id="cb43-8"><a href="rarbeiten.html#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load</span>(<span class="st">&quot;Data/BigFive_2.RData&quot;</span>) <span class="co"># A8</span></span>
+<span id="cb43-9"><a href="rarbeiten.html#cb43-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb43-10"><a href="rarbeiten.html#cb43-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(KopieBigFive, <span class="at">file =</span> <span class="st">&quot;Data/BigFive_3.rds&quot;</span>)</span>
+<span id="cb43-11"><a href="rarbeiten.html#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb43-12"><a href="rarbeiten.html#cb43-12" aria-hidden="true" tabindex="-1"></a>  KopieBigFive <span class="ot">&lt;-</span> <span class="fu">readRDS</span>( <span class="st">&quot;Data/BigFive_3.rds&quot;</span>) </span></code></pre></div>
+<p>Im folgenden werden ergänzende Möglichkeiten zum Speichern/Laden von Daten gezeigt. Mit der Funktion saveRDS() können einzelne Objekte gespeichert und mit readRDS() auch wieder geladen werden. Will man mehrere, aber nicht alle Objekte des Environments speichern, kann dies durch Angabe der Objektnamen und der Funktion save() durchgeführt werden.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="rarbeiten.html#cb44-1" aria-hidden="true" tabindex="-1"></a>  Seminar <span class="ot">&lt;-</span> <span class="st">&quot;R-Intro&quot;</span></span>
+<span id="cb44-2"><a href="rarbeiten.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  V1      <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb44-3"><a href="rarbeiten.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  M1      <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb44-4"><a href="rarbeiten.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  M2      <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">3</span>)</span>
+<span id="cb44-5"><a href="rarbeiten.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb44-6"><a href="rarbeiten.html#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">save</span>(Seminar, V1, <span class="at">file =</span> <span class="st">&quot;Data/BigFive_4.RData&quot;</span>) </span>
+<span id="cb44-7"><a href="rarbeiten.html#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb44-8"><a href="rarbeiten.html#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load</span>(<span class="st">&quot;Data/BigFive_4.RData&quot;</span>)</span>
+<span id="cb44-9"><a href="rarbeiten.html#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code></pre></div>
+</div>
+<div id="text-dateien" class="section level3 unnumbered hasAnchor">
+<h3>Text-Dateien<a href="rarbeiten.html#text-dateien" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mit der <em>read.csv()</em>, <em>read.table()</em> und verwandten Funktionen können Daten aus Textdateien (txt) importiert werden. <em>read.table()</em> ist die Basisfunktion zum Import von Textdateien. <em>read.csv()</em> und <em>read.csv2()</em> sowie einige andere Funktionen sind Anpassungen an häufig auftretenden Fülle.</p>
+<p>CSV<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> ist für viele Tabellenkalkulationen und andere Anwendungen ein übliches Exportformat. Irreführend bei diesem Format ist oftmals die Verwendung der Trennzeichen für unterschiedliche Daten. Der Name <em>csv</em> suggeriert, dass ein Kommazeichen die Datensätze innerhalb der Datei trennt. Tatsächlich kann man aber ein beliebiges Zeichen verwenden. Am häufigsten findet man den Tabulator, oder den Strichpunkt als Trennzeichen. Bezüglich des Kommazeichens sollte man noch vor dem Import einer Datei prüfen, ob dieses als Trennzeichen für Dezimalzahlen verwendet wurde, oder ob (wie im englischen Sprachraum üblich) der Punkt die Dezimaltrennung kennzeichnet.</p>
+<p>Bemerkung bezüglich der Leistungsfähigkeit von Funktionen beim Lesen von (wirklich) großen Dateien: die <em>read.csv()</em> und damit verwandten Funktionen weisen bei <em>big data</em> im Vergleich zu optimierten Funktionen wie z.B. <em>fread()</em> (aus dem Paket <em>data.table</em>) wesentlich höhere Ladezeiten auf. Bei kleinen Datensätzen ist dies jedoch zu vernachlässigen.</p>
+<p>Um eine Textdatei zu laden, betrachten wir zunächst wie RStudio dabei vorgeht. Im Environment-Pane finden wir bei den Reitern die Möglichkeit <em>Import-Dataset</em>. Folgende Optionen werden angeboten:</p>
+<ul>
+<li>From Text (base) …</li>
+<li>From Text (readr) …</li>
+<li>From SPSS …</li>
+<li>From Excel …</li>
+<li>From SAS …</li>
+<li>From Stata …</li>
+</ul>
+<p>Lade die Datei <em>ATM.txt</em> mit der Option <em>From Text (base) …</em> und kopiere die Befehlszeilen in den Editor. Diskutiere die Ergebnisse. Entferne anschließend alle Inhalte aus dem Environment und wiederhole das Laden der Datei mit der Option <em>From Text (readr) …</em>. Vergleiche die Funktionen und diskutiere den Unterschied der beiden Funktionen.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="rarbeiten.html#cb45-1" aria-hidden="true" tabindex="-1"></a>  ATM <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;C:/NextCloud/LEHRE2019/18WS R-Intro/Data/ATM.txt&quot;</span>)</span>
+<span id="cb45-2"><a href="rarbeiten.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>(ATM)  </span>
+<span id="cb45-3"><a href="rarbeiten.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-4"><a href="rarbeiten.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb45-5"><a href="rarbeiten.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-6"><a href="rarbeiten.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(readr)</span>
+<span id="cb45-7"><a href="rarbeiten.html#cb45-7" aria-hidden="true" tabindex="-1"></a>  ATM <span class="ot">&lt;-</span> <span class="fu">read_table2</span>(<span class="st">&quot;Data/ATM.txt&quot;</span>)</span>
+<span id="cb45-8"><a href="rarbeiten.html#cb45-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>(ATM)</span></code></pre></div>
+</div>
+<div id="spss-dateien" class="section level3 unnumbered hasAnchor">
+<h3>SPSS-Dateien<a href="rarbeiten.html#spss-dateien" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Wie bei den Textdateien, verwenden wir in einem ersten Schritt die Importfunktion von RStudio. Lade die Datei <em>bigfive.sav</em> (eine SPSS Datei) und kopiere den Code aus der Konsole in den Editor.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="rarbeiten.html#cb46-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb46-2"><a href="rarbeiten.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(haven)</span>
+<span id="cb46-3"><a href="rarbeiten.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  bigfive <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">&quot;Data/bigfive.sav&quot;</span>)</span>
+<span id="cb46-4"><a href="rarbeiten.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">View</span>(bigfive)</span>
+<span id="cb46-5"><a href="rarbeiten.html#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>(bigfive)</span></code></pre></div>
+<p>Überprüfe die Struktur des geladenen Objektes. Auffallend ist der bislang noch nicht besprochenen Datentyp <em>tbl_df</em>. Dabei handelt es sich im Wesentlichen um einen Dataframe. Gehe in den Files-Pane zu den Packages und suche nach dem Paket <em>haven</em>. Öffne die Doku des Pakets, bzw. öffne die Hilfe zu <em>haven::read_sav()</em> direkt. Weiterführend Information zu diesem Datenformat ist unter anderem auf folgender Seite zu finden: <a href="https://tibble.tidyverse.org/" target="_blank">Tibble</a></p>
+<p>Eine weitere - zum Einlesen von SPSS-Dateien - geeignete Funktion wird im Paket <em>foreign</em> angeboten (<em>read.spss()</em>).</p>
+<p>Aufgabe:</p>
+<ol style="list-style-type: decimal">
+<li>Stelle fest, ob in deinem Repository dieses Paket bereits geladen ist (<em>Hinweis</em>: vgl. <a href="https://www.r-bloggers.com/list-of-user-installed-r-packages-and-their-versions/">List of Packages</a>){target=“_blank”}. Falls nicht, lade das Paket samt abhängigen Paketen.</li>
+<li>Bereinigen das Environment und lade die Datei <em>bigfive.sav</em> mit Hilfe der Funktion <em>read.spss()</em>.</li>
+<li>Überprüfe und diskutiere den Inhalt, bzw. die Datentypen des geladenen Objektes.</li>
+</ol>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="rarbeiten.html#cb47-1" aria-hidden="true" tabindex="-1"></a>  ip           <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">installed.packages</span>()[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>)])</span>
+<span id="cb47-2"><a href="rarbeiten.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames</span>(ip) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb47-3"><a href="rarbeiten.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  ip           <span class="ot">&lt;-</span> ip[<span class="fu">is.na</span>(ip<span class="sc">$</span>Priority),<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb47-4"><a href="rarbeiten.html#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(ip, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb47-5"><a href="rarbeiten.html#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(foreign)  </span>
+<span id="cb47-6"><a href="rarbeiten.html#cb47-6" aria-hidden="true" tabindex="-1"></a>  BF           <span class="ot">&lt;-</span> <span class="fu">read.spss</span>(<span class="st">&quot;Data/bigfive.sav&quot;</span>, <span class="at">to.data.frame =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb47-7"><a href="rarbeiten.html#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>(BF)</span></code></pre></div>
+<p>Neben den Paketen <em>haven</em> und <em>foreign</em> gibt es noch weitere Packages welche Funktionen zum Einlesen von SPSS-Dateien beinhalten (z.B. <em>Hmisc</em> mit der Funktion <em>spss.get()</em>). Die derzeit wahrscheinlich beste Funktion ist im Paket <em>haven</em> zu finden, aber auch alle anderen Funktionen aus anderen Packages erfüllen i.A. ihren Zweck.</p>
+</div>
+<div id="excel-dateien" class="section level3 unnumbered hasAnchor">
+<h3>Excel-Dateien<a href="rarbeiten.html#excel-dateien" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Das Laden und Speichern von Excel-Dateien sollte aufgrund der Häufigkeit mit der Daten aus diesem Programm in R übernommen werden keine Hexerei sein. Erfahrungsgemäß ist aber gerade dieses Format (<em>xls</em> und <em>xlsx</em>) nicht so einfach zu handhaben wie zu erwarten wäre.</p>
+<p>Die einfachste (und oft durchgeführte Alternative) ist die Speicherung von <em>xls</em>-Tabellen als <em>csv</em>-Dateien. Anderenfalls gibt es natürlich verschiedene Packages mit Funktionen die derartige Dateien direkt lesen und schreiben können. Folgende Packages enthalten Funktionen zum Lesen von Excel-Files:</p>
+<ul>
+<li><em>readxl</em> (kann nur Excel-Dateien lesen, nicht schreiben)</li>
+<li><em>xlsx</em></li>
+<li><em>XLConnect</em></li>
+<li><em>gdata</em> u.v.m.</li>
+</ul>
+<p>Die Entscheidung, welches davon genutzt wird, bleibt dem Anwender überlassen. RStudio verwendet im Import das <em>readxl</em>. Zum Kennenlernen werden wir in einem ersten Schritt die Datei <em>bigfive_excel.xls</em> über den Datenimport von RStudio laden. Bitte den entsprechenden Code in den Editor kopieren. Anschließend testen wir die Funktion des Packages <em>xlsx</em>. Für die Verwendung von <em>XLConnect</em> und <em>gdata</em> sei aus zeitlichen Gründen auf die entsprechende Dokumentation verwiesen.</p>
+<p>Neben dem Einlesen von Excel-Files ist das Speichern von Ergebnissen in Excelformat für die weitere Verwendung des Endnutzers sehr wichtig. Wie Daten in ein Excelfile übertragen und dieses auch abgespeichert wird, ist dem nachfolgenden Code zu entnehmen. Kopiere den Code in den Editor und führe diesen zeilenweise aus. Diskutiere die Ergebnisse.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="rarbeiten.html#cb48-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb48-2"><a href="rarbeiten.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb48-3"><a href="rarbeiten.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(readxl)</span>
+<span id="cb48-4"><a href="rarbeiten.html#cb48-4" aria-hidden="true" tabindex="-1"></a>    ptm <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb48-5"><a href="rarbeiten.html#cb48-5" aria-hidden="true" tabindex="-1"></a>    bigfive_excel_1 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">&quot;Data/bigfive_excel.xls&quot;</span>) <span class="co"># Funktion prüft ob xls oder xlsx</span></span>
+<span id="cb48-6"><a href="rarbeiten.html#cb48-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">proc.time</span>() <span class="sc">-</span> ptm</span>
+<span id="cb48-7"><a href="rarbeiten.html#cb48-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str</span>(bigfive_excel_1)  </span>
+<span id="cb48-8"><a href="rarbeiten.html#cb48-8" aria-hidden="true" tabindex="-1"></a>    bigfive_excel_2 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">&quot;Data/bigfive_excel.xls&quot;</span>) <span class="co"># Funktion lädt nur xls Format</span></span>
+<span id="cb48-9"><a href="rarbeiten.html#cb48-9" aria-hidden="true" tabindex="-1"></a>    bigfive_excel_3 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&quot;Data/bigfive_excel.xlsx&quot;</span>) <span class="co"># Funktion lädt nur xlsx Format</span></span>
+<span id="cb48-10"><a href="rarbeiten.html#cb48-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-11"><a href="rarbeiten.html#cb48-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(xlsx)</span>
+<span id="cb48-12"><a href="rarbeiten.html#cb48-12" aria-hidden="true" tabindex="-1"></a>    ptm <span class="ot">&lt;-</span> <span class="fu">proc.time</span>()</span>
+<span id="cb48-13"><a href="rarbeiten.html#cb48-13" aria-hidden="true" tabindex="-1"></a>    bigfive_excel_4 <span class="ot">&lt;-</span> xlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="st">&quot;Data/bigfive_excel.xlsx&quot;</span>, <span class="at">sheetIndex =</span> <span class="dv">1</span>)</span>
+<span id="cb48-14"><a href="rarbeiten.html#cb48-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">proc.time</span>() <span class="sc">-</span> ptm</span>
+<span id="cb48-15"><a href="rarbeiten.html#cb48-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb48-16"><a href="rarbeiten.html#cb48-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.xlsx</span>(bigfive_excel_4, </span>
+<span id="cb48-17"><a href="rarbeiten.html#cb48-17" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;Data/bigfive_excel_Write.xlsx&quot;</span>, </span>
+<span id="cb48-18"><a href="rarbeiten.html#cb48-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">sheetName =</span> <span class="st">&quot;Datenblatt&quot;</span>, </span>
+<span id="cb48-19"><a href="rarbeiten.html#cb48-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">col.names =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb48-20"><a href="rarbeiten.html#cb48-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">row.names =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb48-21"><a href="rarbeiten.html#cb48-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">append    =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb48-22"><a href="rarbeiten.html#cb48-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">showNA    =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb48-23"><a href="rarbeiten.html#cb48-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">password  =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<p><em>Bemerkung zu Excel-Packages</em>: neben den oben angeführten Packages existieren noch einige weitere, die Funktionen mit Excel-Read-Write anbieten. Manche verlangen Java, andere Perl-Scripts. Einige sind spezialisiert auf effizienten Zugriff und der Bearbeitung von Zellen, andere sind extrem schnell beim Laden von großen Dateien. Üblicherweise reichen die beiden vorgestellten Pakete.</p>
+</div>
+<div id="dateien-vom-web" class="section level3 unnumbered hasAnchor">
+<h3>Dateien vom Web<a href="rarbeiten.html#dateien-vom-web" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Die verschiedensten Dateiformate können auch von einer Website oder eine FTP-Server geladen werden. Nachfolgend ein Beispiel, wie eine Datei direkt von einem Server eingelesen werden kann.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="rarbeiten.html#cb49-1" aria-hidden="true" tabindex="-1"></a>    WebData <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;http://www.tuval.at/wp-content/uploads/Airquality.txt&quot;</span>,</span>
+<span id="cb49-2"><a href="rarbeiten.html#cb49-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>,</span>
+<span id="cb49-3"><a href="rarbeiten.html#cb49-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">header =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="12">
+<li id="fn12"><p><em>C</em>omma <em>S</em>eparated <em>V</em>alues<a href="rarbeiten.html#fnref12" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rlernen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rechnen-mit-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

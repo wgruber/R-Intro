@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 Datenauswertung Lime Survey | Reinführung in RStudio</title>
+  <meta name="description" content="Erste Schritte in R mit RStudio" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 Datenauswertung Lime Survey | Reinführung in RStudio" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Images/00_Cover.PNG" />
+  <meta property="og:description" content="Erste Schritte in R mit RStudio" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 Datenauswertung Lime Survey | Reinführung in RStudio" />
+  
+  <meta name="twitter:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="twitter:image" content="/Images/00_Cover.PNG" />
+
+<meta name="author" content="Walter Gruber" />
+
+
+<meta name="date" content="2022-10-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rechnen-mit-r.html"/>
+<link rel="next" href="bedingungen-und-schleifen.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Reinführung in RStudio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="vorwort.html"><a href="vorwort.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html"><i class="fa fa-check"></i><b>1</b> Aufbau des Kurses</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#ziele"><i class="fa fa-check"></i>Ziele</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#allgemeines"><i class="fa fa-check"></i>Allgemeines</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#entstehungsgeschichte-von-r1"><i class="fa fa-check"></i>Entstehungsgeschichte von R</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#warum-sollte-man-r-verwenden"><i class="fa fa-check"></i><strong>Warum</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-verwenden"><i class="fa fa-check"></i><strong>Wann</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-nicht-verwenden"><i class="fa fa-check"></i><strong>Wann</strong> sollte man <strong>R nicht</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#alternativen-zu-r"><i class="fa fa-check"></i>Alternativen zu R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio5.html"><a href="rstudio5.html"><i class="fa fa-check"></i><b>2</b> <strong>R</strong>Studio</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufbau-von-rstudio"><i class="fa fa-check"></i>Aufbau von RStudio</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-syntax"><i class="fa fa-check"></i>R-Syntax</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#kommandozeile-befehlszeile-console"><i class="fa fa-check"></i>Kommandozeile (Befehlszeile, Console)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#mathematische-operatorenfunktionen"><i class="fa fa-check"></i>Mathematische Operatoren/Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#hilfe-in-rstudio"><i class="fa fa-check"></i>Hilfe in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#online-lernprogramme"><i class="fa fa-check"></i>Online-Lernprogramme</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#verwendung-der-konsole-aufgabe-1"><i class="fa fa-check"></i>Verwendung der Konsole (Aufgabe 1)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#wiederverwendung-von-befehlszeilen---die-command-history"><i class="fa fa-check"></i>Wiederverwendung von Befehlszeilen - die Command-History</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#weitere-eigenschaften-der-console-pane"><i class="fa fa-check"></i>Weitere Eigenschaften der Console Pane</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#terminal-fenster"><i class="fa fa-check"></i>Terminal-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-markdown-fenster"><i class="fa fa-check"></i>R-Markdown-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#lösungen"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufgabe-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="source-pane.html"><a href="source-pane.html"><i class="fa fa-check"></i><b>3</b> Source-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#dateitypen"><i class="fa fa-check"></i>Dateitypen</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-script"><i class="fa fa-check"></i>R Script</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-markdown"><i class="fa fa-check"></i>R-Markdown</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#andere-dokumentenarten"><i class="fa fa-check"></i>Andere Dokumentenarten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#nützliches-im-editor"><i class="fa fa-check"></i>Nützliches im Editor</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-completion"><i class="fa fa-check"></i>Code completion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#keyboard-short-cuts"><i class="fa fa-check"></i>Keyboard Short-Cuts</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-snippets"><i class="fa fa-check"></i>Code Snippets</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#extract-funktion"><i class="fa fa-check"></i>Extract Funktion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#suchfunktionen"><i class="fa fa-check"></i>Suchfunktionen</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-folding"><i class="fa fa-check"></i>Code Folding</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#running-code"><i class="fa fa-check"></i>Running Code</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#traceback-debugging"><i class="fa fa-check"></i>Traceback (Debugging)</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#kommentare"><i class="fa fa-check"></i>Kommentare</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="environment-pane.html"><a href="environment-pane.html"><i class="fa fa-check"></i><b>4</b> Environment-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#history"><i class="fa fa-check"></i>History</a></li>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#connections"><i class="fa fa-check"></i>Connections</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="files-pane.html"><a href="files-pane.html"><i class="fa fa-check"></i><b>5</b> Files-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#files"><i class="fa fa-check"></i>Files</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#packages"><i class="fa fa-check"></i>Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#umgang-mit-paketen"><i class="fa fa-check"></i>Umgang mit Paketen</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#installation-und-verwendung-von-paketen"><i class="fa fa-check"></i>Installation und Verwendung von Paketen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#help"><i class="fa fa-check"></i>Help</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#viewer"><i class="fa fa-check"></i>Viewer</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rlernen.html"><a href="rlernen.html"><i class="fa fa-check"></i><b>6</b> Rlernen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down-vs.-bottom-up"><i class="fa fa-check"></i>Top-Down vs. Bottom-Up</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down---copy-und-paste"><i class="fa fa-check"></i>Top Down - Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#copy-und-paste-aufgabenblock"><i class="fa fa-check"></i>Copy und Paste (Aufgabenblock)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#objekte-in-r-bottom-up"><i class="fa fa-check"></i>Objekte in R (bottom up)</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#vektoren"><i class="fa fa-check"></i>Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#arithmetische-operator-vektorenrechnung"><i class="fa fa-check"></i>Arithmetische Operator (Vektorenrechnung)</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#weitere-nützliche-vektor-funktionen"><i class="fa fa-check"></i>Weitere nützliche Vektor-Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#logische-vektoren"><i class="fa fa-check"></i>Logische Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#der-in-operator-und-die-which-funktion"><i class="fa fa-check"></i>Der %in% Operator und die which()-Funktion</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-vektoren"><i class="fa fa-check"></i>Aufgabenblock Vektoren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#faktoren"><i class="fa fa-check"></i>Faktoren</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-faktoren"><i class="fa fa-check"></i>Aufgabenblock Faktoren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#matrizen"><i class="fa fa-check"></i>Matrizen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#zugriff-auf-elemente-einer-matrix"><i class="fa fa-check"></i>Zugriff auf Elemente einer Matrix</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#erzeugen-von-matrizen"><i class="fa fa-check"></i>Erzeugen von Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#arithmentische-funktionen-auf-zwei-matrizen"><i class="fa fa-check"></i>Arithmentische Funktionen auf zwei Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-matrizen"><i class="fa fa-check"></i>Aufgabenblock Matrizen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-frames"><i class="fa fa-check"></i>Data-Frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-dataframes"><i class="fa fa-check"></i>Aufgabenblock Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-tables"><i class="fa fa-check"></i>Data-Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#listen"><i class="fa fa-check"></i>Listen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#attribute"><i class="fa fa-check"></i>Attribute</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-1"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-copy-und-paste"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-vektoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-faktoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-matrizen"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-dataframes"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Dataframes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="rarbeiten.html"><a href="rarbeiten.html"><i class="fa fa-check"></i><b>7</b> Rarbeiten</a>
+<ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#lesen-und-speichern-von-dateien"><i class="fa fa-check"></i>Lesen und speichern von Dateien</a>
+<ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#r-dateien"><i class="fa fa-check"></i>R-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#text-dateien"><i class="fa fa-check"></i>Text-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#spss-dateien"><i class="fa fa-check"></i>SPSS-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#excel-dateien"><i class="fa fa-check"></i>Excel-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#dateien-vom-web"><i class="fa fa-check"></i>Dateien vom Web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html"><i class="fa fa-check"></i><b>8</b> Rechnen mit R</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#deskriptive-datenanalyse"><i class="fa fa-check"></i>Deskriptive Datenanalyse</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#kennwerte-der-deskriptiven-statistik"><i class="fa fa-check"></i>Kennwerte der deskriptiven Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphiken-der-deskriptiven-statistik"><i class="fa fa-check"></i>Graphiken der deskriptiven Statistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-des-basispakets"><i class="fa fa-check"></i>Graphen des Basispakets</a></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-mit-ggplot2"><i class="fa fa-check"></i>Graphen mit ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösungen-2"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösung-funktion-standardfehler"><i class="fa fa-check"></i><b>8.0.1</b> Lösung Funktion Standardfehler</a></li>
+<li class="chapter" data-level="8.0.2" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösung-ggplot-beispiel-1"><i class="fa fa-check"></i><b>8.0.2</b> Lösung ggplot Beispiel 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html"><i class="fa fa-check"></i><b>9</b> Datenauswertung Lime Survey</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#datenvorverarbeitung"><i class="fa fa-check"></i>Datenvorverarbeitung</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-1-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-2"><i class="fa fa-check"></i>Aufgabe 2</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-3"><i class="fa fa-check"></i>Aufgabe 3</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-4"><i class="fa fa-check"></i>Aufgabe 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösungen-3"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-1"><i class="fa fa-check"></i>Lösung Aufgabe 1</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-2"><i class="fa fa-check"></i>Lösung Aufgabe 2</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-3"><i class="fa fa-check"></i>Lösung Aufgabe 3</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-4"><i class="fa fa-check"></i>Lösung Aufgabe 4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html"><i class="fa fa-check"></i><b>10</b> Bedingungen und Schleifen</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#bedingte-ausführung"><i class="fa fa-check"></i>Bedingte Ausführung</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#einfache-if-bedingung"><i class="fa fa-check"></i>Einfache If-Bedingung</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#else-if-bedingung"><i class="fa fa-check"></i>Else-If-Bedingung</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-1-2"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-ifelse-bedingung"><i class="fa fa-check"></i>Die ifelse Bedingung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#iterationen-in-r"><i class="fa fa-check"></i>Iterationen in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-for-schleife"><i class="fa fa-check"></i>Die for-Schleife</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#bemerkung-zu-for-loops"><i class="fa fa-check"></i>Bemerkung zu For-Loops</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#apply"><i class="fa fa-check"></i><em>apply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#lapply"><i class="fa fa-check"></i><em>lapply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#sapply-und-vapply"><i class="fa fa-check"></i><em>sapply()</em> und <em>vapply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#map"><i class="fa fa-check"></i><em>Map()</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-while--und-repeat-schleife"><i class="fa fa-check"></i>Die while- und repeat Schleife</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-2-1"><i class="fa fa-check"></i>Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#lösungen-4"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-1-lsg"><i class="fa fa-check"></i>Aufgabe 1 Lsg</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-2-lsg"><i class="fa fa-check"></i>Aufgabe 2 Lsg</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://wgruber.github.io/R-Intro/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reinführung in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="datenauswertung-lime-survey" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> Datenauswertung Lime Survey<a href="datenauswertung-lime-survey.html#datenauswertung-lime-survey" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Im nachfolgenden Beispiel werden die Daten des World-Knowledge-Test ausgewertet. Bei diesem Test handelt es sich um eine einfache Umfrage, welche mit dem Online-Survey-Tool <em>LimeSurvey</em> erstellt wurde. Die Befragung richtete sich an ca. 300 StudentInnen der Universität Salzburg. Die Daten sollen im Folgenden zur Auswertung einfacher deskriptiver Statistiken mit R verwendet werden.</p>
+<center>
+<div class="figure">
+<img src="Images/09_R_LimeSurveyExport.PNG" style="width:70.0%" alt="" />
+<p class="caption"><strong>Abbildung 31</strong>: Export der Daten aus Lime Survey</p>
+</div>
+</center>
+<p>LimeSurvey bietet die Möglichkeit, Umfragedaten in verschiedensten Formaten zu exportieren. Wie in obiger Dartellung ersichtlich, bietet sich unter anderem der Export einer R-Daten als auch R-Syntax Datei. Nach Durchführung des Exorts stehen zwei Dateien zur Verfügung:</p>
+<center>
+<div class="figure">
+<img src="Images/09_R_LimeSurveyExportDateien.PNG" style="width:70.0%" alt="" />
+<p class="caption"><strong>Abbildung 32</strong>: Files die aus Lime Survey exportiert wurden</p>
+</div>
+</center>
+<p>Nachfolgend ein Auszug aus der R-Syntaxdatei:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="datenauswertung-lime-survey.html#cb57-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;survey_791736_R_data_file.csv&quot;</span>, </span>
+<span id="cb57-2"><a href="datenauswertung-lime-survey.html#cb57-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">quote            =</span> <span class="st">&quot;&#39;</span><span class="sc">\&quot;</span><span class="st">&quot;</span>, </span>
+<span id="cb57-3"><a href="datenauswertung-lime-survey.html#cb57-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.strings       =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;</span><span class="sc">\&quot;\&quot;</span><span class="st">&quot;</span>), </span>
+<span id="cb57-4"><a href="datenauswertung-lime-survey.html#cb57-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb57-5"><a href="datenauswertung-lime-survey.html#cb57-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-6"><a href="datenauswertung-lime-survey.html#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="co"># LimeSurvey Field type: F</span></span>
+<span id="cb57-7"><a href="datenauswertung-lime-survey.html#cb57-7" aria-hidden="true" tabindex="-1"></a>  data[, <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data[, <span class="dv">1</span>])</span>
+<span id="cb57-8"><a href="datenauswertung-lime-survey.html#cb57-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attributes</span>(data)<span class="sc">$</span>variable.labels[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;id&quot;</span></span>
+<span id="cb57-9"><a href="datenauswertung-lime-survey.html#cb57-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(data)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;id&quot;</span></span>
+<span id="cb57-10"><a href="datenauswertung-lime-survey.html#cb57-10" aria-hidden="true" tabindex="-1"></a><span class="co"># LimeSurvey Field type: DATETIME23.2</span></span>
+<span id="cb57-11"><a href="datenauswertung-lime-survey.html#cb57-11" aria-hidden="true" tabindex="-1"></a>  data[, <span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">as.character</span>(data[, <span class="dv">2</span>])</span>
+<span id="cb57-12"><a href="datenauswertung-lime-survey.html#cb57-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attributes</span>(data)<span class="sc">$</span>variable.labels[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;submitdate&quot;</span></span>
+<span id="cb57-13"><a href="datenauswertung-lime-survey.html#cb57-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(data)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;submitdate&quot;</span></span>
+<span id="cb57-14"><a href="datenauswertung-lime-survey.html#cb57-14" aria-hidden="true" tabindex="-1"></a><span class="co"># LimeSurvey Field type: F</span></span>
+<span id="cb57-15"><a href="datenauswertung-lime-survey.html#cb57-15" aria-hidden="true" tabindex="-1"></a>  data[, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data[, <span class="dv">3</span>])</span>
+<span id="cb57-16"><a href="datenauswertung-lime-survey.html#cb57-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attributes</span>(data)<span class="sc">$</span>variable.labels[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Gender&quot;</span></span>
+<span id="cb57-17"><a href="datenauswertung-lime-survey.html#cb57-17" aria-hidden="true" tabindex="-1"></a>  data[, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="fu">factor</span>(data[, <span class="dv">3</span>], <span class="at">levels=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;weiblich&quot;</span>, <span class="st">&quot;männlich&quot;</span>))</span>
+<span id="cb57-18"><a href="datenauswertung-lime-survey.html#cb57-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(data)[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">&quot;F1&quot;</span></span>
+<span id="cb57-19"><a href="datenauswertung-lime-survey.html#cb57-19" aria-hidden="true" tabindex="-1"></a><span class="co"># LimeSurvey Field type: A</span></span>
+<span id="cb57-20"><a href="datenauswertung-lime-survey.html#cb57-20" aria-hidden="true" tabindex="-1"></a>  ...</span></code></pre></div>
+<p>Nach dem Laden der Datendatei (<em>survey_791736_R_data_file.csv</em>) werden Formatierungen der Datentypen und Vergabe von Variablennamen durchgeführt. Da Variablennamen von LimeSurvey vergeben werden, ist es in den meisten Fällen sinnvoll, diese manuell zu ändern. Auch eine genaue Kontrolle (und gegebenenfalls Korrektur) bei den Datentypen ist angebracht.</p>
+<p>Üblicherweise ändert sich eine Umfrage nach Freischaltung bezüglich ihrer Datenstruktur nicht mehr, daher ist dieser Aufwand auch nur einmalig durchzuführen. <em>WICHTIG</em>: bei allen folgenden Exports aus Limesurvey ist dann nur mehr die Datendatei zu exportieren - die Syntaxdatei braucht dann nicht mehr exportiert werden<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>!</p>
+<div id="datenvorverarbeitung" class="section level2 unnumbered hasAnchor">
+<h2>Datenvorverarbeitung<a href="datenauswertung-lime-survey.html#datenvorverarbeitung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Lade und überarbeite die Syntaxdatei (<em>survey_791736_R_syntax_file.R</em>). Beachte dabei folgende Punkte:</p>
+<ul>
+<li>Sonderzeichen werden oft nicht korrekt übernommen - verwende die RStudio-Funktion Search and Replace um alle falsch übertragenen Sonderzeichen zu korrigieren.</li>
+<li>Ändere die Variablennamen auf <em>sinnvolle</em> Namen (vgl. Attribute)</li>
+<li>Überprüfe die Datentypen sämtlicher Variablen. Ändere den Datentyp der Variablen falls notwendig.</li>
+</ul>
+<p>Nach erfolgter Überarbeitung kann das Skript in eine Funktion umgewandelt werden. Der Name der Funktion sollte dabei <em>LS_Import.R</em> lauten und als einziges Argument sollte die Variable <em>F2L</em> (für File t(w)o Load) angegeben werden.</p>
+<p><em>Hinweis:</em> die Funktion <em>read.csv()</em> muss entsprechend angepasst werden!</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="datenauswertung-lime-survey.html#cb58-1" aria-hidden="true" tabindex="-1"></a>LS_Import <span class="ot">&lt;-</span> <span class="cf">function</span>(F2L) {</span>
+<span id="cb58-2"><a href="datenauswertung-lime-survey.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(F2L,</span>
+<span id="cb58-3"><a href="datenauswertung-lime-survey.html#cb58-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">quote            =</span> <span class="st">&quot;&#39;</span><span class="sc">\&quot;</span><span class="st">&quot;</span>,</span>
+<span id="cb58-4"><a href="datenauswertung-lime-survey.html#cb58-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">na.strings       =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;</span><span class="sc">\&quot;\&quot;</span><span class="st">&quot;</span>),</span>
+<span id="cb58-5"><a href="datenauswertung-lime-survey.html#cb58-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb58-6"><a href="datenauswertung-lime-survey.html#cb58-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb58-7"><a href="datenauswertung-lime-survey.html#cb58-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># LimeSurvey Field type: F</span></span>
+<span id="cb58-8"><a href="datenauswertung-lime-survey.html#cb58-8" aria-hidden="true" tabindex="-1"></a>  data[, <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data[, <span class="dv">1</span>])</span>
+<span id="cb58-9"><a href="datenauswertung-lime-survey.html#cb58-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attributes</span>(data)<span class="sc">$</span>variable.labels[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;id&quot;</span></span>
+<span id="cb58-10"><a href="datenauswertung-lime-survey.html#cb58-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(data)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;id&quot;</span></span>
+<span id="cb58-11"><a href="datenauswertung-lime-survey.html#cb58-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># LimeSurvey Field type: DATETIME23.2</span></span>
+<span id="cb58-12"><a href="datenauswertung-lime-survey.html#cb58-12" aria-hidden="true" tabindex="-1"></a>  ...</span></code></pre></div>
+<p>Des Weiteren sollte am Ende der Funktion als Rückgabewert der Datenframe (data) angegeben werden (siehe nachfolgenden Codteil am Ende der <em>LS_Import.R</em> Funktion):</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="datenauswertung-lime-survey.html#cb59-1" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb59-2"><a href="datenauswertung-lime-survey.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(data)[<span class="dv">22</span>] <span class="ot">&lt;-</span> <span class="st">&quot;WQ12&quot;</span></span>
+<span id="cb59-3"><a href="datenauswertung-lime-survey.html#cb59-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb59-4"><a href="datenauswertung-lime-survey.html#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(data)</span>
+<span id="cb59-5"><a href="datenauswertung-lime-survey.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div>
+<div id="aufgabe-1-1" class="section level3 unnumbered hasAnchor">
+<h3>Aufgabe 1<a href="datenauswertung-lime-survey.html#aufgabe-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Erstelle nun ein neues Skript (Name: <em>09_RLimeSurvey.R</em>), in welchen du zuerst den Standard-Header kopierst (siehe nachfolgenden Code) und welches danach die Daten über die soeben erstellte Funktion lädt! Prüfe mit einer geeigneten Funktion die Struktur des geladenen Dataframes.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="datenauswertung-lime-survey.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---- 09_RLS_Init</span></span>
+<span id="cb60-2"><a href="datenauswertung-lime-survey.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb60-3"><a href="datenauswertung-lime-survey.html#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb60-4"><a href="datenauswertung-lime-survey.html#cb60-4" aria-hidden="true" tabindex="-1"></a>  pacman<span class="sc">::</span><span class="fu">p_load</span>(here)</span></code></pre></div>
+<p>Durch diese Funktion können die Daten fortlaufend auf dem aktuellen Stand gehalten werden. Der einzige Nachteil besteht noch darin, dass man manuell die Daten aus LimeSurvey exportieren muss. Dass kann allerdings automatisiert werden. Dazu braucht man nur den Zugang zur SQL-Datenbank von Limesurvey und die entsprechenden Pakete in R laden. Aus Datenschutzgründen ist es im Rahmen dieser LV nicht möglich, den Zugang zur LS-Datenbank freizuschalten, daher werden wir diese Möglichkeit nicht weiter besprechen. Es sei jedoch an dieser Stelle darauf hingewiesen, dass man mit einem entsprechenden Zugang zu den Daten auch die Möglichkeit hat, Skripte und Funktionen in R in die Aufgabenplanung eines Windows/Linux-Systems einzubauen (sogenannte chron-jobs) und damit ein vollständig automatisches Auswertesystem zu erstellen.</p>
+</div>
+</div>
+<div id="deskriptive-statistik" class="section level2 unnumbered hasAnchor">
+<h2>Deskriptive Statistik<a href="datenauswertung-lime-survey.html#deskriptive-statistik" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bei den nachfolgenden Aufgaben erzeugen wir deskriptive Statistiken in Form von Tabellen und einer Graphik.</p>
+<div id="aufgabe-2" class="section level3 unnumbered hasAnchor">
+<h3>Aufgabe 2<a href="datenauswertung-lime-survey.html#aufgabe-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Im Folgendem wollen wir und mit der einfachen Auswertung der vorliegenden Daten beschäftigen. Die ersten Schritte einer Datenauswertung beginnen i.A. mit einer deskriptiven Statistik. Aufgrund der vorwiegend nominalen Daten des Fragebogens eignen sich am besten Häufigkeitstabellen. Erstelle daher folgende Tabellen (verwende dazu die Funktion <em>table()</em>):</p>
+<ol style="list-style-type: decimal">
+<li>Anzahl der Männer und Frauen die an der Umfrage teilgenommen haben.</li>
+<li>Anzahl der Personen je Nation.</li>
+<li>Anzahl der Personen nur jener Nationen, die an der Umfrage teilgenommen haben<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>.</li>
+<li>Anzahl der Personen nur jener Nationen, die an der Umfrage teilgenommen haben, getrennt nach Geschlecht.</li>
+<li>Gleich wie Aufgabe 4, nur mit zusätzlicher Angabe der Randsummen!</li>
+<li>Gleich wie Aufgabe 5, nur die auf 2 Stellen gerundeten Angaben in Prozent<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>.</li>
+</ol>
+</div>
+<div id="aufgabe-3" class="section level3 unnumbered hasAnchor">
+<h3>Aufgabe 3<a href="datenauswertung-lime-survey.html#aufgabe-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ein zur deskriptiven Analyse hilfreiches Paket ist <em>doBy</em>. Wir wollen die darin enthaltene Funktion <em>summaryBy()</em> verwenden, um folgende Aufgabenstellungen zu lösen:</p>
+<ol style="list-style-type: decimal">
+<li>Berechne das Durchschnittsalter getrennt nach Geschlecht.</li>
+<li>Berechne den Mittelwert, die Standardabweichung, die Varianz, das Minimum und das Maximum der Variablen Alter getrennt nach Geschlecht.</li>
+<li>Berechne das Durchschnittsalter getrennt nach Geschlecht und Nationalität.</li>
+<li>Berechne den Mittelwert, die Standardabweichung, die Varianz, das Minimum und das Maximum der Variablen Alter getrennt nach Geschlecht und Nationalität.</li>
+</ol>
+<p>Das Paket doBy bietet darüber hinaus eine Vielzahl von Funktionen, die vor allem für das Arbeiten mit gruppierten Daten sehr hilfreich sein können. Hingewiesen sei noch auf die Möglichkeit der Berechnung von Kontrasten im Rahmen einer <em>least square mean</em> (ANOVA) Analyse. Es würde den Rahmen dieser LV sprengen, alle verfügbaren Funktionen zu besprechen und zu verwenden. Weitere Details zu diesem Paket sind der <a href="https://cran.r-project.org/web/packages/doBy/doBy.pdf" target="_blank">Dokumentation</a> zu entnehmen.</p>
+</div>
+<div id="aufgabe-4" class="section level3 unnumbered hasAnchor">
+<h3>Aufgabe 4<a href="datenauswertung-lime-survey.html#aufgabe-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Neben den Tabellen spielen Graphiken eine wesentliche Rolle in der deskriptiven Statistik. In dieser Aufgabe wollen wir mit dem Paket <em>ggplot2</em> ein Balkendiagramm erstellen, welche für die erste Frage des Tests die prozentuellen Anteile pro Antwortkategorie getrennt nach Geschlecht darstellt. Darüber hinaus sollte in dieser Graphik auch jeweils ein Balken pro Antwortkategorie für den prozentuellen Anteil unabhängig vom Geschlecht angezeigt werden. Folgende Graphik stellt das gewünschte Ergebnis dar:</p>
+<center>
+<div class="figure">
+<img src="Images/09_Aufgabe4_Graphik.PNG" style="width:40.0%" alt="" />
+<p class="caption"><strong>Abbildung 33</strong>: Vorlage für die Graphik der Aufgabe 4</p>
+</div>
+</center>
+<p>Um die Aufgabe auf das eigentliche Ziel (eine Graphik zu erstellen) zu beschränken, kannst du den folgenden Code in dein R-Skript kopieren (diskutiere das Ergebnis dieses Codefragmentes)<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="datenauswertung-lime-survey.html#cb61-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb61-2"><a href="datenauswertung-lime-survey.html#cb61-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb61-3"><a href="datenauswertung-lime-survey.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  LegTit          <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Overall (N  =  &#39;</span>, <span class="fu">dim</span>(DF)[<span class="dv">1</span>], <span class="st">&#39;) answers in %&#39;</span>)  </span>
+<span id="cb61-4"><a href="datenauswertung-lime-survey.html#cb61-4" aria-hidden="true" tabindex="-1"></a>  ColInd          <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">colnames</span>(DF) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;WQ1&quot;</span>))</span>
+<span id="cb61-5"><a href="datenauswertung-lime-survey.html#cb61-5" aria-hidden="true" tabindex="-1"></a>  WQ_Label        <span class="ot">&lt;-</span> <span class="fu">attributes</span>(DF)<span class="sc">$</span>variable.labels[ColInd]</span>
+<span id="cb61-6"><a href="datenauswertung-lime-survey.html#cb61-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-7"><a href="datenauswertung-lime-survey.html#cb61-7" aria-hidden="true" tabindex="-1"></a>  CT              <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span><span class="fu">addmargins</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(DF[,ColInd], DF<span class="sc">$</span>Gender)), </span>
+<span id="cb61-8"><a href="datenauswertung-lime-survey.html#cb61-8" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">margin  =</span>  <span class="dv">2</span>), <span class="dv">2</span>)</span>
+<span id="cb61-9"><a href="datenauswertung-lime-survey.html#cb61-9" aria-hidden="true" tabindex="-1"></a>  DF_CT           <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(CT)</span>
+<span id="cb61-10"><a href="datenauswertung-lime-survey.html#cb61-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(DF_CT) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Answer&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Percent&quot;</span>)</span></code></pre></div>
+<p>Ergänze nun den Code mit der entsprechenden Funktion zur Erstellung dieser Graphik und ergänze/ändere den Graphen nach folgenden Vorgaben:</p>
+<ol style="list-style-type: decimal">
+<li>Drehe die Koordinaten 90 Grad (verwende die Funktion <em>coord_flip()</em>).</li>
+<li>Die x-Achsenbeschriftung sollte <em>Answer</em> sein (verwende die Funktion <em>xlab()</em>).</li>
+<li>Die Beschriftung der Legende sollte dem bereits definierten Text der Variablen <em>LegTit</em> entsprechen (verwende die Funktion <em>guides(fill = guide_legend(title = ???))</em>).</li>
+<li>Verwende die Funktion <em>labs()</em>, um Titel (= <em>WQ_Label</em>), Subtitel (= <em>“World Knowledge Test”</em>), Caption (= <em>“Source: World Knowledge Query PLUS (2018)”</em>, tag (= <em>“A”</em>) anzuzeigen.</li>
+<li>Ändere das Farbschema des Graphen auf Grauschattierungen (verwende die Funktion <em>scale_fill_grey()</em>).</li>
+<li>Zeige über den Balken die jeweilig erreichten Prozentwerte an (verwende die Funktion <em>geom_text(aes(label = paste0(round(???, 1), “%”)), position = position_dodge(width=0.9), hjust = -0.25)</em>).</li>
+<li>Ändere den Hintergrund der Graphik auf Transparent (verwende die Funktion <em>theme_bw()</em>).</li>
+</ol>
+<p>Der fertige Graph sollte folgendermaßen aussehen:</p>
+<center>
+<div class="figure">
+<img src="Images/09_Aufgabe4_Graphik_Endversion.PNG" style="width:60.0%" alt="" />
+<p class="caption"><strong>Abbildung 34</strong>: Endversion der Graphik von Aufgabe 4</p>
+</div>
+</center>
+</div>
+</div>
+<div id="lösungen-3" class="section level2 unnumbered hasAnchor">
+<h2>Lösungen<a href="datenauswertung-lime-survey.html#lösungen-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="lösung-aufgabe-1" class="section level3 unnumbered hasAnchor">
+<h3>Lösung Aufgabe 1<a href="datenauswertung-lime-survey.html#lösung-aufgabe-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="datenauswertung-lime-survey.html#cb62-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="st">&quot;LS_Import.R&quot;</span>)</span>
+<span id="cb62-2"><a href="datenauswertung-lime-survey.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  F2L <span class="ot">&lt;-</span> <span class="st">&quot;Data/survey_791736_R_data_file.csv&quot;</span></span>
+<span id="cb62-3"><a href="datenauswertung-lime-survey.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  DF  <span class="ot">&lt;-</span> <span class="fu">LS_Import</span>(<span class="at">F2L =</span> F2L)</span>
+<span id="cb62-4"><a href="datenauswertung-lime-survey.html#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str</span>(DF)</span></code></pre></div>
+</div>
+<div id="lösung-aufgabe-2" class="section level3 unnumbered hasAnchor">
+<h3>Lösung Aufgabe 2<a href="datenauswertung-lime-survey.html#lösung-aufgabe-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="datenauswertung-lime-survey.html#cb63-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(DF<span class="sc">$</span>Gender) <span class="co"># A2-1</span></span>
+<span id="cb63-2"><a href="datenauswertung-lime-survey.html#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(DF<span class="sc">$</span>Nationality) <span class="co"># A2-2</span></span>
+<span id="cb63-3"><a href="datenauswertung-lime-survey.html#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(<span class="fu">droplevels</span>(DF<span class="sc">$</span>Nationality))  <span class="co"># A2-3</span></span>
+<span id="cb63-4"><a href="datenauswertung-lime-survey.html#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>(DF<span class="sc">$</span>Gender, <span class="fu">droplevels</span>(DF<span class="sc">$</span>Nationality)) <span class="co"># A2-4</span></span>
+<span id="cb63-5"><a href="datenauswertung-lime-survey.html#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addmargins</span>(<span class="fu">table</span>(DF<span class="sc">$</span>Gender, <span class="fu">droplevels</span>(DF<span class="sc">$</span>Nationality))) <span class="co"># A2-5</span></span>
+<span id="cb63-6"><a href="datenauswertung-lime-survey.html#cb63-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addmargins</span>(<span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(DF<span class="sc">$</span>Gender, <span class="fu">droplevels</span>(DF<span class="sc">$</span>Nationality)))<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)) <span class="co"># A2-6</span></span></code></pre></div>
+</div>
+<div id="lösung-aufgabe-3" class="section level3 unnumbered hasAnchor">
+<h3>Lösung Aufgabe 3<a href="datenauswertung-lime-survey.html#lösung-aufgabe-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="datenauswertung-lime-survey.html#cb64-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(doBy)</span>
+<span id="cb64-2"><a href="datenauswertung-lime-survey.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summaryBy</span>(<span class="at">formula =</span> Age <span class="sc">~</span> Gender, </span>
+<span id="cb64-3"><a href="datenauswertung-lime-survey.html#cb64-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data    =</span> DF) <span class="co"># A3-1</span></span>
+<span id="cb64-4"><a href="datenauswertung-lime-survey.html#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summaryBy</span>(<span class="at">formula =</span> Age <span class="sc">~</span> Gender, </span>
+<span id="cb64-5"><a href="datenauswertung-lime-survey.html#cb64-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">data    =</span> DF, </span>
+<span id="cb64-6"><a href="datenauswertung-lime-survey.html#cb64-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">FUN     =</span> <span class="fu">c</span>(mean, sd, var, min, max)) <span class="co"># A3-2</span></span>
+<span id="cb64-7"><a href="datenauswertung-lime-survey.html#cb64-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summaryBy</span>(<span class="at">formula =</span> Age <span class="sc">~</span> Gender <span class="sc">+</span> Nationality, </span>
+<span id="cb64-8"><a href="datenauswertung-lime-survey.html#cb64-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">data    =</span> DF) <span class="co"># A3-3</span></span>
+<span id="cb64-9"><a href="datenauswertung-lime-survey.html#cb64-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summaryBy</span>(<span class="at">formula =</span> Age <span class="sc">~</span> Gender <span class="sc">+</span> Nationality, </span>
+<span id="cb64-10"><a href="datenauswertung-lime-survey.html#cb64-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">data    =</span> DF, </span>
+<span id="cb64-11"><a href="datenauswertung-lime-survey.html#cb64-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">FUN     =</span> <span class="fu">c</span>(mean, sd, var)) <span class="co"># A3-4</span></span></code></pre></div>
+</div>
+<div id="lösung-aufgabe-4" class="section level3 unnumbered hasAnchor">
+<h3>Lösung Aufgabe 4<a href="datenauswertung-lime-survey.html#lösung-aufgabe-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="datenauswertung-lime-survey.html#cb65-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb65-2"><a href="datenauswertung-lime-survey.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-3"><a href="datenauswertung-lime-survey.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  LegTit          <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Overall (N  =  &#39;</span>, <span class="fu">dim</span>(DF)[<span class="dv">1</span>], <span class="st">&#39;) answers in %&#39;</span>)  </span>
+<span id="cb65-4"><a href="datenauswertung-lime-survey.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  ColInd          <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">colnames</span>(DF) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;WQ1&quot;</span>))</span>
+<span id="cb65-5"><a href="datenauswertung-lime-survey.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  WQ_Label        <span class="ot">&lt;-</span> <span class="fu">attributes</span>(DF)<span class="sc">$</span>variable.labels[ColInd]</span>
+<span id="cb65-6"><a href="datenauswertung-lime-survey.html#cb65-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-7"><a href="datenauswertung-lime-survey.html#cb65-7" aria-hidden="true" tabindex="-1"></a>  CT              <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span><span class="fu">addmargins</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(DF[,ColInd], DF<span class="sc">$</span>Gender)), <span class="at">margin  =</span>  <span class="dv">2</span>), <span class="dv">2</span>)</span>
+<span id="cb65-8"><a href="datenauswertung-lime-survey.html#cb65-8" aria-hidden="true" tabindex="-1"></a>  DF_CT           <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(CT)</span>
+<span id="cb65-9"><a href="datenauswertung-lime-survey.html#cb65-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(DF_CT) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Answer&quot;</span>, <span class="st">&quot;Gender&quot;</span>, <span class="st">&quot;Percent&quot;</span>)</span>
+<span id="cb65-10"><a href="datenauswertung-lime-survey.html#cb65-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-11"><a href="datenauswertung-lime-survey.html#cb65-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(DF_CT, <span class="fu">aes</span>(<span class="at">x  =</span>  Answer, <span class="at">y  =</span>  Percent, <span class="at">fill  =</span>  Gender)) <span class="sc">+</span></span>
+<span id="cb65-12"><a href="datenauswertung-lime-survey.html#cb65-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(), <span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>,</span>
+<span id="cb65-13"><a href="datenauswertung-lime-survey.html#cb65-13" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="co"># Use black outlines,</span></span>
+<span id="cb65-14"><a href="datenauswertung-lime-survey.html#cb65-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb65-15"><a href="datenauswertung-lime-survey.html#cb65-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb65-16"><a href="datenauswertung-lime-survey.html#cb65-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Answer&quot;</span>) <span class="sc">+</span></span>
+<span id="cb65-17"><a href="datenauswertung-lime-survey.html#cb65-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> LegTit)) <span class="sc">+</span></span>
+<span id="cb65-18"><a href="datenauswertung-lime-survey.html#cb65-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title    =</span> WQ_Label,</span>
+<span id="cb65-19"><a href="datenauswertung-lime-survey.html#cb65-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">&quot;World Knowledge Test&quot;</span>,</span>
+<span id="cb65-20"><a href="datenauswertung-lime-survey.html#cb65-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">caption  =</span> <span class="st">&quot;Source: World Knowledge Query PLUS  (2018)&quot;</span>,</span>
+<span id="cb65-21"><a href="datenauswertung-lime-survey.html#cb65-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">tag      =</span> <span class="st">&quot;A&quot;</span>) <span class="sc">+</span></span>
+<span id="cb65-22"><a href="datenauswertung-lime-survey.html#cb65-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_grey</span>() <span class="sc">+</span></span>
+<span id="cb65-23"><a href="datenauswertung-lime-survey.html#cb65-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(Percent, <span class="dv">1</span>), <span class="st">&quot;%&quot;</span>)), </span>
+<span id="cb65-24"><a href="datenauswertung-lime-survey.html#cb65-24" aria-hidden="true" tabindex="-1"></a>              <span class="at">position  =</span> <span class="fu">position_dodge</span>(<span class="at">width=</span><span class="fl">0.9</span>),</span>
+<span id="cb65-25"><a href="datenauswertung-lime-survey.html#cb65-25" aria-hidden="true" tabindex="-1"></a>              <span class="at">hjust     =</span> <span class="sc">-</span><span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb65-26"><a href="datenauswertung-lime-survey.html#cb65-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="15">
+<li id="fn15"><p>es sei denn, die Struktur der Umfrage ändert sich wider erwarten!<a href="datenauswertung-lime-survey.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p><em>Hinweis:</em> verwende die Funktion <em>droplevels()</em><a href="datenauswertung-lime-survey.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p><em>Hinweis:</em> runden mit der Funktion <em>round()</em>, Prozente mit der Funktion <em>prop.table()</em><a href="datenauswertung-lime-survey.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>die Definition von <em>LegTit</em> und <em>WQ_Label</em> wird in einer Folgeaufgabe noch zur weiteren Gestaltung der Graphik verwendet.<a href="datenauswertung-lime-survey.html#fnref18" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rechnen-mit-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bedingungen-und-schleifen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

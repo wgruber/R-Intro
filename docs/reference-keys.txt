@@ -1,0 +1,12 @@
+aufbau-des-kurses
+rstudio5
+source-pane
+environment-pane
+files-pane
+rlernen
+rarbeiten
+rechnen-mit-r
+lösung-funktion-standardfehler
+lösung-ggplot-beispiel-1
+datenauswertung-lime-survey
+bedingungen-und-schleifen

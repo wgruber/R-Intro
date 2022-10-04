@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Source-Pane | Reinführung in RStudio</title>
+  <meta name="description" content="Erste Schritte in R mit RStudio" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Source-Pane | Reinführung in RStudio" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Images/00_Cover.PNG" />
+  <meta property="og:description" content="Erste Schritte in R mit RStudio" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Source-Pane | Reinführung in RStudio" />
+  
+  <meta name="twitter:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="twitter:image" content="/Images/00_Cover.PNG" />
+
+<meta name="author" content="Walter Gruber" />
+
+
+<meta name="date" content="2022-10-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rstudio5.html"/>
+<link rel="next" href="environment-pane.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Reinführung in RStudio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="vorwort.html"><a href="vorwort.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html"><i class="fa fa-check"></i><b>1</b> Aufbau des Kurses</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#ziele"><i class="fa fa-check"></i>Ziele</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#allgemeines"><i class="fa fa-check"></i>Allgemeines</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#entstehungsgeschichte-von-r1"><i class="fa fa-check"></i>Entstehungsgeschichte von R</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#warum-sollte-man-r-verwenden"><i class="fa fa-check"></i><strong>Warum</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-verwenden"><i class="fa fa-check"></i><strong>Wann</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-nicht-verwenden"><i class="fa fa-check"></i><strong>Wann</strong> sollte man <strong>R nicht</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#alternativen-zu-r"><i class="fa fa-check"></i>Alternativen zu R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio5.html"><a href="rstudio5.html"><i class="fa fa-check"></i><b>2</b> <strong>R</strong>Studio</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufbau-von-rstudio"><i class="fa fa-check"></i>Aufbau von RStudio</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-syntax"><i class="fa fa-check"></i>R-Syntax</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#kommandozeile-befehlszeile-console"><i class="fa fa-check"></i>Kommandozeile (Befehlszeile, Console)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#mathematische-operatorenfunktionen"><i class="fa fa-check"></i>Mathematische Operatoren/Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#hilfe-in-rstudio"><i class="fa fa-check"></i>Hilfe in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#online-lernprogramme"><i class="fa fa-check"></i>Online-Lernprogramme</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#verwendung-der-konsole-aufgabe-1"><i class="fa fa-check"></i>Verwendung der Konsole (Aufgabe 1)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#wiederverwendung-von-befehlszeilen---die-command-history"><i class="fa fa-check"></i>Wiederverwendung von Befehlszeilen - die Command-History</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#weitere-eigenschaften-der-console-pane"><i class="fa fa-check"></i>Weitere Eigenschaften der Console Pane</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#terminal-fenster"><i class="fa fa-check"></i>Terminal-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-markdown-fenster"><i class="fa fa-check"></i>R-Markdown-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#lösungen"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufgabe-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="source-pane.html"><a href="source-pane.html"><i class="fa fa-check"></i><b>3</b> Source-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#dateitypen"><i class="fa fa-check"></i>Dateitypen</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-script"><i class="fa fa-check"></i>R Script</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-markdown"><i class="fa fa-check"></i>R-Markdown</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#andere-dokumentenarten"><i class="fa fa-check"></i>Andere Dokumentenarten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#nützliches-im-editor"><i class="fa fa-check"></i>Nützliches im Editor</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-completion"><i class="fa fa-check"></i>Code completion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#keyboard-short-cuts"><i class="fa fa-check"></i>Keyboard Short-Cuts</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-snippets"><i class="fa fa-check"></i>Code Snippets</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#extract-funktion"><i class="fa fa-check"></i>Extract Funktion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#suchfunktionen"><i class="fa fa-check"></i>Suchfunktionen</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-folding"><i class="fa fa-check"></i>Code Folding</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#running-code"><i class="fa fa-check"></i>Running Code</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#traceback-debugging"><i class="fa fa-check"></i>Traceback (Debugging)</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#kommentare"><i class="fa fa-check"></i>Kommentare</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="environment-pane.html"><a href="environment-pane.html"><i class="fa fa-check"></i><b>4</b> Environment-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#history"><i class="fa fa-check"></i>History</a></li>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#connections"><i class="fa fa-check"></i>Connections</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="files-pane.html"><a href="files-pane.html"><i class="fa fa-check"></i><b>5</b> Files-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#files"><i class="fa fa-check"></i>Files</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#packages"><i class="fa fa-check"></i>Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#umgang-mit-paketen"><i class="fa fa-check"></i>Umgang mit Paketen</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#installation-und-verwendung-von-paketen"><i class="fa fa-check"></i>Installation und Verwendung von Paketen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#help"><i class="fa fa-check"></i>Help</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#viewer"><i class="fa fa-check"></i>Viewer</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rlernen.html"><a href="rlernen.html"><i class="fa fa-check"></i><b>6</b> Rlernen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down-vs.-bottom-up"><i class="fa fa-check"></i>Top-Down vs. Bottom-Up</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down---copy-und-paste"><i class="fa fa-check"></i>Top Down - Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#copy-und-paste-aufgabenblock"><i class="fa fa-check"></i>Copy und Paste (Aufgabenblock)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#objekte-in-r-bottom-up"><i class="fa fa-check"></i>Objekte in R (bottom up)</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#vektoren"><i class="fa fa-check"></i>Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#arithmetische-operator-vektorenrechnung"><i class="fa fa-check"></i>Arithmetische Operator (Vektorenrechnung)</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#weitere-nützliche-vektor-funktionen"><i class="fa fa-check"></i>Weitere nützliche Vektor-Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#logische-vektoren"><i class="fa fa-check"></i>Logische Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#der-in-operator-und-die-which-funktion"><i class="fa fa-check"></i>Der %in% Operator und die which()-Funktion</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-vektoren"><i class="fa fa-check"></i>Aufgabenblock Vektoren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#faktoren"><i class="fa fa-check"></i>Faktoren</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-faktoren"><i class="fa fa-check"></i>Aufgabenblock Faktoren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#matrizen"><i class="fa fa-check"></i>Matrizen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#zugriff-auf-elemente-einer-matrix"><i class="fa fa-check"></i>Zugriff auf Elemente einer Matrix</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#erzeugen-von-matrizen"><i class="fa fa-check"></i>Erzeugen von Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#arithmentische-funktionen-auf-zwei-matrizen"><i class="fa fa-check"></i>Arithmentische Funktionen auf zwei Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-matrizen"><i class="fa fa-check"></i>Aufgabenblock Matrizen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-frames"><i class="fa fa-check"></i>Data-Frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-dataframes"><i class="fa fa-check"></i>Aufgabenblock Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-tables"><i class="fa fa-check"></i>Data-Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#listen"><i class="fa fa-check"></i>Listen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#attribute"><i class="fa fa-check"></i>Attribute</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-1"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-copy-und-paste"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-vektoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-faktoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-matrizen"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-dataframes"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Dataframes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="rarbeiten.html"><a href="rarbeiten.html"><i class="fa fa-check"></i><b>7</b> Rarbeiten</a>
+<ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#lesen-und-speichern-von-dateien"><i class="fa fa-check"></i>Lesen und speichern von Dateien</a>
+<ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#r-dateien"><i class="fa fa-check"></i>R-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#text-dateien"><i class="fa fa-check"></i>Text-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#spss-dateien"><i class="fa fa-check"></i>SPSS-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#excel-dateien"><i class="fa fa-check"></i>Excel-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#dateien-vom-web"><i class="fa fa-check"></i>Dateien vom Web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html"><i class="fa fa-check"></i><b>8</b> Rechnen mit R</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#deskriptive-datenanalyse"><i class="fa fa-check"></i>Deskriptive Datenanalyse</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#kennwerte-der-deskriptiven-statistik"><i class="fa fa-check"></i>Kennwerte der deskriptiven Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphiken-der-deskriptiven-statistik"><i class="fa fa-check"></i>Graphiken der deskriptiven Statistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-des-basispakets"><i class="fa fa-check"></i>Graphen des Basispakets</a></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-mit-ggplot2"><i class="fa fa-check"></i>Graphen mit ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösungen-2"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösung-funktion-standardfehler"><i class="fa fa-check"></i><b>8.0.1</b> Lösung Funktion Standardfehler</a></li>
+<li class="chapter" data-level="8.0.2" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösung-ggplot-beispiel-1"><i class="fa fa-check"></i><b>8.0.2</b> Lösung ggplot Beispiel 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html"><i class="fa fa-check"></i><b>9</b> Datenauswertung Lime Survey</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#datenvorverarbeitung"><i class="fa fa-check"></i>Datenvorverarbeitung</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-1-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-2"><i class="fa fa-check"></i>Aufgabe 2</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-3"><i class="fa fa-check"></i>Aufgabe 3</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-4"><i class="fa fa-check"></i>Aufgabe 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösungen-3"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-1"><i class="fa fa-check"></i>Lösung Aufgabe 1</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-2"><i class="fa fa-check"></i>Lösung Aufgabe 2</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-3"><i class="fa fa-check"></i>Lösung Aufgabe 3</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-4"><i class="fa fa-check"></i>Lösung Aufgabe 4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html"><i class="fa fa-check"></i><b>10</b> Bedingungen und Schleifen</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#bedingte-ausführung"><i class="fa fa-check"></i>Bedingte Ausführung</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#einfache-if-bedingung"><i class="fa fa-check"></i>Einfache If-Bedingung</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#else-if-bedingung"><i class="fa fa-check"></i>Else-If-Bedingung</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-1-2"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-ifelse-bedingung"><i class="fa fa-check"></i>Die ifelse Bedingung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#iterationen-in-r"><i class="fa fa-check"></i>Iterationen in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-for-schleife"><i class="fa fa-check"></i>Die for-Schleife</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#bemerkung-zu-for-loops"><i class="fa fa-check"></i>Bemerkung zu For-Loops</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#apply"><i class="fa fa-check"></i><em>apply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#lapply"><i class="fa fa-check"></i><em>lapply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#sapply-und-vapply"><i class="fa fa-check"></i><em>sapply()</em> und <em>vapply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#map"><i class="fa fa-check"></i><em>Map()</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-while--und-repeat-schleife"><i class="fa fa-check"></i>Die while- und repeat Schleife</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-2-1"><i class="fa fa-check"></i>Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#lösungen-4"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-1-lsg"><i class="fa fa-check"></i>Aufgabe 1 Lsg</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-2-lsg"><i class="fa fa-check"></i>Aufgabe 2 Lsg</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://wgruber.github.io/R-Intro/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reinführung in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="source-pane" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Source-Pane<a href="source-pane.html#source-pane" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="source-pane.html#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Initialisierung</span></span>
+<span id="cb6-2"><a href="source-pane.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb6-3"><a href="source-pane.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb6-4"><a href="source-pane.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  pacman<span class="sc">::</span><span class="fu">p_load</span>(here)</span>
+<span id="cb6-5"><a href="source-pane.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ende Initialisierung</span></span></code></pre></div>
+<p>Der Source-Pane, oder auch Editor, ist ein äußerst hilfreiches Instrument bei der Erstellung von Programmen. Im Gegensatz zur Konsole ist es im Editor möglich, mehrere Befehle hintereinander aufzuzeichnen und diese dann nach Wunsch einzeln, blockweise oder gesamt auszuführen. Da in den meisten Fällen die Analyse von Daten aus mehreren/vielen hintereinander folgenden Arbeitsschritten (laden der Daten, Berechnung der deskriptiven Statistik, Erstellung von Graphen, inferenzstatistische Auswertung, etc.) erfolgt, ist die Programmierung ohne Editor undenkbar.</p>
+<p>Der mit RStudio zur Verfügung gestellte Editor hat neben der Möglichkeit Programmcode aufzuzeichnen und zu speichern eine Fälle weiterer Möglichkeiten. Die wichtigsten Eigenschaften für einen Start in die R-Programmierung werden in den folgenden Kapiteln kurz angesprochen.</p>
+<div id="dateitypen" class="section level2 unnumbered hasAnchor">
+<h2>Dateitypen<a href="source-pane.html#dateitypen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Der Editor bietet für die Erstellung von Dokumenten verschiedene Filetypen an:</p>
+<center>
+<div class="figure">
+<img src="Images/03_R_File_Types.PNG" style="width:50.0%" alt="" />
+<p class="caption"><strong>Abbildung 8</strong>: Dateitypen R</p>
+</div>
+</center>
+<p>Wesentlich für uns ist vorerst das <em>R Script</em>. Des Weiteren werden wir uns bei Gelegenheit mit dem Dateityp <em>R Markdown</em> beschäftigen (Details dazu später).</p>
+<div id="r-script" class="section level3 unnumbered hasAnchor">
+<h3>R Script<a href="source-pane.html#r-script" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Das meist verwendete und für den Einstieg wesentliche Dokument ist das R Script. Geöffnete wird ein leeres Arbeitsblatt in welchem zeilenweise die Befehle und Funktionen von R eingefügt werden. Der Editor bietet aber darüber hinaus eine Vielzahl an weiterer Möglichkeiten, wie z.B.:</p>
+<ul>
+<li>Code-Complete Funktion</li>
+<li>Keyboard Shortcuts</li>
+<li>Code Snippets</li>
+<li>Extract Funktion</li>
+<li>Suchfunktionen</li>
+<li>Code Ausführung</li>
+<li>Traceback und Debugging</li>
+<li>Kommentare und Dokumentation von Code, oder Codeteilen</li>
+</ul>
+<p>Anwendung und Eigenschaften dieser Möglichkeiten werden im folgenden besprochen.</p>
+</div>
+<div id="r-markdown" class="section level3 unnumbered hasAnchor">
+<h3>R-Markdown<a href="source-pane.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>R-Markdown ist eine Dokumentenart, in der Textverarbeitung mit gleichzeitiger Nutzung aller R-Funktionalitäten vereint werden. Besondere Erwähnung findet es hier deshalb, da alle zur Verfügung stehenden Unterlagen dieses Kurses mit R-Markdown erstellt wurden.</p>
+</div>
+<div id="andere-dokumentenarten" class="section level3 unnumbered hasAnchor">
+<h3>Andere Dokumentenarten<a href="source-pane.html#andere-dokumentenarten" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Die restlichen Arten von Dokumenten sind spezielle Formate, die eine Einbindung von C++ und diversen Dokumentationsformaten erlauben. Zu erwähnen wäre in diesem Zusammenhang noch die <em>Shiny Web App</em>, mit welcher man relativ einfach Benutzerschnittstellen (UI’s<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>) erzeugen kann. Diese Schnittstelle ist vor allem dann von Vorteil, wenn bestimmte Programme auch für Nutzer die keinen R-Background haben zur Verfügung gestellt werden.</p>
+</div>
+</div>
+<div id="nützliches-im-editor" class="section level2 unnumbered hasAnchor">
+<h2>Nützliches im Editor<a href="source-pane.html#nützliches-im-editor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Im folgenden beschäftigen wir uns kurz mit einigen der hilfreichsten Eigenschaften des RStudio-Editors.</p>
+<div id="code-completion" class="section level3 unnumbered hasAnchor">
+<h3>Code completion<a href="source-pane.html#code-completion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Unter <em>code completion</em> versteht man die Eigenschaft des Editors, während der Eingabe einer Funktions-, bzw. Variablennamens eine Liste der verfügbaren Funktionen/Variablen anzuzeigen und diese auch mit dem Tabulatur (<span class="math inline">\(\rightleftharpoons\)</span>) zu übernehmen.</p>
+<p>Nach wie vielen Zeichen die Liste angezeigt wird, kann über die <em>Global Options</em> im Menü <em>Tools</em> eingestellt werden (standardmäßig wird nach 3 Zeichen die Liste angezeigt).</p>
+<center>
+<div class="figure">
+<img src="Images/03_R_CodeCompletion.PNG" style="width:50.0%" alt="" />
+<p class="caption"><strong>Abbildung 9</strong>: Einstellungen <em>code completion</em> im Menü Tools <span class="math inline">\(\rightarrow\)</span> Global Options <span class="math inline">\(\rightarrow\)</span> Code <span class="math inline">\(\rightarrow\)</span> Completion</p>
+</div>
+</center>
+<p>Öffne eine neue <em>R Script</em> Datei. Kopiere die erste Zeile des nachfolgenden Codes in das Skript und führe diese aus (markieren der Zeile mit anschließendem Drücken von <em>Ctrl Enter</em>). Gib nun die weiteren Befehlszeilen direkt in den Editor ein und beobachte den Effekt, der sich nach der Eingabe des dritten Zeichens zeigt.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="source-pane.html#cb7-1" aria-hidden="true" tabindex="-1"></a>  MeineErsteVariable <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>))</span>
+<span id="cb7-2"><a href="source-pane.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-3"><a href="source-pane.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  anova</span>
+<span id="cb7-4"><a href="source-pane.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  MeineErsteVariable</span>
+<span id="cb7-5"><a href="source-pane.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  mean</span></code></pre></div>
+</div>
+<div id="keyboard-short-cuts" class="section level3 unnumbered hasAnchor">
+<h3>Keyboard Short-Cuts<a href="source-pane.html#keyboard-short-cuts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mit Hilfe der Keyboard-Shortcuts können Zeichen, Funktionen, etc. schnell und einfach in das Skript eingefügt werden. Mit der Basisinstallation wurden bereits eine Menge von Shortcuts definiert. Eine Liste dieser Shortcuts ist durch den Shortcut <em>Alt Shift K</em>, oder unter folgendem Menü zu finden:</p>
+<center>
+<div class="figure">
+<img src="Images/03_R_ShortCuts.PNG" style="width:70.0%" alt="" />
+<p class="caption"><strong>Abbildung 10</strong>: Shortcut Liste (<em>Alt Shift K</em>) und Änderungsmöglichkeiten für Shortcuts (Tools <span class="math inline">\(\rightarrow\)</span> Global Options <span class="math inline">\(\rightarrow\)</span> Code <span class="math inline">\(\rightarrow\)</span> Editing <span class="math inline">\(\rightarrow\)</span> Modify Keyboard Shortcuts), bzw. direkt mit Tools <span class="math inline">\(\rightarrow\)</span> Modify Keyboard Shortcuts …</p>
+</div>
+</center>
+<p>Welche der Shortcuts man sich wirklich merken soll ist Geschmacksache. Zwei sehr häufig von mir verwendete wären:</p>
+<ul>
+<li>Kommentar mit Ctrl Shift C</li>
+<li>Lange Zeilen besser darstellen mit Ctrl Shift /, etc.</li>
+</ul>
+</div>
+<div id="code-snippets" class="section level3 unnumbered hasAnchor">
+<h3>Code Snippets<a href="source-pane.html#code-snippets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Neben den Shortcuts bieten auch die <em>Snippets</em> eine bedeutende Erleichterung beim Schreiben von Codes. Dabei handelt es sich um Textmakros die häufig verwendete Codefragmente in das Skript einfügen können. Vordefinierte Snippets können unter Tools <span class="math inline">\(\rightarrow\)</span> Global Options <span class="math inline">\(\rightarrow\)</span> Code <span class="math inline">\(\rightarrow\)</span> Edit angesehen und auch geändert, bzw. hinzugefügt werden.</p>
+<center>
+<div class="figure">
+<img src="Images/03_RSnippets.PNG" style="width:50.0%" alt="" />
+<p class="caption"><strong>Abbildung 11</strong>: Snippets Definition und Änderungsmöglichkeiten (Tools <span class="math inline">\(\rightarrow\)</span> Global Options <span class="math inline">\(\rightarrow\)</span> Code <span class="math inline">\(\rightarrow\)</span> Edit Snippets)</p>
+</div>
+</center>
+<p>Wie bei der <em>code completion</em> werden nach 3 eingegebenen Zeichen die vordefinierten Snippets in einer Liste angezeigt. Die Übernahme des Inhalts wird durch Auswahl gefolgt vom Tabulator (<span class="math inline">\(\rightleftharpoons\)</span>) durchgeführt. Wird z.B. <em>fun</em> eingegeben, wird automatisch folgende Liste angezeigt:</p>
+<center>
+<div class="figure">
+<img src="Images/03_RSnippets_Bsp.PNG" style="width:70.0%" alt="" />
+<p class="caption"><strong>Abbildung 12</strong>: Snippets Definition und Anderungsmöglichkeiten (Tools <span class="math inline">\(\rightarrow\)</span> Global Options <span class="math inline">\(\rightarrow\)</span> Code <span class="math inline">\(\rightarrow\)</span> Edit Snippets)</p>
+</div>
+</center>
+<p>Durch Wahl der entsprechenden Funktion (in diesem Fall das Snippet), wird das Makro ausgeführt und der vordefinierte Text in den Editor eingefügt. Probier es am besten selbst aus.</p>
+<ol style="list-style-type: decimal">
+<li>Gib <em>fun</em> ein, wähle das <em>snippet fun</em> und drücke die Tabulatortaste. Diskutiere das Ergebnis.</li>
+<li>Erstelle ein <em>snippet</em> mit dem Namen <em>Init</em>, welches folgenden Code in den Texteditor kopiert:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="source-pane.html#cb8-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb8-2"><a href="source-pane.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb8-3"><a href="source-pane.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  pacman<span class="sc">::</span><span class="fu">p_load</span>(package)</span></code></pre></div>
+</div>
+<div id="extract-funktion" class="section level3 unnumbered hasAnchor">
+<h3>Extract Funktion<a href="source-pane.html#extract-funktion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Die <em>Extract Function</em> wird vor allem dann verwendet, wenn ein selbst geschriebener Codeteil in eine Funktion umgewandelt werden soll. Die Vorgehensweise ist dabei denkbar einfach:</p>
+<ol style="list-style-type: decimal">
+<li>schreibe einen Code.</li>
+<li>markiere den Code.</li>
+<li>wähle im Menü <span class="math inline">\(\rightarrow\)</span> Code <span class="math inline">\(\rightarrow\)</span> <em>Extract Function</em>, oder drücke <em>Ctrl Alt X</em>.</li>
+<li>Benenne die Funktion.</li>
+</ol>
+<p>Folgendes Beispiel sollte die Idee der Code Extraction verdeutlichen. Kopiere dazu die folgenden Zeilen in den Editor:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="source-pane.html#cb9-1" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb9-2"><a href="source-pane.html#cb9-2" aria-hidden="true" tabindex="-1"></a>    x <span class="sc">/</span> <span class="fu">sd</span>(x)</span>
+<span id="cb9-3"><a href="source-pane.html#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rescale</span>(<span class="fu">center</span>(x)) </span></code></pre></div>
+<p>und wandle die Zeile:</p>
+<ol style="list-style-type: decimal">
+<li><em>x - mean(x)</em> in eine Funktion mit dem Namen <em>center</em> um.</li>
+<li><em>x / sd(x)</em> in eine Funktion mit dem Namen <em>rescale</em> um.</li>
+<li><em>rescale(center(x))</em> in eine Funktion mit dem Namen <em>standardize</em> um.</li>
+</ol>
+<p>Markiere nun die gerade erstellten Funktionen und führe diese Zeilen aus. Diskutiere die Auswirkungen des soeben ausgeführten Codes hinsichtlich der Änderungen im <em>Environment</em>. Füge nun die folgenden Zeilen am Ende des Skriptums hinzu:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="source-pane.html#cb10-1" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb10-2"><a href="source-pane.html#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardize</span>(x)</span></code></pre></div>
+<p>Führe die Zeilen <em>x &lt;- 1:10</em> und <em>standardize(x)</em> aus und diskutiere das Ergebnis. Wenn alles funktioniert hat, sollte dein Code folgendermaßen aussehen:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="source-pane.html#cb11-1" aria-hidden="true" tabindex="-1"></a>    center <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb11-2"><a href="source-pane.html#cb11-2" aria-hidden="true" tabindex="-1"></a>      x <span class="sc">-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb11-3"><a href="source-pane.html#cb11-3" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-4"><a href="source-pane.html#cb11-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-5"><a href="source-pane.html#cb11-5" aria-hidden="true" tabindex="-1"></a>    rescale <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb11-6"><a href="source-pane.html#cb11-6" aria-hidden="true" tabindex="-1"></a>      x <span class="sc">/</span> <span class="fu">sd</span>(x)</span>
+<span id="cb11-7"><a href="source-pane.html#cb11-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-8"><a href="source-pane.html#cb11-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-9"><a href="source-pane.html#cb11-9" aria-hidden="true" tabindex="-1"></a>    standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb11-10"><a href="source-pane.html#cb11-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rescale</span>(<span class="fu">center</span>(x))</span>
+<span id="cb11-11"><a href="source-pane.html#cb11-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb11-12"><a href="source-pane.html#cb11-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-13"><a href="source-pane.html#cb11-13" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb11-14"><a href="source-pane.html#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">standardize</span>(x)</span></code></pre></div>
+</div>
+<div id="suchfunktionen" class="section level3 unnumbered hasAnchor">
+<h3>Suchfunktionen<a href="source-pane.html#suchfunktionen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Häufig werden wir nach bestimmten Begriffen (Funktionsnamen, Variablennamen, etc.) innerhalb unseres Codes suchen. Mit <em>Ctrl f</em>, bzw. über das Menü <em>Edit</em> <span class="math inline">\(\rightarrow\)</span> <em>Find</em>, wird das zur einfachsten Sache - beachte das Suchfeld direkt unter der Symbolleiste, sowie die Möglichkeiten für die Einschränkung der Suche (In selection, Match case, etc.). Gleichzeitig wird damit auch die Möglichkeit gegeben, bestimmte Suchbegriffe im Text zu ersetzen (siehe <em>Replace</em> Feld).</p>
+<center>
+<div class="figure">
+<img src="Images/03_R_SucheErsetzen.PNG" style="width:50.0%" alt="" />
+<p class="caption"><strong>Abbildung 13</strong>: Suchen und Ersetzen im geöffneten Script</p>
+</div>
+</center>
+<p>Eine überaus wertvolle Suchfunktion kann durch <em>Ctrl Shift f</em>, bzw. über das Menü <em>Edit</em> <span class="math inline">\(\rightarrow\)</span> <em>Find in Files</em>, aufgerufen werden. Mit dieser Suchfunktion werden alle Files eines bestimmten Verzeichnisses auf bestimmte Begriffe durchsucht.</p>
+</div>
+<div id="code-folding" class="section level3 unnumbered hasAnchor">
+<h3>Code Folding<a href="source-pane.html#code-folding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mit <em>code folding</em> kann man vor allem bei längeren Programmen sehr gut die Übersicht von bestimmten Programmteilen behalten. Als Beispiel kann man den soeben erzeugten Code nochmals genauer betrachten:</p>
+<center>
+<div class="figure">
+<img src="Images/03_R_CodeFoling.PNG" style="width:30.0%" alt="" />
+<p class="caption"><strong>Abbildung 14</strong>: Code Folding</p>
+</div>
+</center>
+<p>Bei genauerem Hinsehen fallen einem vielleicht die schwarzen Dreiecke direkt neben der Zeilennummerierung auf. Klickt man diese mit der Maus an, wird entweder ein Teil des Codes auf eine Zeile reduziert (<em>folding</em>), oder falls bereits reduziert, wieder entfaltet.</p>
+<p>Anwendung findet diese Möglichkeit vor allem bei Codeteilen, die bereits getestet wurden und deren Einzelheiten für die weitere Entwicklung von Code nicht von Interesse sind. Damit wird unwesentliche ausgeblendet und die Übersicht über den relevanten Code leichter behalten.</p>
+</div>
+</div>
+<div id="running-code" class="section level2 unnumbered hasAnchor">
+<h2>Running Code<a href="source-pane.html#running-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Für die zeilenweise Ausführung von Code brauch man nur in der betroffenen Zeile <em>Ctrl Enter</em> drücken (die Zeile kann, aber muss dafür nicht markiert sein). Wir die Markierung verwendet, ist darauf zu achten, dass genau der markierte Inhalt ausgeführt wird!</p>
+<p>Der Vorteil der Markierung liegt darin, dass nicht nur eine Zeile, sondern markierte Bereiche (Blöcke) ausgeführt werden können.</p>
+<p>Darüber hinaus bieten sich im RStudio die Symbolleisten für die Ausführung von Code an:</p>
+<center>
+<div class="figure">
+<img src="Images/03_R_RunSymbol.PNG" style="width:30.0%" alt="" />
+<p class="caption"><strong>Abbildung 15</strong>: Code Folding</p>
+</div>
+</center>
+</div>
+<div id="traceback-debugging" class="section level2 unnumbered hasAnchor">
+<h2>Traceback (Debugging)<a href="source-pane.html#traceback-debugging" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Eine wirklich geniale Sache bei RStudio ist die integrierte Möglichkeit des sogenannten <em>Debugging</em>. Um Debugging zu demonstrieren, verwenden wir den Codeteil aus dem Kapitel <em>extract function</em>. Bitte den nachfolgend gezeigten Code in ein neues RScript kopieren.</p>
+<center>
+<div class="figure">
+<img src="Images/03_R_Debugging.PNG" style="width:30.0%" alt="" />
+<p class="caption"><strong>Abbildung 16</strong>: Debugging in R</p>
+</div>
+</center>
+<p>Führe nun folgende Schritte aus:</p>
+<ol style="list-style-type: decimal">
+<li>Speichere den neuen Code unter den Namen <em>03_DebuggingDemo.R</em>.</li>
+<li>Ändere in der Funktion center <em>mean(x)</em> auf <em>meen(x)</em> (wir fügen absichtlich einen Fehler ein!)</li>
+<li>Speichere das Skript und führe es aus (mit <em>Source</em> in der Symbolleiste)</li>
+</ol>
+<center>
+<div class="figure">
+<img src="Images/03_Traceback.PNG" style="width:60.0%" alt="" />
+<p class="caption"><strong>Abbildung 17</strong>: <a href="https://google.github.io/styleguide/Rguide.xml#comments" target="_blank">Traceback in RStudio</a></p>
+</div>
+</center>
+</div>
+<div id="kommentare" class="section level2 unnumbered hasAnchor">
+<h2>Kommentare<a href="source-pane.html#kommentare" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ein gutes, nachvollziehbares und wiederverwendbares R-Programm basiert nicht alleine auf einer effiziente Programmierung, sondern auch auf einer entsprechende Beschreibung des Programms, bzw. bestimmten Teilen des Programmcodes. Um ein Programm zu dokumentieren gelten folgende Regeln:</p>
+<ul>
+<li>Kommentare beginnen mit <span class="math inline">\(\#\)</span>.</li>
+<li>Kommentare enden mit dem Ende der Zeile.</li>
+<li>Kommentare können am:
+<ul>
+<li>Anfang einer Zeile stehen: <span class="math inline">\(\#\)</span> Erstellungsdatum: 12.11.2018</li>
+<li>Nach einem Codeteil: <em>mean(x)</em> <span class="math inline">\(\#\)</span> Berechnung des Mittelwertes von <em>x</em></li>
+</ul></li>
+<li>Sehr lange Kommentare in einer Zeile können durch <em>Ctrl Shift /</em> der Bildschirmbreite angepasst werden.</li>
+</ul>
+<p>Einige Richtlinien für Kommentare in R findet ihr unter <a href="https://google.github.io/styleguide/Rguide.xml#comments" target="_blank">Commenting guidelines</a></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>User Interfaces<a href="source-pane.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rstudio5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="environment-pane.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

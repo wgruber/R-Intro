@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 RStudio5 | Reinführung in RStudio</title>
+  <meta name="description" content="Erste Schritte in R mit RStudio" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 RStudio5 | Reinführung in RStudio" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/Images/00_Cover.PNG" />
+  <meta property="og:description" content="Erste Schritte in R mit RStudio" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 RStudio5 | Reinführung in RStudio" />
+  
+  <meta name="twitter:description" content="Erste Schritte in R mit RStudio" />
+  <meta name="twitter:image" content="/Images/00_Cover.PNG" />
+
+<meta name="author" content="Walter Gruber" />
+
+
+<meta name="date" content="2022-10-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="aufbau-des-kurses.html"/>
+<link rel="next" href="source-pane.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Reinführung in RStudio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="vorwort.html"><a href="vorwort.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="1" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html"><i class="fa fa-check"></i><b>1</b> Aufbau des Kurses</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#ziele"><i class="fa fa-check"></i>Ziele</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#allgemeines"><i class="fa fa-check"></i>Allgemeines</a>
+<ul>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#entstehungsgeschichte-von-r1"><i class="fa fa-check"></i>Entstehungsgeschichte von R</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#warum-sollte-man-r-verwenden"><i class="fa fa-check"></i><strong>Warum</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-verwenden"><i class="fa fa-check"></i><strong>Wann</strong> sollte man <strong>R</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#wann-sollte-man-r-nicht-verwenden"><i class="fa fa-check"></i><strong>Wann</strong> sollte man <strong>R nicht</strong> verwenden?</a></li>
+<li class="chapter" data-level="" data-path="aufbau-des-kurses.html"><a href="aufbau-des-kurses.html#alternativen-zu-r"><i class="fa fa-check"></i>Alternativen zu R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="rstudio5.html"><a href="rstudio5.html"><i class="fa fa-check"></i><b>2</b> <strong>R</strong>Studio</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufbau-von-rstudio"><i class="fa fa-check"></i>Aufbau von RStudio</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-syntax"><i class="fa fa-check"></i>R-Syntax</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#kommandozeile-befehlszeile-console"><i class="fa fa-check"></i>Kommandozeile (Befehlszeile, Console)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#mathematische-operatorenfunktionen"><i class="fa fa-check"></i>Mathematische Operatoren/Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#hilfe-in-rstudio"><i class="fa fa-check"></i>Hilfe in RStudio</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#online-lernprogramme"><i class="fa fa-check"></i>Online-Lernprogramme</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#verwendung-der-konsole-aufgabe-1"><i class="fa fa-check"></i>Verwendung der Konsole (Aufgabe 1)</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#wiederverwendung-von-befehlszeilen---die-command-history"><i class="fa fa-check"></i>Wiederverwendung von Befehlszeilen - die Command-History</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#weitere-eigenschaften-der-console-pane"><i class="fa fa-check"></i>Weitere Eigenschaften der Console Pane</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#terminal-fenster"><i class="fa fa-check"></i>Terminal-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#r-markdown-fenster"><i class="fa fa-check"></i>R-Markdown-Fenster</a></li>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#lösungen"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rstudio5.html"><a href="rstudio5.html#aufgabe-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="source-pane.html"><a href="source-pane.html"><i class="fa fa-check"></i><b>3</b> Source-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#dateitypen"><i class="fa fa-check"></i>Dateitypen</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-script"><i class="fa fa-check"></i>R Script</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#r-markdown"><i class="fa fa-check"></i>R-Markdown</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#andere-dokumentenarten"><i class="fa fa-check"></i>Andere Dokumentenarten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#nützliches-im-editor"><i class="fa fa-check"></i>Nützliches im Editor</a>
+<ul>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-completion"><i class="fa fa-check"></i>Code completion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#keyboard-short-cuts"><i class="fa fa-check"></i>Keyboard Short-Cuts</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-snippets"><i class="fa fa-check"></i>Code Snippets</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#extract-funktion"><i class="fa fa-check"></i>Extract Funktion</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#suchfunktionen"><i class="fa fa-check"></i>Suchfunktionen</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#code-folding"><i class="fa fa-check"></i>Code Folding</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#running-code"><i class="fa fa-check"></i>Running Code</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#traceback-debugging"><i class="fa fa-check"></i>Traceback (Debugging)</a></li>
+<li class="chapter" data-level="" data-path="source-pane.html"><a href="source-pane.html#kommentare"><i class="fa fa-check"></i>Kommentare</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="environment-pane.html"><a href="environment-pane.html"><i class="fa fa-check"></i><b>4</b> Environment-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#history"><i class="fa fa-check"></i>History</a></li>
+<li class="chapter" data-level="" data-path="environment-pane.html"><a href="environment-pane.html#connections"><i class="fa fa-check"></i>Connections</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="files-pane.html"><a href="files-pane.html"><i class="fa fa-check"></i><b>5</b> Files-Pane</a>
+<ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#files"><i class="fa fa-check"></i>Files</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#plots"><i class="fa fa-check"></i>Plots</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#packages"><i class="fa fa-check"></i>Packages</a>
+<ul>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#umgang-mit-paketen"><i class="fa fa-check"></i>Umgang mit Paketen</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#installation-und-verwendung-von-paketen"><i class="fa fa-check"></i>Installation und Verwendung von Paketen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#help"><i class="fa fa-check"></i>Help</a></li>
+<li class="chapter" data-level="" data-path="files-pane.html"><a href="files-pane.html#viewer"><i class="fa fa-check"></i>Viewer</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="rlernen.html"><a href="rlernen.html"><i class="fa fa-check"></i><b>6</b> Rlernen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down-vs.-bottom-up"><i class="fa fa-check"></i>Top-Down vs. Bottom-Up</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#top-down---copy-und-paste"><i class="fa fa-check"></i>Top Down - Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#copy-und-paste-aufgabenblock"><i class="fa fa-check"></i>Copy und Paste (Aufgabenblock)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#objekte-in-r-bottom-up"><i class="fa fa-check"></i>Objekte in R (bottom up)</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#vektoren"><i class="fa fa-check"></i>Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#arithmetische-operator-vektorenrechnung"><i class="fa fa-check"></i>Arithmetische Operator (Vektorenrechnung)</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#weitere-nützliche-vektor-funktionen"><i class="fa fa-check"></i>Weitere nützliche Vektor-Funktionen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#logische-vektoren"><i class="fa fa-check"></i>Logische Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#der-in-operator-und-die-which-funktion"><i class="fa fa-check"></i>Der %in% Operator und die which()-Funktion</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-vektoren"><i class="fa fa-check"></i>Aufgabenblock Vektoren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#faktoren"><i class="fa fa-check"></i>Faktoren</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-faktoren"><i class="fa fa-check"></i>Aufgabenblock Faktoren</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#matrizen"><i class="fa fa-check"></i>Matrizen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#zugriff-auf-elemente-einer-matrix"><i class="fa fa-check"></i>Zugriff auf Elemente einer Matrix</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#erzeugen-von-matrizen"><i class="fa fa-check"></i>Erzeugen von Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#arithmentische-funktionen-auf-zwei-matrizen"><i class="fa fa-check"></i>Arithmentische Funktionen auf zwei Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-matrizen"><i class="fa fa-check"></i>Aufgabenblock Matrizen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-frames"><i class="fa fa-check"></i>Data-Frames</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#aufgabenblock-dataframes"><i class="fa fa-check"></i>Aufgabenblock Dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#data-tables"><i class="fa fa-check"></i>Data-Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#listen"><i class="fa fa-check"></i>Listen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#attribute"><i class="fa fa-check"></i>Attribute</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-1"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-copy-und-paste"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Copy und Paste</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-vektoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Vektoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-faktoren"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Faktoren</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-matrizen"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Matrizen</a></li>
+<li class="chapter" data-level="" data-path="rlernen.html"><a href="rlernen.html#lösungen-zu-aufgabenblock-dataframes"><i class="fa fa-check"></i>Lösungen zu Aufgabenblock Dataframes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="rarbeiten.html"><a href="rarbeiten.html"><i class="fa fa-check"></i><b>7</b> Rarbeiten</a>
+<ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#lesen-und-speichern-von-dateien"><i class="fa fa-check"></i>Lesen und speichern von Dateien</a>
+<ul>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#r-dateien"><i class="fa fa-check"></i>R-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#text-dateien"><i class="fa fa-check"></i>Text-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#spss-dateien"><i class="fa fa-check"></i>SPSS-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#excel-dateien"><i class="fa fa-check"></i>Excel-Dateien</a></li>
+<li class="chapter" data-level="" data-path="rarbeiten.html"><a href="rarbeiten.html#dateien-vom-web"><i class="fa fa-check"></i>Dateien vom Web</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html"><i class="fa fa-check"></i><b>8</b> Rechnen mit R</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#deskriptive-datenanalyse"><i class="fa fa-check"></i>Deskriptive Datenanalyse</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#kennwerte-der-deskriptiven-statistik"><i class="fa fa-check"></i>Kennwerte der deskriptiven Statistik</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphiken-der-deskriptiven-statistik"><i class="fa fa-check"></i>Graphiken der deskriptiven Statistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-des-basispakets"><i class="fa fa-check"></i>Graphen des Basispakets</a></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#graphen-mit-ggplot2"><i class="fa fa-check"></i>Graphen mit ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösungen-2"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösung-funktion-standardfehler"><i class="fa fa-check"></i><b>8.0.1</b> Lösung Funktion Standardfehler</a></li>
+<li class="chapter" data-level="8.0.2" data-path="rechnen-mit-r.html"><a href="rechnen-mit-r.html#lösung-ggplot-beispiel-1"><i class="fa fa-check"></i><b>8.0.2</b> Lösung ggplot Beispiel 1</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html"><i class="fa fa-check"></i><b>9</b> Datenauswertung Lime Survey</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#datenvorverarbeitung"><i class="fa fa-check"></i>Datenvorverarbeitung</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-1-1"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#deskriptive-statistik"><i class="fa fa-check"></i>Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-2"><i class="fa fa-check"></i>Aufgabe 2</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-3"><i class="fa fa-check"></i>Aufgabe 3</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#aufgabe-4"><i class="fa fa-check"></i>Aufgabe 4</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösungen-3"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-1"><i class="fa fa-check"></i>Lösung Aufgabe 1</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-2"><i class="fa fa-check"></i>Lösung Aufgabe 2</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-3"><i class="fa fa-check"></i>Lösung Aufgabe 3</a></li>
+<li class="chapter" data-level="" data-path="datenauswertung-lime-survey.html"><a href="datenauswertung-lime-survey.html#lösung-aufgabe-4"><i class="fa fa-check"></i>Lösung Aufgabe 4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html"><i class="fa fa-check"></i><b>10</b> Bedingungen und Schleifen</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#bedingte-ausführung"><i class="fa fa-check"></i>Bedingte Ausführung</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#einfache-if-bedingung"><i class="fa fa-check"></i>Einfache If-Bedingung</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#else-if-bedingung"><i class="fa fa-check"></i>Else-If-Bedingung</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-1-2"><i class="fa fa-check"></i>Aufgabe 1</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-ifelse-bedingung"><i class="fa fa-check"></i>Die ifelse Bedingung</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#iterationen-in-r"><i class="fa fa-check"></i>Iterationen in R</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-for-schleife"><i class="fa fa-check"></i>Die for-Schleife</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#bemerkung-zu-for-loops"><i class="fa fa-check"></i>Bemerkung zu For-Loops</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#apply"><i class="fa fa-check"></i><em>apply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#lapply"><i class="fa fa-check"></i><em>lapply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#sapply-und-vapply"><i class="fa fa-check"></i><em>sapply()</em> und <em>vapply()</em></a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#map"><i class="fa fa-check"></i><em>Map()</em></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#die-while--und-repeat-schleife"><i class="fa fa-check"></i>Die while- und repeat Schleife</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-2-1"><i class="fa fa-check"></i>Aufgabe 2</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#lösungen-4"><i class="fa fa-check"></i>Lösungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-1-lsg"><i class="fa fa-check"></i>Aufgabe 1 Lsg</a></li>
+<li class="chapter" data-level="" data-path="bedingungen-und-schleifen.html"><a href="bedingungen-und-schleifen.html#aufgabe-2-lsg"><i class="fa fa-check"></i>Aufgabe 2 Lsg</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://wgruber.github.io/R-Intro/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Reinführung in RStudio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rstudio5" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> <strong>R</strong>Studio<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a><a href="rstudio5.html#rstudio5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><a href="https://www.rstudio.com/" target="_blank">RStudio</a> ist eine vom Unternehmen RStudio, Inc. angebotene, integrierte Entwicklungsumgebung und grafische Benutzeroberfläche für die statistische Programmiersprache R. Bei RStudio handelt es sich um eine IDE<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>-Anwendung, ein Begriff den man häufig bei der Beschreibung von RStudio verwendet.</p>
+<p>RStudio ist sowohl als lokale Desktop-Version als auch als Server-Version mit gleichem Layout verfügbar. Die Umgebung teilt sich in vier Fenster (Panes), in denen:</p>
+<ul>
+<li>eines für die Erstellung von Skripten genutzt wird,</li>
+<li>ein anderes als Kommandozeile mit Output des Programmiercodes und</li>
+<li>ein weiteres für die Anzeige von Objekten in der Arbeitsumgebung.</li>
+<li>In einem vierten Bereich lassen sich mit Reitern grafischer Output, eine Paketverwaltung, das Ordnerverzeichnis und mehr anzeigen.</li>
+</ul>
+<p>RStudio bietet eine umfangreiche Entwicklungsumgebung und ermöglicht eine Vielzahl sehr hilfreicher Funktionalitäten, wie:</p>
+<ul>
+<li>Autovervollständigung, automatische Einrückungen, Syntaxhervorhebung.</li>
+<li>Code-Faltung.</li>
+<li>integrierte Hilfe und Informationen zu Objekten in der Arbeitsumgebung.</li>
+<li>Datensätze betrachten und bearbeiten.</li>
+<li>Zusammenfassen von Skripten, Daten und weitere Dateien zu Projekten (.Rproj), was die Zusammenarbeit erleichtert, zumal eine Versionsverwaltung mit Git enthalten ist.</li>
+</ul>
+<p>Mit Hilfe der Paketverwaltung lassen sich Pakete installieren und laden. Die Erstellung von Berichten mit Hilfe von <em>knitr</em> oder <em>Sweave</em> kann aus RStudio heraus erfolgen. Ein grafischer Debugger ist enthalten. Zudem kann Code in C, C++ oder Fortran kompiliert werden und direkt eingebunden werden.</p>
+<p>Für beide Ausführungen (Desktop, Server) von RStudio kann auch eine kommerzielle Variante erworben werden, die Support einschließt. Mit der kommerziellen Serverversion können mehrere Sitzungen parallel laufen und unterschiedliche Versionen von R verwendet werden. Außerdem sind das Teilen von Projekten und das Ressourcenmanagement einfacher.</p>
+<div id="aufbau-von-rstudio" class="section level2 unnumbered hasAnchor">
+<h2>Aufbau von RStudio<a href="rstudio5.html#aufbau-von-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Beim Erststart von RStudio werden drei Fenster angezeigt. Für die effiziente Entwicklung von R-Programmen verwendet man einen Editor, welcher im RStudio integriert ist. Die Verwendung des Editors öffnet ein viertes Fenster. Diese vier Fenster bilden im Allgemeinen das Arbeitsumfeld mit RStudio.</p>
+<ol style="list-style-type: decimal">
+<li>Konsole</li>
+<li>Environment</li>
+<li>Files</li>
+<li>Source</li>
+</ol>
+<p>Die standardmäßige Anordnung und Anzeige von Details innerhalb der Fenster kann durch den Benutzer angepasst werden. Details dazu werden bei den jeweiligen Kapiteln besprochen.</p>
+</div>
+<div id="r-syntax" class="section level2 unnumbered hasAnchor">
+<h2>R-Syntax<a href="rstudio5.html#r-syntax" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In verschiedenen Programmiersprachen werden z.B. Groß- und Kleinschreibung, Dezimaltrennzeichen, Sonderzeichen etc. unterschiedlich definiert. Für R gelten folgende (grundlegende) Regeln:</p>
+<ul>
+<li>R unterscheidet zwischen Groß- und Kleinschreibung.</li>
+<li>Dezimaltrennzeichen: Punkt statt Komma.</li>
+<li>Keine Leerzeichen in Objektnamen, besser: my.object, my_object oder MyObject usw.</li>
+<li>Keine arithmetischen Operatoren (+,-,/) in Objektnamen.</li>
+<li>Erstes Zeichen eines Objektnamens muss ein Buchstabe sein.</li>
+<li>Befehle dürfen über mehrere Zeilen gehen.</li>
+<li>Alles, was existiert, ist ein Objekt.</li>
+</ul>
+</div>
+<div id="kommandozeile-befehlszeile-console" class="section level2 unnumbered hasAnchor">
+<h2>Kommandozeile (Befehlszeile, Console)<a href="rstudio5.html#kommandozeile-befehlszeile-console" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Die <a href="https://de.wikipedia.org/wiki/Kommandozeile" target="_blank">Kommandozeile</a>, Befehlszeile (command-line interface, CLI), oft auch als Konsole oder Terminal bezeichnet, ist ein Eingabebereich (interface) für die Steuerung einer Software, der typischerweise (aber nicht zwingend) im Textmodus abläuft. Die Kommandos oder Befehle werden als Zeichenketten über die Tastatur eingegeben. Die Ausführung der Befehle wird meist direkt aus der Zeile durch zusätzlich angegebene Parameter gesteuert (Kommandozeilenparameter).</p>
+<p>Ein Kommandozeilenprogramm läuft typischerweise mit den gegebenen Parametern einmal ab, bevor eine erneute Befehlseingabe möglich ist. Ein automatisiertes Abarbeiten mehrerer Kommandos nennt man Stapelverarbeitung (batch).</p>
+<p>In die Kommandozeile von RStudio können Variablendefinitionen, Berechnungen/Funktionen, sowie der Aufruf von Hilfefunktionen direkt eingegeben und ausgeführt werden. Die folgenden Beispiele zeigen die Auswirkungen von direkten Eingaben in der Konsole:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="rstudio5.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb2-2"><a href="rstudio5.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(mean)</span>
+<span id="cb2-3"><a href="rstudio5.html#cb2-3" aria-hidden="true" tabindex="-1"></a>?mean</span>
+<span id="cb2-4"><a href="rstudio5.html#cb2-4" aria-hidden="true" tabindex="-1"></a>Var1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb2-5"><a href="rstudio5.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Var1)</span></code></pre></div>
+</div>
+<div id="mathematische-operatorenfunktionen" class="section level2 unnumbered hasAnchor">
+<h2>Mathematische Operatoren/Funktionen<a href="rstudio5.html#mathematische-operatorenfunktionen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Arithmetische und logische Operatoren in R sind in nachfolgender Tabelle definiert. Des weiteren findet man auszugsweise ein paar mathematische Funktionen, anhand deren das Prinzip eines Funktionsaufrufes verdeutlicht werden. Funktionen haben in R folgende Eigenschaften:</p>
+<ul>
+<li>jede Funktion hat einen Namen (z.B. sin für die Sinusfunktion, aov für Fit an Analysis of Variance Model, …)</li>
+<li>eine Funktion kann unter Umständen ohne Parameter (z.B. <em>getwd()</em>), oder mit einem oder mehrerern Parametern aufgerufen werden (z.B. <em>mean(x)</em>, <em>mean(x, na.rm = TRUE)</em>.</li>
+<li>Für Funktionen, bei denen die Übergabe von Parametern notwendig ist (z.B. <em>mean()</em>), ist folgendes zu beachten (gib in der Console den Befehl <em>?mean</em> ein - beachte das Help-Fenster).
+<ul>
+<li>In Klammern stehende Parameter die keine Bezeichnung aufweisen (bei der Funktion <em>mean</em> das <em>x</em>), sind zwingende Angaben für den Aufruf der Funktion.</li>
+<li>Bei Parametern, die mit einem Namen versehen sind, handelt es sich um optionale Parameter. Diese müssen beim Aufruf der Funktion nicht angegeben werden. In diesem Fall werden die in der Hilfe ersichtlichen Standardwerte verwendet.</li>
+<li>Sollten die Standardwerte nicht verwendet werden, sind diese beim Aufruf der Funktion mit entsprechenden Werten zu versehen - wie z.B. bei <em>mean(x, trim = .2, na.rm = TRUE)</em>.</li>
+<li>Wird die Reihenfolge laut Beschreibung der Funktion in der Hilfeseite eingehalten, können die Namen der Parameter weggelassen werden. Kopiere bitte zeilenweise den nachfolgenden Code in die Konsole und diskutieren die Ergebnisse.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="rstudio5.html#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">lambda =</span> <span class="dv">10</span>), <span class="dv">100</span>, <span class="cn">NA</span>, <span class="cn">NA</span>)</span>
+<span id="cb3-2"><a href="rstudio5.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span>
+<span id="cb3-3"><a href="rstudio5.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
+<span id="cb3-4"><a href="rstudio5.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-5"><a href="rstudio5.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">trim =</span> .<span class="dv">1</span>)</span>
+<span id="cb3-6"><a href="rstudio5.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="cn">TRUE</span>, .<span class="dv">1</span>)</span>
+<span id="cb3-7"><a href="rstudio5.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, .<span class="dv">1</span>, <span class="cn">TRUE</span>)</span></code></pre></div>
+<center>
+<div class="figure">
+<img src="Images/02_R_Operatoren.PNG" style="width:50.0%" alt="" />
+<p class="caption"><strong>Tabelle 1</strong>: Operatoren und Funktionen</p>
+</div>
+</center>
+</div>
+<div id="hilfe-in-rstudio" class="section level2 unnumbered hasAnchor">
+<h2>Hilfe in RStudio<a href="rstudio5.html#hilfe-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mit der Installation von RStudio wird automatisch auch eine Dokumentation der verfügbaren Funktionen zur Verfügung gestellt. Dieses Hilfe-System kann auf unterschiedlichste Arten angesprochen werden. Folgende Möglichkeiten sind im RStudio gegeben:</p>
+<ul>
+<li>über die <em>Console</em> mit folgenden Befehlen</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="rstudio5.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help.search</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb4-2"><a href="rstudio5.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">&quot;mean&quot;</span>)</span>
+<span id="cb4-3"><a href="rstudio5.html#cb4-3" aria-hidden="true" tabindex="-1"></a>?mean</span></code></pre></div>
+<ul>
+<li>über das <em>Help</em>-Menü</li>
+<li>über das <em>Files</em>-Pane im Reiter <em>Help</em></li>
+</ul>
+<p>Darüber hinaus gibt es noch die Möglichkeit, eine der unzähligen Helpseiten im Internet in Anspruch zu nehmen. Eine Empfehlung, welche Hilfeseite(n) am besten sind ist schwer zu geben - durch Erfahrung und persönlichen Vorlieben werden sich schnell ein paar Seiten als hilfreich bewähren. Zum Einstieg nachfolgend ein paar Seiten die ich persönlich immer wieder verwende:</p>
+<ul>
+<li><a href="https://www.r-project.org/help.html" target="_blank">R-project</a></li>
+<li><a href="http://www.cookbook-r.com/" target="_blank">Cookbook for R</a></li>
+<li><a href="https://www.statmethods.net/interface/help.html" target="_blank">Quick-R</a></li>
+<li><a href="https://www.rdocumentation.org/packages/utils/versions/3.5.1/topics/help" target="_blank">RDocumentation</a></li>
+<li><a href="https://support.rstudio.com/hc/en-us" target="_blank">RStudio Support</a></li>
+<li>u.v.m.</li>
+</ul>
+<div id="online-lernprogramme" class="section level3 unnumbered hasAnchor">
+<h3>Online-Lernprogramme<a href="rstudio5.html#online-lernprogramme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Eine weitere (unerschöpfliche) Quelle um R effizient und schnell zu erlernen sind entsprechende Online-Kurse. Einerseits gibt es über YouTube bereits viele Tutorials (die mehr oder weniger hilfreich sind/sein können). Andererseits haben sich aber bereits einige Universitäten und Firmen darauf spezialisiert, qualitativ hochwertige Online-Tutorials und Webinars zur Verfügung zu stellen. Viele davon sind noch kostenlos. Auch hier ist es schwierig eine punktuelle Empfehlung abzugeben. Nachfolgend eine kurze (und daher sicher unvollständige) Liste von Anbietern, die ich zumindest zum Teil selbst ausprobiert und als gut empfunden habe:</p>
+<ul>
+<li><a href="https://www.datacamp.com/" target="_blank">DataCamp</a>.</li>
+<li><a href="https://www.coursera.org/" target="_blank">coursera</a>.</li>
+<li><a href="https://www.rstudio.com/online-learning/" target="_blank">RStudio Online Learning</a>.</li>
+<li><a href="https://www.udemy.com/r-programming/" target="_blank">Course</a>.</li>
+<li><a href="https://www.statmethods.net/r-tutorial/index.html" target="_blank">Quick-R Tutorials</a>.</li>
+</ul>
+</div>
+<div id="verwendung-der-konsole-aufgabe-1" class="section level3 unnumbered hasAnchor">
+<h3>Verwendung der Konsole (Aufgabe 1)<a href="rstudio5.html#verwendung-der-konsole-aufgabe-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Berechne in der Konsole die Ergebnisse folgender Ausdrücke und prüfe das Ergebnis auf Korrektheit:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\((3 + 4 - 5) * 9\)</span></li>
+<li><span class="math inline">\(\frac{99}{33}\)</span></li>
+<li><span class="math inline">\((\sqrt{2})^2\)</span></li>
+<li><span class="math inline">\(e^{3+4}\)</span></li>
+</ol>
+<p>Gib nachfolgende Befehle ein und diskutiere das Ergebnis:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(5 = 7\)</span></li>
+<li><span class="math inline">\(5 == 7\)</span></li>
+<li><span class="math inline">\(5*5 &gt;= 6*4\)</span></li>
+<li><span class="math inline">\(\sqrt{3} \neq cos(17)\)</span></li>
+</ol>
+<p>Die Lösungen zu den Beispielen findest du am Ende dieses Dokumentes.</p>
+</div>
+<div id="wiederverwendung-von-befehlszeilen---die-command-history" class="section level3 unnumbered hasAnchor">
+<h3>Wiederverwendung von Befehlszeilen - die Command-History<a href="rstudio5.html#wiederverwendung-von-befehlszeilen---die-command-history" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Durch die Verwendung der Pfeiltasten (<span class="math inline">\(\uparrow\)</span> und <span class="math inline">\(\downarrow\)</span>) können Sie bereits eingegeben Befehle in der Kommandozeile aus der Historie abrufen. Die Historie ist auch über das Environment Fenster im Tab <em>History</em> verfügbar. Durch Markieren einzelner oder mehrerer Zeilen im History-Fenster und anschließender Eingabetaste, werden diese Befehle in die Kommandozeile übernommen und können dort nochmals ausgeführt werden.</p>
+</div>
+<div id="weitere-eigenschaften-der-console-pane" class="section level3 unnumbered hasAnchor">
+<h3>Weitere Eigenschaften der Console Pane<a href="rstudio5.html#weitere-eigenschaften-der-console-pane" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Neben der Ausgabe von Ergebnissen werden in der Console-Pane auch Hinweise, Warnungen und Fehler die während der Ausführung eines Programmes, bzw. dem Laden/Aktualisieren von Packages ausgegeben werden angezeigt. Dabei ist vor allem bei den Meldungen, die während des Ladens/Aktualisierens von Packages angezeigt werden, besondere Aufmerksamkeit angebracht. Alle Meldungen, also rein informative wie auch Fehlermeldungen, werden in <span class="math inline">\(\color{red}{\text{rot}}\)</span> angezeigt. Da häufig sehr viele Meldungen (sehr schnell) über die Console laufen, übersieht man leicht Fehlermeldungen. Daher ist es vor allem bei langen Meldungen zu empfehlen, die Gesamte Meldungsliste sorgfältig zu kontrollieren.</p>
+</div>
+</div>
+<div id="terminal-fenster" class="section level2 unnumbered hasAnchor">
+<h2>Terminal-Fenster<a href="rstudio5.html#terminal-fenster" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Das Terminalfenster bietet die Möglichkeit, direkt auf die Systemumgebung zuzugreifen. über die Systemumgebung kann man z.B.:</p>
+<ul>
+<li>Fernzugriffe (remote logins) ausführen.</li>
+<li>lang dauernde Berechnungen im Hintergrund starten.</li>
+<li>Fortgeschrittene Programmkontrolle starten.</li>
+<li>Administration eines RStudio-Servers durchführen.</li>
+<li>etc.</li>
+</ul>
+</div>
+<div id="r-markdown-fenster" class="section level2 unnumbered hasAnchor">
+<h2>R-Markdown-Fenster<a href="rstudio5.html#r-markdown-fenster" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://de.wikipedia.org/wiki/Markdown">R-Markdown Beschreibung</a> ist eine vereinfachte Auszeichnungssprache, mit dem Ziel Dokumente zu erstellen, in dem sowohl Text, wie auch R-Code sein kann. Markdown ist eng an HTML angelehnt, aber bei weitem kein Ersatz dafür. Wesentliche Vorteile von Markdown sind:</p>
+<ul>
+<li>Sehr leicht erlernbar.</li>
+<li>Forschung wird reproduzierbar.</li>
+<li>Leichterer Austausch von Analyseergebnissen und der zugehörigen Dokumentation.</li>
+<li>Beim Erstellen (“knit”) wird der Code ausgeführt und mit den Beschreibungen zusammen angezeigt.</li>
+<li>Das kombinierte Dokument kann als Word-, HTML- oder PDF-Datei erstellt.</li>
+</ul>
+<p>Neben der Nutzung als Software-Dokumentationswerkzeug bietet Markdown auch eine einfache Möglichkeit, einen Forschungsprozess durchgehend abzubilden und Inhalte mit fortlaufender Evaluierung während der Datenerhebung zu verbinden (Stichwort <em>sanity-check</em>).</p>
+<p><strong>Ein Beispiel für die Nutzung von Markdown sind sämtliche Unterlagen dieser LV!</strong></p>
+</div>
+<div id="lösungen" class="section level2 unnumbered hasAnchor">
+<h2>Lösungen<a href="rstudio5.html#lösungen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="aufgabe-1" class="section level3 unnumbered hasAnchor">
+<h3>Aufgabe 1<a href="rstudio5.html#aufgabe-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="rstudio5.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb5-2"><a href="rstudio5.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">&quot;pacman&quot;</span>)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb5-3"><a href="rstudio5.html#cb5-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(here)</span>
+<span id="cb5-4"><a href="rstudio5.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Berechnungen</span></span>
+<span id="cb5-5"><a href="rstudio5.html#cb5-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">5</span>) <span class="sc">*</span> <span class="dv">9</span></span>
+<span id="cb5-6"><a href="rstudio5.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dv">99</span> <span class="sc">/</span> <span class="dv">33</span></span>
+<span id="cb5-7"><a href="rstudio5.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">2</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb5-8"><a href="rstudio5.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">3</span><span class="sc">+</span><span class="dv">4</span>)</span>
+<span id="cb5-9"><a href="rstudio5.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Logische Vergleiche</span></span>
+<span id="cb5-10"><a href="rstudio5.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="ot">=</span> <span class="dv">7</span></span>
+<span id="cb5-11"><a href="rstudio5.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">==</span> <span class="dv">7</span></span>
+<span id="cb5-12"><a href="rstudio5.html#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">*</span><span class="dv">5</span> <span class="sc">&gt;=</span> <span class="dv">6</span><span class="sc">*</span><span class="dv">4</span></span>
+<span id="cb5-13"><a href="rstudio5.html#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">3</span>) <span class="sc">!=</span> <span class="fu">cos</span>(<span class="dv">17</span>)</span></code></pre></div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p><a href="https://de.wikipedia.org/wiki/RStudio" target="_blank">RStudio Beschreibung Wikipedia</a><a href="rstudio5.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p><strong>I</strong>ntegrated <strong>D</strong>evelopment <strong>E</strong>nvironment<a href="rstudio5.html#fnref6" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="aufbau-des-kurses.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="source-pane.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
